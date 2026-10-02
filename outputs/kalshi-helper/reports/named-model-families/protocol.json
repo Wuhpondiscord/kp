@@ -1,0 +1,41 @@
+{
+  "names": {
+    "original": "WeatherSignal",
+    "revised": "MarketGuard",
+    "blend": "ConsensusBlend"
+  },
+  "attempts": {
+    "WeatherSignal": {
+      "weather_loss_weight": 1.0,
+      "residual_penalty": 0.0,
+      "average_last": 50
+    },
+    "MarketGuard": {
+      "weather_loss_weight": 0.1,
+      "residual_penalty": 1.0,
+      "penalty_deadzone": 0.1
+    }
+  },
+  "seeds": [
+    1729,
+    1730,
+    1731
+  ],
+  "epochs": 200,
+  "blend": "Fixed 50/50 probability mixture; no new fitted parameters",
+  "retain_rule": "A parent changes only if log loss AND Brier do not worsen AND delayed +2c bankroll P/L does not worsen; exploratory engineering choice, not promotion evidence",
+  "save": "Only WeatherSignal.pkl, MarketGuard.pkl, ConsensusBlend.pkl; rejected candidate predictions/metrics retained for audit, no extra trained-model files",
+  "test_evaluated": false,
+  "promotion": false,
+  "warning": "Repeated validation inspection; no statistical proof of improvement. Existing cost/depth/stale-signal limitations apply.",
+  "hashes": {
+    "train.jsonl": "70e13ba3a4663e9f4f4ba5c555aa05e4dfd1831fb4358956554e0c207e88df6b",
+    "validation.jsonl": "78e1931026c2916c31ddbf21f60fd6a9e73141364d5fd098b1c8ad256f668b08",
+    "observation-calibration.json": "3ece23835c552dccc3c0a3de0fa51996043dd4e518b6b607cae6ad7bc3ba0421"
+  },
+  "source_hashes": {
+    "work\\update_named_families.py": "79021c93475455d77ea17242ef7afc5c9f6dcf8ed7872e882e5c385877336e04",
+    "outputs\\kalshi-helper\\helper\\joint_research.py": "1acd4320ff53004d68561a394deaeedec50d63eb241eb9ea44d486cf1cd5bcea",
+    "outputs\\kalshi-helper\\helper\\fusion_blend.py": "31768c2a91d744dc7c2736ccd1ead37d501e8b58685f0ebaac08ac5c9fb801a9"
+  }
+}

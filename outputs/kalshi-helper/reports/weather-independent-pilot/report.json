@@ -1,0 +1,1016 @@
+{
+  "protocol": {
+    "version": "weather-independent-pilot-v1",
+    "training_year": 2023,
+    "validation_year": 2024,
+    "train_last_day": "2023-12-28",
+    "stations": {
+      "KXHIGHNY": [
+        40.779,
+        -73.969,
+        5
+      ],
+      "KXHIGHCHI": [
+        41.7841,
+        -87.7551,
+        6
+      ],
+      "KXHIGHMIA": [
+        25.791,
+        -80.316,
+        5
+      ],
+      "KXHIGHDEN": [
+        39.856,
+        -104.673,
+        7
+      ]
+    },
+    "targets": "NWS CLI daily highs retrieved from IEM; final archive vintage, not certified Kalshi settlement values",
+    "forecasts": "Open-Meteo GFS global previous_day2; mixed fixed-lead forecast hours, NOT a single initialized run",
+    "day": "24h fixed local standard time; 24 hourly forecast samples; does not capture subhourly forecast peaks",
+    "decision": "12h before station day start",
+    "publication_assumption": "latest valid hour minus 48h plus 8h; not historical receipt evidence",
+    "models": [
+      "Raw GFS maximum + station train-RMSE Gaussian width",
+      "Same forecast + train station bias + train residual-SD Gaussian width"
+    ],
+    "minimum_sigma_f": 0.5,
+    "primary_metric": "Validation CRPS",
+    "selection": "One declared baseline comparison; no tuning or live promotion",
+    "market_data_used": false,
+    "trading_evaluated": false,
+    "source_sha256": "b60a4a95947dbb1e97c223bbdaa8fc22a6d8a55e51115ea82f91bae2f58187ab"
+  },
+  "counts": {
+    "train": 1446,
+    "validation": 1383,
+    "train_dates": 362,
+    "validation_dates": 346
+  },
+  "results": {
+    "raw": {
+      "overall": {
+        "n": 1383,
+        "mae_f": 2.7297180043383946,
+        "rmse_f": 3.622275823329135,
+        "bias_f": -0.7527114967462039,
+        "crps_f": 1.9532232128505371,
+        "gaussian_nll": 2.652880663938183,
+        "coverage90": 0.9248011569052784,
+        "pit_bins": [
+          85,
+          93,
+          101,
+          135,
+          146,
+          148,
+          185,
+          194,
+          158,
+          138
+        ]
+      },
+      "by_station": {
+        "KXHIGHNY": {
+          "n": 346,
+          "mae_f": 3.035838150289017,
+          "rmse_f": 3.8597672816127258,
+          "bias_f": -0.06242774566474012,
+          "crps_f": 2.14661849533347,
+          "gaussian_nll": 2.7707798056304216,
+          "coverage90": 0.9132947976878613,
+          "pit_bins": [
+            28,
+            39,
+            43,
+            37,
+            37,
+            27,
+            34,
+            31,
+            32,
+            38
+          ]
+        },
+        "KXHIGHCHI": {
+          "n": 346,
+          "mae_f": 3.010115606936416,
+          "rmse_f": 4.014529248455564,
+          "bias_f": -1.226878612716763,
+          "crps_f": 2.1741258882838466,
+          "gaussian_nll": 2.809036692463403,
+          "coverage90": 0.9104046242774566,
+          "pit_bins": [
+            11,
+            18,
+            28,
+            33,
+            36,
+            38,
+            49,
+            49,
+            36,
+            48
+          ]
+        },
+        "KXHIGHMIA": {
+          "n": 345,
+          "mae_f": 1.6715942028985504,
+          "rmse_f": 2.1214091570449587,
+          "bias_f": -0.018260869565217382,
+          "crps_f": 1.1919464555564003,
+          "gaussian_nll": 2.185203887339329,
+          "coverage90": 0.936231884057971,
+          "pit_bins": [
+            32,
+            26,
+            21,
+            40,
+            40,
+            37,
+            42,
+            56,
+            31,
+            20
+          ]
+        },
+        "KXHIGHDEN": {
+          "n": 346,
+          "mae_f": 3.1982658959537575,
+          "rmse_f": 4.116307622045072,
+          "bias_f": -1.7011560693641619,
+          "crps_f": 2.298001790386541,
+          "gaussian_nll": 2.845150603335188,
+          "coverage90": 0.9393063583815029,
+          "pit_bins": [
+            14,
+            10,
+            9,
+            25,
+            33,
+            46,
+            60,
+            58,
+            59,
+            32
+          ]
+        }
+      },
+      "by_quarter": {
+        "1": {
+          "n": 284,
+          "mae_f": 3.358098591549296,
+          "rmse_f": 4.304718177947227,
+          "bias_f": -2.000352112676056,
+          "crps_f": 2.3463015194858587,
+          "gaussian_nll": 2.812215385072333,
+          "coverage90": 0.8943661971830986,
+          "pit_bins": [
+            14,
+            6,
+            12,
+            19,
+            20,
+            24,
+            27,
+            58,
+            50,
+            54
+          ]
+        },
+        "2": {
+          "n": 364,
+          "mae_f": 2.9000000000000004,
+          "rmse_f": 3.8039380982010016,
+          "bias_f": -0.968131868131868,
+          "crps_f": 2.043301159430509,
+          "gaussian_nll": 2.69893555829042,
+          "coverage90": 0.9285714285714286,
+          "pit_bins": [
+            24,
+            27,
+            26,
+            30,
+            29,
+            34,
+            49,
+            64,
+            41,
+            40
+          ]
+        },
+        "3": {
+          "n": 368,
+          "mae_f": 2.298369565217391,
+          "rmse_f": 3.047201139178163,
+          "bias_f": 0.6184782608695649,
+          "crps_f": 1.7012600013048282,
+          "gaussian_nll": 2.550920087671699,
+          "coverage90": 0.9402173913043478,
+          "pit_bins": [
+            33,
+            46,
+            41,
+            39,
+            62,
+            48,
+            45,
+            27,
+            18,
+            9
+          ]
+        },
+        "4": {
+          "n": 367,
+          "mae_f": 2.50708446866485,
+          "rmse_f": 3.382673434435062,
+          "bias_f": -0.9485013623978206,
+          "crps_f": 1.8123508700965305,
+          "gaussian_nll": 2.586140744918436,
+          "coverage90": 0.9291553133514986,
+          "pit_bins": [
+            14,
+            14,
+            22,
+            47,
+            35,
+            42,
+            64,
+            45,
+            49,
+            35
+          ]
+        }
+      }
+    },
+    "station_bias": {
+      "overall": {
+        "n": 1383,
+        "mae_f": 2.5909974812542194,
+        "rmse_f": 3.503538624800029,
+        "bias_f": 0.044684717345191485,
+        "crps_f": 1.8800918952901142,
+        "gaussian_nll": 2.630717797490923,
+        "coverage90": 0.9168474331164136,
+        "pit_bins": [
+          123,
+          113,
+          164,
+          157,
+          167,
+          145,
+          160,
+          147,
+          101,
+          106
+        ]
+      },
+      "by_station": {
+        "KXHIGHNY": {
+          "n": 346,
+          "mae_f": 3.0258151566442053,
+          "rmse_f": 3.8662817484087957,
+          "bias_f": -0.23286973461501326,
+          "crps_f": 2.1466279772599473,
+          "gaussian_nll": 2.772670723644289,
+          "coverage90": 0.9104046242774566,
+          "pit_bins": [
+            28,
+            30,
+            50,
+            35,
+            39,
+            25,
+            30,
+            39,
+            28,
+            42
+          ]
+        },
+        "KXHIGHCHI": {
+          "n": 346,
+          "mae_f": 2.884854533260946,
+          "rmse_f": 3.8702686386100758,
+          "bias_f": -0.6064366237664871,
+          "crps_f": 2.091580544466778,
+          "gaussian_nll": 2.772380272985739,
+          "coverage90": 0.9277456647398844,
+          "pit_bins": [
+            15,
+            28,
+            34,
+            39,
+            34,
+            41,
+            50,
+            37,
+            29,
+            39
+          ]
+        },
+        "KXHIGHMIA": {
+          "n": 345,
+          "mae_f": 1.7061231884057977,
+          "rmse_f": 2.2372819233590966,
+          "bias_f": 0.7109057971014541,
+          "crps_f": 1.234881784777243,
+          "gaussian_nll": 2.224698143904522,
+          "coverage90": 0.9072463768115943,
+          "pit_bins": [
+            49,
+            33,
+            46,
+            37,
+            42,
+            38,
+            45,
+            27,
+            16,
+            12
+          ]
+        },
+        "KXHIGHDEN": {
+          "n": 346,
+          "mae_f": 2.7446396065531875,
+          "rmse_f": 3.761060700773876,
+          "bias_f": 0.30906492511097483,
+          "crps_f": 2.0454125055509604,
+          "gaussian_nll": 2.751948582222244,
+          "coverage90": 0.9219653179190751,
+          "pit_bins": [
+            31,
+            22,
+            34,
+            46,
+            52,
+            41,
+            35,
+            44,
+            28,
+            13
+          ]
+        }
+      },
+      "by_quarter": {
+        "1": {
+          "n": 284,
+          "mae_f": 3.0444301513500887,
+          "rmse_f": 4.045481698453321,
+          "bias_f": -1.2030051973906026,
+          "crps_f": 2.169579781550563,
+          "gaussian_nll": 2.7486157866753693,
+          "coverage90": 0.8873239436619719,
+          "pit_bins": [
+            20,
+            9,
+            21,
+            21,
+            22,
+            26,
+            36,
+            48,
+            37,
+            44
+          ]
+        },
+        "2": {
+          "n": 364,
+          "mae_f": 2.6792685502802907,
+          "rmse_f": 3.649505912517498,
+          "bias_f": -0.1707849528464157,
+          "crps_f": 1.9484524575198787,
+          "gaussian_nll": 2.6724032499194093,
+          "coverage90": 0.8983516483516484,
+          "pit_bins": [
+            36,
+            29,
+            34,
+            40,
+            38,
+            40,
+            52,
+            40,
+            23,
+            32
+          ]
+        },
+        "3": {
+          "n": 368,
+          "mae_f": 2.4084798372567864,
+          "rmse_f": 3.13096440130845,
+          "bias_f": 1.415825176155017,
+          "crps_f": 1.745659337514229,
+          "gaussian_nll": 2.57244173281017,
+          "coverage90": 0.9293478260869565,
+          "pit_bins": [
+            44,
+            55,
+            69,
+            59,
+            56,
+            33,
+            21,
+            13,
+            11,
+            7
+          ]
+        },
+        "4": {
+          "n": 367,
+          "mae_f": 2.335577714383207,
+          "rmse_f": 3.248367619210354,
+          "bias_f": -0.15096866986817442,
+          "crps_f": 1.7230711239329592,
+          "gaussian_nll": 2.5565735418782944,
+          "coverage90": 0.9455040871934605,
+          "pit_bins": [
+            23,
+            20,
+            40,
+            37,
+            51,
+            46,
+            51,
+            46,
+            30,
+            23
+          ]
+        }
+      }
+    }
+  },
+  "paired_crps": {
+    "mean": -0.07306747182673821,
+    "interval95": [
+      -0.11583893704627232,
+      -0.03077085545109864
+    ],
+    "method": "Seven-date blocks, cities synchronized; conditional on this fixed pilot and archive vintage"
+  },
+  "sources": [
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KNYC&year=2023",
+      "downloaded_at": "2026-10-02T21:19:19.859918+00:00",
+      "sha256": "4b94271f7bb5d08a2233c19ece12bcd5951d27179c4caceff6abecc2a9c96e1d"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=40.779&longitude=-73.969&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2023-01-01&end_date=2024-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:21.304684+00:00",
+      "sha256": "8616e67f916fe2889e79286237d30874a7f46ef793d3e4a1ca3886a1032d48d8"
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KMDW&year=2023",
+      "downloaded_at": "2026-10-02T21:19:22.757893+00:00",
+      "sha256": "62905fa227481596adb77092a7e5a530e5c28136c59a24e737822e5a6205fd93"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=41.7841&longitude=-87.7551&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2023-01-01&end_date=2024-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:24.178304+00:00",
+      "sha256": "0332fbfdd3fa2b0a2e68891f4f42e7faf714c86e2125fb950650a2bd1f7821e7"
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KMIA&year=2023",
+      "downloaded_at": "2026-10-02T21:19:25.030579+00:00",
+      "sha256": "40cb4208cc66670ad9d9614d2a5e3e482a7bb3adc9d18d3d38c4126460b60542"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=25.791&longitude=-80.316&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2023-01-01&end_date=2024-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:26.473251+00:00",
+      "sha256": "4e5b4680c3029ba614712e1b43140ec9b7873b3c66d0c72876335e24ab90a57a"
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KDEN&year=2023",
+      "downloaded_at": "2026-10-02T21:19:27.323265+00:00",
+      "sha256": "7ae537573d33fd2825d95f911ae18b2a61d62f2158a7c696a3ca48768c6146fe"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=39.856&longitude=-104.673&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2023-01-01&end_date=2024-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:28.773493+00:00",
+      "sha256": "4a3fbecf94872e7612f6281e4c480903a66635ce749a6d95d2c4db556be9937a"
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KNYC&year=2024",
+      "downloaded_at": "2026-10-02T21:19:29.617586+00:00",
+      "sha256": "e6e7c32b6e8dbb90568a8d9b7e2d95f04f369023f873d7e2af8eecbe9265420b"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=40.779&longitude=-73.969&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2024-01-01&end_date=2025-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:31.031426+00:00",
+      "sha256": "42cbd0854a482f3a6c72b891b4690d272e733a8e9a02abbe95d9402a39949f2b"
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KMDW&year=2024",
+      "downloaded_at": "2026-10-02T21:19:31.874128+00:00",
+      "sha256": "e83076e31f08dd3a856f5b74e458774d637e4ea33411208a1762890a06f86e6d"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=41.7841&longitude=-87.7551&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2024-01-01&end_date=2025-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:33.281539+00:00",
+      "sha256": "050e72087e439ccb0ac221a187d5bc92812b6648cf520b0bcac68534c9556607"
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KMIA&year=2024",
+      "downloaded_at": "2026-10-02T21:19:34.093746+00:00",
+      "sha256": "96a99e370ecd44b311d751689d76a05f5cb94b4289b23bf4c67a5d71db5915c0"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=25.791&longitude=-80.316&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2024-01-01&end_date=2025-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:35.528918+00:00",
+      "sha256": "cd78c8e3de834e008eb11d8005fa69d9d8f30817aa4abbcb1ddd107f61e1fb3e"
+    },
+    {
+      "url": "https://mesonet.agron.iastate.edu/json/cli.py?station=KDEN&year=2024",
+      "downloaded_at": "2026-10-02T21:19:36.281304+00:00",
+      "sha256": "c35732ba19eab2cef5faafe7caec83e5f62b5bc1e5c5683a3da08be8c7b50e5c"
+    },
+    {
+      "url": "https://previous-runs-api.open-meteo.com/v1/forecast?latitude=39.856&longitude=-104.673&hourly=temperature_2m_previous_day2&models=gfs_global&start_date=2024-01-01&end_date=2025-01-01&temperature_unit=fahrenheit&timezone=GMT",
+      "downloaded_at": "2026-10-02T21:19:37.715337+00:00",
+      "sha256": "6849bb3dcfc208f8e3997450d356cee11926c8283008aa3498d82f12f27906fa"
+    }
+  ],
+  "excluded": [
+    {
+      "station": "KXHIGHNY",
+      "day": "2023-12-29",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2023-12-30",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2023-12-31",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2023-12-29",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2023-12-30",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2023-12-31",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2023-12-29",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2023-12-30",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2023-12-31",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "year": 2023,
+      "target_exclusions": {
+        "missing_or_invalid_label": 1
+      }
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2023-12-29",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2023-12-30",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2023-12-31",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-01",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-02",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-03",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-04",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-05",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-06",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-07",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-08",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-09",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-10",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-11",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-12",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-13",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-14",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-15",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-16",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-17",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-18",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-19",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHNY",
+      "day": "2024-01-20",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-01",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-02",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-03",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-04",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-05",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-06",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-07",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-08",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-09",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-10",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-11",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-12",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-13",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-14",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-15",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-16",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-17",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-18",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-19",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHCHI",
+      "day": "2024-01-20",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-01",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-02",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-03",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-04",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-05",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-06",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-07",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-08",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-09",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-10",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-11",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-12",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-13",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-14",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-15",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-16",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-17",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-18",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-19",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "day": "2024-01-20",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHMIA",
+      "year": 2024,
+      "target_exclusions": {
+        "missing_or_invalid_label": 1
+      }
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-01",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-02",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-03",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-04",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-05",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-06",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-07",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-08",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-09",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-10",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-11",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-12",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-13",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-14",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-15",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-16",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-17",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-18",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-19",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    },
+    {
+      "station": "KXHIGHDEN",
+      "day": "2024-01-20",
+      "reason": "Incomplete/invalid 24-hour forecast"
+    }
+  ],
+  "limitations": [
+    "Not an explicit-run historical trading replay",
+    "NWS CLI label equivalence to every Kalshi settlement source is not established",
+    "Hourly grid maxima differ from reported station maxima",
+    "One train year and one validation year do not prove multi-year robustness",
+    "No price edge or profitability claim"
+  ]
+}

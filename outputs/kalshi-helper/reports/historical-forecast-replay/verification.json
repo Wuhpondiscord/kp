@@ -1,0 +1,8 @@
+{
+  "offline_metrics_identical": true,
+  "model_hashes_identical": true,
+  "datasets_identical": true,
+  "python_tests_passed": 194,
+  "test_partition_scored": false,
+  "active_model_changed": false
+}

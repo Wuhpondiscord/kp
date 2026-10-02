@@ -1,0 +1,1 @@
+[{"ticker":"SYNTH-WEATHER-000-B1","synthetic":true,"station":"INVENTED","rule_reference":"Synthetic temperature bracket; not a real market","model_id":"normal-example-v1","available_at":"2025-01-01T12:00:00Z","made_at":"2025-01-01T12:00:00Z","features_available_at":"2025-01-01T11:30:00Z","expires_at":"2025-01-01T16:00:00Z","mean":72,"std":4,"lower":68.5,"upper":72.5}]

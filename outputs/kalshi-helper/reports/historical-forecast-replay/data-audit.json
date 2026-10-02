@@ -1,0 +1,37 @@
+{
+  "splits": {
+    "train": {
+      "rows": 520,
+      "events": 88,
+      "dates": 22
+    },
+    "validation": {
+      "rows": 1591,
+      "events": 268,
+      "dates": 67
+    },
+    "reserved_test": {
+      "rows": 1766,
+      "events": 295,
+      "dates": 74
+    }
+  },
+  "download_errors": {
+    "2026-05-12": "Archive HTTP 400: {\"reason\":\"The requested model run is not available. Model: ecmwf_ifs025, run: 2026-05-12T06:00Z\",\"error\":true}",
+    "2026-06-11": "Archive HTTP 400: {\"reason\":\"The requested model run is not available. Model: ncep_gfs013, run: 2026-06-11T06:00Z\",\"error\":true}",
+    "2026-06-22": "Archive HTTP 400: {\"error\":true,\"reason\":\"The requested model run is not available. Model: ecmwf_ifs025, run: 2026-06-22T06:00Z\"}"
+  },
+  "excluded": {
+    "'2026-05-12'": 24,
+    "'2026-06-11'": 24,
+    "'2026-06-22'": 24,
+    "Unsupported settlement": 6
+  },
+  "archive_runs": 163,
+  "station_cache_hashes": {
+    "MDW": "c1a8a782d398a4ed5c53bdc378b9208cbf01a6a63941b75a3b9bcae469c16db3",
+    "DEN": "aa0c333757beb4f16790420e5444b35ed0ac441791be6ef5e308e5f54963e5cd",
+    "MIA": "22723596ae2fbe3bd7ec1851b3d6c9233789b7dbf1ac1bfe1dae62872e42920c",
+    "NYC": "f53ccf639807d03d95e4e0b546f42115cdee8aa3b8e67cf67a5819670d2b6e93"
+  }
+}

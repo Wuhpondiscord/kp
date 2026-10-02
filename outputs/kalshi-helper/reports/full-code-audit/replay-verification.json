@@ -1,0 +1,92 @@
+[
+  {
+    "model": "market_raw",
+    "scenario": "immediate_0",
+    "pnl": 0.0,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "market_raw",
+    "scenario": "delayed_0",
+    "pnl": 0.0,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "market_raw",
+    "scenario": "delayed_0.02",
+    "pnl": 0.0,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "market_normalized",
+    "scenario": "immediate_0",
+    "pnl": 0.0,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "market_normalized",
+    "scenario": "delayed_0",
+    "pnl": 0.0,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "market_normalized",
+    "scenario": "delayed_0.02",
+    "pnl": 0.0,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "binary_matched",
+    "scenario": "immediate_0",
+    "pnl": 185.08,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "binary_matched",
+    "scenario": "delayed_0",
+    "pnl": 276.43,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "binary_matched",
+    "scenario": "delayed_0.02",
+    "pnl": 94.69,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "event_softmax",
+    "scenario": "immediate_0",
+    "pnl": -67.99,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "event_softmax",
+    "scenario": "delayed_0",
+    "pnl": 25.26,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "event_softmax",
+    "scenario": "delayed_0.02",
+    "pnl": -104.5,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "binary_projected",
+    "scenario": "immediate_0",
+    "pnl": 107.72,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "binary_projected",
+    "scenario": "delayed_0",
+    "pnl": -19.47,
+    "exact_ledger_match": true
+  },
+  {
+    "model": "binary_projected",
+    "scenario": "delayed_0.02",
+    "pnl": -141.01,
+    "exact_ledger_match": true
+  }
+]

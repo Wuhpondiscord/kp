@@ -1,0 +1,20 @@
+{
+  "tests_passed": 213,
+  "hash_checks": {
+    "WeatherSignal.pkl": true,
+    "MarketGuard.pkl": true,
+    "ConsensusBlend.pkl": true,
+    "train.jsonl": true,
+    "validation.jsonl": true,
+    "observation-calibration.json": true,
+    "work\\update_named_families.py": true,
+    "outputs\\kalshi-helper\\helper\\joint_research.py": true,
+    "outputs\\kalshi-helper\\helper\\fusion_blend.py": true
+  },
+  "exactly_three_model_artifacts": true,
+  "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+  "numpy": "2.1.1",
+  "torch": "2.6.0+cpu",
+  "test_evaluated": false,
+  "active_app_model_changed": false
+}

@@ -1,0 +1,595 @@
+{
+  "scope": "Syntax inventory plus targeted end-to-end code inspection, adversarial simulator probes and training-only gradient diagnostics. Not a proof of correctness of every line.",
+  "inventory": [
+    {
+      "path": "helper\\adaptive.py",
+      "sha256": "6234121a93ba9de537e96a12c0e3854202070a513ae360d94a5539ba71db7c29",
+      "lines": 100,
+      "functions": 8
+    },
+    {
+      "path": "helper\\analysis.py",
+      "sha256": "46c19a9d71d5d4cc73bfd936dc44176a2bfdcc9a367d6447274b85086c758436",
+      "lines": 35,
+      "functions": 2
+    },
+    {
+      "path": "helper\\archive_model.py",
+      "sha256": "7d6fbb4936ce345cbe5ea3536bc0980b80fb36cc0886b8ff56d889249a89ccd7",
+      "lines": 26,
+      "functions": 2
+    },
+    {
+      "path": "helper\\archive_replay.py",
+      "sha256": "e8872d846947b8346c431cb21fecdfbf5a596a4ae5b760470824008fc2695360",
+      "lines": 85,
+      "functions": 1
+    },
+    {
+      "path": "helper\\audit.py",
+      "sha256": "e81e72bd08d2ae190a2c171ed8c35809bcdfc8663d968c1116ce066d062b7315",
+      "lines": 98,
+      "functions": 9
+    },
+    {
+      "path": "helper\\cohorts.py",
+      "sha256": "eae3a5660d7f3a77094d9195ce0341d19fe05070b0501fe410bcb2e9ed3ac7c0",
+      "lines": 5,
+      "functions": 1
+    },
+    {
+      "path": "helper\\core.py",
+      "sha256": "fb7d38d21ee0502cbc340a9467ec8ca7c1ce7fab1e3510e9af751b72ef0ff8b3",
+      "lines": 408,
+      "functions": 19
+    },
+    {
+      "path": "helper\\coverage.py",
+      "sha256": "e831874ea8224b93badbee53cb2e4555270e61f2f05fc135f904464aceccff20",
+      "lines": 29,
+      "functions": 3
+    },
+    {
+      "path": "helper\\discovery.py",
+      "sha256": "6deb9bb5dc76411b3868e70cbf74b7644250c9291020923e68222a6a10a5b760",
+      "lines": 119,
+      "functions": 4
+    },
+    {
+      "path": "helper\\edge_audit.py",
+      "sha256": "5d3c86bb95dd81e28b74e44ee867f32147b154ccfcf045c2fcc2f20e1aa61e6a",
+      "lines": 70,
+      "functions": 2
+    },
+    {
+      "path": "helper\\environment.py",
+      "sha256": "433208a979bf88f3b7e3cb42d575da36d5665a1aa1352c5049c6581a51598449",
+      "lines": 11,
+      "functions": 1
+    },
+    {
+      "path": "helper\\evaluation.py",
+      "sha256": "ddd6a6c6d7ccda38485e222fcd6c3a9d8a155dc1897107a4f65b006d25d27436",
+      "lines": 413,
+      "functions": 15
+    },
+    {
+      "path": "helper\\event_probabilities.py",
+      "sha256": "2ad0849060eb44816e34dbdb96ddf1aab3d1afa585ec19b747757506b4a217da",
+      "lines": 37,
+      "functions": 2
+    },
+    {
+      "path": "helper\\event_weather.py",
+      "sha256": "e467c5f9632405032fa87ed850485681290803c35ebc3a0cde4d0111ad0d53a0",
+      "lines": 106,
+      "functions": 13
+    },
+    {
+      "path": "helper\\explain.py",
+      "sha256": "f8d21b4ae355242c76174ef9bcee3ad625e0b7861a9c2ba2e9afc772c4e50d76",
+      "lines": 65,
+      "functions": 1
+    },
+    {
+      "path": "helper\\forecast_archive.py",
+      "sha256": "2309b328305d02543dedd93d21513e28b2ba650b9f1eadec4eb345acb3b68a22",
+      "lines": 123,
+      "functions": 3
+    },
+    {
+      "path": "helper\\fusion_blend.py",
+      "sha256": "d41a2546454315382f3f0a85ee85c0d8019f35976f96ce390c35071e8cc35148",
+      "lines": 43,
+      "functions": 6
+    },
+    {
+      "path": "helper\\hierarchy.py",
+      "sha256": "41a6875c8ec8d49f15cadebe3f0b7e01fd6ce1bbad9237c5c2fcff140a53ce7a",
+      "lines": 32,
+      "functions": 5
+    },
+    {
+      "path": "helper\\history.py",
+      "sha256": "a4e7151e93b87c74d2f1307736848e2c28e5e00fe9bec9f544388bd20fa75869",
+      "lines": 181,
+      "functions": 4
+    },
+    {
+      "path": "helper\\jobs.py",
+      "sha256": "31f605c5f2f4c3818062fe7669f50eee0d940a4a51186fcb4c3b063cdfb669a7",
+      "lines": 43,
+      "functions": 4
+    },
+    {
+      "path": "helper\\joint_research.py",
+      "sha256": "4b3ee4f1a0d5fdeb921af56ed78d9a1a603ea217fc04e367f8dbf66f083e9138",
+      "lines": 233,
+      "functions": 18
+    },
+    {
+      "path": "helper\\kalshi.py",
+      "sha256": "58ed05012292002a583968abdf557444c175f64aeaf8e728d5177aca3994302d",
+      "lines": 119,
+      "functions": 10
+    },
+    {
+      "path": "helper\\ladder.py",
+      "sha256": "4ae6b74356526b183f05fa94812d46ba9189f1807250ec983fc9d45a8f2d3dba",
+      "lines": 45,
+      "functions": 3
+    },
+    {
+      "path": "helper\\live.py",
+      "sha256": "5998bc7b74691fb220a2735ec24fa3ef6d4065ea8da8f7e30592b56af987d0e2",
+      "lines": 290,
+      "functions": 9
+    },
+    {
+      "path": "helper\\models.py",
+      "sha256": "0a96ebdf1c386195ef2e7320e5cefa80cd8c84afbfd2fc37072553bfd7475eaa",
+      "lines": 40,
+      "functions": 2
+    },
+    {
+      "path": "helper\\model_library.py",
+      "sha256": "e8badb9c4899bca0c17a3b984ce70c8e4f5c65c7ce887d6554c199cc139c9e7d",
+      "lines": 32,
+      "functions": 2
+    },
+    {
+      "path": "helper\\named_models.py",
+      "sha256": "445a691cd04cbf5713d3995c638d4aa9157ba4d618b02cd483f7af41c5c6df42",
+      "lines": 171,
+      "functions": 12
+    },
+    {
+      "path": "helper\\observation_calibration.py",
+      "sha256": "d02493bbaa20e5309b7134ca01e57eef99d5ba49e028cb26087eb808b872ba79",
+      "lines": 109,
+      "functions": 8
+    },
+    {
+      "path": "helper\\polymarket.py",
+      "sha256": "c27c23b55f8971c4c4fd6c225f0088628fa8ebc16a0bc70639a3531c35a79e23",
+      "lines": 105,
+      "functions": 7
+    },
+    {
+      "path": "helper\\poly_ablation.py",
+      "sha256": "e751f8d2843ec2bb9f7ccba41ba3f52979f20402d7b9583f907bf4b0c21ac7a5",
+      "lines": 50,
+      "functions": 2
+    },
+    {
+      "path": "helper\\profitability.py",
+      "sha256": "1598bdf6a855102786eaf240b8db5b455cdf2383fd116d255b12721ae6a3bb53",
+      "lines": 43,
+      "functions": 4
+    },
+    {
+      "path": "helper\\prospective.py",
+      "sha256": "fe5bd2dd2aa1fbec0c419629983f2baaa9b2db2a726db7f9e992bb17e09dd20b",
+      "lines": 61,
+      "functions": 5
+    },
+    {
+      "path": "helper\\readiness.py",
+      "sha256": "c5c41cf6116e16e2d7838899bfc583a28658236d7523d4c705c2dfb085f18f9c",
+      "lines": 24,
+      "functions": 1
+    },
+    {
+      "path": "helper\\remaining_weather.py",
+      "sha256": "a4cce55cad63b6ed614003a2d374ac78c3871098ff37fbe441538809a9c0fa16",
+      "lines": 90,
+      "functions": 1
+    },
+    {
+      "path": "helper\\replay.py",
+      "sha256": "2310866fe3087107bc38768dc1e61e3b91304f1e10bfb25106170c3e53292866",
+      "lines": 105,
+      "functions": 4
+    },
+    {
+      "path": "helper\\research_store.py",
+      "sha256": "966f9e566d11988b312b2147d3cec6cd11995e48d37b1d157c1b28b23d09e712",
+      "lines": 61,
+      "functions": 9
+    },
+    {
+      "path": "helper\\residual.py",
+      "sha256": "3e9a9ec63cba92da94158436c36908c3e6fcd21adec2aac9929fc22d55c0cac3",
+      "lines": 72,
+      "functions": 7
+    },
+    {
+      "path": "helper\\resolve.py",
+      "sha256": "efda5360a439c0d097413e7a21162abb532c1df786a496d8f9eecca972580d28",
+      "lines": 77,
+      "functions": 2
+    },
+    {
+      "path": "helper\\server.py",
+      "sha256": "5bc65b58d55a22d5f6785448de2e39a93f169a54897726051a8884975ec58a0f",
+      "lines": 256,
+      "functions": 8
+    },
+    {
+      "path": "helper\\sizing.py",
+      "sha256": "65cee21d4543b7f5239f3636e975b934e0b102fec264fb75e055a93310cb34e3",
+      "lines": 111,
+      "functions": 3
+    },
+    {
+      "path": "helper\\spread_research.py",
+      "sha256": "d680f216c1e2d0aa20a7e223fab6613684818545f9e1ae9315a7579cdedec210",
+      "lines": 69,
+      "functions": 2
+    },
+    {
+      "path": "helper\\station_model.py",
+      "sha256": "968889b3c11dcf16ba1de346e96be5e3589dba2cbfbc7cf7706dd3ae5d534257",
+      "lines": 173,
+      "functions": 12
+    },
+    {
+      "path": "helper\\station_observations.py",
+      "sha256": "f994309669529a515755ac3fc50311820718476af8ed94554ef36f352e130d69",
+      "lines": 101,
+      "functions": 4
+    },
+    {
+      "path": "helper\\storage.py",
+      "sha256": "0e49c289921cbf89a9345ef317883cd5a887717adfb3a7f5acbff04cc7f5a387",
+      "lines": 98,
+      "functions": 10
+    },
+    {
+      "path": "helper\\strategy_research.py",
+      "sha256": "13313b240881397ce966789a6ec4d7bbfc7685e38fdef3b5f36083cbc924fbd8",
+      "lines": 50,
+      "functions": 2
+    },
+    {
+      "path": "helper\\training.py",
+      "sha256": "c40e2f76885420d28e12841ef36f00692e1b3a072df47d99ee30ec959fce6689",
+      "lines": 226,
+      "functions": 9
+    },
+    {
+      "path": "helper\\weather.py",
+      "sha256": "d677741dbd18cf81b1246ba0e660f4471a9470f3fc10442d90b2952dc7c258d6",
+      "lines": 76,
+      "functions": 2
+    },
+    {
+      "path": "helper\\weather_experiment.py",
+      "sha256": "248f375332b7b0abf12cdb608d73adb57ef7a15086f6a6fe440119f60a4807ed",
+      "lines": 146,
+      "functions": 9
+    },
+    {
+      "path": "helper\\weather_model.py",
+      "sha256": "96676ef063c83527ed6d9d49c11ab38dda7eaa34ba33c0f1447edd5ffe03312a",
+      "lines": 179,
+      "functions": 13
+    },
+    {
+      "path": "helper\\weather_research.py",
+      "sha256": "a158e6912573a5ba59c8faf78014f096d0322273256c5196e801b4a1f36ff8cb",
+      "lines": 160,
+      "functions": 5
+    },
+    {
+      "path": "helper\\__init__.py",
+      "sha256": "307cdafc31e37e34de8bfc5bb58a84f76181e31773af33fdbbcc970c20ebbd21",
+      "lines": 3,
+      "functions": 0
+    },
+    {
+      "path": "helper\\__main__.py",
+      "sha256": "82a784ba9903056b7efdf31182b33861d4fa37bb117743c76297bd650e53b3e7",
+      "lines": 140,
+      "functions": 1
+    },
+    {
+      "path": "tests\\test_adaptive.py",
+      "sha256": "5ffcbc401e8196d1dd76fe0773797d8b9de57f3c80f85a73f0b08b9fd89ce97a",
+      "lines": 61,
+      "functions": 7
+    },
+    {
+      "path": "tests\\test_archive_innovation.py",
+      "sha256": "38bb7bb44d2cd336710476c49370aeaed35871b6f0c620972b88069f4da34a7c",
+      "lines": 44,
+      "functions": 6
+    },
+    {
+      "path": "tests\\test_coverage.py",
+      "sha256": "4499cb4b25f110fc1353c2081b6e924d0fbc127c2fb62326ffff666a76836e49",
+      "lines": 38,
+      "functions": 6
+    },
+    {
+      "path": "tests\\test_data_audit.py",
+      "sha256": "de33b3fa668b62217bd4f70f810986e8aa15b6ab06c4653c8208f9fb51da4886",
+      "lines": 97,
+      "functions": 22
+    },
+    {
+      "path": "tests\\test_deep_audit.py",
+      "sha256": "cbfe958ded82b30f799dce904b4c94829c353af89cb75d5f4f2f07f40798eb81",
+      "lines": 49,
+      "functions": 4
+    },
+    {
+      "path": "tests\\test_edge_audit.py",
+      "sha256": "74c77a19c035ad0d9b018c792a0b364ae3305321a124808ba13f8e8399d67b71",
+      "lines": 27,
+      "functions": 2
+    },
+    {
+      "path": "tests\\test_engine.py",
+      "sha256": "d7397d5460fa9ca1e38ee5acfd54814589544cf6b8c3c0743696926692bb8304",
+      "lines": 220,
+      "functions": 30
+    },
+    {
+      "path": "tests\\test_event_joint.py",
+      "sha256": "c78c4097598e54f9cd1e4506120e132e9916085d2a1d440c0e1d9c8218a77550",
+      "lines": 65,
+      "functions": 7
+    },
+    {
+      "path": "tests\\test_event_probabilities.py",
+      "sha256": "0c3047008305652439e49b81e7d851e6633e9c3e70505c26d3c0f6f3ecdd3baf",
+      "lines": 40,
+      "functions": 9
+    },
+    {
+      "path": "tests\\test_explain.py",
+      "sha256": "293342dd25d2f9d9fc8e46f4aa62626dbf71863bda864b21c89da2e82ad53ce9",
+      "lines": 50,
+      "functions": 6
+    },
+    {
+      "path": "tests\\test_feature_integrity.py",
+      "sha256": "ce6f8dafdbe3bcb97565dcfe05d46a9d08181af5d85de95d707b54feabc9c829",
+      "lines": 11,
+      "functions": 1
+    },
+    {
+      "path": "tests\\test_forecast_archive.py",
+      "sha256": "d2366111b66314e21cde25952ed779e08e7f3d18d6e9b7bd34811568b04e342d",
+      "lines": 52,
+      "functions": 9
+    },
+    {
+      "path": "tests\\test_fusion_blend.py",
+      "sha256": "0c0325b7c544dd9f79084d6dcac8efde4f0a810b2b63fd912c1bd6997992ae17",
+      "lines": 34,
+      "functions": 8
+    },
+    {
+      "path": "tests\\test_history_audit.py",
+      "sha256": "f827876a91a295ceb5d52587daba92175fc25e46a91b05a2d21b8b5b5513d68f",
+      "lines": 46,
+      "functions": 7
+    },
+    {
+      "path": "tests\\test_http_audit.py",
+      "sha256": "f997c9afccad4a4f31c14101745e314e7fedaefee1ebaa32fc6d60e82c1d3d38",
+      "lines": 66,
+      "functions": 12
+    },
+    {
+      "path": "tests\\test_joint_research.py",
+      "sha256": "46b754ce5a6d0ae7a10803b34356a0ee5984b33cfe2aeab3a88d72b3e5831dbc",
+      "lines": 89,
+      "functions": 14
+    },
+    {
+      "path": "tests\\test_live.py",
+      "sha256": "d2cffe3633ccefd82677a0c145b49b1774e896abe426e24bc69f327f5fc06a02",
+      "lines": 111,
+      "functions": 18
+    },
+    {
+      "path": "tests\\test_model_library.py",
+      "sha256": "356c053c7e47d21125b6742c8bdb10e64ad3625da84025328e3748f28ac8e42b",
+      "lines": 21,
+      "functions": 1
+    },
+    {
+      "path": "tests\\test_model_upgrade.py",
+      "sha256": "2a1feccb4e1ca5c907947b42dff653244246990bf13e07c5dfaa4e2df1c35614",
+      "lines": 49,
+      "functions": 9
+    },
+    {
+      "path": "tests\\test_named_models.py",
+      "sha256": "c39e08758ed8a92dc167a341f93d3468a9ea2cf20624c29be19e1ae7c4cd3643",
+      "lines": 26,
+      "functions": 3
+    },
+    {
+      "path": "tests\\test_observation_calibration.py",
+      "sha256": "92fb117c7fc7c014928ff6e40ddfe2ad0abc294487b76317cb033306020664ec",
+      "lines": 50,
+      "functions": 8
+    },
+    {
+      "path": "tests\\test_polymarket.py",
+      "sha256": "74da2fc9a3e24ae7b3b527b0842767cbc90c6ea7ec3673fb8728cfed8f763594",
+      "lines": 32,
+      "functions": 7
+    },
+    {
+      "path": "tests\\test_poly_ablation_training.py",
+      "sha256": "611c440ab8b577700b98cde28054db37b0487036f1c41e1dbca8141b6f06e064",
+      "lines": 25,
+      "functions": 1
+    },
+    {
+      "path": "tests\\test_poly_intervals.py",
+      "sha256": "929b5d41cc9beae1ef36388a450c2fd4012831a5f0ef3721252c655c018a9ffc",
+      "lines": 33,
+      "functions": 4
+    },
+    {
+      "path": "tests\\test_priority_updates.py",
+      "sha256": "4bb584bebb3d71718341366142a314baa2853a29a7b66f85b873f02edc3e3eee",
+      "lines": 31,
+      "functions": 8
+    },
+    {
+      "path": "tests\\test_professor_fixes.py",
+      "sha256": "e6b39becae894d2cc632acd4a34bffe9f3d79f03218846a9a6111e529f1411cb",
+      "lines": 26,
+      "functions": 3
+    },
+    {
+      "path": "tests\\test_profitability.py",
+      "sha256": "e41c5a33711f0375603f0b2e53a4e0c937f522491edd6cf58fa7ed3a654ba476",
+      "lines": 43,
+      "functions": 6
+    },
+    {
+      "path": "tests\\test_prospective.py",
+      "sha256": "9342bef2a632e26d53be0eb40f6e6a585d444d4cf8cb4c2cda9d14ac0b218b03",
+      "lines": 33,
+      "functions": 3
+    },
+    {
+      "path": "tests\\test_remaining_weather.py",
+      "sha256": "05efa1a603bc5f8da6b159904f1b8cb037f29b3882b959eb3a6b588bfd8b3857",
+      "lines": 25,
+      "functions": 6
+    },
+    {
+      "path": "tests\\test_research.py",
+      "sha256": "20dcfdb2f041b28db17e45027ed2d72d944ee6315635e73f6068b494f73e1d4f",
+      "lines": 115,
+      "functions": 12
+    },
+    {
+      "path": "tests\\test_residual.py",
+      "sha256": "41b3e4b019e51bea15f5bd8035b462012ebc2c9c5a6c26290600120455cb585c",
+      "lines": 43,
+      "functions": 5
+    },
+    {
+      "path": "tests\\test_resolve.py",
+      "sha256": "0ad87733ec76036ea33f07fc2eff3b7b6d5ad19869cd7ebf01c112f3dd3d8609",
+      "lines": 59,
+      "functions": 11
+    },
+    {
+      "path": "tests\\test_server_exclusive.py",
+      "sha256": "55b44eb1a62e123440fb6f7a3969ea0083f4c61cc4da7b82550a8d72b00bbc33",
+      "lines": 17,
+      "functions": 1
+    },
+    {
+      "path": "tests\\test_sizing.py",
+      "sha256": "18b593efa63ef02d1a7fe6f3e769b3177087025ca2cd0f9b34994f10ab604b49",
+      "lines": 44,
+      "functions": 4
+    },
+    {
+      "path": "tests\\test_spread_research.py",
+      "sha256": "de720a022bc712466ace3cc691aaf150d9a56c4199484377b6fff5a77dae0718",
+      "lines": 80,
+      "functions": 8
+    },
+    {
+      "path": "tests\\test_station_model.py",
+      "sha256": "53954329a916268622ad8799e4eea66153d3c35bcfe9b3a92c9451a441fe2c5e",
+      "lines": 65,
+      "functions": 8
+    },
+    {
+      "path": "tests\\test_strategy_rejection.py",
+      "sha256": "e8634f80cffca5fc53872793749197d2dd60ad064d14803e8e5fa0c057bc8140",
+      "lines": 13,
+      "functions": 3
+    },
+    {
+      "path": "tests\\test_training.py",
+      "sha256": "8801256acd9c165434443221ab3d62851d62398e9e5ed6c6ba28821be44959e9",
+      "lines": 86,
+      "functions": 9
+    },
+    {
+      "path": "tests\\test_ui_defaults.py",
+      "sha256": "10d7ef8896ec1b706f05fc67d3af8bcdf68f0a4f88ee159d921fd83df4d7bef5",
+      "lines": 40,
+      "functions": 3
+    },
+    {
+      "path": "tests\\test_workflows_audit.py",
+      "sha256": "4b2752736e10b2b4a4d74766a63c3cfd15a766f6ac974a1b8927d91e665cd0eb",
+      "lines": 62,
+      "functions": 8
+    }
+  ],
+  "simulator_probes": {
+    "two_rows_one_probability": {
+      "rejected": true,
+      "error": "ValueError: Require exactly one finite probability in [0,1] per row"
+    },
+    "execution_before_prediction": {
+      "rejected": true,
+      "error": "ValueError: Execution cannot precede prediction"
+    },
+    "probability_greater_than_one": {
+      "rejected": true,
+      "error": "ValueError: Require exactly one finite probability in [0,1] per row"
+    },
+    "no_rows_extra_probability": {
+      "rejected": true,
+      "error": "ValueError: Require exactly one finite probability in [0,1] per row"
+    }
+  },
+  "gradient_diagnostic": {
+    "binary_matched": {
+      "seed": 1729,
+      "checkpoint": "final epoch 200",
+      "training_weather_nll": 0.5497772751934434,
+      "training_fusion_loss": 0.23173234025952633,
+      "weather_encoder_gradient_norm": 0.02887799297949295,
+      "fusion_encoder_gradient_norm": 0.01974756128150967
+    },
+    "event_softmax": {
+      "seed": 1729,
+      "checkpoint": "final epoch 200",
+      "training_weather_nll": 0.5460704148968472,
+      "training_fusion_loss": 0.6870258226381347,
+      "weather_encoder_gradient_norm": 0.059444215278913956,
+      "fusion_encoder_gradient_norm": 0.0617194907918533
+    }
+  },
+  "new_training": false,
+  "reserved_test_scored": false
+}

@@ -1,0 +1,31 @@
+{
+  "arms": [
+    "market_raw",
+    "market_normalized",
+    "binary_matched",
+    "binary_projected",
+    "event_softmax"
+  ],
+  "training": "Both fitted arms: same complete-event rows, 3 seeds, 200 epochs, weather loss weight 1, residual penalty 0; no hyperparameter/checkpoint selection",
+  "seeds": [
+    1729,
+    1730,
+    1731
+  ],
+  "epochs": 200,
+  "trade_filter": "5\u201395 cent decision market probability, applied only AFTER complete-event inference; 4c minimum net edge; unchanged bankroll caps/fees",
+  "scenarios": "Same quote optimistic; next-hour stale forecast at 0 and +2c; no historical depth; $1000 initial bankroll",
+  "evaluation": "Previously inspected validation only. No reserved test loaded. No promotion or automatic live change.",
+  "hypothesis": "Event head removes mass error; compare forecast/calibration/trading separately. Binary projection isolates a cheaper coherence-only change.",
+  "hashes": {
+    "train.jsonl": "70e13ba3a4663e9f4f4ba5c555aa05e4dfd1831fb4358956554e0c207e88df6b",
+    "validation.jsonl": "78e1931026c2916c31ddbf21f60fd6a9e73141364d5fd098b1c8ad256f668b08",
+    "observation-calibration.json": "3ece23835c552dccc3c0a3de0fa51996043dd4e518b6b607cae6ad7bc3ba0421"
+  },
+  "source_hashes": {
+    "work\\test_event_fusion_benefits.py": "bd911fd22ccec832adc24d1a57c62eff0facf28772235ba691e1a2f6d4941c6f",
+    "outputs\\kalshi-helper\\helper\\joint_research.py": "4b3ee4f1a0d5fdeb921af56ed78d9a1a603ea217fc04e367f8dbf66f083e9138",
+    "outputs\\kalshi-helper\\helper\\event_probabilities.py": "2ad0849060eb44816e34dbdb96ddf1aab3d1afa585ec19b747757506b4a217da",
+    "outputs\\kalshi-helper\\helper\\sizing.py": "87dee87e9b30ef834ebb94bf04bbd417a3df151d1133986f9c6c7e7b9aaacf2d"
+  }
+}

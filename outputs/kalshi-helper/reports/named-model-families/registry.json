@@ -1,0 +1,23 @@
+{
+  "WeatherSignal": {
+    "file": "WeatherSignal.pkl",
+    "sha256": "ab4736b12ee78ea468c7247f4166828a9dc6fab2e8bb33a116eae30f4f1a6524",
+    "status": "research_only",
+    "revision_retained": false,
+    "definition": "Retained prior three-seed ensemble; attempted revision rejected"
+  },
+  "MarketGuard": {
+    "file": "MarketGuard.pkl",
+    "sha256": "9be76338e5c5fc36294e9454f25dafbea0893f0140ec5f4b6fcbbb8af3e3430c",
+    "status": "research_only",
+    "revision_retained": false,
+    "definition": "Retained prior three-seed ensemble; attempted revision rejected"
+  },
+  "ConsensusBlend": {
+    "file": "ConsensusBlend.pkl",
+    "sha256": "f6aad08c5b0a97b4c2845820c99115b29fe134325a1a3ade64b24a46cac63bb4",
+    "status": "research_only",
+    "revision_retained": false,
+    "definition": "Fixed 50/50 retained parents"
+  }
+}

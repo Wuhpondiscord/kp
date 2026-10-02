@@ -1,0 +1,24 @@
+{
+  "weather_signal_weights": [
+    0,
+    0.15,
+    0.3,
+    0.5,
+    0.7,
+    0.85,
+    1.0
+  ],
+  "market_guard_weight": "1 - weather_signal_weight",
+  "user_example": "70% WeatherSignal + 30% current ConsensusBlend = 85% WeatherSignal + 15% MarketGuard",
+  "selection": "Exploratory sensitivity only. No automatic change to retained 50/50 model; report all weights, no finer follow-up grid.",
+  "trading": "Unchanged 4c edge; $1000 capital; $10 bet/$30 city-day/$200 open caps; standard .07 assumed fees; one-contract and bankroll sizing",
+  "execution": "Same quote at zero slippage; stale prediction next hourly quote at 0 and 2c slippage; depth and historical fee overrides unverified",
+  "hashes": {
+    "outputs\\kalshi-helper\\reports\\named-model-families\\predictions.jsonl": "e3aa794a902b3052e249d5fb1f00b9f083360be03a3e443f388129c07ec7b403",
+    "outputs\\kalshi-helper\\reports\\named-model-families\\registry.json": "96db2d89a82767471bc7bb3aea89b44e4d85083547cc547e5cbf3f5709fbb88c",
+    "outputs\\kalshi-helper\\reports\\historical-forecast-replay\\validation.jsonl": "78e1931026c2916c31ddbf21f60fd6a9e73141364d5fd098b1c8ad256f668b08"
+  },
+  "test_evaluated": false,
+  "promotion": false,
+  "new_training": false
+}

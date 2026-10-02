@@ -1,0 +1,87 @@
+{
+  "original_hash": "9a983c0cec82d918e7eb4f2319061cee70967c0469227638c2498908a9535330",
+  "current_hash": "ae8d26de15bd95a3665c338420675ae26fa6fb513cdbb91a3cd161307747005d",
+  "rows": 26133,
+  "observation_sources": {
+    "NYC": {
+      "original_raw_hash": "45101a5689db77eb6b40af1a103eedc82de260eac2a04956dc815192e8fbcde6",
+      "current_raw_hash": "45101a5689db77eb6b40af1a103eedc82de260eac2a04956dc815192e8fbcde6"
+    },
+    "MDW": {
+      "original_raw_hash": "28ebc6483e0961000c31e249345a4ed6739c1d02d656afcd36d0ae058ada93e1",
+      "current_raw_hash": "28ebc6483e0961000c31e249345a4ed6739c1d02d656afcd36d0ae058ada93e1"
+    },
+    "MIA": {
+      "original_raw_hash": "e86b19a6ababa84997adcb50b138a2d0f5108c7570a6e8178938f2f6c3642820",
+      "current_raw_hash": "e86b19a6ababa84997adcb50b138a2d0f5108c7570a6e8178938f2f6c3642820"
+    },
+    "DEN": {
+      "original_raw_hash": "e5ac223ce33fc5586c2bbac1d049d89d5e790c69eac4dc26fb01a7e9282078b9",
+      "current_raw_hash": "e5ac223ce33fc5586c2bbac1d049d89d5e790c69eac4dc26fb01a7e9282078b9"
+    }
+  },
+  "schema_tests": [
+    {
+      "removed": [],
+      "hash": "ae8d26de15bd95a3665c338420675ae26fa6fb513cdbb91a3cd161307747005d",
+      "matches_original": false
+    },
+    {
+      "removed": [
+        "observation_at"
+      ],
+      "hash": "7dd92104b88c6e97d859ea12ba57982318dbb11f70941a7b54d9948ed3847571",
+      "matches_original": false
+    },
+    {
+      "removed": [
+        "observation_available_at"
+      ],
+      "hash": "67b02b41c54d7c99d80552b7e8e358cfea7e24f6d7e003f5d2463b89e1efe273",
+      "matches_original": false
+    },
+    {
+      "removed": [
+        "observation_at",
+        "observation_available_at"
+      ],
+      "hash": "6226ce2190b5f88d1f05e62d72cbb2becc4ea91d72299a68ced4fc551ebd46c9",
+      "matches_original": false
+    }
+  ],
+  "current_exclusions": {
+    "Unsupported settlement rules": 18
+  },
+  "settlement_gate_counterfactual": {
+    "rows": 26151,
+    "hash": "9a983c0cec82d918e7eb4f2319061cee70967c0469227638c2498908a9535330",
+    "matches_original": true,
+    "excluded_tickers": [
+      "KXHIGHNY-26AUG14-B85.5",
+      "KXHIGHNY-26AUG14-B87.5",
+      "KXHIGHNY-26AUG14-B89.5",
+      "KXHIGHNY-26AUG14-B91.5",
+      "KXHIGHNY-26AUG14-T85",
+      "KXHIGHNY-26AUG14-T92"
+    ],
+    "purpose": "Hash attribution only; settlement gate remains enabled; no model fitting or scoring"
+  },
+  "frozen_runs": [
+    {
+      "run": "station-2026-09-23T223805-001006-0000",
+      "hash": "ae8d26de15bd95a3665c338420675ae26fa6fb513cdbb91a3cd161307747005d",
+      "matches_own_report": true,
+      "matched_rows": 26133,
+      "changed_fields": {},
+      "examples": []
+    }
+  ],
+  "history_cutoff_test": {
+    "cutoff": "2026-09-23T05:11:26.784660+00:00",
+    "rows_before_original_run": 26133,
+    "later_rows": 0,
+    "hash": "ae8d26de15bd95a3665c338420675ae26fa6fb513cdbb91a3cd161307747005d",
+    "matches_original": false,
+    "later_tickers": []
+  }
+}

@@ -1,0 +1,40 @@
+name: Test and deploy BetCheck
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: huggingface-kp
+  cancel-in-progress: false
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install CPU dependencies
+        run: |
+          pip install -r outputs/kalshi-helper/requirements.txt
+          pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install huggingface_hub==0.34.4
+      - name: Unit and frontend tests
+        working-directory: outputs/kalshi-helper
+        run: |
+          python -m unittest discover -s tests
+          node tests/frontend_checks.cjs
+      - name: Verify saved models, offline data, and one training epoch
+        run: python scripts/check_models.py
+      - name: Publish to Hugging Face
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python scripts/deploy_space.py
+      - name: Verify running revision, data access, evaluation, and training
+        run: python scripts/smoke_space.py --url https://wuhp-kp.hf.space --revision "$GITHUB_SHA" --wait 1200

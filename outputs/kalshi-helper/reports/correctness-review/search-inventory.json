@@ -1,0 +1,121 @@
+{
+  "definition": "Recorded top-level comparison slots in selected canonical reports, including controls and repeated configurations. NOT independent tests or a global count of unique hypotheses. Different experiments reuse overlapping but nonidentical cohorts. No new model scored.",
+  "recorded_slots": 40,
+  "reports": [
+    {
+      "report": "station-model.json",
+      "sha256": "317dfa11769ad9d96c28101ad7aac4043b96af7cfbe9d74c28ce3410c1ba7066",
+      "field": "candidates",
+      "recorded_slots": 9,
+      "labels": [
+        "{'leaves': 0, 'iterations': 0, 'weight': 0}",
+        "{'leaves': 4, 'iterations': 120, 'weight': 0.25}",
+        "{'leaves': 4, 'iterations': 120, 'weight': 0.5}",
+        "{'leaves': 4, 'iterations': 120, 'weight': 0.75}",
+        "{'leaves': 4, 'iterations': 120, 'weight': 1}",
+        "{'leaves': 7, 'iterations': 30, 'weight': 0.25}",
+        "{'leaves': 7, 'iterations': 30, 'weight': 0.5}",
+        "{'leaves': 7, 'iterations': 30, 'weight': 0.75}",
+        "{'leaves': 7, 'iterations': 30, 'weight': 1}"
+      ]
+    },
+    {
+      "report": "joint-model-comparison-v2/report.json",
+      "sha256": "cb634ebd87447839f8f67ae613a69bda9b7ad6ae66b70fd66ed79a9125ce1032",
+      "field": "metrics",
+      "recorded_slots": 7,
+      "labels": [
+        "market",
+        "market_offset",
+        "physical_innovation",
+        "weather_mlp",
+        "weather_temporal",
+        "fusion_mlp",
+        "fusion_temporal"
+      ]
+    },
+    {
+      "report": "joint-refinement/report.json",
+      "sha256": "b9668df72947743cc442018dce42f178d524a70e39037142d21173e8ca92e161",
+      "field": "metrics",
+      "recorded_slots": 5,
+      "labels": [
+        "market",
+        "original",
+        "less_weather",
+        "shrinkage",
+        "less_weather_shrinkage"
+      ]
+    },
+    {
+      "report": "consensus-sixty-forty/report.json",
+      "sha256": "71dc6e46799daacd6d02f40b8f17ca5592c928b3fcc7828c9037fe33ca860b14",
+      "field": "results",
+      "recorded_slots": 8,
+      "labels": [
+        "W000_G100",
+        "W015_G085",
+        "W030_G070",
+        "W050_G050",
+        "W060_G040",
+        "W070_G030",
+        "W085_G015",
+        "W100_G000"
+      ]
+    },
+    {
+      "report": "hierarchy-v1/report.json",
+      "sha256": "5024bd256b5362aabe4d64860830582a1b54828037f5405d6e70ea48bf237edf",
+      "field": "results",
+      "recorded_slots": 2,
+      "labels": [
+        "pooled",
+        "hierarchical"
+      ]
+    },
+    {
+      "report": "professor-followup-v1/report.json",
+      "sha256": "df899c096e00169112fd025036074555cd57bffe7a5b2713a410350f4107678e",
+      "field": "results",
+      "recorded_slots": 2,
+      "labels": [
+        "no_ladder",
+        "ladder"
+      ]
+    },
+    {
+      "report": "three-fusion-comparison/report.json",
+      "sha256": "d046ac611f4a47411d3f9cc017ae54b7871747d6c607e5c562cc98d177e47596",
+      "field": "metrics",
+      "recorded_slots": 4,
+      "labels": [
+        "market",
+        "original",
+        "revised",
+        "blend"
+      ]
+    },
+    {
+      "report": "named-model-families/report.json",
+      "sha256": "ca1b7e625c1a4e1d07aa343e8e0829c0fca47640ca34fdacc231701758d434c0",
+      "field": "models",
+      "recorded_slots": 3,
+      "labels": [
+        "WeatherSignal",
+        "MarketGuard",
+        "ConsensusBlend"
+      ]
+    }
+  ],
+  "identical_report_duplicates_excluded": [
+    "professor-followup-v2/report.json"
+  ],
+  "not_counted": [
+    "Inner checkpoint/epoch validation looks",
+    "All earlier adaptive grids and all earlier training runs",
+    "Sizing/threshold/cost scenarios",
+    "Multiple attempts nested under each named-model result",
+    "Unrecorded manual UI continued-training runs"
+  ],
+  "conclusion": "Global unique cumulative search size cannot be recovered exactly from existing logs. This is a transparent partial inventory; do not use this number as a multiple-testing correction."
+}

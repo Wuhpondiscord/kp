@@ -1,0 +1,43 @@
+{
+  "version": "weather-independent-pilot-v1",
+  "training_year": 2023,
+  "validation_year": 2024,
+  "train_last_day": "2023-12-28",
+  "stations": {
+    "KXHIGHNY": [
+      40.779,
+      -73.969,
+      5
+    ],
+    "KXHIGHCHI": [
+      41.7841,
+      -87.7551,
+      6
+    ],
+    "KXHIGHMIA": [
+      25.791,
+      -80.316,
+      5
+    ],
+    "KXHIGHDEN": [
+      39.856,
+      -104.673,
+      7
+    ]
+  },
+  "targets": "NWS CLI daily highs retrieved from IEM; final archive vintage, not certified Kalshi settlement values",
+  "forecasts": "Open-Meteo GFS global previous_day2; mixed fixed-lead forecast hours, NOT a single initialized run",
+  "day": "24h fixed local standard time; 24 hourly forecast samples; does not capture subhourly forecast peaks",
+  "decision": "12h before station day start",
+  "publication_assumption": "latest valid hour minus 48h plus 8h; not historical receipt evidence",
+  "models": [
+    "Raw GFS maximum + station train-RMSE Gaussian width",
+    "Same forecast + train station bias + train residual-SD Gaussian width"
+  ],
+  "minimum_sigma_f": 0.5,
+  "primary_metric": "Validation CRPS",
+  "selection": "One declared baseline comparison; no tuning or live promotion",
+  "market_data_used": false,
+  "trading_evaluated": false,
+  "source_sha256": "b60a4a95947dbb1e97c223bbdaa8fc22a6d8a55e51115ea82f91bae2f58187ab"
+}

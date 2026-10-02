@@ -1,0 +1,13 @@
+{
+  "source": "Open-Meteo single runs, gfs_global + ecmwf_ifs025",
+  "horizon": "Original nominal 12h candle only",
+  "run_cycle": "06 UTC on event date",
+  "availability_allowance_hours": 8,
+  "splits": "Original full price-feature split membership retained BEFORE archive/date/availability filtering",
+  "test_evaluated": false,
+  "promotion": false,
+  "feature_sha256": "7a0884afde405ba584211e55cfafa5c2200c76c456e14d47966146cb109fd73a",
+  "observation_delay_minutes": 30,
+  "baseline": "Mean of two model remaining maxima, not NWS",
+  "warning": "Historical dates previously inspected; availability allowance assumed. Retrospective exploratory weather study, not live tradability evidence."
+}
