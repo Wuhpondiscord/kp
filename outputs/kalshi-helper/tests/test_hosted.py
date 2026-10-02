@@ -6,6 +6,9 @@ from pathlib import Path
 
 class HostedTests(unittest.TestCase):
     def test_hosted_security_and_health(self):
+        # All delivered text assets must match their UTF-8 HTTP encoding.
+        for asset in (Path(__file__).resolve().parents[1]/"helper/static").iterdir():
+            if asset.suffix in (".html",".js",".css"):asset.read_text(encoding="utf-8")
         with tempfile.TemporaryDirectory() as folder:
             with socket.socket() as s:
                 s.bind(('127.0.0.1',0));port=s.getsockname()[1]
