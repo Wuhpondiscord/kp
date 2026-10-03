@@ -75,6 +75,7 @@ def serve(store, port=8765, attach=False):
                     content=(static / files[path]).read_bytes()
                     if path=='/' and public_origin:
                         content=content.replace(b'<body>',b'<body><p class="fine" role="status">Shared public paper-trading demo: model selections, training and practice sessions are shared with other visitors. Data may reset when the Space restarts. No real orders.</p>')
+                        content=content.replace(b'Keep your computer awake while it runs.',b'The Space runs the session while its server stays awake; restarting it interrupts practice.')
                     return self.send(200, content, mime)
                 if path == "/api/readiness":
                     from .readiness import assess

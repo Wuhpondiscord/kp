@@ -48,3 +48,18 @@ assert.equal(cohortContext.renderScoreCohorts({}),'');
 const cohortHtml=cohortContext.renderScoreCohorts({score_definition:'<definition>',score_cohorts:{first_prediction:{paired_markets:0},filled_signal_vs_execution_market:{paired_markets:1,model_log_loss:.2,market_log_loss:.3}}});
 assert.match(cohortHtml,/Waiting for settlement/);assert.match(cohortHtml,/0.20000/);assert.match(cohortHtml,/&lt;definition>/);
 console.log('Forecast cohort panel handles old reports, pending outcomes and resolved scores');
+
+const modelStatus=vm.createContext({state:{}});
+vm.runInContext(source.split('\n').find(line=>line.startsWith('function selectedModelSummary')),modelStatus);
+assert.equal(modelStatus.selectedModelSummary().selected,false);
+modelStatus.state.active_model={passed:true};
+assert.equal(modelStatus.selectedModelSummary().status,'Forecast test passed');
+modelStatus.state.named_models={available:true,selection:{name:'ConsensusBlend',weather_weight:.6}};
+assert.match(modelStatus.selectedModelSummary().name,/60% WeatherSignal/);
+assert.equal(modelStatus.selectedModelSummary().status,'Experimental model selected');
+assert.equal(modelStatus.selectedModelSummary().note,'No proven trading edge.');
+modelStatus.state.active_model=null;
+assert.equal(modelStatus.selectedModelSummary().selected,true);
+modelStatus.state.named_models.available=false;
+assert.equal(modelStatus.selectedModelSummary().selected,false);
+console.log('Named selection takes precedence over legacy status without claiming validation or profit');

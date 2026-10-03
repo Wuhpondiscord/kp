@@ -24,7 +24,10 @@ class HostedTests(unittest.TestCase):
                 else:self.fail('Server did not start')
                 self.assertEqual(health['revision'],'test-revision')
                 with urlopen(Request(base+'/',headers={'Host':'wuhp-kp.hf.space'})) as response:
-                    self.assertIn(b'Shared public paper-trading demo',response.read())
+                    content=response.read()
+                    self.assertIn(b'Shared public paper-trading demo',content)
+                    self.assertNotIn(b'Keep your computer awake',content)
+                    self.assertIn(b'restarting it interrupts practice',content)
                     self.assertIn('https://huggingface.co',response.headers['Content-Security-Policy'])
                 for host,origin,payload,status in [('evil.test','https://wuhp-kp.hf.space',{},403),('wuhp-kp.hf.space','https://evil.test',{},403),('wuhp-kp.hf.space',None,{},403),('wuhp-kp.hf.space','https://wuhp-kp.hf.space',{'predictions_file':'/etc/passwd'},400)]:
                     headers={'Host':host,'Content-Type':'application/json'}
