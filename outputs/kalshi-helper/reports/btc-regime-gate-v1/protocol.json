@@ -1,0 +1,29 @@
+{
+  "version": "btc-regime-gate-v1",
+  "test_loaded": false,
+  "forecast": "Shallow histogram trees: 80 iterations, 4 leaves, min leaf 60, L2 10, learning rate .05; no early stopping",
+  "forecast_inputs": "Ten original Coinbase features; no Kalshi prices",
+  "gate": "Standardized ridge alpha=100 on realized YES/NO per-contract net returns from chronological out-of-fold forecasts",
+  "gate_inputs": [
+    "win_probability",
+    "estimated_net_edge",
+    "spread",
+    "absolute_target_distance",
+    "volatility_ratio"
+  ],
+  "gate_training": "First 40% of training dates warmup; three expanding blocks of remaining dates, two-hour embargo",
+  "execution": "Recomputed next-minute inputs; assumed fills with 2-cent slippage and .07 quadratic fees",
+  "policies": [
+    "fixed_edge",
+    "learned_gate",
+    "learned_gate_quarter_kelly_stops"
+  ],
+  "selection": "Fixed experiment; no parameter grid or original test access",
+  "limitations": [
+    "Reused development dates",
+    "Coinbase proxy",
+    "No historical depth",
+    "Gate return estimates are not confidence bounds",
+    "Shift from original training to next-minute horizon"
+  ]
+}

@@ -21,6 +21,10 @@ def main():
         time.sleep(15)
     for path,marker in [('/','BetCheck'),('/app.js','fetch'),('/named.js','WeatherSignal')]:
         with urlopen(base+path,timeout=60) as r:assert marker in r.read().decode()
+    btc=request('/api/btc/catalog');assert btc['mode']=='historical_paper_only' and len(btc['models'])==3
+    for model in ('volatility','logistic','regime'):
+        replay=request('/api/btc/replay',{'model':model,'bankroll':1000})
+        assert replay['paper']['entries']>0 and replay['paper']['pnl']<0
     state=request('/api/state');assert state['named_models']['available']
     def job(path,body,key='job'):
         request(path,body)

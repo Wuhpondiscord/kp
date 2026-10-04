@@ -1,0 +1,34 @@
+{
+  "version": "btc-average-calibration-v1",
+  "purpose": "Development comparison, not a new holdout or promotion test",
+  "inputs": [
+    "train.jsonl",
+    "validation.jsonl"
+  ],
+  "folds": [
+    [
+      "2026-09-07",
+      "2026-09-11"
+    ],
+    [
+      "2026-09-11",
+      "2026-09-15"
+    ],
+    [
+      "2026-09-15",
+      "2026-09-19"
+    ]
+  ],
+  "embargo_hours": 2,
+  "candidate": "BTCAverage: final-minute Gaussian-average approximation with two fitted probit parameters",
+  "ablation": "BTCAverageRaw: identical averaging correction without calibration",
+  "regularization": 0.01,
+  "selection": "No hyperparameter grid; no strategy tuning; original test not loaded",
+  "limitations": [
+    "Coinbase is not BRTI",
+    "Log-price average approximates arithmetic price average",
+    "Continuous average approximates 60 discrete index samples",
+    "Constant local diffusion ignores jumps and changing volatility",
+    "Development dates already inspected; no independent edge claim"
+  ]
+}

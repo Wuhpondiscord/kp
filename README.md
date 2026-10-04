@@ -14,6 +14,33 @@ Browse markets, inspect experimental weather probabilities, choose WeatherSignal
 MarketGuard or a custom ConsensusBlend, and evaluate or continue training saved models.
 **No proven trading edge. No real-money orders.**
 
+The new **BTC paper lab** at `/btc` lets you pick one of three experimental models,
+set a play-money balance and replay September with bundled real historical data.
+See the [lab guide](outputs/kalshi-helper/BTC-LAB.md). All three standard scenarios
+lose after costs. BTC is available for historical experimentation only; live BTC
+automation and automatic model promotion remain disabled.
+
+A separate [BTC 15-minute research pilot](outputs/kalshi-helper/BTC-PILOT.md)
+now compares Coinbase-based forecasts with Kalshi prices on real September 2026
+contracts. It does not establish an edge and is not a live model selection.
+The [calibration follow-up](outputs/kalshi-helper/BTC-NEXT-STEP.md) tests settlement
+averaging and temporal stability, and documents the next data-source investigation.
+The optional [local BRTI capture tool](outputs/kalshi-helper/BRTI-SETUP.md) is ready
+for an entitled Kalshi account; live access and tick import remain unverified.
+The [forecast and trading comparison](outputs/kalshi-helper/BTC-FORECAST-AND-TRADING.md)
+evaluates nonlinear BTC forecasts and a separately trained trade filter. These
+remain development experiments, with no demonstrated profitable strategy.
+The [source and edge audit](outputs/kalshi-helper/BTC-DIAGNOSIS.md) measures price-source
+disagreements and the gap between predicted and realized trading returns.
+The [prospective BTC runner](outputs/kalshi-helper/BTC-PROSPECTIVE.md) now freezes
+models and records public data for a 30-day paper comparison with depth-limited replay.
+For research without waiting, the [historical BTC simulation](outputs/kalshi-helper/BTC-HISTORICAL-SIMULATION.md)
+trains on six months of public Binance data and replays an existing month of Kalshi
+contracts. This is the current historical-first workflow; no forward run is required.
+The [BTC loss audit](outputs/kalshi-helper/BTC-LOSS-AUDIT.md) explains selected-trade
+overconfidence, reconciles trading costs, and corrects the forecast/execution timing
+comparison before further model development.
+
 The hosted Space is a **shared demo**: visitors share model selections, job slots and
 paper sessions. Do not upload private information. Runtime data and new checkpoints
 may disappear on restart. Run locally for private, durable research.

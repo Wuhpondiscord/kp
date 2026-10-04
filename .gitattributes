@@ -1,0 +1,4 @@
+# Frozen BTC research artifacts are byte-hashed; preserve Windows-produced bytes
+# when Linux CI and Hugging Face check them out.
+outputs/kalshi-helper/reports/btc*/** -text
+outputs/kalshi-helper/helper/btc*.py -text

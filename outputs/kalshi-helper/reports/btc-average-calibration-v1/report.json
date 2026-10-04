@@ -1,0 +1,5877 @@
+{
+  "protocol": {
+    "version": "btc-average-calibration-v1",
+    "purpose": "Development comparison, not a new holdout or promotion test",
+    "inputs": [
+      "train.jsonl",
+      "validation.jsonl"
+    ],
+    "folds": [
+      [
+        "2026-09-07",
+        "2026-09-11"
+      ],
+      [
+        "2026-09-11",
+        "2026-09-15"
+      ],
+      [
+        "2026-09-15",
+        "2026-09-19"
+      ]
+    ],
+    "embargo_hours": 2,
+    "candidate": "BTCAverage: final-minute Gaussian-average approximation with two fitted probit parameters",
+    "ablation": "BTCAverageRaw: identical averaging correction without calibration",
+    "regularization": 0.01,
+    "selection": "No hyperparameter grid; no strategy tuning; original test not loaded",
+    "limitations": [
+      "Coinbase is not BRTI",
+      "Log-price average approximates arithmetic price average",
+      "Continuous average approximates 60 discrete index samples",
+      "Constant local diffusion ignores jumps and changing volatility",
+      "Development dates already inspected; no independent edge claim"
+    ]
+  },
+  "test_loaded": false,
+  "deployment_allowed": false,
+  "folds": [
+    {
+      "start": "2026-09-07",
+      "end_exclusive": "2026-09-11",
+      "train_events": 568,
+      "evaluated_events": 367,
+      "fit": {
+        "bias": 0.11286487299482725,
+        "log_slope": -0.06648892650352999
+      },
+      "scores": {
+        "market": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7956403269754768,
+          "log_loss": 0.4364358629444231,
+          "brier": 0.14210568324250683,
+          "calibration": [
+            {
+              "count": 63,
+              "predicted": 0.0557063492063492,
+              "observed": 0.06349206349206349
+            },
+            {
+              "count": 33,
+              "predicted": 0.15742424242424244,
+              "observed": 0.21212121212121213
+            },
+            {
+              "count": 46,
+              "predicted": 0.24347826086956523,
+              "observed": 0.1956521739130435
+            },
+            {
+              "count": 28,
+              "predicted": 0.35000000000000003,
+              "observed": 0.21428571428571427
+            },
+            {
+              "count": 21,
+              "predicted": 0.4454761904761904,
+              "observed": 0.47619047619047616
+            },
+            {
+              "count": 27,
+              "predicted": 0.5590740740740741,
+              "observed": 0.4444444444444444
+            },
+            {
+              "count": 26,
+              "predicted": 0.6492307692307692,
+              "observed": 0.6923076923076923
+            },
+            {
+              "count": 25,
+              "predicted": 0.755,
+              "observed": 0.64
+            },
+            {
+              "count": 47,
+              "predicted": 0.8505319148936172,
+              "observed": 0.8723404255319149
+            },
+            {
+              "count": 51,
+              "predicted": 0.9517843137254903,
+              "observed": 0.9803921568627451
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7929155313351499,
+          "log_loss": 0.4376302553175633,
+          "brier": 0.14173773927648464,
+          "calibration": [
+            {
+              "count": 63,
+              "predicted": 0.03901017645653791,
+              "observed": 0.06349206349206349
+            },
+            {
+              "count": 34,
+              "predicted": 0.15407105262447013,
+              "observed": 0.17647058823529413
+            },
+            {
+              "count": 45,
+              "predicted": 0.24518312139904283,
+              "observed": 0.17777777777777778
+            },
+            {
+              "count": 34,
+              "predicted": 0.34709494296628024,
+              "observed": 0.38235294117647056
+            },
+            {
+              "count": 22,
+              "predicted": 0.451141131118187,
+              "observed": 0.4090909090909091
+            },
+            {
+              "count": 31,
+              "predicted": 0.5518004032163895,
+              "observed": 0.5806451612903226
+            },
+            {
+              "count": 23,
+              "predicted": 0.6465919798541702,
+              "observed": 0.43478260869565216
+            },
+            {
+              "count": 37,
+              "predicted": 0.7524305783040183,
+              "observed": 0.7837837837837838
+            },
+            {
+              "count": 32,
+              "predicted": 0.847280311286754,
+              "observed": 0.96875
+            },
+            {
+              "count": 46,
+              "predicted": 0.9636504189811241,
+              "observed": 0.9782608695652174
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.779291553133515,
+          "log_loss": 0.44047713030886865,
+          "brier": 0.14473641617851837,
+          "calibration": [
+            {
+              "count": 50,
+              "predicted": 0.04391035993230896,
+              "observed": 0.06
+            },
+            {
+              "count": 35,
+              "predicted": 0.1523574288352429,
+              "observed": 0.08571428571428572
+            },
+            {
+              "count": 45,
+              "predicted": 0.24837810110776917,
+              "observed": 0.26666666666666666
+            },
+            {
+              "count": 34,
+              "predicted": 0.3443053537727675,
+              "observed": 0.3235294117647059
+            },
+            {
+              "count": 31,
+              "predicted": 0.45766200329115786,
+              "observed": 0.3870967741935484
+            },
+            {
+              "count": 26,
+              "predicted": 0.5503536604318924,
+              "observed": 0.4230769230769231
+            },
+            {
+              "count": 24,
+              "predicted": 0.6518527665623147,
+              "observed": 0.5416666666666666
+            },
+            {
+              "count": 38,
+              "predicted": 0.7507882636386322,
+              "observed": 0.7105263157894737
+            },
+            {
+              "count": 39,
+              "predicted": 0.850940390286521,
+              "observed": 0.9487179487179487
+            },
+            {
+              "count": 45,
+              "predicted": 0.9542538446943062,
+              "observed": 0.9777777777777777
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7956403269754768,
+          "log_loss": 0.42852735884914694,
+          "brier": 0.1408569104972588,
+          "calibration": [
+            {
+              "count": 59,
+              "predicted": 0.05090260587276983,
+              "observed": 0.05084745762711865
+            },
+            {
+              "count": 55,
+              "predicted": 0.1466862987062157,
+              "observed": 0.2
+            },
+            {
+              "count": 44,
+              "predicted": 0.25297807266300154,
+              "observed": 0.22727272727272727
+            },
+            {
+              "count": 21,
+              "predicted": 0.34879229357530017,
+              "observed": 0.38095238095238093
+            },
+            {
+              "count": 24,
+              "predicted": 0.4544828010361017,
+              "observed": 0.4166666666666667
+            },
+            {
+              "count": 21,
+              "predicted": 0.5655055653780242,
+              "observed": 0.5238095238095238
+            },
+            {
+              "count": 16,
+              "predicted": 0.641897703802736,
+              "observed": 0.5625
+            },
+            {
+              "count": 30,
+              "predicted": 0.7504236576630868,
+              "observed": 0.7
+            },
+            {
+              "count": 35,
+              "predicted": 0.850673338924447,
+              "observed": 0.8285714285714286
+            },
+            {
+              "count": 62,
+              "predicted": 0.9600549894295783,
+              "observed": 0.9838709677419355
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7956403269754768,
+          "log_loss": 0.43564938254657287,
+          "brier": 0.14202860652963267,
+          "calibration": [
+            {
+              "count": 57,
+              "predicted": 0.060634743243507594,
+              "observed": 0.07017543859649122
+            },
+            {
+              "count": 52,
+              "predicted": 0.15186555856404715,
+              "observed": 0.17307692307692307
+            },
+            {
+              "count": 40,
+              "predicted": 0.24642264295712465,
+              "observed": 0.225
+            },
+            {
+              "count": 26,
+              "predicted": 0.348777693508931,
+              "observed": 0.2692307692307692
+            },
+            {
+              "count": 20,
+              "predicted": 0.44931632601296256,
+              "observed": 0.45
+            },
+            {
+              "count": 27,
+              "predicted": 0.5574933338852784,
+              "observed": 0.4444444444444444
+            },
+            {
+              "count": 24,
+              "predicted": 0.6501008787660952,
+              "observed": 0.75
+            },
+            {
+              "count": 23,
+              "predicted": 0.7528925596194133,
+              "observed": 0.6086956521739131
+            },
+            {
+              "count": 47,
+              "predicted": 0.8482700546293944,
+              "observed": 0.8723404255319149
+            },
+            {
+              "count": 51,
+              "predicted": 0.9654564472302365,
+              "observed": 0.9803921568627451
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7929155313351499,
+          "log_loss": 0.4378996323261854,
+          "brier": 0.1416069964114347,
+          "calibration": [
+            {
+              "count": 65,
+              "predicted": 0.03378762882467595,
+              "observed": 0.06153846153846154
+            },
+            {
+              "count": 44,
+              "predicted": 0.15693665449090344,
+              "observed": 0.22727272727272727
+            },
+            {
+              "count": 36,
+              "predicted": 0.25042030094605755,
+              "observed": 0.1388888888888889
+            },
+            {
+              "count": 31,
+              "predicted": 0.34270279461807224,
+              "observed": 0.3870967741935484
+            },
+            {
+              "count": 22,
+              "predicted": 0.44821185457588775,
+              "observed": 0.4090909090909091
+            },
+            {
+              "count": 29,
+              "predicted": 0.5516808110592554,
+              "observed": 0.5862068965517241
+            },
+            {
+              "count": 25,
+              "predicted": 0.6507149486250787,
+              "observed": 0.44
+            },
+            {
+              "count": 33,
+              "predicted": 0.7599303117827869,
+              "observed": 0.7878787878787878
+            },
+            {
+              "count": 35,
+              "predicted": 0.8541478215984636,
+              "observed": 0.9428571428571428
+            },
+            {
+              "count": 47,
+              "predicted": 0.968869784767041,
+              "observed": 0.9787234042553191
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7874659400544959,
+          "log_loss": 0.43906196706071143,
+          "brier": 0.14324033286011423,
+          "calibration": [
+            {
+              "count": 52,
+              "predicted": 0.037233552048167855,
+              "observed": 0.057692307692307696
+            },
+            {
+              "count": 32,
+              "predicted": 0.14340389788624952,
+              "observed": 0.09375
+            },
+            {
+              "count": 42,
+              "predicted": 0.24894803269257912,
+              "observed": 0.21428571428571427
+            },
+            {
+              "count": 36,
+              "predicted": 0.3491835791078268,
+              "observed": 0.3611111111111111
+            },
+            {
+              "count": 26,
+              "predicted": 0.44474086945840197,
+              "observed": 0.3076923076923077
+            },
+            {
+              "count": 26,
+              "predicted": 0.5534178593638347,
+              "observed": 0.4230769230769231
+            },
+            {
+              "count": 29,
+              "predicted": 0.6437314916534922,
+              "observed": 0.5862068965517241
+            },
+            {
+              "count": 35,
+              "predicted": 0.7576511742552311,
+              "observed": 0.7428571428571429
+            },
+            {
+              "count": 38,
+              "predicted": 0.850303913979248,
+              "observed": 0.868421052631579
+            },
+            {
+              "count": 51,
+              "predicted": 0.9639388854012573,
+              "observed": 0.9803921568627451
+            }
+          ]
+        }
+      },
+      "price_buckets": {
+        "0-0.1": {
+          "market": {
+            "events": 63,
+            "days": 4,
+            "accuracy": 0.9365079365079365,
+            "log_loss": 0.2126216513490906,
+            "brier": 0.05710682142857143,
+            "calibration": [
+              {
+                "count": 63,
+                "predicted": 0.0557063492063492,
+                "observed": 0.06349206349206349
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 63,
+            "days": 4,
+            "accuracy": 0.9365079365079365,
+            "log_loss": 0.2527019295154869,
+            "brier": 0.06141497014019134,
+            "calibration": [
+              {
+                "count": 56,
+                "predicted": 0.03614338223170579,
+                "observed": 0.07142857142857142
+              },
+              {
+                "count": 6,
+                "predicted": 0.11903882584969101,
+                "observed": 0.0
+              },
+              {
+                "count": 1,
+                "predicted": 0.2131045151571615,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 63,
+            "days": 4,
+            "accuracy": 0.9365079365079365,
+            "log_loss": 0.23776828715806145,
+            "brier": 0.061326762525667544,
+            "calibration": [
+              {
+                "count": 44,
+                "predicted": 0.04042450710880672,
+                "observed": 0.06818181818181818
+              },
+              {
+                "count": 16,
+                "predicted": 0.14032114056975886,
+                "observed": 0.0625
+              },
+              {
+                "count": 3,
+                "predicted": 0.24953817406073264,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 63,
+            "days": 4,
+            "accuracy": 0.9365079365079365,
+            "log_loss": 0.2114584577093543,
+            "brier": 0.0568441791911081,
+            "calibration": [
+              {
+                "count": 52,
+                "predicted": 0.04814889364810001,
+                "observed": 0.057692307692307696
+              },
+              {
+                "count": 11,
+                "predicted": 0.11653487581279219,
+                "observed": 0.09090909090909091
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 63,
+            "days": 4,
+            "accuracy": 0.9365079365079365,
+            "log_loss": 0.21156476105015504,
+            "brier": 0.056708973331097354,
+            "calibration": [
+              {
+                "count": 54,
+                "predicted": 0.05883505714003718,
+                "observed": 0.07407407407407407
+              },
+              {
+                "count": 9,
+                "predicted": 0.11157054259683316,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 63,
+            "days": 4,
+            "accuracy": 0.9365079365079365,
+            "log_loss": 0.26052289954859864,
+            "brier": 0.06150983066512189,
+            "calibration": [
+              {
+                "count": 57,
+                "predicted": 0.030601637316414868,
+                "observed": 0.07017543859649122
+              },
+              {
+                "count": 6,
+                "predicted": 0.1235995917056756,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 63,
+            "days": 4,
+            "accuracy": 0.9365079365079365,
+            "log_loss": 0.24818606650834335,
+            "brier": 0.06184439833140084,
+            "calibration": [
+              {
+                "count": 46,
+                "predicted": 0.032598888181283044,
+                "observed": 0.06521739130434782
+              },
+              {
+                "count": 16,
+                "predicted": 0.12262890649166193,
+                "observed": 0.0625
+              },
+              {
+                "count": 1,
+                "predicted": 0.24926378587357406,
+                "observed": 0.0
+              }
+            ]
+          }
+        },
+        "0.1-0.3": {
+          "market": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.7974683544303798,
+            "log_loss": 0.5040366362364123,
+            "brier": 0.1619895569620253,
+            "calibration": [
+              {
+                "count": 33,
+                "predicted": 0.15742424242424244,
+                "observed": 0.21212121212121213
+              },
+              {
+                "count": 46,
+                "predicted": 0.24347826086956523,
+                "observed": 0.1956521739130435
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.7974683544303798,
+            "log_loss": 0.49260811774663527,
+            "brier": 0.1593112418736622,
+            "calibration": [
+              {
+                "count": 7,
+                "predicted": 0.061944530255194856,
+                "observed": 0.0
+              },
+              {
+                "count": 27,
+                "predicted": 0.1617231654035574,
+                "observed": 0.2222222222222222
+              },
+              {
+                "count": 38,
+                "predicted": 0.2418719300475909,
+                "observed": 0.21052631578947367
+              },
+              {
+                "count": 7,
+                "predicted": 0.3127572457925431,
+                "observed": 0.2857142857142857
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.7848101265822784,
+            "log_loss": 0.49050496917574127,
+            "brier": 0.1601017482040089,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.06947328063799203,
+                "observed": 0.0
+              },
+              {
+                "count": 19,
+                "predicted": 0.16249325053249258,
+                "observed": 0.10526315789473684
+              },
+              {
+                "count": 32,
+                "predicted": 0.24933608650357358,
+                "observed": 0.25
+              },
+              {
+                "count": 15,
+                "predicted": 0.3389520993555592,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 6,
+                "predicted": 0.4466540178652378,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 1,
+                "predicted": 0.5085947797693714,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.7974683544303798,
+            "log_loss": 0.4855587189357637,
+            "brier": 0.15681213850021133,
+            "calibration": [
+              {
+                "count": 7,
+                "predicted": 0.0713587538274599,
+                "observed": 0.0
+              },
+              {
+                "count": 43,
+                "predicted": 0.1534387615241622,
+                "observed": 0.20930232558139536
+              },
+              {
+                "count": 28,
+                "predicted": 0.24362298999071252,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 1,
+                "predicted": 0.3184038814988199,
+                "observed": 1.0
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.7974683544303798,
+            "log_loss": 0.5046937795499137,
+            "brier": 0.16202374944888806,
+            "calibration": [
+              {
+                "count": 3,
+                "predicted": 0.0930290931059748,
+                "observed": 0.0
+              },
+              {
+                "count": 43,
+                "predicted": 0.16029939911532448,
+                "observed": 0.20930232558139536
+              },
+              {
+                "count": 33,
+                "predicted": 0.23857295055499553,
+                "observed": 0.21212121212121213
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.7974683544303798,
+            "log_loss": 0.49332528340588633,
+            "brier": 0.1595347212931884,
+            "calibration": [
+              {
+                "count": 8,
+                "predicted": 0.05648781832103614,
+                "observed": 0.0
+              },
+              {
+                "count": 37,
+                "predicted": 0.16270775942112775,
+                "observed": 0.2702702702702703
+              },
+              {
+                "count": 29,
+                "predicted": 0.24702892056506787,
+                "observed": 0.13793103448275862
+              },
+              {
+                "count": 5,
+                "predicted": 0.3058854346142358,
+                "observed": 0.4
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.7974683544303798,
+            "log_loss": 0.4964306970619886,
+            "brier": 0.16084160269863976,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.072765975027618,
+                "observed": 0.0
+              },
+              {
+                "count": 15,
+                "predicted": 0.16256162894183357,
+                "observed": 0.13333333333333333
+              },
+              {
+                "count": 40,
+                "predicted": 0.24881233794133695,
+                "observed": 0.225
+              },
+              {
+                "count": 18,
+                "predicted": 0.3362241359663265,
+                "observed": 0.2777777777777778
+              }
+            ]
+          }
+        },
+        "0.3-0.7": {
+          "market": {
+            "events": 102,
+            "days": 4,
+            "accuracy": 0.6176470588235294,
+            "log_loss": 0.6516772568340223,
+            "brier": 0.22981127450980393,
+            "calibration": [
+              {
+                "count": 28,
+                "predicted": 0.35000000000000003,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 21,
+                "predicted": 0.4454761904761904,
+                "observed": 0.47619047619047616
+              },
+              {
+                "count": 27,
+                "predicted": 0.5590740740740741,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 26,
+                "predicted": 0.6492307692307692,
+                "observed": 0.6923076923076923
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 102,
+            "days": 4,
+            "accuracy": 0.6078431372549019,
+            "log_loss": 0.6562110765468161,
+            "brier": 0.23271613069910393,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.15765736823778864,
+                "observed": 0.0
+              },
+              {
+                "count": 6,
+                "predicted": 0.2715004343318854,
+                "observed": 0.0
+              },
+              {
+                "count": 27,
+                "predicted": 0.35599730890021214,
+                "observed": 0.4074074074074074
+              },
+              {
+                "count": 22,
+                "predicted": 0.451141131118187,
+                "observed": 0.4090909090909091
+              },
+              {
+                "count": 31,
+                "predicted": 0.5518004032163895,
+                "observed": 0.5806451612903226
+              },
+              {
+                "count": 14,
+                "predicted": 0.634746898197729,
+                "observed": 0.5
+              },
+              {
+                "count": 1,
+                "predicted": 0.8729671760285,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 102,
+            "days": 4,
+            "accuracy": 0.5686274509803921,
+            "log_loss": 0.6908449859490182,
+            "brier": 0.2483034854641406,
+            "calibration": [
+              {
+                "count": 10,
+                "predicted": 0.24496452595530616,
+                "observed": 0.4
+              },
+              {
+                "count": 19,
+                "predicted": 0.34853160726003724,
+                "observed": 0.3157894736842105
+              },
+              {
+                "count": 25,
+                "predicted": 0.4603039197933787,
+                "observed": 0.44
+              },
+              {
+                "count": 24,
+                "predicted": 0.5525854258302175,
+                "observed": 0.4583333333333333
+              },
+              {
+                "count": 15,
+                "predicted": 0.652677459187304,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.7488139339006163,
+                "observed": 0.5
+              },
+              {
+                "count": 1,
+                "predicted": 0.8462893052112558,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 102,
+            "days": 4,
+            "accuracy": 0.6176470588235294,
+            "log_loss": 0.6645426783139164,
+            "brier": 0.23525744163359227,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.18799604936217387,
+                "observed": 1.0
+              },
+              {
+                "count": 16,
+                "predicted": 0.26934946733950726,
+                "observed": 0.25
+              },
+              {
+                "count": 20,
+                "predicted": 0.35031171417912416,
+                "observed": 0.35
+              },
+              {
+                "count": 24,
+                "predicted": 0.4544828010361017,
+                "observed": 0.4166666666666667
+              },
+              {
+                "count": 20,
+                "predicted": 0.563925058291695,
+                "observed": 0.55
+              },
+              {
+                "count": 14,
+                "predicted": 0.6379951957779053,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 7,
+                "predicted": 0.7281277761348647,
+                "observed": 0.7142857142857143
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 102,
+            "days": 4,
+            "accuracy": 0.6176470588235294,
+            "log_loss": 0.6534488513637398,
+            "brier": 0.23045519413833077,
+            "calibration": [
+              {
+                "count": 7,
+                "predicted": 0.28342833571001924,
+                "observed": 0.2857142857142857
+              },
+              {
+                "count": 26,
+                "predicted": 0.348777693508931,
+                "observed": 0.2692307692307692
+              },
+              {
+                "count": 20,
+                "predicted": 0.44931632601296256,
+                "observed": 0.45
+              },
+              {
+                "count": 27,
+                "predicted": 0.5574933338852784,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 22,
+                "predicted": 0.645937285424883,
+                "observed": 0.7272727272727273
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 102,
+            "days": 4,
+            "accuracy": 0.6078431372549019,
+            "log_loss": 0.6560066220023459,
+            "brier": 0.2327146875382235,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.14342814878397186,
+                "observed": 0.0
+              },
+              {
+                "count": 7,
+                "predicted": 0.2644703053815863,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 26,
+                "predicted": 0.34978305615727157,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 22,
+                "predicted": 0.44821185457588775,
+                "observed": 0.4090909090909091
+              },
+              {
+                "count": 29,
+                "predicted": 0.5516808110592554,
+                "observed": 0.5862068965517241
+              },
+              {
+                "count": 16,
+                "predicted": 0.6374230845630007,
+                "observed": 0.5
+              },
+              {
+                "count": 1,
+                "predicted": 0.8868057729511427,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 102,
+            "days": 4,
+            "accuracy": 0.5882352941176471,
+            "log_loss": 0.6641061108099978,
+            "brier": 0.23643420853360897,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.18843779436588953,
+                "observed": 0.0
+              },
+              {
+                "count": 1,
+                "predicted": 0.2540600695612708,
+                "observed": 0.0
+              },
+              {
+                "count": 18,
+                "predicted": 0.36214302224932704,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 26,
+                "predicted": 0.44474086945840197,
+                "observed": 0.3076923076923077
+              },
+              {
+                "count": 26,
+                "predicted": 0.5534178593638347,
+                "observed": 0.4230769230769231
+              },
+              {
+                "count": 26,
+                "predicted": 0.6398007573650827,
+                "observed": 0.6153846153846154
+              },
+              {
+                "count": 3,
+                "predicted": 0.7130128819588307,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 1,
+                "predicted": 0.8933904545100674,
+                "observed": 1.0
+              }
+            ]
+          }
+        },
+        "0.7-0.9": {
+          "market": {
+            "events": 72,
+            "days": 4,
+            "accuracy": 0.7916666666666666,
+            "log_loss": 0.48871679677135776,
+            "brier": 0.156725,
+            "calibration": [
+              {
+                "count": 25,
+                "predicted": 0.755,
+                "observed": 0.64
+              },
+              {
+                "count": 47,
+                "predicted": 0.8505319148936172,
+                "observed": 0.8723404255319149
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 72,
+            "days": 4,
+            "accuracy": 0.7916666666666666,
+            "log_loss": 0.46115591867846323,
+            "brier": 0.14805773248122764,
+            "calibration": [
+              {
+                "count": 9,
+                "predicted": 0.6650176624308566,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 37,
+                "predicted": 0.7524305783040183,
+                "observed": 0.7837837837837838
+              },
+              {
+                "count": 22,
+                "predicted": 0.8438068697854088,
+                "observed": 0.9545454545454546
+              },
+              {
+                "count": 4,
+                "predicted": 0.9254097167699791,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 72,
+            "days": 4,
+            "accuracy": 0.7916666666666666,
+            "log_loss": 0.4375705307237579,
+            "brier": 0.13989221895408213,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.5385501715346065,
+                "observed": 0.0
+              },
+              {
+                "count": 9,
+                "predicted": 0.6504782788539988,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 28,
+                "predicted": 0.7501271068446377,
+                "observed": 0.75
+              },
+              {
+                "count": 27,
+                "predicted": 0.8436689259985024,
+                "observed": 0.9259259259259259
+              },
+              {
+                "count": 7,
+                "predicted": 0.9222724644434381,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 72,
+            "days": 4,
+            "accuracy": 0.7916666666666666,
+            "log_loss": 0.4636992783714745,
+            "brier": 0.1496067489429391,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.597115707104605,
+                "observed": 0.0
+              },
+              {
+                "count": 2,
+                "predicted": 0.6692152599765508,
+                "observed": 0.5
+              },
+              {
+                "count": 23,
+                "predicted": 0.7572093607368938,
+                "observed": 0.6956521739130435
+              },
+              {
+                "count": 35,
+                "predicted": 0.850673338924447,
+                "observed": 0.8285714285714286
+              },
+              {
+                "count": 11,
+                "predicted": 0.9128480342586527,
+                "observed": 1.0
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 72,
+            "days": 4,
+            "accuracy": 0.7916666666666666,
+            "log_loss": 0.4876843521192471,
+            "brier": 0.15626224128717425,
+            "calibration": [
+              {
+                "count": 2,
+                "predicted": 0.6959004055194306,
+                "observed": 1.0
+              },
+              {
+                "count": 23,
+                "predicted": 0.7528925596194133,
+                "observed": 0.6086956521739131
+              },
+              {
+                "count": 47,
+                "predicted": 0.8482700546293944,
+                "observed": 0.8723404255319149
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 72,
+            "days": 4,
+            "accuracy": 0.7916666666666666,
+            "log_loss": 0.45818045570191845,
+            "brier": 0.14760367809216746,
+            "calibration": [
+              {
+                "count": 9,
+                "predicted": 0.6743449291798843,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 33,
+                "predicted": 0.7599303117827869,
+                "observed": 0.7878787878787878
+              },
+              {
+                "count": 26,
+                "predicted": 0.8503216500415518,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 4,
+                "predicted": 0.9368257367544428,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 72,
+            "days": 4,
+            "accuracy": 0.7916666666666666,
+            "log_loss": 0.46111651792398806,
+            "brier": 0.14925184415771373,
+            "calibration": [
+              {
+                "count": 3,
+                "predicted": 0.6777978554863733,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 32,
+                "predicted": 0.7618360141580186,
+                "observed": 0.75
+              },
+              {
+                "count": 31,
+                "predicted": 0.8467612562382564,
+                "observed": 0.8387096774193549
+              },
+              {
+                "count": 6,
+                "predicted": 0.9270450103649996,
+                "observed": 1.0
+              }
+            ]
+          }
+        },
+        "0.9-1": {
+          "market": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9803921568627451,
+            "log_loss": 0.1039061536926663,
+            "brier": 0.020253549019607835,
+            "calibration": [
+              {
+                "count": 51,
+                "predicted": 0.9517843137254903,
+                "observed": 0.9803921568627451
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9803921568627451,
+            "log_loss": 0.11053499779335754,
+            "brier": 0.022859157209049227,
+            "calibration": [
+              {
+                "count": 9,
+                "predicted": 0.8529168499854035,
+                "observed": 1.0
+              },
+              {
+                "count": 42,
+                "predicted": 0.967292390620281,
+                "observed": 0.9761904761904762
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9803921568627451,
+            "log_loss": 0.11675579193339186,
+            "brier": 0.02367539820090648,
+            "calibration": [
+              {
+                "count": 2,
+                "predicted": 0.7679417777066186,
+                "observed": 1.0
+              },
+              {
+                "count": 11,
+                "predicted": 0.8692113558185001,
+                "observed": 1.0
+              },
+              {
+                "count": 38,
+                "predicted": 0.960145151582624,
+                "observed": 0.9736842105263158
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9803921568627451,
+            "log_loss": 0.08664348696581654,
+            "brier": 0.01876860689057724,
+            "calibration": [
+              {
+                "count": 51,
+                "predicted": 0.9702368817213465,
+                "observed": 0.9803921568627451
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9803921568627451,
+            "log_loss": 0.0964486014176872,
+            "brier": 0.01950286069152186,
+            "calibration": [
+              {
+                "count": 51,
+                "predicted": 0.9654564472302365,
+                "observed": 0.9803921568627451
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9803921568627451,
+            "log_loss": 0.106310916633449,
+            "brier": 0.022098870929355172,
+            "calibration": [
+              {
+                "count": 8,
+                "predicted": 0.8625006352393413,
+                "observed": 1.0
+              },
+              {
+                "count": 43,
+                "predicted": 0.9718506264426314,
+                "observed": 0.9767441860465116
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9803921568627451,
+            "log_loss": 0.10476043255316533,
+            "brier": 0.021648949055051478,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.8614265555525682,
+                "observed": 1.0
+              },
+              {
+                "count": 45,
+                "predicted": 0.968858068739425,
+                "observed": 0.9777777777777777
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-09-11",
+      "end_exclusive": "2026-09-15",
+      "train_events": 944,
+      "evaluated_events": 375,
+      "fit": {
+        "bias": 0.0699005129996406,
+        "log_slope": -0.05481560618587144
+      },
+      "scores": {
+        "market": {
+          "events": 375,
+          "days": 4,
+          "accuracy": 0.8,
+          "log_loss": 0.4255326045214115,
+          "brier": 0.136639168,
+          "calibration": [
+            {
+              "count": 47,
+              "predicted": 0.05672340425531916,
+              "observed": 0.0425531914893617
+            },
+            {
+              "count": 37,
+              "predicted": 0.15310810810810813,
+              "observed": 0.10810810810810811
+            },
+            {
+              "count": 43,
+              "predicted": 0.245,
+              "observed": 0.18604651162790697
+            },
+            {
+              "count": 24,
+              "predicted": 0.34624999999999995,
+              "observed": 0.4166666666666667
+            },
+            {
+              "count": 27,
+              "predicted": 0.4494444444444445,
+              "observed": 0.4444444444444444
+            },
+            {
+              "count": 32,
+              "predicted": 0.5531250000000001,
+              "observed": 0.59375
+            },
+            {
+              "count": 30,
+              "predicted": 0.6470000000000001,
+              "observed": 0.5666666666666667
+            },
+            {
+              "count": 32,
+              "predicted": 0.7562500000000001,
+              "observed": 0.84375
+            },
+            {
+              "count": 51,
+              "predicted": 0.8516666666666667,
+              "observed": 0.8823529411764706
+            },
+            {
+              "count": 52,
+              "predicted": 0.942326923076923,
+              "observed": 0.9615384615384616
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 375,
+          "days": 4,
+          "accuracy": 0.8026666666666666,
+          "log_loss": 0.4460406433725702,
+          "brier": 0.14173051440280915,
+          "calibration": [
+            {
+              "count": 63,
+              "predicted": 0.04189852520641723,
+              "observed": 0.09523809523809523
+            },
+            {
+              "count": 42,
+              "predicted": 0.15130584369244943,
+              "observed": 0.14285714285714285
+            },
+            {
+              "count": 37,
+              "predicted": 0.2584353133625583,
+              "observed": 0.2702702702702703
+            },
+            {
+              "count": 18,
+              "predicted": 0.3449022620411226,
+              "observed": 0.2777777777777778
+            },
+            {
+              "count": 33,
+              "predicted": 0.45681101198973106,
+              "observed": 0.48484848484848486
+            },
+            {
+              "count": 28,
+              "predicted": 0.5488338486257754,
+              "observed": 0.6428571428571429
+            },
+            {
+              "count": 36,
+              "predicted": 0.6493812247638401,
+              "observed": 0.6944444444444444
+            },
+            {
+              "count": 28,
+              "predicted": 0.7521744738383164,
+              "observed": 0.8214285714285714
+            },
+            {
+              "count": 40,
+              "predicted": 0.8555458591580807,
+              "observed": 0.95
+            },
+            {
+              "count": 50,
+              "predicted": 0.9527051198347788,
+              "observed": 0.94
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 375,
+          "days": 4,
+          "accuracy": 0.8133333333333334,
+          "log_loss": 0.46138436209166517,
+          "brier": 0.14742459713553802,
+          "calibration": [
+            {
+              "count": 47,
+              "predicted": 0.04254678922300938,
+              "observed": 0.0851063829787234
+            },
+            {
+              "count": 41,
+              "predicted": 0.14005183312074865,
+              "observed": 0.14634146341463414
+            },
+            {
+              "count": 39,
+              "predicted": 0.2406205812120703,
+              "observed": 0.3076923076923077
+            },
+            {
+              "count": 30,
+              "predicted": 0.34915066818984225,
+              "observed": 0.2
+            },
+            {
+              "count": 30,
+              "predicted": 0.4409860821313288,
+              "observed": 0.3333333333333333
+            },
+            {
+              "count": 31,
+              "predicted": 0.5551259973736358,
+              "observed": 0.6451612903225806
+            },
+            {
+              "count": 32,
+              "predicted": 0.6529980720424177,
+              "observed": 0.75
+            },
+            {
+              "count": 29,
+              "predicted": 0.7502926586914116,
+              "observed": 0.7241379310344828
+            },
+            {
+              "count": 47,
+              "predicted": 0.8532750084881475,
+              "observed": 0.9148936170212766
+            },
+            {
+              "count": 49,
+              "predicted": 0.9474609888926429,
+              "observed": 0.9795918367346939
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 375,
+          "days": 4,
+          "accuracy": 0.808,
+          "log_loss": 0.43770890926800493,
+          "brier": 0.14072505439949248,
+          "calibration": [
+            {
+              "count": 52,
+              "predicted": 0.05653036208703689,
+              "observed": 0.057692307692307696
+            },
+            {
+              "count": 45,
+              "predicted": 0.14686557029666236,
+              "observed": 0.15555555555555556
+            },
+            {
+              "count": 38,
+              "predicted": 0.2505254237370686,
+              "observed": 0.2631578947368421
+            },
+            {
+              "count": 30,
+              "predicted": 0.35417740718085367,
+              "observed": 0.4
+            },
+            {
+              "count": 24,
+              "predicted": 0.4450882600747561,
+              "observed": 0.3333333333333333
+            },
+            {
+              "count": 25,
+              "predicted": 0.554509275795067,
+              "observed": 0.6
+            },
+            {
+              "count": 25,
+              "predicted": 0.6408833666168493,
+              "observed": 0.64
+            },
+            {
+              "count": 26,
+              "predicted": 0.7532579291346438,
+              "observed": 0.8461538461538461
+            },
+            {
+              "count": 52,
+              "predicted": 0.8456221958009803,
+              "observed": 0.8846153846153846
+            },
+            {
+              "count": 58,
+              "predicted": 0.9568609213987628,
+              "observed": 0.9482758620689655
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 375,
+          "days": 4,
+          "accuracy": 0.816,
+          "log_loss": 0.4253457410676468,
+          "brier": 0.13688822481286636,
+          "calibration": [
+            {
+              "count": 48,
+              "predicted": 0.06143228077570262,
+              "observed": 0.041666666666666664
+            },
+            {
+              "count": 48,
+              "predicted": 0.14919523671241838,
+              "observed": 0.10416666666666667
+            },
+            {
+              "count": 37,
+              "predicted": 0.24181004132908618,
+              "observed": 0.2702702702702703
+            },
+            {
+              "count": 26,
+              "predicted": 0.34694234182847633,
+              "observed": 0.38461538461538464
+            },
+            {
+              "count": 29,
+              "predicted": 0.4560442840830496,
+              "observed": 0.3793103448275862
+            },
+            {
+              "count": 29,
+              "predicted": 0.5558746780315709,
+              "observed": 0.6551724137931034
+            },
+            {
+              "count": 27,
+              "predicted": 0.6473147130914106,
+              "observed": 0.7037037037037037
+            },
+            {
+              "count": 32,
+              "predicted": 0.7557890832113024,
+              "observed": 0.8125
+            },
+            {
+              "count": 47,
+              "predicted": 0.849303342652232,
+              "observed": 0.8936170212765957
+            },
+            {
+              "count": 52,
+              "predicted": 0.9548503156199266,
+              "observed": 0.9615384615384616
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 375,
+          "days": 4,
+          "accuracy": 0.8026666666666666,
+          "log_loss": 0.44709952906736505,
+          "brier": 0.14144403247670118,
+          "calibration": [
+            {
+              "count": 68,
+              "predicted": 0.03869496490969081,
+              "observed": 0.08823529411764706
+            },
+            {
+              "count": 40,
+              "predicted": 0.14718136954904373,
+              "observed": 0.175
+            },
+            {
+              "count": 36,
+              "predicted": 0.25324854347003545,
+              "observed": 0.25
+            },
+            {
+              "count": 16,
+              "predicted": 0.34116270115124114,
+              "observed": 0.3125
+            },
+            {
+              "count": 33,
+              "predicted": 0.4542164344975573,
+              "observed": 0.48484848484848486
+            },
+            {
+              "count": 27,
+              "predicted": 0.5499536102045584,
+              "observed": 0.6296296296296297
+            },
+            {
+              "count": 31,
+              "predicted": 0.6468635230008646,
+              "observed": 0.6451612903225806
+            },
+            {
+              "count": 30,
+              "predicted": 0.7474986315175866,
+              "observed": 0.8333333333333334
+            },
+            {
+              "count": 39,
+              "predicted": 0.8578452960812769,
+              "observed": 0.9487179487179487
+            },
+            {
+              "count": 55,
+              "predicted": 0.9561834885661684,
+              "observed": 0.9454545454545454
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 375,
+          "days": 4,
+          "accuracy": 0.808,
+          "log_loss": 0.4427990717447919,
+          "brier": 0.14086245933709454,
+          "calibration": [
+            {
+              "count": 57,
+              "predicted": 0.04137041095956242,
+              "observed": 0.07017543859649122
+            },
+            {
+              "count": 43,
+              "predicted": 0.15356290692342742,
+              "observed": 0.13953488372093023
+            },
+            {
+              "count": 29,
+              "predicted": 0.25300498093300583,
+              "observed": 0.27586206896551724
+            },
+            {
+              "count": 29,
+              "predicted": 0.34286269618252996,
+              "observed": 0.27586206896551724
+            },
+            {
+              "count": 23,
+              "predicted": 0.4627544282710433,
+              "observed": 0.43478260869565216
+            },
+            {
+              "count": 34,
+              "predicted": 0.5485939900944546,
+              "observed": 0.6764705882352942
+            },
+            {
+              "count": 32,
+              "predicted": 0.6500256247104164,
+              "observed": 0.59375
+            },
+            {
+              "count": 32,
+              "predicted": 0.7496518226730582,
+              "observed": 0.8125
+            },
+            {
+              "count": 41,
+              "predicted": 0.8579023703961054,
+              "observed": 0.926829268292683
+            },
+            {
+              "count": 55,
+              "predicted": 0.954846218570018,
+              "observed": 0.9454545454545454
+            }
+          ]
+        }
+      },
+      "price_buckets": {
+        "0-0.1": {
+          "market": {
+            "events": 47,
+            "days": 4,
+            "accuracy": 0.9574468085106383,
+            "log_loss": 0.177668442392318,
+            "brier": 0.041254489361702125,
+            "calibration": [
+              {
+                "count": 47,
+                "predicted": 0.05672340425531916,
+                "observed": 0.0425531914893617
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 47,
+            "days": 4,
+            "accuracy": 0.9574468085106383,
+            "log_loss": 0.16284019168921554,
+            "brier": 0.0400514992031491,
+            "calibration": [
+              {
+                "count": 43,
+                "predicted": 0.0328919172995949,
+                "observed": 0.046511627906976744
+              },
+              {
+                "count": 4,
+                "predicted": 0.10464718564618923,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 47,
+            "days": 4,
+            "accuracy": 0.9574468085106383,
+            "log_loss": 0.17994583871515019,
+            "brier": 0.042655558532691984,
+            "calibration": [
+              {
+                "count": 35,
+                "predicted": 0.03792148414539371,
+                "observed": 0.02857142857142857
+              },
+              {
+                "count": 11,
+                "predicted": 0.12432939947373794,
+                "observed": 0.09090909090909091
+              },
+              {
+                "count": 1,
+                "predicted": 0.20510207276733494,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 47,
+            "days": 4,
+            "accuracy": 0.9574468085106383,
+            "log_loss": 0.1867388375195561,
+            "brier": 0.042523629588802826,
+            "calibration": [
+              {
+                "count": 42,
+                "predicted": 0.05189445639303981,
+                "observed": 0.047619047619047616
+              },
+              {
+                "count": 5,
+                "predicted": 0.1194702774889366,
+                "observed": 0.0
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 47,
+            "days": 4,
+            "accuracy": 0.9574468085106383,
+            "log_loss": 0.17935325302314806,
+            "brier": 0.04155592710681737,
+            "calibration": [
+              {
+                "count": 42,
+                "predicted": 0.05670549171143672,
+                "observed": 0.047619047619047616
+              },
+              {
+                "count": 5,
+                "predicted": 0.1058661200007048,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 47,
+            "days": 4,
+            "accuracy": 0.9574468085106383,
+            "log_loss": 0.16487744578164784,
+            "brier": 0.04012693992908755,
+            "calibration": [
+              {
+                "count": 47,
+                "predicted": 0.032262667210975114,
+                "observed": 0.0425531914893617
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 47,
+            "days": 4,
+            "accuracy": 0.9574468085106383,
+            "log_loss": 0.1626145276941641,
+            "brier": 0.040110096863997434,
+            "calibration": [
+              {
+                "count": 41,
+                "predicted": 0.03401225402316706,
+                "observed": 0.024390243902439025
+              },
+              {
+                "count": 6,
+                "predicted": 0.11320989628711042,
+                "observed": 0.16666666666666666
+              }
+            ]
+          }
+        },
+        "0.1-0.3": {
+          "market": {
+            "events": 80,
+            "days": 4,
+            "accuracy": 0.85,
+            "log_loss": 0.4156142277755892,
+            "brier": 0.1260975,
+            "calibration": [
+              {
+                "count": 37,
+                "predicted": 0.15310810810810813,
+                "observed": 0.10810810810810811
+              },
+              {
+                "count": 43,
+                "predicted": 0.245,
+                "observed": 0.18604651162790697
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 80,
+            "days": 4,
+            "accuracy": 0.85,
+            "log_loss": 0.4880640184650026,
+            "brier": 0.13890052144107837,
+            "calibration": [
+              {
+                "count": 20,
+                "predicted": 0.061262732206085246,
+                "observed": 0.2
+              },
+              {
+                "count": 34,
+                "predicted": 0.15364639505577055,
+                "observed": 0.11764705882352941
+              },
+              {
+                "count": 24,
+                "predicted": 0.25151328926515487,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 2,
+                "predicted": 0.30599855716625923,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 80,
+            "days": 4,
+            "accuracy": 0.85,
+            "log_loss": 0.5251002218103743,
+            "brier": 0.15380785621207801,
+            "calibration": [
+              {
+                "count": 12,
+                "predicted": 0.0560372623660551,
+                "observed": 0.25
+              },
+              {
+                "count": 27,
+                "predicted": 0.1443046201973899,
+                "observed": 0.14814814814814814
+              },
+              {
+                "count": 24,
+                "predicted": 0.24179441348878897,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 14,
+                "predicted": 0.3385051086147663,
+                "observed": 0.07142857142857142
+              },
+              {
+                "count": 3,
+                "predicted": 0.42534734659848833,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 80,
+            "days": 4,
+            "accuracy": 0.85,
+            "log_loss": 0.4547663260830608,
+            "brier": 0.13745982581592792,
+            "calibration": [
+              {
+                "count": 10,
+                "predicted": 0.07600116600182467,
+                "observed": 0.1
+              },
+              {
+                "count": 39,
+                "predicted": 0.14948272594847528,
+                "observed": 0.1794871794871795
+              },
+              {
+                "count": 25,
+                "predicted": 0.24184984495619255,
+                "observed": 0.16
+              },
+              {
+                "count": 6,
+                "predicted": 0.33661406913040254,
+                "observed": 0.0
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 80,
+            "days": 4,
+            "accuracy": 0.85,
+            "log_loss": 0.40932536335690345,
+            "brier": 0.12438360201094249,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.094519804225564,
+                "observed": 0.0
+              },
+              {
+                "count": 43,
+                "predicted": 0.15423350609750136,
+                "observed": 0.11627906976744186
+              },
+              {
+                "count": 31,
+                "predicted": 0.23319957062269353,
+                "observed": 0.22580645161290322
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 80,
+            "days": 4,
+            "accuracy": 0.85,
+            "log_loss": 0.4948973481483606,
+            "brier": 0.1384392686523012,
+            "calibration": [
+              {
+                "count": 21,
+                "predicted": 0.05309105975919738,
+                "observed": 0.19047619047619047
+              },
+              {
+                "count": 35,
+                "predicted": 0.14394480667871346,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 24,
+                "predicted": 0.24753410961330893,
+                "observed": 0.125
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 80,
+            "days": 4,
+            "accuracy": 0.85,
+            "log_loss": 0.4895108263291963,
+            "brier": 0.1408800741434316,
+            "calibration": [
+              {
+                "count": 16,
+                "predicted": 0.060225688109075526,
+                "observed": 0.1875
+              },
+              {
+                "count": 35,
+                "predicted": 0.1590784101165678,
+                "observed": 0.11428571428571428
+              },
+              {
+                "count": 21,
+                "predicted": 0.25208020616238747,
+                "observed": 0.23809523809523808
+              },
+              {
+                "count": 8,
+                "predicted": 0.3183713119969558,
+                "observed": 0.0
+              }
+            ]
+          }
+        },
+        "0.3-0.7": {
+          "market": {
+            "events": 113,
+            "days": 4,
+            "accuracy": 0.5752212389380531,
+            "log_loss": 0.6791767790970271,
+            "brier": 0.24293119469026547,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.34624999999999995,
+                "observed": 0.4166666666666667
+              },
+              {
+                "count": 27,
+                "predicted": 0.4494444444444445,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 32,
+                "predicted": 0.5531250000000001,
+                "observed": 0.59375
+              },
+              {
+                "count": 30,
+                "predicted": 0.6470000000000001,
+                "observed": 0.5666666666666667
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 113,
+            "days": 4,
+            "accuracy": 0.584070796460177,
+            "log_loss": 0.6913687370962932,
+            "brier": 0.2478472085600158,
+            "calibration": [
+              {
+                "count": 4,
+                "predicted": 0.17806981515048,
+                "observed": 0.5
+              },
+              {
+                "count": 13,
+                "predicted": 0.27121443477314927,
+                "observed": 0.46153846153846156
+              },
+              {
+                "count": 16,
+                "predicted": 0.3497652251504806,
+                "observed": 0.3125
+              },
+              {
+                "count": 33,
+                "predicted": 0.45681101198973106,
+                "observed": 0.48484848484848486
+              },
+              {
+                "count": 27,
+                "predicted": 0.5471199969559559,
+                "observed": 0.6296296296296297
+              },
+              {
+                "count": 18,
+                "predicted": 0.6355683747752587,
+                "observed": 0.6111111111111112
+              },
+              {
+                "count": 2,
+                "predicted": 0.7349685912560646,
+                "observed": 0.5
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 113,
+            "days": 4,
+            "accuracy": 0.6194690265486725,
+            "log_loss": 0.7048205701379873,
+            "brier": 0.25349589497941966,
+            "calibration": [
+              {
+                "count": 3,
+                "predicted": 0.1594256728033496,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 14,
+                "predicted": 0.24114533362660487,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 16,
+                "predicted": 0.3584655328180337,
+                "observed": 0.3125
+              },
+              {
+                "count": 27,
+                "predicted": 0.4427237194127554,
+                "observed": 0.37037037037037035
+              },
+              {
+                "count": 26,
+                "predicted": 0.5538632281476515,
+                "observed": 0.6153846153846154
+              },
+              {
+                "count": 21,
+                "predicted": 0.6518630526504036,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 5,
+                "predicted": 0.7497171811198523,
+                "observed": 0.6
+              },
+              {
+                "count": 1,
+                "predicted": 0.8049219938360248,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 113,
+            "days": 4,
+            "accuracy": 0.6017699115044248,
+            "log_loss": 0.6894025782252396,
+            "brier": 0.24729267266247734,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.18177296391458583,
+                "observed": 0.0
+              },
+              {
+                "count": 13,
+                "predicted": 0.267209229084907,
+                "observed": 0.46153846153846156
+              },
+              {
+                "count": 24,
+                "predicted": 0.35856824169346657,
+                "observed": 0.5
+              },
+              {
+                "count": 24,
+                "predicted": 0.4450882600747561,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 25,
+                "predicted": 0.554509275795067,
+                "observed": 0.6
+              },
+              {
+                "count": 19,
+                "predicted": 0.6384195582025726,
+                "observed": 0.5789473684210527
+              },
+              {
+                "count": 7,
+                "predicted": 0.7286353203789755,
+                "observed": 0.8571428571428571
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 113,
+            "days": 4,
+            "accuracy": 0.6283185840707964,
+            "log_loss": 0.6812640822890528,
+            "brier": 0.2438749652835204,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.2862974733121146,
+                "observed": 0.5
+              },
+              {
+                "count": 26,
+                "predicted": 0.34694234182847633,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 29,
+                "predicted": 0.4560442840830496,
+                "observed": 0.3793103448275862
+              },
+              {
+                "count": 29,
+                "predicted": 0.5558746780315709,
+                "observed": 0.6551724137931034
+              },
+              {
+                "count": 23,
+                "predicted": 0.6392274677516797,
+                "observed": 0.6521739130434783
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 113,
+            "days": 4,
+            "accuracy": 0.584070796460177,
+            "log_loss": 0.6938473009997926,
+            "brier": 0.24870898215161807,
+            "calibration": [
+              {
+                "count": 5,
+                "predicted": 0.1698373096413556,
+                "observed": 0.4
+              },
+              {
+                "count": 12,
+                "predicted": 0.26467741118348836,
+                "observed": 0.5
+              },
+              {
+                "count": 16,
+                "predicted": 0.34116270115124114,
+                "observed": 0.3125
+              },
+              {
+                "count": 33,
+                "predicted": 0.4542164344975573,
+                "observed": 0.48484848484848486
+              },
+              {
+                "count": 27,
+                "predicted": 0.5499536102045584,
+                "observed": 0.6296296296296297
+              },
+              {
+                "count": 16,
+                "predicted": 0.6355825924288319,
+                "observed": 0.5625
+              },
+              {
+                "count": 4,
+                "predicted": 0.7265214944280807,
+                "observed": 0.75
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 113,
+            "days": 4,
+            "accuracy": 0.6017699115044248,
+            "log_loss": 0.6874446099517532,
+            "brier": 0.24626773038335653,
+            "calibration": [
+              {
+                "count": 2,
+                "predicted": 0.178100632952422,
+                "observed": 0.5
+              },
+              {
+                "count": 8,
+                "predicted": 0.2554325147058791,
+                "observed": 0.375
+              },
+              {
+                "count": 21,
+                "predicted": 0.3521927473008439,
+                "observed": 0.38095238095238093
+              },
+              {
+                "count": 23,
+                "predicted": 0.4627544282710433,
+                "observed": 0.43478260869565216
+              },
+              {
+                "count": 34,
+                "predicted": 0.5485939900944546,
+                "observed": 0.6764705882352942
+              },
+              {
+                "count": 21,
+                "predicted": 0.6427634262122501,
+                "observed": 0.47619047619047616
+              },
+              {
+                "count": 4,
+                "predicted": 0.7389435715372578,
+                "observed": 0.75
+              }
+            ]
+          }
+        },
+        "0.7-0.9": {
+          "market": {
+            "events": 83,
+            "days": 4,
+            "accuracy": 0.8674698795180723,
+            "log_loss": 0.40405257504978526,
+            "brier": 0.1195527108433735,
+            "calibration": [
+              {
+                "count": 32,
+                "predicted": 0.7562500000000001,
+                "observed": 0.84375
+              },
+              {
+                "count": 51,
+                "predicted": 0.8516666666666667,
+                "observed": 0.8823529411764706
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 83,
+            "days": 4,
+            "accuracy": 0.8674698795180723,
+            "log_loss": 0.4192979133937617,
+            "brier": 0.12372354173838937,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.5951078437109033,
+                "observed": 1.0
+              },
+              {
+                "count": 18,
+                "predicted": 0.6631940747524215,
+                "observed": 0.7777777777777778
+              },
+              {
+                "count": 25,
+                "predicted": 0.7523403669573777,
+                "observed": 0.84
+              },
+              {
+                "count": 30,
+                "predicted": 0.8461042771906256,
+                "observed": 0.9666666666666667
+              },
+              {
+                "count": 9,
+                "predicted": 0.9397211837677839,
+                "observed": 0.7777777777777778
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 83,
+            "days": 4,
+            "accuracy": 0.8674698795180723,
+            "log_loss": 0.41475041913680005,
+            "brier": 0.1240031432760833,
+            "calibration": [
+              {
+                "count": 5,
+                "predicted": 0.561692397348754,
+                "observed": 0.8
+              },
+              {
+                "count": 11,
+                "predicted": 0.6551649272453539,
+                "observed": 0.9090909090909091
+              },
+              {
+                "count": 22,
+                "predicted": 0.7478918252211098,
+                "observed": 0.7272727272727273
+              },
+              {
+                "count": 33,
+                "predicted": 0.8499229779311469,
+                "observed": 0.9393939393939394
+              },
+              {
+                "count": 12,
+                "predicted": 0.9355371859790961,
+                "observed": 0.9166666666666666
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 83,
+            "days": 4,
+            "accuracy": 0.8674698795180723,
+            "log_loss": 0.40406543993772076,
+            "brier": 0.12015855851511234,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.6486854265953926,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 19,
+                "predicted": 0.7623294165709428,
+                "observed": 0.8421052631578947
+              },
+              {
+                "count": 52,
+                "predicted": 0.8456221958009803,
+                "observed": 0.8846153846153846
+              },
+              {
+                "count": 6,
+                "predicted": 0.9240971035360505,
+                "observed": 0.8333333333333334
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 83,
+            "days": 4,
+            "accuracy": 0.8674698795180723,
+            "log_loss": 0.407825738334052,
+            "brier": 0.12091725182096127,
+            "calibration": [
+              {
+                "count": 4,
+                "predicted": 0.6938163737948635,
+                "observed": 1.0
+              },
+              {
+                "count": 32,
+                "predicted": 0.7557890832113024,
+                "observed": 0.8125
+              },
+              {
+                "count": 47,
+                "predicted": 0.849303342652232,
+                "observed": 0.8936170212765957
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 83,
+            "days": 4,
+            "accuracy": 0.8674698795180723,
+            "log_loss": 0.4154858287628925,
+            "brier": 0.12187157000804846,
+            "calibration": [
+              {
+                "count": 15,
+                "predicted": 0.6588965156110327,
+                "observed": 0.7333333333333333
+              },
+              {
+                "count": 25,
+                "predicted": 0.7489106032047964,
+                "observed": 0.84
+              },
+              {
+                "count": 33,
+                "predicted": 0.8521290517431556,
+                "observed": 0.9696969696969697
+              },
+              {
+                "count": 10,
+                "predicted": 0.9456368066286469,
+                "observed": 0.8
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 83,
+            "days": 4,
+            "accuracy": 0.8674698795180723,
+            "log_loss": 0.41072482327144894,
+            "brier": 0.12022141322570556,
+            "calibration": [
+              {
+                "count": 11,
+                "predicted": 0.6638898218432798,
+                "observed": 0.8181818181818182
+              },
+              {
+                "count": 28,
+                "predicted": 0.7511815728353153,
+                "observed": 0.8214285714285714
+              },
+              {
+                "count": 34,
+                "predicted": 0.8538126881296266,
+                "observed": 0.9411764705882353
+              },
+              {
+                "count": 10,
+                "predicted": 0.9442156074587438,
+                "observed": 0.8
+              }
+            ]
+          }
+        },
+        "0.9-1": {
+          "market": {
+            "events": 52,
+            "days": 4,
+            "accuracy": 0.9615384615384616,
+            "log_loss": 0.14791984449898046,
+            "brier": 0.03536205769230769,
+            "calibration": [
+              {
+                "count": 52,
+                "predicted": 0.942326923076923,
+                "observed": 0.9615384615384616
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 52,
+            "days": 4,
+            "accuracy": 0.9615384615384616,
+            "log_loss": 0.1469276283568675,
+            "brier": 0.03612869599328941,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.7824389110262906,
+                "observed": 1.0
+              },
+              {
+                "count": 10,
+                "predicted": 0.8838706050604467,
+                "observed": 0.9
+              },
+              {
+                "count": 41,
+                "predicted": 0.955555252142168,
+                "observed": 0.975609756097561
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 52,
+            "days": 4,
+            "accuracy": 0.9615384615384616,
+            "log_loss": 0.16316643088433702,
+            "brier": 0.039182445254512616,
+            "calibration": [
+              {
+                "count": 2,
+                "predicted": 0.7781405207936313,
+                "observed": 1.0
+              },
+              {
+                "count": 13,
+                "predicted": 0.8655034717983886,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 37,
+                "predicted": 0.9513281682159552,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 52,
+            "days": 4,
+            "accuracy": 0.9615384615384616,
+            "log_loss": 0.1450555129068259,
+            "brier": 0.03575512262014326,
+            "calibration": [
+              {
+                "count": 52,
+                "predicted": 0.9606413619213835,
+                "observed": 0.9615384615384616
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 52,
+            "days": 4,
+            "accuracy": 0.9615384615384616,
+            "log_loss": 0.14416621844880803,
+            "brier": 0.03529354984137461,
+            "calibration": [
+              {
+                "count": 52,
+                "predicted": 0.9548503156199266,
+                "observed": 0.9615384615384616
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 52,
+            "days": 4,
+            "accuracy": 0.9615384615384616,
+            "log_loss": 0.1429082076222878,
+            "brier": 0.035787484925208814,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.7961078876953633,
+                "observed": 1.0
+              },
+              {
+                "count": 6,
+                "predicted": 0.8892846399409438,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 45,
+                "predicted": 0.9585271956633955,
+                "observed": 0.9777777777777777
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 52,
+            "days": 4,
+            "accuracy": 0.9615384615384616,
+            "log_loss": 0.14374041808186855,
+            "brier": 0.03579251800529213,
+            "calibration": [
+              {
+                "count": 7,
+                "predicted": 0.8777665414047157,
+                "observed": 0.8571428571428571
+              },
+              {
+                "count": 45,
+                "predicted": 0.9572085765947456,
+                "observed": 0.9777777777777777
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-09-15",
+      "end_exclusive": "2026-09-19",
+      "train_events": 1328,
+      "evaluated_events": 367,
+      "fit": {
+        "bias": 0.09092741781101639,
+        "log_slope": -0.05366930054592267
+      },
+      "scores": {
+        "market": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.779291553133515,
+          "log_loss": 0.45274680099702325,
+          "brier": 0.14628268324250682,
+          "calibration": [
+            {
+              "count": 58,
+              "predicted": 0.05720689655172414,
+              "observed": 0.06896551724137931
+            },
+            {
+              "count": 50,
+              "predicted": 0.1458,
+              "observed": 0.2
+            },
+            {
+              "count": 25,
+              "predicted": 0.257,
+              "observed": 0.28
+            },
+            {
+              "count": 27,
+              "predicted": 0.350925925925926,
+              "observed": 0.4444444444444444
+            },
+            {
+              "count": 18,
+              "predicted": 0.45222222222222225,
+              "observed": 0.4444444444444444
+            },
+            {
+              "count": 29,
+              "predicted": 0.5436206896551724,
+              "observed": 0.3448275862068966
+            },
+            {
+              "count": 30,
+              "predicted": 0.6578333333333332,
+              "observed": 0.8
+            },
+            {
+              "count": 33,
+              "predicted": 0.7559090909090909,
+              "observed": 0.7878787878787878
+            },
+            {
+              "count": 46,
+              "predicted": 0.8525000000000003,
+              "observed": 0.8913043478260869
+            },
+            {
+              "count": 51,
+              "predicted": 0.9440490196078432,
+              "observed": 0.9411764705882353
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7956403269754768,
+          "log_loss": 0.45268556198827026,
+          "brier": 0.14729986599158007,
+          "calibration": [
+            {
+              "count": 62,
+              "predicted": 0.04249945456429155,
+              "observed": 0.06451612903225806
+            },
+            {
+              "count": 38,
+              "predicted": 0.14732674637066284,
+              "observed": 0.21052631578947367
+            },
+            {
+              "count": 32,
+              "predicted": 0.24686668430193145,
+              "observed": 0.25
+            },
+            {
+              "count": 30,
+              "predicted": 0.3408807066974713,
+              "observed": 0.43333333333333335
+            },
+            {
+              "count": 26,
+              "predicted": 0.46110913270669013,
+              "observed": 0.38461538461538464
+            },
+            {
+              "count": 30,
+              "predicted": 0.5472290994699404,
+              "observed": 0.6
+            },
+            {
+              "count": 31,
+              "predicted": 0.646013488208869,
+              "observed": 0.7096774193548387
+            },
+            {
+              "count": 34,
+              "predicted": 0.7445447323649049,
+              "observed": 0.8823529411764706
+            },
+            {
+              "count": 43,
+              "predicted": 0.8490113855319028,
+              "observed": 0.8604651162790697
+            },
+            {
+              "count": 41,
+              "predicted": 0.9520814688250342,
+              "observed": 0.975609756097561
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7901907356948229,
+          "log_loss": 0.46354700551015326,
+          "brier": 0.15175529543197053,
+          "calibration": [
+            {
+              "count": 49,
+              "predicted": 0.04868666126682531,
+              "observed": 0.08163265306122448
+            },
+            {
+              "count": 40,
+              "predicted": 0.1456023910935058,
+              "observed": 0.175
+            },
+            {
+              "count": 35,
+              "predicted": 0.24711418082338113,
+              "observed": 0.2571428571428571
+            },
+            {
+              "count": 33,
+              "predicted": 0.3506459307537835,
+              "observed": 0.36363636363636365
+            },
+            {
+              "count": 27,
+              "predicted": 0.4487058589562871,
+              "observed": 0.37037037037037035
+            },
+            {
+              "count": 23,
+              "predicted": 0.5549834711359153,
+              "observed": 0.6086956521739131
+            },
+            {
+              "count": 29,
+              "predicted": 0.6504620445490906,
+              "observed": 0.7241379310344828
+            },
+            {
+              "count": 39,
+              "predicted": 0.7474498370964402,
+              "observed": 0.717948717948718
+            },
+            {
+              "count": 48,
+              "predicted": 0.8487225441117109,
+              "observed": 0.875
+            },
+            {
+              "count": 44,
+              "predicted": 0.9458772034293816,
+              "observed": 0.9772727272727273
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7929155313351499,
+          "log_loss": 0.4639343579372574,
+          "brier": 0.15007438778628449,
+          "calibration": [
+            {
+              "count": 68,
+              "predicted": 0.057519675447642464,
+              "observed": 0.07352941176470588
+            },
+            {
+              "count": 47,
+              "predicted": 0.1414426822829922,
+              "observed": 0.23404255319148937
+            },
+            {
+              "count": 28,
+              "predicted": 0.2593923142405187,
+              "observed": 0.2857142857142857
+            },
+            {
+              "count": 18,
+              "predicted": 0.3524918387455462,
+              "observed": 0.6111111111111112
+            },
+            {
+              "count": 26,
+              "predicted": 0.45070568327002836,
+              "observed": 0.3076923076923077
+            },
+            {
+              "count": 23,
+              "predicted": 0.5518813573578232,
+              "observed": 0.5217391304347826
+            },
+            {
+              "count": 18,
+              "predicted": 0.6510817017198501,
+              "observed": 0.7777777777777778
+            },
+            {
+              "count": 36,
+              "predicted": 0.7475171051803213,
+              "observed": 0.75
+            },
+            {
+              "count": 45,
+              "predicted": 0.8521196604000472,
+              "observed": 0.8666666666666667
+            },
+            {
+              "count": 58,
+              "predicted": 0.9562866419763294,
+              "observed": 0.9482758620689655
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7901907356948229,
+          "log_loss": 0.4548093647263047,
+          "brier": 0.14679371312091838,
+          "calibration": [
+            {
+              "count": 67,
+              "predicted": 0.06132238924452981,
+              "observed": 0.07462686567164178
+            },
+            {
+              "count": 44,
+              "predicted": 0.135820397782866,
+              "observed": 0.22727272727272727
+            },
+            {
+              "count": 28,
+              "predicted": 0.248993488582021,
+              "observed": 0.21428571428571427
+            },
+            {
+              "count": 25,
+              "predicted": 0.346738603062189,
+              "observed": 0.56
+            },
+            {
+              "count": 22,
+              "predicted": 0.46196447942612145,
+              "observed": 0.36363636363636365
+            },
+            {
+              "count": 23,
+              "predicted": 0.5476638479102602,
+              "observed": 0.391304347826087
+            },
+            {
+              "count": 28,
+              "predicted": 0.6531907936665384,
+              "observed": 0.8214285714285714
+            },
+            {
+              "count": 34,
+              "predicted": 0.7570715914884979,
+              "observed": 0.7941176470588235
+            },
+            {
+              "count": 38,
+              "predicted": 0.8497084304936723,
+              "observed": 0.8947368421052632
+            },
+            {
+              "count": 58,
+              "predicted": 0.9516103458088082,
+              "observed": 0.9310344827586207
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.7956403269754768,
+          "log_loss": 0.45330565178299476,
+          "brier": 0.14726207374141018,
+          "calibration": [
+            {
+              "count": 70,
+              "predicted": 0.04156464220027986,
+              "observed": 0.08571428571428572
+            },
+            {
+              "count": 37,
+              "predicted": 0.15354409631573157,
+              "observed": 0.21621621621621623
+            },
+            {
+              "count": 29,
+              "predicted": 0.2524526601962136,
+              "observed": 0.2413793103448276
+            },
+            {
+              "count": 26,
+              "predicted": 0.33731703609767827,
+              "observed": 0.46153846153846156
+            },
+            {
+              "count": 26,
+              "predicted": 0.4587723826137611,
+              "observed": 0.38461538461538464
+            },
+            {
+              "count": 27,
+              "predicted": 0.5443046935201813,
+              "observed": 0.5925925925925926
+            },
+            {
+              "count": 30,
+              "predicted": 0.6423064240164654,
+              "observed": 0.7333333333333333
+            },
+            {
+              "count": 33,
+              "predicted": 0.743679107024977,
+              "observed": 0.8787878787878788
+            },
+            {
+              "count": 44,
+              "predicted": 0.8523234138652416,
+              "observed": 0.8181818181818182
+            },
+            {
+              "count": 45,
+              "predicted": 0.9555154796485624,
+              "observed": 0.9777777777777777
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 367,
+          "days": 4,
+          "accuracy": 0.784741144414169,
+          "log_loss": 0.4481307381348116,
+          "brier": 0.1459797152161361,
+          "calibration": [
+            {
+              "count": 56,
+              "predicted": 0.04349633289768018,
+              "observed": 0.07142857142857142
+            },
+            {
+              "count": 36,
+              "predicted": 0.14877991316055014,
+              "observed": 0.1388888888888889
+            },
+            {
+              "count": 34,
+              "predicted": 0.2509332522178733,
+              "observed": 0.2647058823529412
+            },
+            {
+              "count": 31,
+              "predicted": 0.3563343265445818,
+              "observed": 0.41935483870967744
+            },
+            {
+              "count": 17,
+              "predicted": 0.4572746921805486,
+              "observed": 0.4117647058823529
+            },
+            {
+              "count": 32,
+              "predicted": 0.5418602578985472,
+              "observed": 0.4375
+            },
+            {
+              "count": 33,
+              "predicted": 0.6458172971969153,
+              "observed": 0.7878787878787878
+            },
+            {
+              "count": 36,
+              "predicted": 0.7500375672481993,
+              "observed": 0.8055555555555556
+            },
+            {
+              "count": 45,
+              "predicted": 0.8549696607602691,
+              "observed": 0.8222222222222222
+            },
+            {
+              "count": 47,
+              "predicted": 0.9539106808579584,
+              "observed": 0.9787234042553191
+            }
+          ]
+        }
+      },
+      "price_buckets": {
+        "0-0.1": {
+          "market": {
+            "events": 58,
+            "days": 4,
+            "accuracy": 0.9310344827586207,
+            "log_loss": 0.2545000095437788,
+            "brier": 0.06366397413793104,
+            "calibration": [
+              {
+                "count": 58,
+                "predicted": 0.05720689655172414,
+                "observed": 0.06896551724137931
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 58,
+            "days": 4,
+            "accuracy": 0.9310344827586207,
+            "log_loss": 0.2500215580377834,
+            "brier": 0.06556149001530506,
+            "calibration": [
+              {
+                "count": 52,
+                "predicted": 0.0370064458047525,
+                "observed": 0.07692307692307693
+              },
+              {
+                "count": 6,
+                "predicted": 0.1397780145793227,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 58,
+            "days": 4,
+            "accuracy": 0.9310344827586207,
+            "log_loss": 0.25058993521721157,
+            "brier": 0.06681939185755033,
+            "calibration": [
+              {
+                "count": 43,
+                "predicted": 0.04638910169564741,
+                "observed": 0.09302325581395349
+              },
+              {
+                "count": 12,
+                "predicted": 0.12081987904570947,
+                "observed": 0.0
+              },
+              {
+                "count": 3,
+                "predicted": 0.23932340546271114,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 58,
+            "days": 4,
+            "accuracy": 0.9310344827586207,
+            "log_loss": 0.2544794865489085,
+            "brier": 0.06437469468742027,
+            "calibration": [
+              {
+                "count": 52,
+                "predicted": 0.04886072879985275,
+                "observed": 0.057692307692307696
+              },
+              {
+                "count": 6,
+                "predicted": 0.10685099805909744,
+                "observed": 0.16666666666666666
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 58,
+            "days": 4,
+            "accuracy": 0.9310344827586207,
+            "log_loss": 0.25525957507251257,
+            "brier": 0.06363525131523697,
+            "calibration": [
+              {
+                "count": 58,
+                "predicted": 0.05664236892248202,
+                "observed": 0.06896551724137931
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 58,
+            "days": 4,
+            "accuracy": 0.9310344827586207,
+            "log_loss": 0.256824349404596,
+            "brier": 0.06592548738069316,
+            "calibration": [
+              {
+                "count": 54,
+                "predicted": 0.0325581533981343,
+                "observed": 0.07407407407407407
+              },
+              {
+                "count": 4,
+                "predicted": 0.14095991922217518,
+                "observed": 0.0
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 58,
+            "days": 4,
+            "accuracy": 0.9310344827586207,
+            "log_loss": 0.246659075905576,
+            "brier": 0.06559251528383965,
+            "calibration": [
+              {
+                "count": 49,
+                "predicted": 0.03936877167656721,
+                "observed": 0.08163265306122448
+              },
+              {
+                "count": 8,
+                "predicted": 0.13406422621028874,
+                "observed": 0.0
+              },
+              {
+                "count": 1,
+                "predicted": 0.22476827722005588,
+                "observed": 0.0
+              }
+            ]
+          }
+        },
+        "0.1-0.3": {
+          "market": {
+            "events": 75,
+            "days": 4,
+            "accuracy": 0.7733333333333333,
+            "log_loss": 0.5287991857547646,
+            "brier": 0.17278500000000002,
+            "calibration": [
+              {
+                "count": 50,
+                "predicted": 0.1458,
+                "observed": 0.2
+              },
+              {
+                "count": 25,
+                "predicted": 0.257,
+                "observed": 0.28
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 75,
+            "days": 4,
+            "accuracy": 0.7733333333333333,
+            "log_loss": 0.5175059933661638,
+            "brier": 0.16979122524476364,
+            "calibration": [
+              {
+                "count": 10,
+                "predicted": 0.07106310011389456,
+                "observed": 0.0
+              },
+              {
+                "count": 32,
+                "predicted": 0.1487421335815391,
+                "observed": 0.25
+              },
+              {
+                "count": 28,
+                "predicted": 0.24094180630619674,
+                "observed": 0.25
+              },
+              {
+                "count": 5,
+                "predicted": 0.32724845501388655,
+                "observed": 0.4
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 75,
+            "days": 4,
+            "accuracy": 0.7733333333333333,
+            "log_loss": 0.5301033144371416,
+            "brier": 0.17609834376709743,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.06515250486026693,
+                "observed": 0.0
+              },
+              {
+                "count": 28,
+                "predicted": 0.15622346768541853,
+                "observed": 0.25
+              },
+              {
+                "count": 26,
+                "predicted": 0.24008644843287147,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 15,
+                "predicted": 0.34089414936068085,
+                "observed": 0.26666666666666666
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 75,
+            "days": 4,
+            "accuracy": 0.7733333333333333,
+            "log_loss": 0.5598899776852672,
+            "brier": 0.18190161892303688,
+            "calibration": [
+              {
+                "count": 16,
+                "predicted": 0.08566125205295899,
+                "observed": 0.125
+              },
+              {
+                "count": 41,
+                "predicted": 0.1465048799742939,
+                "observed": 0.24390243902439024
+              },
+              {
+                "count": 18,
+                "predicted": 0.2502645753164694,
+                "observed": 0.2777777777777778
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 75,
+            "days": 4,
+            "accuracy": 0.7733333333333333,
+            "log_loss": 0.5376689785059363,
+            "brier": 0.17524209443437447,
+            "calibration": [
+              {
+                "count": 9,
+                "predicted": 0.09148252020883785,
+                "observed": 0.1111111111111111
+              },
+              {
+                "count": 44,
+                "predicted": 0.135820397782866,
+                "observed": 0.22727272727272727
+              },
+              {
+                "count": 22,
+                "predicted": 0.23914371921868505,
+                "observed": 0.2727272727272727
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 75,
+            "days": 4,
+            "accuracy": 0.7733333333333333,
+            "log_loss": 0.5220000095677084,
+            "brier": 0.17105772756112236,
+            "calibration": [
+              {
+                "count": 16,
+                "predicted": 0.07196154190752117,
+                "observed": 0.125
+              },
+              {
+                "count": 33,
+                "predicted": 0.15506945111495052,
+                "observed": 0.24242424242424243
+              },
+              {
+                "count": 22,
+                "predicted": 0.24207056384402545,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 4,
+                "predicted": 0.32251938873744834,
+                "observed": 0.25
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 75,
+            "days": 4,
+            "accuracy": 0.7733333333333333,
+            "log_loss": 0.5128896275642113,
+            "brier": 0.16828117896754605,
+            "calibration": [
+              {
+                "count": 7,
+                "predicted": 0.07238926144547102,
+                "observed": 0.0
+              },
+              {
+                "count": 28,
+                "predicted": 0.15298439514633913,
+                "observed": 0.17857142857142858
+              },
+              {
+                "count": 32,
+                "predicted": 0.25065808950514706,
+                "observed": 0.25
+              },
+              {
+                "count": 8,
+                "predicted": 0.3451703139154302,
+                "observed": 0.5
+              }
+            ]
+          }
+        },
+        "0.3-0.7": {
+          "market": {
+            "events": 104,
+            "days": 4,
+            "accuracy": 0.5673076923076923,
+            "log_loss": 0.6591275439814565,
+            "brier": 0.2337199519230769,
+            "calibration": [
+              {
+                "count": 27,
+                "predicted": 0.350925925925926,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 18,
+                "predicted": 0.45222222222222225,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 29,
+                "predicted": 0.5436206896551724,
+                "observed": 0.3448275862068966
+              },
+              {
+                "count": 30,
+                "predicted": 0.6578333333333332,
+                "observed": 0.8
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 104,
+            "days": 4,
+            "accuracy": 0.625,
+            "log_loss": 0.6669186056710175,
+            "brier": 0.23678582969703557,
+            "calibration": [
+              {
+                "count": 4,
+                "predicted": 0.28834083027207447,
+                "observed": 0.25
+              },
+              {
+                "count": 25,
+                "predicted": 0.3436071570341882,
+                "observed": 0.44
+              },
+              {
+                "count": 26,
+                "predicted": 0.46110913270669013,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 29,
+                "predicted": 0.5455878905865321,
+                "observed": 0.6206896551724138
+              },
+              {
+                "count": 20,
+                "predicted": 0.6297205729397612,
+                "observed": 0.7
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 104,
+            "days": 4,
+            "accuracy": 0.6057692307692307,
+            "log_loss": 0.6870544830836701,
+            "brier": 0.24584318914259187,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.28146307552925787,
+                "observed": 0.5
+              },
+              {
+                "count": 18,
+                "predicted": 0.3587724152480356,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 27,
+                "predicted": 0.4487058589562871,
+                "observed": 0.37037037037037035
+              },
+              {
+                "count": 23,
+                "predicted": 0.5549834711359153,
+                "observed": 0.6086956521739131
+              },
+              {
+                "count": 24,
+                "predicted": 0.647973289172261,
+                "observed": 0.7083333333333334
+              },
+              {
+                "count": 5,
+                "predicted": 0.7443498750473915,
+                "observed": 0.2
+              },
+              {
+                "count": 1,
+                "predicted": 0.8051964583691678,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 104,
+            "days": 4,
+            "accuracy": 0.6153846153846154,
+            "log_loss": 0.6711939515244745,
+            "brier": 0.23902095671987603,
+            "calibration": [
+              {
+                "count": 10,
+                "predicted": 0.2758222443038073,
+                "observed": 0.3
+              },
+              {
+                "count": 18,
+                "predicted": 0.3524918387455462,
+                "observed": 0.6111111111111112
+              },
+              {
+                "count": 26,
+                "predicted": 0.45070568327002836,
+                "observed": 0.3076923076923077
+              },
+              {
+                "count": 23,
+                "predicted": 0.5518813573578232,
+                "observed": 0.5217391304347826
+              },
+              {
+                "count": 18,
+                "predicted": 0.6510817017198501,
+                "observed": 0.7777777777777778
+              },
+              {
+                "count": 9,
+                "predicted": 0.7268638492243953,
+                "observed": 0.6666666666666666
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 104,
+            "days": 4,
+            "accuracy": 0.6057692307692307,
+            "log_loss": 0.6585720148004796,
+            "brier": 0.23336123414392843,
+            "calibration": [
+              {
+                "count": 6,
+                "predicted": 0.2851093095809194,
+                "observed": 0.0
+              },
+              {
+                "count": 25,
+                "predicted": 0.346738603062189,
+                "observed": 0.56
+              },
+              {
+                "count": 22,
+                "predicted": 0.46196447942612145,
+                "observed": 0.36363636363636365
+              },
+              {
+                "count": 23,
+                "predicted": 0.5476638479102602,
+                "observed": 0.391304347826087
+              },
+              {
+                "count": 28,
+                "predicted": 0.6531907936665384,
+                "observed": 0.8214285714285714
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 104,
+            "days": 4,
+            "accuracy": 0.625,
+            "log_loss": 0.6669991504835822,
+            "brier": 0.23675931518056326,
+            "calibration": [
+              {
+                "count": 7,
+                "predicted": 0.28508210587451926,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 22,
+                "predicted": 0.3400075174359019,
+                "observed": 0.5
+              },
+              {
+                "count": 26,
+                "predicted": 0.4587723826137611,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 27,
+                "predicted": 0.5443046935201813,
+                "observed": 0.5925925925925926
+              },
+              {
+                "count": 21,
+                "predicted": 0.6309334170773541,
+                "observed": 0.7142857142857143
+              },
+              {
+                "count": 1,
+                "predicted": 0.7002683435815771,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 104,
+            "days": 4,
+            "accuracy": 0.5865384615384616,
+            "log_loss": 0.6639602239882731,
+            "brier": 0.2355261466475384,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.285903434022931,
+                "observed": 1.0
+              },
+              {
+                "count": 23,
+                "predicted": 0.36021746137211275,
+                "observed": 0.391304347826087
+              },
+              {
+                "count": 17,
+                "predicted": 0.4572746921805486,
+                "observed": 0.4117647058823529
+              },
+              {
+                "count": 32,
+                "predicted": 0.5418602578985472,
+                "observed": 0.4375
+              },
+              {
+                "count": 28,
+                "predicted": 0.6406533607378471,
+                "observed": 0.7857142857142857
+              },
+              {
+                "count": 3,
+                "predicted": 0.7131144456053073,
+                "observed": 0.3333333333333333
+              }
+            ]
+          }
+        },
+        "0.7-0.9": {
+          "market": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.8481012658227848,
+            "log_loss": 0.42159997581890013,
+            "brier": 0.1275145569620253,
+            "calibration": [
+              {
+                "count": 33,
+                "predicted": 0.7559090909090909,
+                "observed": 0.7878787878787878
+              },
+              {
+                "count": 46,
+                "predicted": 0.8525000000000003,
+                "observed": 0.8913043478260869
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.8481012658227848,
+            "log_loss": 0.4250689001874298,
+            "brier": 0.1301066257781788,
+            "calibration": [
+              {
+                "count": 1,
+                "predicted": 0.5948241570887853,
+                "observed": 0.0
+              },
+              {
+                "count": 11,
+                "predicted": 0.6756369705163371,
+                "observed": 0.7272727272727273
+              },
+              {
+                "count": 34,
+                "predicted": 0.7445447323649049,
+                "observed": 0.8823529411764706
+              },
+              {
+                "count": 31,
+                "predicted": 0.8459837448971989,
+                "observed": 0.8709677419354839
+              },
+              {
+                "count": 2,
+                "predicted": 0.9363542200578845,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.8481012658227848,
+            "log_loss": 0.42626042684228393,
+            "brier": 0.13013900049118016,
+            "calibration": [
+              {
+                "count": 5,
+                "predicted": 0.6624080703578719,
+                "observed": 0.8
+              },
+              {
+                "count": 34,
+                "predicted": 0.7479057138683594,
+                "observed": 0.7941176470588235
+              },
+              {
+                "count": 35,
+                "predicted": 0.8439440708402047,
+                "observed": 0.8857142857142857
+              },
+              {
+                "count": 5,
+                "predicted": 0.9246028823115215,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.8481012658227848,
+            "log_loss": 0.4199676643510968,
+            "brier": 0.1274932297755191,
+            "calibration": [
+              {
+                "count": 27,
+                "predicted": 0.7544015238322969,
+                "observed": 0.7777777777777778
+              },
+              {
+                "count": 45,
+                "predicted": 0.8521196604000472,
+                "observed": 0.8666666666666667
+              },
+              {
+                "count": 7,
+                "predicted": 0.9129752360901507,
+                "observed": 1.0
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.8481012658227848,
+            "log_loss": 0.4215815120816952,
+            "brier": 0.1275082825346719,
+            "calibration": [
+              {
+                "count": 34,
+                "predicted": 0.7570715914884979,
+                "observed": 0.7941176470588235
+              },
+              {
+                "count": 38,
+                "predicted": 0.8497084304936723,
+                "observed": 0.8947368421052632
+              },
+              {
+                "count": 7,
+                "predicted": 0.9007667395845607,
+                "observed": 0.8571428571428571
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.8481012658227848,
+            "log_loss": 0.4198782798173551,
+            "brier": 0.1285600599004322,
+            "calibration": [
+              {
+                "count": 9,
+                "predicted": 0.668843440207725,
+                "observed": 0.7777777777777778
+              },
+              {
+                "count": 32,
+                "predicted": 0.7450356933825831,
+                "observed": 0.875
+              },
+              {
+                "count": 33,
+                "predicted": 0.8473384694975766,
+                "observed": 0.8181818181818182
+              },
+              {
+                "count": 5,
+                "predicted": 0.9220130717682755,
+                "observed": 1.0
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 79,
+            "days": 4,
+            "accuracy": 0.8481012658227848,
+            "log_loss": 0.4155650319541591,
+            "brier": 0.12699650592573583,
+            "calibration": [
+              {
+                "count": 5,
+                "predicted": 0.6747353413676966,
+                "observed": 0.8
+              },
+              {
+                "count": 33,
+                "predicted": 0.7533942146702803,
+                "observed": 0.8484848484848485
+              },
+              {
+                "count": 35,
+                "predicted": 0.8502760466460959,
+                "observed": 0.8285714285714286
+              },
+              {
+                "count": 6,
+                "predicted": 0.920733996729516,
+                "observed": 1.0
+              }
+            ]
+          }
+        },
+        "0.9-1": {
+          "market": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9411764705882353,
+            "log_loss": 0.19375438856855787,
+            "brier": 0.05203596568627451,
+            "calibration": [
+              {
+                "count": 51,
+                "predicted": 0.9440490196078432,
+                "observed": 0.9411764705882353
+              }
+            ]
+          },
+          "BTCVolatility": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9411764705882353,
+            "log_loss": 0.1937533975774253,
+            "brier": 0.05133319175876664,
+            "calibration": [
+              {
+                "count": 12,
+                "predicted": 0.8568327905048879,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 39,
+                "predicted": 0.9528879944028364,
+                "observed": 0.9743589743589743
+              }
+            ]
+          },
+          "BTCSignal": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9411764705882353,
+            "log_loss": 0.20983423991373007,
+            "brier": 0.05416902360059151,
+            "calibration": [
+              {
+                "count": 12,
+                "predicted": 0.8662869316321498,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 39,
+                "predicted": 0.9486046804957741,
+                "observed": 0.9743589743589743
+              }
+            ]
+          },
+          "BTCMarketGuard": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9411764705882353,
+            "log_loss": 0.2064849877345043,
+            "brier": 0.05432945010461072,
+            "calibration": [
+              {
+                "count": 51,
+                "predicted": 0.9622313447450205,
+                "observed": 0.9411764705882353
+              }
+            ]
+          },
+          "price_only_control": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9411764705882353,
+            "log_loss": 0.19585057095488376,
+            "brier": 0.052873889907991835,
+            "calibration": [
+              {
+                "count": 51,
+                "predicted": 0.95858887999645,
+                "observed": 0.9411764705882353
+              }
+            ]
+          },
+          "BTCAverageRaw": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9411764705882353,
+            "log_loss": 0.1917463816755052,
+            "brier": 0.051234504255302675,
+            "calibration": [
+              {
+                "count": 11,
+                "predicted": 0.8672782469682354,
+                "observed": 0.8181818181818182
+              },
+              {
+                "count": 40,
+                "predicted": 0.9597032806335981,
+                "observed": 0.975
+              }
+            ]
+          },
+          "BTCAverage": {
+            "events": 51,
+            "days": 4,
+            "accuracy": 0.9411764705882353,
+            "log_loss": 0.1923437569897579,
+            "brier": 0.0514050579571797,
+            "calibration": [
+              {
+                "count": 10,
+                "predicted": 0.8713973101598761,
+                "observed": 0.8
+              },
+              {
+                "count": 41,
+                "predicted": 0.9587658053645597,
+                "observed": 0.975609756097561
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "forward_scores": {
+    "market": {
+      "events": 1109,
+      "days": 12,
+      "accuracy": 0.7917042380522994,
+      "log_loss": 0.43814676678272335,
+      "brier": 0.14163951172227232,
+      "calibration": [
+        {
+          "count": 168,
+          "predicted": 0.05650892857142858,
+          "observed": 0.05952380952380952
+        },
+        {
+          "count": 120,
+          "predicted": 0.15125000000000002,
+          "observed": 0.175
+        },
+        {
+          "count": 114,
+          "predicted": 0.24701754385964916,
+          "observed": 0.21052631578947367
+        },
+        {
+          "count": 79,
+          "predicted": 0.34917721518987327,
+          "observed": 0.35443037974683544
+        },
+        {
+          "count": 66,
+          "predicted": 0.4489393939393939,
+          "observed": 0.45454545454545453
+        },
+        {
+          "count": 88,
+          "predicted": 0.5518181818181819,
+          "observed": 0.4659090909090909
+        },
+        {
+          "count": 86,
+          "predicted": 0.651453488372093,
+          "observed": 0.686046511627907
+        },
+        {
+          "count": 90,
+          "predicted": 0.7557777777777778,
+          "observed": 0.7666666666666667
+        },
+        {
+          "count": 144,
+          "predicted": 0.8515625,
+          "observed": 0.8819444444444444
+        },
+        {
+          "count": 154,
+          "predicted": 0.9460292207792206,
+          "observed": 0.961038961038961
+        }
+      ]
+    },
+    "BTCVolatility": {
+      "events": 1109,
+      "days": 12,
+      "accuracy": 0.7971145175834085,
+      "log_loss": 0.445456398751988,
+      "brier": 0.14357596396251868,
+      "calibration": [
+        {
+          "count": 188,
+          "predicted": 0.04112879993485239,
+          "observed": 0.07446808510638298
+        },
+        {
+          "count": 114,
+          "predicted": 0.15080418935438641,
+          "observed": 0.17543859649122806
+        },
+        {
+          "count": 114,
+          "predicted": 0.24995685048274904,
+          "observed": 0.22807017543859648
+        },
+        {
+          "count": 82,
+          "predicted": 0.3443401216892424,
+          "observed": 0.3780487804878049
+        },
+        {
+          "count": 81,
+          "predicted": 0.4566506880325331,
+          "observed": 0.43209876543209874
+        },
+        {
+          "count": 89,
+          "predicted": 0.5493262162396404,
+          "observed": 0.6067415730337079
+        },
+        {
+          "count": 90,
+          "predicted": 0.6475084195846567,
+          "observed": 0.6333333333333333
+        },
+        {
+          "count": 99,
+          "predicted": 0.7496498743952353,
+          "observed": 0.8282828282828283
+        },
+        {
+          "count": 115,
+          "predicted": 0.8508025556988799,
+          "observed": 0.9217391304347826
+        },
+        {
+          "count": 137,
+          "predicted": 0.9561935436985186,
+          "observed": 0.9635036496350365
+        }
+      ]
+    },
+    "BTCSignal": {
+      "events": 1109,
+      "days": 12,
+      "accuracy": 0.7944093778178539,
+      "log_loss": 0.45518123862033866,
+      "brier": 0.14796815336959077,
+      "calibration": [
+        {
+          "count": 146,
+          "predicted": 0.045074407480625536,
+          "observed": 0.07534246575342465
+        },
+        {
+          "count": 116,
+          "predicted": 0.14567871388727952,
+          "observed": 0.13793103448275862
+        },
+        {
+          "count": 119,
+          "predicted": 0.24546397937763603,
+          "observed": 0.2773109243697479
+        },
+        {
+          "count": 97,
+          "predicted": 0.34796100813241454,
+          "observed": 0.29896907216494845
+        },
+        {
+          "count": 88,
+          "predicted": 0.44922912224756256,
+          "observed": 0.36363636363636365
+        },
+        {
+          "count": 80,
+          "predicted": 0.5535340115742244,
+          "observed": 0.5625
+        },
+        {
+          "count": 85,
+          "predicted": 0.651809458762077,
+          "observed": 0.6823529411764706
+        },
+        {
+          "count": 106,
+          "predicted": 0.7494243845950955,
+          "observed": 0.7169811320754716
+        },
+        {
+          "count": 134,
+          "predicted": 0.8509647965483536,
+          "observed": 0.9104477611940298
+        },
+        {
+          "count": 138,
+          "predicted": 0.9491710754918556,
+          "observed": 0.9782608695652174
+        }
+      ]
+    },
+    "BTCMarketGuard": {
+      "events": 1109,
+      "days": 12,
+      "accuracy": 0.7989179440937781,
+      "log_loss": 0.44334922546087663,
+      "brier": 0.14386265272305687,
+      "calibration": [
+        {
+          "count": 179,
+          "predicted": 0.05505123187407278,
+          "observed": 0.061452513966480445
+        },
+        {
+          "count": 147,
+          "predicted": 0.14506464734348504,
+          "observed": 0.19727891156462585
+        },
+        {
+          "count": 110,
+          "predicted": 0.2537635099810472,
+          "observed": 0.2545454545454545
+        },
+        {
+          "count": 69,
+          "predicted": 0.3520987460569094,
+          "observed": 0.4492753623188406
+        },
+        {
+          "count": 74,
+          "predicted": 0.45010882745515296,
+          "observed": 0.35135135135135137
+        },
+        {
+          "count": 69,
+          "predicted": 0.5569799998122481,
+          "observed": 0.5507246376811594
+        },
+        {
+          "count": 59,
+          "predicted": 0.6442697975800391,
+          "observed": 0.6610169491525424
+        },
+        {
+          "count": 92,
+          "predicted": 0.750087300803097,
+          "observed": 0.7608695652173914
+        },
+        {
+          "count": 132,
+          "predicted": 0.8491765588030965,
+          "observed": 0.8636363636363636
+        },
+        {
+          "count": 178,
+          "predicted": 0.9577863371931976,
+          "observed": 0.9606741573033708
+        }
+      ]
+    },
+    "price_only_control": {
+      "events": 1109,
+      "days": 12,
+      "accuracy": 0.8007213706041478,
+      "log_loss": 0.43850587299324945,
+      "brier": 0.1418673359933067,
+      "calibration": [
+        {
+          "count": 172,
+          "predicted": 0.06112517396219277,
+          "observed": 0.06395348837209303
+        },
+        {
+          "count": 144,
+          "predicted": 0.14607276326369886,
+          "observed": 0.16666666666666666
+        },
+        {
+          "count": 105,
+          "predicted": 0.24548280883578819,
+          "observed": 0.23809523809523808
+        },
+        {
+          "count": 77,
+          "predicted": 0.3474959220172379,
+          "observed": 0.4025974025974026
+        },
+        {
+          "count": 71,
+          "predicted": 0.45598351135270926,
+          "observed": 0.39436619718309857
+        },
+        {
+          "count": 79,
+          "predicted": 0.554037394680431,
+          "observed": 0.5063291139240507
+        },
+        {
+          "count": 79,
+          "predicted": 0.6502438046394614,
+          "observed": 0.759493670886076
+        },
+        {
+          "count": 89,
+          "predicted": 0.7555304903889561,
+          "observed": 0.7528089887640449
+        },
+        {
+          "count": 132,
+          "predicted": 0.8490520456893638,
+          "observed": 0.8863636363636364
+        },
+        {
+          "count": 161,
+          "predicted": 0.9570428278129758,
+          "observed": 0.9565217391304348
+        }
+      ]
+    },
+    "BTCAverageRaw": {
+      "events": 1109,
+      "days": 12,
+      "accuracy": 0.7971145175834085,
+      "log_loss": 0.44610880312744006,
+      "brier": 0.14342331913873488,
+      "calibration": [
+        {
+          "count": 203,
+          "predicted": 0.03811319429301725,
+          "observed": 0.07881773399014778
+        },
+        {
+          "count": 121,
+          "predicted": 0.1526743730846576,
+          "observed": 0.2066115702479339
+        },
+        {
+          "count": 101,
+          "predicted": 0.2520119360858371,
+          "observed": 0.2079207920792079
+        },
+        {
+          "count": 73,
+          "predicted": 0.3404470245221881,
+          "observed": 0.3972602739726027
+        },
+        {
+          "count": 81,
+          "predicted": 0.45404796403761366,
+          "observed": 0.43209876543209874
+        },
+        {
+          "count": 83,
+          "predicted": 0.5487194906179081,
+          "observed": 0.6024096385542169
+        },
+        {
+          "count": 86,
+          "predicted": 0.6463934377807875,
+          "observed": 0.6162790697674418
+        },
+        {
+          "count": 96,
+          "predicted": 0.7504590600644147,
+          "observed": 0.8333333333333334
+        },
+        {
+          "count": 118,
+          "predicted": 0.8546895806202257,
+          "observed": 0.8983050847457628
+        },
+        {
+          "count": 147,
+          "predicted": 0.9600351587712618,
+          "observed": 0.9659863945578231
+        }
+      ]
+    },
+    "BTCAverage": {
+      "events": 1109,
+      "days": 12,
+      "accuracy": 0.7935076645626691,
+      "log_loss": 0.44332675808030114,
+      "brier": 0.14334281325103185,
+      "calibration": [
+        {
+          "count": 165,
+          "predicted": 0.040788198627090155,
+          "observed": 0.06666666666666667
+        },
+        {
+          "count": 111,
+          "predicted": 0.14908294237700145,
+          "observed": 0.12612612612612611
+        },
+        {
+          "count": 105,
+          "predicted": 0.25071135614812556,
+          "observed": 0.24761904761904763
+        },
+        {
+          "count": 96,
+          "predicted": 0.3495832412505955,
+          "observed": 0.3541666666666667
+        },
+        {
+          "count": 66,
+          "predicted": 0.4542467306548754,
+          "observed": 0.3787878787878788
+        },
+        {
+          "count": 92,
+          "predicted": 0.5476150897763551,
+          "observed": 0.5217391304347826
+        },
+        {
+          "count": 94,
+          "predicted": 0.6466064261296044,
+          "observed": 0.6595744680851063
+        },
+        {
+          "count": 103,
+          "predicted": 0.7525048722854962,
+          "observed": 0.7864077669902912
+        },
+        {
+          "count": 124,
+          "predicted": 0.8545095213843861,
+          "observed": 0.8709677419354839
+        },
+        {
+          "count": 153,
+          "predicted": 0.9575897201120204,
+          "observed": 0.9673202614379085
+        }
+      ]
+    }
+  },
+  "validation": {
+    "train_events": 1704,
+    "evaluated_events": 559,
+    "fit": {
+      "bias": 0.09991592241820939,
+      "log_slope": -0.050379765136247805
+    },
+    "scores": {
+      "market": {
+        "events": 559,
+        "days": 6,
+        "accuracy": 0.8085867620751341,
+        "log_loss": 0.41330564947993204,
+        "brier": 0.1336111981216458,
+        "calibration": [
+          {
+            "count": 73,
+            "predicted": 0.054136986301369865,
+            "observed": 0.0
+          },
+          {
+            "count": 59,
+            "predicted": 0.15127118644067794,
+            "observed": 0.1694915254237288
+          },
+          {
+            "count": 50,
+            "predicted": 0.24300000000000005,
+            "observed": 0.12
+          },
+          {
+            "count": 47,
+            "predicted": 0.3481914893617022,
+            "observed": 0.3404255319148936
+          },
+          {
+            "count": 51,
+            "predicted": 0.45245098039215687,
+            "observed": 0.4117647058823529
+          },
+          {
+            "count": 28,
+            "predicted": 0.5496428571428572,
+            "observed": 0.5357142857142857
+          },
+          {
+            "count": 41,
+            "predicted": 0.6576829268292683,
+            "observed": 0.6341463414634146
+          },
+          {
+            "count": 47,
+            "predicted": 0.7558510638297872,
+            "observed": 0.7446808510638298
+          },
+          {
+            "count": 67,
+            "predicted": 0.8569402985074628,
+            "observed": 0.8208955223880597
+          },
+          {
+            "count": 96,
+            "predicted": 0.9478072916666668,
+            "observed": 0.9791666666666666
+          }
+        ]
+      },
+      "BTCVolatility": {
+        "events": 559,
+        "days": 6,
+        "accuracy": 0.7996422182468694,
+        "log_loss": 0.42776236625316916,
+        "brier": 0.13886285976161122,
+        "calibration": [
+          {
+            "count": 81,
+            "predicted": 0.0480269025746012,
+            "observed": 0.04938271604938271
+          },
+          {
+            "count": 46,
+            "predicted": 0.14977094438145228,
+            "observed": 0.10869565217391304
+          },
+          {
+            "count": 57,
+            "predicted": 0.2475533109668588,
+            "observed": 0.22807017543859648
+          },
+          {
+            "count": 51,
+            "predicted": 0.35558149459530486,
+            "observed": 0.23529411764705882
+          },
+          {
+            "count": 48,
+            "predicted": 0.45011289906221874,
+            "observed": 0.4791666666666667
+          },
+          {
+            "count": 32,
+            "predicted": 0.5429576520031474,
+            "observed": 0.5625
+          },
+          {
+            "count": 50,
+            "predicted": 0.6446463189919416,
+            "observed": 0.66
+          },
+          {
+            "count": 42,
+            "predicted": 0.7452260053967875,
+            "observed": 0.7142857142857143
+          },
+          {
+            "count": 77,
+            "predicted": 0.8496918079125017,
+            "observed": 0.8571428571428571
+          },
+          {
+            "count": 75,
+            "predicted": 0.9611407778603168,
+            "observed": 0.9866666666666667
+          }
+        ]
+      },
+      "BTCSignal": {
+        "events": 559,
+        "days": 6,
+        "accuracy": 0.7924865831842576,
+        "log_loss": 0.433218964948116,
+        "brier": 0.14046657444589786,
+        "calibration": [
+          {
+            "count": 64,
+            "predicted": 0.05650748977740074,
+            "observed": 0.03125
+          },
+          {
+            "count": 52,
+            "predicted": 0.15113430353597457,
+            "observed": 0.07692307692307693
+          },
+          {
+            "count": 60,
+            "predicted": 0.2502445498611965,
+            "observed": 0.16666666666666666
+          },
+          {
+            "count": 44,
+            "predicted": 0.35079954833058624,
+            "observed": 0.3409090909090909
+          },
+          {
+            "count": 49,
+            "predicted": 0.4502922711313687,
+            "observed": 0.42857142857142855
+          },
+          {
+            "count": 34,
+            "predicted": 0.5516251721159763,
+            "observed": 0.47058823529411764
+          },
+          {
+            "count": 52,
+            "predicted": 0.653774016880679,
+            "observed": 0.5576923076923077
+          },
+          {
+            "count": 47,
+            "predicted": 0.7510281531498662,
+            "observed": 0.851063829787234
+          },
+          {
+            "count": 74,
+            "predicted": 0.8506853439133577,
+            "observed": 0.8243243243243243
+          },
+          {
+            "count": 83,
+            "predicted": 0.9516269967005775,
+            "observed": 0.963855421686747
+          }
+        ]
+      },
+      "BTCMarketGuard": {
+        "events": 559,
+        "days": 6,
+        "accuracy": 0.8032200357781754,
+        "log_loss": 0.41153491441752416,
+        "brier": 0.13337687274254387,
+        "calibration": [
+          {
+            "count": 80,
+            "predicted": 0.056557504693344474,
+            "observed": 0.0
+          },
+          {
+            "count": 64,
+            "predicted": 0.1474369720763199,
+            "observed": 0.15625
+          },
+          {
+            "count": 51,
+            "predicted": 0.24505604820897903,
+            "observed": 0.1568627450980392
+          },
+          {
+            "count": 47,
+            "predicted": 0.35384791868823673,
+            "observed": 0.3829787234042553
+          },
+          {
+            "count": 37,
+            "predicted": 0.4545197462214022,
+            "observed": 0.4864864864864865
+          },
+          {
+            "count": 30,
+            "predicted": 0.5569419486469356,
+            "observed": 0.5333333333333333
+          },
+          {
+            "count": 40,
+            "predicted": 0.6577209436199773,
+            "observed": 0.575
+          },
+          {
+            "count": 43,
+            "predicted": 0.7568574800287184,
+            "observed": 0.7674418604651163
+          },
+          {
+            "count": 64,
+            "predicted": 0.8567236550776287,
+            "observed": 0.8125
+          },
+          {
+            "count": 103,
+            "predicted": 0.9587148143695283,
+            "observed": 0.970873786407767
+          }
+        ]
+      },
+      "price_only_control": {
+        "events": 559,
+        "days": 6,
+        "accuracy": 0.8085867620751341,
+        "log_loss": 0.4117183079287281,
+        "brier": 0.13321145520445585,
+        "calibration": [
+          {
+            "count": 80,
+            "predicted": 0.05846832474784003,
+            "observed": 0.0125
+          },
+          {
+            "count": 66,
+            "predicted": 0.15461468943363324,
+            "observed": 0.16666666666666666
+          },
+          {
+            "count": 44,
+            "predicted": 0.24936585878427203,
+            "observed": 0.11363636363636363
+          },
+          {
+            "count": 42,
+            "predicted": 0.34501040038063685,
+            "observed": 0.35714285714285715
+          },
+          {
+            "count": 54,
+            "predicted": 0.44983237946523397,
+            "observed": 0.4444444444444444
+          },
+          {
+            "count": 22,
+            "predicted": 0.5552411004839446,
+            "observed": 0.5454545454545454
+          },
+          {
+            "count": 41,
+            "predicted": 0.6557425853962913,
+            "observed": 0.6341463414634146
+          },
+          {
+            "count": 47,
+            "predicted": 0.7581565917672715,
+            "observed": 0.7446808510638298
+          },
+          {
+            "count": 61,
+            "predicted": 0.8581925023249692,
+            "observed": 0.8032786885245902
+          },
+          {
+            "count": 102,
+            "predicted": 0.9561563751319541,
+            "observed": 0.9803921568627451
+          }
+        ]
+      },
+      "BTCAverageRaw": {
+        "events": 559,
+        "days": 6,
+        "accuracy": 0.7996422182468694,
+        "log_loss": 0.42652821441123506,
+        "brier": 0.13854555630980986,
+        "calibration": [
+          {
+            "count": 90,
+            "predicted": 0.04491004700534973,
+            "observed": 0.044444444444444446
+          },
+          {
+            "count": 47,
+            "predicted": 0.15666187480197521,
+            "observed": 0.1276595744680851
+          },
+          {
+            "count": 52,
+            "predicted": 0.2486154069710919,
+            "observed": 0.23076923076923078
+          },
+          {
+            "count": 48,
+            "predicted": 0.35474364075906734,
+            "observed": 0.2708333333333333
+          },
+          {
+            "count": 46,
+            "predicted": 0.4493208309245436,
+            "observed": 0.4782608695652174
+          },
+          {
+            "count": 31,
+            "predicted": 0.5437643791258648,
+            "observed": 0.5483870967741935
+          },
+          {
+            "count": 47,
+            "predicted": 0.6472823675542073,
+            "observed": 0.6382978723404256
+          },
+          {
+            "count": 40,
+            "predicted": 0.7452067178343167,
+            "observed": 0.75
+          },
+          {
+            "count": 71,
+            "predicted": 0.8516181206528876,
+            "observed": 0.8309859154929577
+          },
+          {
+            "count": 87,
+            "predicted": 0.9597768518551346,
+            "observed": 0.9770114942528736
+          }
+        ]
+      },
+      "BTCAverage": {
+        "events": 559,
+        "days": 6,
+        "accuracy": 0.7978533094812165,
+        "log_loss": 0.43108959920503914,
+        "brier": 0.14033025542704616,
+        "calibration": [
+          {
+            "count": 66,
+            "predicted": 0.045037272336791646,
+            "observed": 0.030303030303030304
+          },
+          {
+            "count": 50,
+            "predicted": 0.14371213294701218,
+            "observed": 0.12
+          },
+          {
+            "count": 48,
+            "predicted": 0.24679422974530377,
+            "observed": 0.16666666666666666
+          },
+          {
+            "count": 49,
+            "predicted": 0.347946217782736,
+            "observed": 0.24489795918367346
+          },
+          {
+            "count": 51,
+            "predicted": 0.45034288718386334,
+            "observed": 0.39215686274509803
+          },
+          {
+            "count": 40,
+            "predicted": 0.5421589279302633,
+            "observed": 0.475
+          },
+          {
+            "count": 46,
+            "predicted": 0.6547145168333788,
+            "observed": 0.6086956521739131
+          },
+          {
+            "count": 47,
+            "predicted": 0.7500066321136781,
+            "observed": 0.7659574468085106
+          },
+          {
+            "count": 73,
+            "predicted": 0.8586802673824647,
+            "observed": 0.821917808219178
+          },
+          {
+            "count": 89,
+            "predicted": 0.9600841686172095,
+            "observed": 0.9775280898876404
+          }
+        ]
+      }
+    },
+    "price_buckets": {
+      "0-0.1": {
+        "market": {
+          "events": 73,
+          "days": 6,
+          "accuracy": 1.0,
+          "log_loss": 0.05595588236112144,
+          "brier": 0.003463390410958904,
+          "calibration": [
+            {
+              "count": 73,
+              "predicted": 0.054136986301369865,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 73,
+          "days": 6,
+          "accuracy": 1.0,
+          "log_loss": 0.05397254891384182,
+          "brier": 0.004293938694638105,
+          "calibration": [
+            {
+              "count": 65,
+              "predicted": 0.04218001108654565,
+              "observed": 0.0
+            },
+            {
+              "count": 8,
+              "predicted": 0.12870053659266895,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 73,
+          "days": 6,
+          "accuracy": 1.0,
+          "log_loss": 0.07884343013190852,
+          "brier": 0.00784650778603933,
+          "calibration": [
+            {
+              "count": 56,
+              "predicted": 0.05360715857076194,
+              "observed": 0.0
+            },
+            {
+              "count": 16,
+              "predicted": 0.1383737853434557,
+              "observed": 0.0
+            },
+            {
+              "count": 1,
+              "predicted": 0.22509503706795692,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 73,
+          "days": 6,
+          "accuracy": 1.0,
+          "log_loss": 0.05536274251889157,
+          "brier": 0.003431463810124411,
+          "calibration": [
+            {
+              "count": 73,
+              "predicted": 0.053559581885165984,
+              "observed": 0.0
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 73,
+          "days": 6,
+          "accuracy": 1.0,
+          "log_loss": 0.05734608039485688,
+          "brier": 0.0036692892156321303,
+          "calibration": [
+            {
+              "count": 71,
+              "predicted": 0.054085922329003465,
+              "observed": 0.0
+            },
+            {
+              "count": 2,
+              "predicted": 0.102598829756049,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 73,
+          "days": 6,
+          "accuracy": 1.0,
+          "log_loss": 0.04516775952748538,
+          "brier": 0.003224066616204582,
+          "calibration": [
+            {
+              "count": 69,
+              "predicted": 0.0377627572713084,
+              "observed": 0.0
+            },
+            {
+              "count": 4,
+              "predicted": 0.14144721401111726,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 73,
+          "days": 6,
+          "accuracy": 1.0,
+          "log_loss": 0.06395209533154383,
+          "brier": 0.005841085509023469,
+          "calibration": [
+            {
+              "count": 58,
+              "predicted": 0.04280173517508286,
+              "observed": 0.0
+            },
+            {
+              "count": 15,
+              "predicted": 0.13025830233562222,
+              "observed": 0.0
+            }
+          ]
+        }
+      },
+      "0.1-0.3": {
+        "market": {
+          "events": 109,
+          "days": 6,
+          "accuracy": 0.8532110091743119,
+          "log_loss": 0.4336987414007229,
+          "brier": 0.13146903669724772,
+          "calibration": [
+            {
+              "count": 59,
+              "predicted": 0.15127118644067794,
+              "observed": 0.1694915254237288
+            },
+            {
+              "count": 50,
+              "predicted": 0.24300000000000005,
+              "observed": 0.12
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 109,
+          "days": 6,
+          "accuracy": 0.8532110091743119,
+          "log_loss": 0.4709154064647393,
+          "brier": 0.14060275019782867,
+          "calibration": [
+            {
+              "count": 16,
+              "predicted": 0.07177989924482692,
+              "observed": 0.25
+            },
+            {
+              "count": 37,
+              "predicted": 0.1536830043256895,
+              "observed": 0.13513513513513514
+            },
+            {
+              "count": 47,
+              "predicted": 0.24181252909191295,
+              "observed": 0.14893617021276595
+            },
+            {
+              "count": 9,
+              "predicted": 0.3348293745110007,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 109,
+          "days": 6,
+          "accuracy": 0.8532110091743119,
+          "log_loss": 0.465394496708378,
+          "brier": 0.14126048202602062,
+          "calibration": [
+            {
+              "count": 8,
+              "predicted": 0.07680980822387233,
+              "observed": 0.25
+            },
+            {
+              "count": 36,
+              "predicted": 0.15680564495487184,
+              "observed": 0.1111111111111111
+            },
+            {
+              "count": 50,
+              "predicted": 0.24787885886774055,
+              "observed": 0.14
+            },
+            {
+              "count": 13,
+              "predicted": 0.34929919673326637,
+              "observed": 0.23076923076923078
+            },
+            {
+              "count": 2,
+              "predicted": 0.45420200977963177,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 109,
+          "days": 6,
+          "accuracy": 0.8532110091743119,
+          "log_loss": 0.42644139921695134,
+          "brier": 0.12898472660844038,
+          "calibration": [
+            {
+              "count": 7,
+              "predicted": 0.08782155683577737,
+              "observed": 0.0
+            },
+            {
+              "count": 64,
+              "predicted": 0.1474369720763199,
+              "observed": 0.15625
+            },
+            {
+              "count": 38,
+              "predicted": 0.23505966869328804,
+              "observed": 0.15789473684210525
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 109,
+          "days": 6,
+          "accuracy": 0.8532110091743119,
+          "log_loss": 0.4305525498076221,
+          "brier": 0.13023832636925928,
+          "calibration": [
+            {
+              "count": 9,
+              "predicted": 0.0930406104964396,
+              "observed": 0.1111111111111111
+            },
+            {
+              "count": 64,
+              "predicted": 0.15624018504855774,
+              "observed": 0.171875
+            },
+            {
+              "count": 36,
+              "predicted": 0.2393511438650583,
+              "observed": 0.1111111111111111
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 109,
+          "days": 6,
+          "accuracy": 0.8532110091743119,
+          "log_loss": 0.4722253977017566,
+          "brier": 0.13962965442071984,
+          "calibration": [
+            {
+              "count": 21,
+              "predicted": 0.0683939989886283,
+              "observed": 0.19047619047619047
+            },
+            {
+              "count": 42,
+              "predicted": 0.15804673482578113,
+              "observed": 0.14285714285714285
+            },
+            {
+              "count": 39,
+              "predicted": 0.2415290825047959,
+              "observed": 0.15384615384615385
+            },
+            {
+              "count": 7,
+              "predicted": 0.3333822401239651,
+              "observed": 0.0
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 109,
+          "days": 6,
+          "accuracy": 0.8532110091743119,
+          "log_loss": 0.4799268593588319,
+          "brier": 0.14546409046299225,
+          "calibration": [
+            {
+              "count": 8,
+              "predicted": 0.061244916759180285,
+              "observed": 0.25
+            },
+            {
+              "count": 34,
+              "predicted": 0.14804615007359434,
+              "observed": 0.17647058823529413
+            },
+            {
+              "count": 44,
+              "predicted": 0.2434727022220905,
+              "observed": 0.13636363636363635
+            },
+            {
+              "count": 22,
+              "predicted": 0.3336140403171041,
+              "observed": 0.09090909090909091
+            },
+            {
+              "count": 1,
+              "predicted": 0.40646115560757934,
+              "observed": 0.0
+            }
+          ]
+        }
+      },
+      "0.3-0.7": {
+        "market": {
+          "events": 167,
+          "days": 6,
+          "accuracy": 0.6107784431137725,
+          "log_loss": 0.6661078398803432,
+          "brier": 0.23674835329341315,
+          "calibration": [
+            {
+              "count": 47,
+              "predicted": 0.3481914893617022,
+              "observed": 0.3404255319148936
+            },
+            {
+              "count": 51,
+              "predicted": 0.45245098039215687,
+              "observed": 0.4117647058823529
+            },
+            {
+              "count": 28,
+              "predicted": 0.5496428571428572,
+              "observed": 0.5357142857142857
+            },
+            {
+              "count": 41,
+              "predicted": 0.6576829268292683,
+              "observed": 0.6341463414634146
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 167,
+          "days": 6,
+          "accuracy": 0.5808383233532934,
+          "log_loss": 0.67784909530329,
+          "brier": 0.24214667614983293,
+          "calibration": [
+            {
+              "count": 1,
+              "predicted": 0.17358798875494197,
+              "observed": 0.0
+            },
+            {
+              "count": 10,
+              "predicted": 0.2745349857791043,
+              "observed": 0.6
+            },
+            {
+              "count": 42,
+              "predicted": 0.36002837747051286,
+              "observed": 0.2857142857142857
+            },
+            {
+              "count": 48,
+              "predicted": 0.45011289906221874,
+              "observed": 0.4791666666666667
+            },
+            {
+              "count": 31,
+              "predicted": 0.5412836726193592,
+              "observed": 0.5483870967741935
+            },
+            {
+              "count": 33,
+              "predicted": 0.6330130144450259,
+              "observed": 0.5757575757575758
+            },
+            {
+              "count": 2,
+              "predicted": 0.7284904346665771,
+              "observed": 0.5
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 167,
+          "days": 6,
+          "accuracy": 0.5568862275449101,
+          "log_loss": 0.6871463154272214,
+          "brier": 0.2468895617943611,
+          "calibration": [
+            {
+              "count": 9,
+              "predicted": 0.26618166791297837,
+              "observed": 0.3333333333333333
+            },
+            {
+              "count": 31,
+              "predicted": 0.35142872803268815,
+              "observed": 0.3870967741935484
+            },
+            {
+              "count": 47,
+              "predicted": 0.45012589927399577,
+              "observed": 0.44680851063829785
+            },
+            {
+              "count": 34,
+              "predicted": 0.5516251721159763,
+              "observed": 0.47058823529411764
+            },
+            {
+              "count": 36,
+              "predicted": 0.6486859092261636,
+              "observed": 0.5
+            },
+            {
+              "count": 10,
+              "predicted": 0.7415281661518359,
+              "observed": 0.8
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 167,
+          "days": 6,
+          "accuracy": 0.592814371257485,
+          "log_loss": 0.6686938083466256,
+          "brier": 0.23825585569666152,
+          "calibration": [
+            {
+              "count": 13,
+              "predicted": 0.27427623448561417,
+              "observed": 0.15384615384615385
+            },
+            {
+              "count": 47,
+              "predicted": 0.35384791868823673,
+              "observed": 0.3829787234042553
+            },
+            {
+              "count": 37,
+              "predicted": 0.4545197462214022,
+              "observed": 0.4864864864864865
+            },
+            {
+              "count": 30,
+              "predicted": 0.5569419486469356,
+              "observed": 0.5333333333333333
+            },
+            {
+              "count": 33,
+              "predicted": 0.6502192023535229,
+              "observed": 0.5757575757575758
+            },
+            {
+              "count": 7,
+              "predicted": 0.7264230987670827,
+              "observed": 0.7142857142857143
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 167,
+          "days": 6,
+          "accuracy": 0.6107784431137725,
+          "log_loss": 0.6655937837612454,
+          "brier": 0.23652474626578232,
+          "calibration": [
+            {
+              "count": 8,
+              "predicted": 0.29443207592073384,
+              "observed": 0.125
+            },
+            {
+              "count": 42,
+              "predicted": 0.34501040038063685,
+              "observed": 0.35714285714285715
+            },
+            {
+              "count": 54,
+              "predicted": 0.44983237946523397,
+              "observed": 0.4444444444444444
+            },
+            {
+              "count": 22,
+              "predicted": 0.5552411004839446,
+              "observed": 0.5454545454545454
+            },
+            {
+              "count": 41,
+              "predicted": 0.6557425853962913,
+              "observed": 0.6341463414634146
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 167,
+          "days": 6,
+          "accuracy": 0.5808383233532934,
+          "log_loss": 0.6788591095532559,
+          "brier": 0.24254123885858347,
+          "calibration": [
+            {
+              "count": 1,
+              "predicted": 0.1593563969655576,
+              "observed": 0.0
+            },
+            {
+              "count": 13,
+              "predicted": 0.26987438036997974,
+              "observed": 0.46153846153846156
+            },
+            {
+              "count": 41,
+              "predicted": 0.35839070916018234,
+              "observed": 0.3170731707317073
+            },
+            {
+              "count": 46,
+              "predicted": 0.4493208309245436,
+              "observed": 0.4782608695652174
+            },
+            {
+              "count": 31,
+              "predicted": 0.5437643791258648,
+              "observed": 0.5483870967741935
+            },
+            {
+              "count": 32,
+              "predicted": 0.6386660129388684,
+              "observed": 0.5625
+            },
+            {
+              "count": 3,
+              "predicted": 0.7290564665474936,
+              "observed": 0.6666666666666666
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 167,
+          "days": 6,
+          "accuracy": 0.5748502994011976,
+          "log_loss": 0.6817330320894569,
+          "brier": 0.2440316714372631,
+          "calibration": [
+            {
+              "count": 1,
+              "predicted": 0.1981630098140686,
+              "observed": 0.0
+            },
+            {
+              "count": 4,
+              "predicted": 0.28333103250064995,
+              "observed": 0.5
+            },
+            {
+              "count": 27,
+              "predicted": 0.3596242883102878,
+              "observed": 0.37037037037037035
+            },
+            {
+              "count": 50,
+              "predicted": 0.4512205218153891,
+              "observed": 0.4
+            },
+            {
+              "count": 40,
+              "predicted": 0.5421589279302633,
+              "observed": 0.475
+            },
+            {
+              "count": 39,
+              "predicted": 0.6514677314160132,
+              "observed": 0.5641025641025641
+            },
+            {
+              "count": 6,
+              "predicted": 0.7323356159999673,
+              "observed": 0.8333333333333334
+            }
+          ]
+        }
+      },
+      "0.7-0.9": {
+        "market": {
+          "events": 114,
+          "days": 6,
+          "accuracy": 0.7894736842105263,
+          "log_loss": 0.5004399650553762,
+          "brier": 0.16154605263157895,
+          "calibration": [
+            {
+              "count": 47,
+              "predicted": 0.7558510638297872,
+              "observed": 0.7446808510638298
+            },
+            {
+              "count": 67,
+              "predicted": 0.8569402985074628,
+              "observed": 0.8208955223880597
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 114,
+          "days": 6,
+          "accuracy": 0.7894736842105263,
+          "log_loss": 0.5212909395592011,
+          "brier": 0.16937710626857144,
+          "calibration": [
+            {
+              "count": 1,
+              "predicted": 0.5948510129005804,
+              "observed": 1.0
+            },
+            {
+              "count": 17,
+              "predicted": 0.6672286160536016,
+              "observed": 0.8235294117647058
+            },
+            {
+              "count": 40,
+              "predicted": 0.7460627839332981,
+              "observed": 0.725
+            },
+            {
+              "count": 53,
+              "predicted": 0.8425223754380261,
+              "observed": 0.8113207547169812
+            },
+            {
+              "count": 3,
+              "predicted": 0.9322321488397408,
+              "observed": 1.0
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 114,
+          "days": 6,
+          "accuracy": 0.7894736842105263,
+          "log_loss": 0.5212415367774039,
+          "brier": 0.1671796896819278,
+          "calibration": [
+            {
+              "count": 16,
+              "predicted": 0.6652222591033381,
+              "observed": 0.6875
+            },
+            {
+              "count": 36,
+              "predicted": 0.7532540470559043,
+              "observed": 0.8611111111111112
+            },
+            {
+              "count": 55,
+              "predicted": 0.8455880002482667,
+              "observed": 0.7818181818181819
+            },
+            {
+              "count": 7,
+              "predicted": 0.9300800906797593,
+              "observed": 0.7142857142857143
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 114,
+          "days": 6,
+          "accuracy": 0.7894736842105263,
+          "log_loss": 0.5041518964693757,
+          "brier": 0.1615278848885968,
+          "calibration": [
+            {
+              "count": 7,
+              "predicted": 0.6930862953046909,
+              "observed": 0.5714285714285714
+            },
+            {
+              "count": 36,
+              "predicted": 0.7627752763851476,
+              "observed": 0.7777777777777778
+            },
+            {
+              "count": 64,
+              "predicted": 0.8567236550776287,
+              "observed": 0.8125
+            },
+            {
+              "count": 7,
+              "predicted": 0.9162990808344552,
+              "observed": 0.8571428571428571
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 114,
+          "days": 6,
+          "accuracy": 0.7894736842105263,
+          "log_loss": 0.500997658222294,
+          "brier": 0.16170364597413622,
+          "calibration": [
+            {
+              "count": 47,
+              "predicted": 0.7581565917672715,
+              "observed": 0.7446808510638298
+            },
+            {
+              "count": 61,
+              "predicted": 0.8581925023249692,
+              "observed": 0.8032786885245902
+            },
+            {
+              "count": 6,
+              "predicted": 0.9003647569229897,
+              "observed": 1.0
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 114,
+          "days": 6,
+          "accuracy": 0.7894736842105263,
+          "log_loss": 0.5229450898226026,
+          "brier": 0.1696383377343396,
+          "calibration": [
+            {
+              "count": 15,
+              "predicted": 0.6656639240669302,
+              "observed": 0.8
+            },
+            {
+              "count": 37,
+              "predicted": 0.7465161976683834,
+              "observed": 0.7567567567567568
+            },
+            {
+              "count": 54,
+              "predicted": 0.846631419556013,
+              "observed": 0.7962962962962963
+            },
+            {
+              "count": 8,
+              "predicted": 0.9190551965144844,
+              "observed": 0.875
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 114,
+          "days": 6,
+          "accuracy": 0.7894736842105263,
+          "log_loss": 0.5234482140357835,
+          "brier": 0.1692912356705038,
+          "calibration": [
+            {
+              "count": 7,
+              "predicted": 0.6728037498729876,
+              "observed": 0.8571428571428571
+            },
+            {
+              "count": 41,
+              "predicted": 0.7525926344717823,
+              "observed": 0.7560975609756098
+            },
+            {
+              "count": 57,
+              "predicted": 0.85398640976335,
+              "observed": 0.7894736842105263
+            },
+            {
+              "count": 9,
+              "predicted": 0.9211164074389094,
+              "observed": 0.8888888888888888
+            }
+          ]
+        }
+      },
+      "0.9-1": {
+        "market": {
+          "events": 96,
+          "days": 6,
+          "accuracy": 0.9791666666666666,
+          "log_loss": 0.11864323497824085,
+          "brier": 0.022421690104166666,
+          "calibration": [
+            {
+              "count": 96,
+              "predicted": 0.9478072916666668,
+              "observed": 0.9791666666666666
+            }
+          ]
+        },
+        "BTCVolatility": {
+          "events": 96,
+          "days": 6,
+          "accuracy": 0.9791666666666666,
+          "log_loss": 0.11688980557037708,
+          "brier": 0.023309336237807395,
+          "calibration": [
+            {
+              "count": 24,
+              "predicted": 0.8655243046269688,
+              "observed": 0.9583333333333334
+            },
+            {
+              "count": 72,
+              "predicted": 0.9623453040695075,
+              "observed": 0.9861111111111112
+            }
+          ]
+        },
+        "BTCSignal": {
+          "events": 96,
+          "days": 6,
+          "accuracy": 0.9791666666666666,
+          "log_loss": 0.11990480204358615,
+          "brier": 0.023558188152517923,
+          "calibration": [
+            {
+              "count": 1,
+              "predicted": 0.7658958425128024,
+              "observed": 1.0
+            },
+            {
+              "count": 19,
+              "predicted": 0.8654408124175685,
+              "observed": 0.9473684210526315
+            },
+            {
+              "count": 76,
+              "predicted": 0.9536115801498635,
+              "observed": 0.9868421052631579
+            }
+          ]
+        },
+        "BTCMarketGuard": {
+          "events": 96,
+          "days": 6,
+          "accuracy": 0.9791666666666666,
+          "log_loss": 0.10811710676535345,
+          "brier": 0.021301385687296073,
+          "calibration": [
+            {
+              "count": 96,
+              "predicted": 0.9618076282731275,
+              "observed": 0.9791666666666666
+            }
+          ]
+        },
+        "price_only_control": {
+          "events": 96,
+          "days": 6,
+          "accuracy": 0.9791666666666666,
+          "log_loss": 0.11214736884202219,
+          "brier": 0.021536661508992083,
+          "calibration": [
+            {
+              "count": 96,
+              "predicted": 0.9596433512700143,
+              "observed": 0.9791666666666666
+            }
+          ]
+        },
+        "BTCAverageRaw": {
+          "events": 96,
+          "days": 6,
+          "accuracy": 0.9791666666666666,
+          "log_loss": 0.11119005755950033,
+          "brier": 0.022383535325459853,
+          "calibration": [
+            {
+              "count": 17,
+              "predicted": 0.8674582300194312,
+              "observed": 0.9411764705882353
+            },
+            {
+              "count": 79,
+              "predicted": 0.963900563788365,
+              "observed": 0.9873417721518988
+            }
+          ]
+        },
+        "BTCAverage": {
+          "events": 96,
+          "days": 6,
+          "accuracy": 0.9791666666666666,
+          "log_loss": 0.10912544340919668,
+          "brier": 0.021980600881599796,
+          "calibration": [
+            {
+              "count": 16,
+              "predicted": 0.8754021351505605,
+              "observed": 0.9375
+            },
+            {
+              "count": 80,
+              "predicted": 0.9644680417497684,
+              "observed": 0.9875
+            }
+          ]
+        }
+      }
+    }
+  },
+  "no_proven_edge": true
+}

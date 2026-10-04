@@ -69,6 +69,12 @@ def serve(store, port=8765, attach=False):
             try:
                 if path == '/healthz':
                     return self.send(200,dict(status='ok',revision=os.environ.get('BETCHECK_REVISION','local'),paper_only=True,hosted=bool(public_origin)))
+                if path == '/api/btc/catalog':
+                    from .btc_lab import catalog
+                    return self.send(200, catalog())
+                if path in ('/btc', '/btc.js'):
+                    name, mime = ('btc.html', 'text/html; charset=utf-8') if path == '/btc' else ('btc.js', 'text/javascript')
+                    return self.send(200, (static / name).read_bytes(), mime)
                 files = {"/": "home.html", "/app.js": "main.js", "/training.js":"training.js", "/named.js":"named.js", "/style.css": "main.css"}
                 if path in files:
                     mime = {"/": "text/html; charset=utf-8", "/app.js": "text/javascript", "/training.js":"text/javascript", "/named.js":"text/javascript", "/style.css": "text/css"}[path]
@@ -137,6 +143,9 @@ def serve(store, port=8765, attach=False):
                 path = urlparse(self.path).path
                 if public_origin and body.get('predictions_file'):
                     raise ValueError('Hosted sessions cannot read server file paths; import predictions through the upload form')
+                if path == '/api/btc/replay':
+                    from .btc_lab import replay
+                    return self.send(200, replay(body))
                 if path in ('/api/named/select','/api/named/evaluate','/api/named/train'):
                     config=named_models.configuration(body.get('configuration'))
                     if path=='/api/named/select':

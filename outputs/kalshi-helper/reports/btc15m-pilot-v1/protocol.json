@@ -1,0 +1,41 @@
+{
+  "version": "btc15m-pilot-v1",
+  "series": "KXBTC15M",
+  "start": "2026-09-01",
+  "end_exclusive": "2026-10-01",
+  "train_end_exclusive": "2026-09-19",
+  "validation_end_exclusive": "2026-09-25",
+  "decision_seconds_before_close": 300,
+  "publication_allowance_seconds": 5,
+  "lookback_minutes": 120,
+  "split_embargo_hours": 2,
+  "models": [
+    "market",
+    "BTCVolatility",
+    "BTCSignal",
+    "BTCMarketGuard",
+    "price_only_control"
+  ],
+  "selection": "Fixed architectures; no test tuning or strategy search",
+  "signal_logistic_C": 0.1,
+  "offset_l2": 0.01,
+  "random_seed": 1729,
+  "trade_policy": "bankroll_1_percent",
+  "bankroll": 1000,
+  "minimum_edge": 0.04,
+  "slippage_dollars": [
+    0,
+    0.01,
+    0.02
+  ],
+  "fee_assumption": 0.07,
+  "settlement": "Final-minute mean BRTI >= opening target; ties YES; never touch labels",
+  "limitations": [
+    "Coinbase spot is not BRTI",
+    "No historical depth or queue evidence",
+    "Five-second publication allowance is assumed, not measured",
+    "Final metadata supplies opening target; original publication not archived",
+    "0.07 quadratic fee assumption is not a verified historical fee schedule",
+    "Six test days cannot establish a durable edge"
+  ]
+}

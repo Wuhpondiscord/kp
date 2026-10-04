@@ -1,0 +1,33 @@
+{
+  "version": "btc-binance-history-v1",
+  "months": [
+    "2025-01",
+    "2025-02",
+    "2025-03",
+    "2025-04",
+    "2025-05",
+    "2025-06"
+  ],
+  "train": "2025-01-01 through 2025-04-30",
+  "validation": "2025-05-01 through 2025-05-31",
+  "test": "2025-06-01 through 2025-06-30",
+  "embargo_seconds": 7200,
+  "task": "At five minutes before a quarter-hour, predict final Binance minute close >= minute close immediately before interval opening",
+  "target": "BTCUSDT close-price proxy; NOT BRTI averaging and NOT a Kalshi contract",
+  "models": [
+    "volatility",
+    "logistic",
+    "regime"
+  ],
+  "selection": "Fixed model settings; no hyperparameter or strategy selection",
+  "transfer": "Existing September Kalshi validation rows only; already inspected development data",
+  "execution": "Recomputed next-minute input, fixed 4-cent edge, 2-cent slippage, 0.07 fee assumption",
+  "limitations": [
+    "USDT differs from USD",
+    "Exchange closes differ from BRTI averages",
+    "Binance-to-Coinbase feature distribution shift",
+    "Historical depth unavailable",
+    "Proxy test is not a trading-profit test",
+    "Transfer dates reused; no independent profitability claim"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "inputs": {
+    "train.jsonl": "08185a17b00f6287e4852ad1e16d99ce1c665a37c44b1164760a6ee5c79d9915",
+    "validation.jsonl": "c681b4daefb3674ee798d586904c2d5bf02663f2811d8e4c4dd934f07e82466a"
+  },
+  "code": {
+    "helper/btc_regime.py": "44e7dfedf83d842c01bee97d6ee51b268f7561926ce2dd6e4563bd0035beded5",
+    "helper/btc_research.py": "a492274b24275f82069811157b9e02e74b1f37b9c31895c11e9b82976c2d0bc4",
+    "helper/btc_calibration.py": "746a6a740968f22696d0d60a161eac2ab12a560b32ddc790599d77181d7fc254",
+    "helper/sizing.py": "65cee21d4543b7f5239f3636e975b934e0b102fec264fb75e055a93310cb34e3"
+  },
+  "outputs": {
+    "protocol.json": "4cc89bfd3e584a0565cbc03f1dcd9fef36dcac200a298650d147552a4c328cb4",
+    "report.json": "b4111bbd1f8a2a59fd8e1e4f3e95cf39fe93ff6c06e0856594d1634e3411553d"
+  }
+}

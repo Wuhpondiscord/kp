@@ -1,0 +1,45 @@
+{
+  "sources": {
+    "2025-01": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-01.zip",
+      "sha256": "8d028b2f91aad57d6b693d44449c93f9c4b7044f55f298c8a3ac40ab676dafac",
+      "bytes": 2222830
+    },
+    "2025-02": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-02.zip",
+      "sha256": "26b3795072983a66bdbe8327e0d5e71069bdd5ca831d4da3850ba68ef7a991ef",
+      "bytes": 1993970
+    },
+    "2025-03": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-03.zip",
+      "sha256": "e333601b6c721434f3cdd6670ffde2371bef7946572864c49ba6431a690ab1ca",
+      "bytes": 2215591
+    },
+    "2025-04": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-04.zip",
+      "sha256": "4103d48887f9f5ec04144b190314ec31db9e3094674e5d53a3436b338854848f",
+      "bytes": 2120466
+    },
+    "2025-05": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-05.zip",
+      "sha256": "7f95bf97e3ccfbb55cd002f124a54dc1726ced7cfd54e6fd200e59845ca95d5c",
+      "bytes": 2184868
+    },
+    "2025-06": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2025-06.zip",
+      "sha256": "f95f6169e253d38fb321c87984c827878634250cdcc3ff84fc3507f036bcabbd",
+      "bytes": 2074513
+    }
+  },
+  "code_sha256": "ae6dfd22ee74bda780b2bfb962e284abb07c3a2fc072445d1de1ad04647d716f",
+  "kalshi_inputs": {
+    "train.jsonl": "08185a17b00f6287e4852ad1e16d99ce1c665a37c44b1164760a6ee5c79d9915",
+    "validation.jsonl": "c681b4daefb3674ee798d586904c2d5bf02663f2811d8e4c4dd934f07e82466a",
+    "test.jsonl": "003d23476552b897228d7299224e910bb62c78814e39af0a1c3fbc332d03da89"
+  },
+  "outputs": {
+    "protocol.json": "4fdc21aafa867357e513d4952a0c066d6396e17023ae61c868d1a0e879e38473",
+    "proxy_dataset.npz": "7f9eb25fa4ff9040d2acdf18b99afd0ec1f2957443eb1893188eb9e49cf06eaa",
+    "report.json": "17e81da300b8a8f4dd49fb1f545a7036bd642b7cc2ec8e5c7b23bb3caf016173"
+  }
+}
