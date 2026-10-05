@@ -1,0 +1,50 @@
+{
+  "version": "btc-flow-followup-v1",
+  "start": "2026-06-20",
+  "end": "2026-07-21",
+  "folds": [
+    [
+      "2026-06-28",
+      "2026-07-04"
+    ],
+    [
+      "2026-07-04",
+      "2026-07-10"
+    ],
+    [
+      "2026-07-10",
+      "2026-07-16"
+    ],
+    [
+      "2026-07-16",
+      "2026-07-21"
+    ]
+  ],
+  "masks": {
+    "market_control": [],
+    "full_flow": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "volume_only": [
+      0,
+      1
+    ],
+    "basis_only": [
+      2,
+      3
+    ],
+    "basis_change_only": [
+      3
+    ]
+  },
+  "embargo_seconds": 7200,
+  "sampling": "Whole UTC hour closes only; fixed before fetching earlier outcomes",
+  "model": "Market-offset logistic correction, L2 .1 and coefficient bounds +/-.25 unchanged",
+  "execution": "Recompute inputs at execution quote; 1% bankroll risk, .04 edge, .02 slippage, .07 fee",
+  "stress": "Delay only new flow/basis inputs 60 seconds; retain current executable quote",
+  "inference": "Exploratory rolling development, July dates reused; no promotion or holdout release",
+  "fee_caveat": "June fee coefficient .07 is assumed, not verified historical overrides"
+}

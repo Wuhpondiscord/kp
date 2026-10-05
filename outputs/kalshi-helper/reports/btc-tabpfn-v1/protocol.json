@@ -1,0 +1,28 @@
+{
+  "protocol": {
+    "version": "btc-tabpfn-v1",
+    "package": "tabpfn==2.2.1",
+    "checkpoint_sha256": "cf8c519c01eaf1613ee91239006d57b1c806ff5f23ac1aeb1315ba1015210e49",
+    "checkpoint_revision": "f851f2a3c941544733b712d8c0f96dfae9b28862",
+    "n_estimators": 4,
+    "random_state": 1729,
+    "device": "cpu",
+    "torch_threads": 4,
+    "inputs": "Market probability plus 10 spot and four flow features; no labels as inputs",
+    "adaptation": "Frozen pretrained weights; fit supplies training context, not gradient fine-tuning",
+    "variants": [
+      "raw_tabpfn",
+      "inner_market_blend"
+    ],
+    "blend": "Convex probability blend weight fitted by inner log loss on earlier training dates; set to zero if inner Brier is worse than market",
+    "split": "Existing chronological outer folds and embargoed inner training split; no outer selection",
+    "limits": "Reused development dates; no fine-tuning, holdout access, remote inference or automatic promotion"
+  },
+  "data_hash": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "controls": {
+    "models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+    "models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+    "models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+    "models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192"
+  }
+}

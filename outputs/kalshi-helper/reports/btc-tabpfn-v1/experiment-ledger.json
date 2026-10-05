@@ -1,0 +1,351 @@
+{
+  "experiments": [
+    {
+      "report": "reports/btc-anchor-study-v1/report.json",
+      "sha256": "4bcbd4c240730b835867a5d901fbc4c297c836f1c261be07576527ee67514edf",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "market_control": {
+          "brier": 0.12201423670966083,
+          "log_loss": 0.38164506747207433,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "full_flow": {
+          "brier": 0.12117261069254111,
+          "log_loss": 0.3797427357223556,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -0.46
+        },
+        "fixed_anchor": {
+          "brier": 0.12076085238382864,
+          "log_loss": 0.3774200523984322,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-context-batch-v1/report.json",
+      "sha256": "4b9414c7da54406d48f7923b0aaa9cd7103dc61e9b0a46c67f06df7d75e93c97",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "fixed_anchor": {
+          "brier": 0.12076085238382864,
+          "log_loss": 0.3774200523984322,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "spot": {
+          "brier": 0.12138520287757933,
+          "log_loss": 0.37913465702549554,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -9.82
+        },
+        "combined": {
+          "brier": 0.12126060503861476,
+          "log_loss": 0.37933714796300544,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -6.91
+        },
+        "interactions": {
+          "brier": 0.12158665410509287,
+          "log_loss": 0.3801910258179313,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 1.2
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-directional-batch-v1/report.json",
+      "sha256": "0d0b263f6952c837c1740ad4e88b2d42a9295e3e99a7df69e4dd31cefed83772",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "fixed_anchor": {
+          "brier": 0.12076085238382864,
+          "log_loss": 0.3774200523984322,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "flow": {
+          "brier": 0.12087778592516088,
+          "log_loss": 0.3781054094838133,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "price": {
+          "brier": 0.12133021446851694,
+          "log_loss": 0.37887016795350614,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "joint": {
+          "brier": 0.12068027966280236,
+          "log_loss": 0.3779286277531366,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -9.82
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-flow-followup-v1/report.json",
+      "sha256": "88a9d41953e7254a333285fcbf02650cbfc191d329070015b55ddb1931d16d8d",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "market_control": {
+          "brier": 0.12201423670966083,
+          "log_loss": 0.38164506747207433,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "full_flow": {
+          "brier": 0.12117261069254111,
+          "log_loss": 0.3797427357223556,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -0.46
+        },
+        "volume_only": {
+          "brier": 0.12151360988812825,
+          "log_loss": 0.381156559862659,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "basis_only": {
+          "brier": 0.12162983868717298,
+          "log_loss": 0.3801669935213652,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "basis_change_only": {
+          "brier": 0.12170378890754203,
+          "log_loss": 0.38087033591295855,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-stability-repair-v1/report.json",
+      "sha256": "9db4d2434477bd8b9ab14adf1ff84668356ce642b4cbb3010e58c6f75769e4cc",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "single": {
+          "brier": 0.12076085238382864,
+          "log_loss": 0.3774200523984322,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "original_ensemble": {
+          "brier": 0.12100987740002547,
+          "log_loss": 0.3780490882358463,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -0.78
+        },
+        "shared_scaler": {
+          "brier": 0.12093518958587787,
+          "log_loss": 0.37787565844975723,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -10.64
+        },
+        "boundary_weighted": {
+          "brier": 0.12094987105817011,
+          "log_loss": 0.3779026444833078,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "both_repairs": {
+          "brier": 0.1208792089620819,
+          "log_loss": 0.37773717326927664,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-stability-v1/report.json",
+      "sha256": "ca23a49b0f31910dec8f35b78b28e29e4fcc31520eac185465808be2a3219a10",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "fixed_anchor": {
+          "brier": 0.12076085238382864,
+          "log_loss": 0.3774200523984322,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "ensemble": {
+          "brier": 0.12100987740002547,
+          "log_loss": 0.3780490882358463,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -0.78
+        },
+        "ensemble_60s": {
+          "brier": 0.12238892460875882,
+          "log_loss": 0.3814053875985582,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -9.94
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-tabpfn-anchor-v1/report.json",
+      "sha256": "607aa6b3b7aea606efeacd33557592f36b1570a3d564d11ee7df99e1f0d860f7",
+      "models": {
+        "anchored_tabpfn": {
+          "brier": 0.12139371101647871,
+          "log_loss": 0.37874008393714886,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-tabpfn-v1/report.json",
+      "sha256": "ddcdb3b15a753cd577f6b90b5b31d1d3b072946bed5d86e37be2d7a410153f17",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "fixed_anchor": {
+          "brier": 0.12076085238382864,
+          "log_loss": 0.3774200523984322,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "raw_tabpfn": {
+          "brier": 0.12477631852735166,
+          "log_loss": 0.3973581042191343,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -57.71
+        },
+        "inner_market_blend": {
+          "brier": 0.12418724884254641,
+          "log_loss": 0.39268907715344786,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -51.17
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    },
+    {
+      "report": "reports/btc-trees-v1/report.json",
+      "sha256": "2b1a650cf8696ce70ec59904d1073ea6f8ff9a4dd0cf7708daf64d978c6e85b2",
+      "models": {
+        "market": {
+          "brier": 0.12107787618595826,
+          "log_loss": 0.3777504177437352,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "fixed_anchor": {
+          "brier": 0.12076085238382864,
+          "log_loss": 0.3774200523984322,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": 0.0
+        },
+        "fixed_32": {
+          "brier": 0.12440725435085422,
+          "log_loss": 0.3916894158221042,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -56.93
+        },
+        "selected": {
+          "brier": 0.12417625844646438,
+          "log_loss": 0.3901891758167533,
+          "events": 527,
+          "days": 23,
+          "primary_pnl": -47.95
+        }
+      },
+      "holdout_loaded": false,
+      "deployment_allowed": false
+    }
+  ],
+  "scope": "Reports exposing aggregate scores; not a complete count of every historical fit",
+  "warning": "Do not rank different cohorts together. Controls repeat across reports. This inventory is not a multiplicity correction or probability-of-overfitting estimate."
+}

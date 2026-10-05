@@ -1,0 +1,33 @@
+{
+  "windows": 727,
+  "matching_windows": 727,
+  "mismatching_windows": 0,
+  "fields": [
+    "close",
+    "base_volume",
+    "taker_buy_base_volume"
+  ],
+  "maximum_absolute_difference": [
+    0.0,
+    2.842170943040401e-14,
+    7.105427357601002e-15
+  ],
+  "absolute_tolerances": [
+    1e-08,
+    1e-07,
+    1e-07
+  ],
+  "minute_sources": {
+    "2026-06": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-06.zip",
+      "sha256": "c8e1d5e70b766dd2312fc9cd7085785bb25708e27e75c21a5a5aaba61a6d07f5",
+      "bytes": 2092027
+    },
+    "2026-07": {
+      "url": "https://data.binance.vision/data/spot/monthly/klines/BTCUSDT/1m/BTCUSDT-1m-2026-07.zip",
+      "sha256": "3ef15c84353da48e1c7c5fd99b9751cb036bf8986ed47f7cd1be63359c0d4f6b",
+      "bytes": 2112275
+    }
+  },
+  "passed": true
+}

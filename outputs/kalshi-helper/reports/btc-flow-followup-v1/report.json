@@ -1,0 +1,5945 @@
+{
+  "protocol": {
+    "version": "btc-flow-followup-v1",
+    "start": "2026-06-20",
+    "end": "2026-07-21",
+    "folds": [
+      [
+        "2026-06-28",
+        "2026-07-04"
+      ],
+      [
+        "2026-07-04",
+        "2026-07-10"
+      ],
+      [
+        "2026-07-10",
+        "2026-07-16"
+      ],
+      [
+        "2026-07-16",
+        "2026-07-21"
+      ]
+    ],
+    "masks": {
+      "market_control": [],
+      "full_flow": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "volume_only": [
+        0,
+        1
+      ],
+      "basis_only": [
+        2,
+        3
+      ],
+      "basis_change_only": [
+        3
+      ]
+    },
+    "embargo_seconds": 7200,
+    "sampling": "Whole UTC hour closes only; fixed before fetching earlier outcomes",
+    "model": "Market-offset logistic correction, L2 .1 and coefficient bounds +/-.25 unchanged",
+    "execution": "Recompute inputs at execution quote; 1% bankroll risk, .04 edge, .02 slippage, .07 fee",
+    "stress": "Delay only new flow/basis inputs 60 seconds; retain current executable quote",
+    "inference": "Exploratory rolling development, July dates reused; no promotion or holdout release",
+    "fee_caveat": "June fee coefficient .07 is assumed, not verified historical overrides"
+  },
+  "rerun": true,
+  "holdout_loaded": false,
+  "deployment_allowed": false,
+  "data_sha256": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "code_sha256": "b5a427e18e9aaf2414bb9c168e24fe10431441e7ec3a0f08c96d57bd4de7cacd",
+  "folds": [
+    {
+      "start": "2026-06-28",
+      "end": "2026-07-04",
+      "training_rows": 188,
+      "evaluation_rows": 136,
+      "models": {
+        "market": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.3883125477291218,
+            "brier": 0.1247589650735294,
+            "calibration": [
+              {
+                "count": 21,
+                "predicted": 0.04876190476190475,
+                "observed": 0.047619047619047616
+              },
+              {
+                "count": 15,
+                "predicted": 0.14433333333333334,
+                "observed": 0.26666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.2529166666666667,
+                "observed": 0.25
+              },
+              {
+                "count": 4,
+                "predicted": 0.3075,
+                "observed": 0.25
+              },
+              {
+                "count": 6,
+                "predicted": 0.4533333333333333,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.535,
+                "observed": 0.6
+              },
+              {
+                "count": 12,
+                "predicted": 0.6491666666666666,
+                "observed": 0.4166666666666667
+              },
+              {
+                "count": 11,
+                "predicted": 0.7577272727272727,
+                "observed": 0.8181818181818182
+              },
+              {
+                "count": 14,
+                "predicted": 0.8660714285714286,
+                "observed": 0.9285714285714286
+              },
+              {
+                "count": 36,
+                "predicted": 0.9595694444444445,
+                "observed": 0.9722222222222222
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "market_control": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.39734684810756327,
+            "brier": 0.12718443715570593,
+            "calibration": [
+              {
+                "count": 28,
+                "predicted": 0.03913453758428117,
+                "observed": 0.10714285714285714
+              },
+              {
+                "count": 12,
+                "predicted": 0.13675041859418874,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.2431238670452985,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 6,
+                "predicted": 0.4474312330301733,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5492756680616575,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.667680320050684,
+                "observed": 0.375
+              },
+              {
+                "count": 7,
+                "predicted": 0.7512666853516814,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 11,
+                "predicted": 0.8390486437313854,
+                "observed": 0.9090909090909091
+              },
+              {
+                "count": 47,
+                "predicted": 0.9661460554702438,
+                "observed": 0.9574468085106383
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0024254720821765136,
+            "day_cluster_95_interval": [
+              -0.0021142296066445423,
+              0.008738549001849281
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.40149427234300794,
+            "brier": 0.12842970897441544,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.03874669942594177,
+                "observed": 0.10344827586206896
+              },
+              {
+                "count": 12,
+                "predicted": 0.1407571932043528,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.24485560850969193,
+                "observed": 0.4
+              },
+              {
+                "count": 1,
+                "predicted": 0.3071632776187704,
+                "observed": 0.0
+              },
+              {
+                "count": 6,
+                "predicted": 0.4656996348642473,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5597400914607354,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.663301593639598,
+                "observed": 0.5
+              },
+              {
+                "count": 9,
+                "predicted": 0.7561199329871846,
+                "observed": 0.5555555555555556
+              },
+              {
+                "count": 8,
+                "predicted": 0.846714101920503,
+                "observed": 0.875
+              },
+              {
+                "count": 48,
+                "predicted": 0.9677856682525511,
+                "observed": 0.9583333333333334
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.003670743900886021,
+            "day_cluster_95_interval": [
+              7.504496045412637e-05,
+              0.0089585749751979
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 14,
+            "opportunity_city_days": 6,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 14
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8235294117647058,
+            "log_loss": 0.4031534632573321,
+            "brier": 0.1289219697905808,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.03930998331769961,
+                "observed": 0.10344827586206896
+              },
+              {
+                "count": 12,
+                "predicted": 0.13992232003699695,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.24699734038121987,
+                "observed": 0.4
+              },
+              {
+                "count": 1,
+                "predicted": 0.3081551213866264,
+                "observed": 0.0
+              },
+              {
+                "count": 5,
+                "predicted": 0.4641955828217208,
+                "observed": 0.4
+              },
+              {
+                "count": 6,
+                "predicted": 0.5423893545099988,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 8,
+                "predicted": 0.6669293566646001,
+                "observed": 0.5
+              },
+              {
+                "count": 9,
+                "predicted": 0.7512278876287292,
+                "observed": 0.5555555555555556
+              },
+              {
+                "count": 9,
+                "predicted": 0.8479524676918565,
+                "observed": 0.8888888888888888
+              },
+              {
+                "count": 47,
+                "predicted": 0.9687188329780448,
+                "observed": 0.9574468085106383
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.004163004717051388,
+            "day_cluster_95_interval": [
+              -5.838472850021787e-05,
+              0.010202106552489279
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 8,
+            "opportunity_city_days": 5,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 8
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.39574988440427933,
+            "brier": 0.12671362177397924,
+            "calibration": [
+              {
+                "count": 28,
+                "predicted": 0.03853807862280583,
+                "observed": 0.10714285714285714
+              },
+              {
+                "count": 13,
+                "predicted": 0.14261899231736422,
+                "observed": 0.15384615384615385
+              },
+              {
+                "count": 10,
+                "predicted": 0.23985965754151004,
+                "observed": 0.4
+              },
+              {
+                "count": 2,
+                "predicted": 0.35071131624954055,
+                "observed": 0.0
+              },
+              {
+                "count": 5,
+                "predicted": 0.4536081158751477,
+                "observed": 0.6
+              },
+              {
+                "count": 5,
+                "predicted": 0.5570936888199645,
+                "observed": 0.6
+              },
+              {
+                "count": 6,
+                "predicted": 0.6518058404325678,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 10,
+                "predicted": 0.7518047715482881,
+                "observed": 0.6
+              },
+              {
+                "count": 9,
+                "predicted": 0.8401681249981038,
+                "observed": 0.8888888888888888
+              },
+              {
+                "count": 48,
+                "predicted": 0.9653523492965537,
+                "observed": 0.9583333333333334
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.001954656700449832,
+            "day_cluster_95_interval": [
+              -0.002406020085026942,
+              0.00761506420180739
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 4,
+            "opportunity_city_days": 2,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 4
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8235294117647058,
+            "log_loss": 0.3977004287115859,
+            "brier": 0.12729334390264224,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.040945689424211326,
+                "observed": 0.10344827586206896
+              },
+              {
+                "count": 12,
+                "predicted": 0.14545722006180858,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 11,
+                "predicted": 0.24496496183256652,
+                "observed": 0.36363636363636365
+              },
+              {
+                "count": 5,
+                "predicted": 0.4389090082513597,
+                "observed": 0.4
+              },
+              {
+                "count": 6,
+                "predicted": 0.5396984025330435,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 8,
+                "predicted": 0.6651704890470571,
+                "observed": 0.375
+              },
+              {
+                "count": 7,
+                "predicted": 0.7483711051450148,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 11,
+                "predicted": 0.8404731278423964,
+                "observed": 0.9090909090909091
+              },
+              {
+                "count": 47,
+                "predicted": 0.9660228341855785,
+                "observed": 0.9574468085106383
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.002534378829112845,
+            "day_cluster_95_interval": [
+              -0.0021001252276449845,
+              0.008793946243355851
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      },
+      "lagged": {
+        "market_control": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.39734684810756327,
+            "brier": 0.12718443715570593,
+            "calibration": [
+              {
+                "count": 28,
+                "predicted": 0.03913453758428117,
+                "observed": 0.10714285714285714
+              },
+              {
+                "count": 12,
+                "predicted": 0.13675041859418874,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.2431238670452985,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 6,
+                "predicted": 0.4474312330301733,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5492756680616575,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.667680320050684,
+                "observed": 0.375
+              },
+              {
+                "count": 7,
+                "predicted": 0.7512666853516814,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 11,
+                "predicted": 0.8390486437313854,
+                "observed": 0.9090909090909091
+              },
+              {
+                "count": 47,
+                "predicted": 0.9661460554702438,
+                "observed": 0.9574468085106383
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0024254720821765136,
+            "day_cluster_95_interval": [
+              -0.0021142296066445423,
+              0.008738549001849281
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.4034330440389972,
+            "brier": 0.1291832161273548,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.03912430065810138,
+                "observed": 0.10344827586206896
+              },
+              {
+                "count": 12,
+                "predicted": 0.13740320951688897,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.24498628051484084,
+                "observed": 0.4
+              },
+              {
+                "count": 1,
+                "predicted": 0.3000124432267196,
+                "observed": 0.0
+              },
+              {
+                "count": 6,
+                "predicted": 0.4616710224862368,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5521756742969408,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.6644539984261705,
+                "observed": 0.5
+              },
+              {
+                "count": 8,
+                "predicted": 0.754449874885826,
+                "observed": 0.625
+              },
+              {
+                "count": 9,
+                "predicted": 0.8408229410704776,
+                "observed": 0.7777777777777778
+              },
+              {
+                "count": 48,
+                "predicted": 0.9677831924880236,
+                "observed": 0.9583333333333334
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0044242510538253736,
+            "day_cluster_95_interval": [
+              0.0005642496702095132,
+              0.010425663872285726
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 17,
+            "opportunity_city_days": 6,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 17
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8235294117647058,
+            "log_loss": 0.4041079919252713,
+            "brier": 0.1293410658983152,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.03953539728815657,
+                "observed": 0.10344827586206896
+              },
+              {
+                "count": 12,
+                "predicted": 0.13802780146379365,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.24496445145092816,
+                "observed": 0.4
+              },
+              {
+                "count": 1,
+                "predicted": 0.30513245564475217,
+                "observed": 0.0
+              },
+              {
+                "count": 5,
+                "predicted": 0.4629126021150335,
+                "observed": 0.4
+              },
+              {
+                "count": 6,
+                "predicted": 0.5383493259472106,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 8,
+                "predicted": 0.665459485043056,
+                "observed": 0.5
+              },
+              {
+                "count": 9,
+                "predicted": 0.7543318168641835,
+                "observed": 0.5555555555555556
+              },
+              {
+                "count": 8,
+                "predicted": 0.8419467554540727,
+                "observed": 0.875
+              },
+              {
+                "count": 48,
+                "predicted": 0.9673253362625406,
+                "observed": 0.9583333333333334
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.004582100824785798,
+            "day_cluster_95_interval": [
+              0.0001782598453208924,
+              0.010813429656554966
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 9,
+            "opportunity_city_days": 5,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 9
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8235294117647058,
+            "log_loss": 0.39667370163930865,
+            "brier": 0.1270455468374326,
+            "calibration": [
+              {
+                "count": 28,
+                "predicted": 0.0385994089632925,
+                "observed": 0.10714285714285714
+              },
+              {
+                "count": 13,
+                "predicted": 0.14157080304225034,
+                "observed": 0.15384615384615385
+              },
+              {
+                "count": 11,
+                "predicted": 0.24671607519777874,
+                "observed": 0.36363636363636365
+              },
+              {
+                "count": 1,
+                "predicted": 0.39367268126836136,
+                "observed": 0.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.4383005596394429,
+                "observed": 0.5
+              },
+              {
+                "count": 6,
+                "predicted": 0.5461263793844183,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 7,
+                "predicted": 0.6609681623473532,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 7,
+                "predicted": 0.7465976379289387,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 11,
+                "predicted": 0.8319301463947987,
+                "observed": 0.8181818181818182
+              },
+              {
+                "count": 48,
+                "predicted": 0.9652912396344346,
+                "observed": 0.9583333333333334
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.002286581763903202,
+            "day_cluster_95_interval": [
+              -0.0022118329717838296,
+              0.008591863408642292
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 4,
+            "opportunity_city_days": 2,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 4
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.39811046642960624,
+            "brier": 0.12735820239739865,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.04309952459615318,
+                "observed": 0.1
+              },
+              {
+                "count": 11,
+                "predicted": 0.14774771928895605,
+                "observed": 0.18181818181818182
+              },
+              {
+                "count": 11,
+                "predicted": 0.2472088244107166,
+                "observed": 0.36363636363636365
+              },
+              {
+                "count": 6,
+                "predicted": 0.44370390170932295,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5475994130394704,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.6669572934990683,
+                "observed": 0.375
+              },
+              {
+                "count": 7,
+                "predicted": 0.749869436775573,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 11,
+                "predicted": 0.8388645031963938,
+                "observed": 0.9090909090909091
+              },
+              {
+                "count": 47,
+                "predicted": 0.9659947828780926,
+                "observed": 0.9574468085106383
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0025992373238692295,
+            "day_cluster_95_interval": [
+              -0.0019859044514311188,
+              0.009124822352713426
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-07-04",
+      "end": "2026-07-10",
+      "training_rows": 327,
+      "evaluation_rows": 136,
+      "models": {
+        "market": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.43455759159499335,
+            "brier": 0.1395832224264706,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.038900000000000004,
+                "observed": 0.03333333333333333
+              },
+              {
+                "count": 6,
+                "predicted": 0.15083333333333335,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 11,
+                "predicted": 0.25136363636363634,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 11,
+                "predicted": 0.3395454545454546,
+                "observed": 0.18181818181818182
+              },
+              {
+                "count": 9,
+                "predicted": 0.4588888888888889,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 5,
+                "predicted": 0.5439999999999999,
+                "observed": 0.6
+              },
+              {
+                "count": 6,
+                "predicted": 0.6416666666666667,
+                "observed": 0.5
+              },
+              {
+                "count": 10,
+                "predicted": 0.744,
+                "observed": 0.7
+              },
+              {
+                "count": 14,
+                "predicted": 0.8514285714285713,
+                "observed": 0.7857142857142857
+              },
+              {
+                "count": 34,
+                "predicted": 0.960485294117647,
+                "observed": 0.9117647058823529
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "market_control": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.44537224003946246,
+            "brier": 0.1412333537223293,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.029038734550761457,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 7,
+                "predicted": 0.14788006703768655,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 14,
+                "predicted": 0.25669402473636654,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.3544555650929278,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 9,
+                "predicted": 0.45829840971266944,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 4,
+                "predicted": 0.5415830774278021,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.6329816032716196,
+                "observed": 0.6
+              },
+              {
+                "count": 10,
+                "predicted": 0.7522693815842005,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8540308285007253,
+                "observed": 0.6363636363636364
+              },
+              {
+                "count": 39,
+                "predicted": 0.9653569311781866,
+                "observed": 0.9230769230769231
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0016501312958587513,
+            "day_cluster_95_interval": [
+              -0.001990186038011123,
+              0.0049991221947517355
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.4381759977022313,
+            "brier": 0.13931006059569584,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.025113092747001835,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 9,
+                "predicted": 0.14430309667035243,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 12,
+                "predicted": 0.23830235577379053,
+                "observed": 0.25
+              },
+              {
+                "count": 7,
+                "predicted": 0.3300117203820244,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 10,
+                "predicted": 0.4418970257424907,
+                "observed": 0.5
+              },
+              {
+                "count": 3,
+                "predicted": 0.5537224886924365,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 6,
+                "predicted": 0.6401616216482187,
+                "observed": 0.5
+              },
+              {
+                "count": 10,
+                "predicted": 0.750597257047352,
+                "observed": 0.7
+              },
+              {
+                "count": 12,
+                "predicted": 0.854478974471192,
+                "observed": 0.75
+              },
+              {
+                "count": 36,
+                "predicted": 0.9659680399859876,
+                "observed": 0.9166666666666666
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0002731618307747675,
+            "day_cluster_95_interval": [
+              -0.004682278496886624,
+              0.0036375245572691822
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8014705882352942,
+            "log_loss": 0.44035654969241855,
+            "brier": 0.13953865641838867,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.029479088251786155,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 8,
+                "predicted": 0.15463862436422116,
+                "observed": 0.375
+              },
+              {
+                "count": 13,
+                "predicted": 0.26353584665945956,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 6,
+                "predicted": 0.35257223580178026,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 8,
+                "predicted": 0.45865756800117036,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5381298329309427,
+                "observed": 0.4
+              },
+              {
+                "count": 5,
+                "predicted": 0.6430122653266348,
+                "observed": 0.6
+              },
+              {
+                "count": 10,
+                "predicted": 0.7540304118806216,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8525325229998318,
+                "observed": 0.6363636363636364
+              },
+              {
+                "count": 39,
+                "predicted": 0.9654236060914667,
+                "observed": 0.9230769230769231
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -4.45660080819195e-05,
+            "day_cluster_95_interval": [
+              -0.004040981307561608,
+              0.0037985533618909604
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.4431161728092334,
+            "brier": 0.14093460214547887,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.024689940421418425,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 10,
+                "predicted": 0.1489240166342291,
+                "observed": 0.4
+              },
+              {
+                "count": 11,
+                "predicted": 0.2391531243968197,
+                "observed": 0.18181818181818182
+              },
+              {
+                "count": 6,
+                "predicted": 0.32124775998898464,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 11,
+                "predicted": 0.43149811958084333,
+                "observed": 0.45454545454545453
+              },
+              {
+                "count": 5,
+                "predicted": 0.5672697340077237,
+                "observed": 0.6
+              },
+              {
+                "count": 4,
+                "predicted": 0.6488183572302804,
+                "observed": 0.5
+              },
+              {
+                "count": 10,
+                "predicted": 0.7491337761059936,
+                "observed": 0.7
+              },
+              {
+                "count": 13,
+                "predicted": 0.8586239804601352,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 35,
+                "predicted": 0.967675231911003,
+                "observed": 0.9142857142857143
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0013513797190082934,
+            "day_cluster_95_interval": [
+              -0.003534671768725625,
+              0.005894799400378107
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.44573971487967967,
+            "brier": 0.14138647596718829,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.028855918721362044,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 7,
+                "predicted": 0.1480302763769083,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 13,
+                "predicted": 0.25311928176264686,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 7,
+                "predicted": 0.348434339954472,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 9,
+                "predicted": 0.4569133698796379,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 4,
+                "predicted": 0.5417622489577696,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.633357296330316,
+                "observed": 0.6
+              },
+              {
+                "count": 10,
+                "predicted": 0.7525525537109927,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8542426567076252,
+                "observed": 0.6363636363636364
+              },
+              {
+                "count": 39,
+                "predicted": 0.965426891190374,
+                "observed": 0.9230769230769231
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0018032535407176923,
+            "day_cluster_95_interval": [
+              -0.0018744395177906843,
+              0.005039440532008971
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      },
+      "lagged": {
+        "market_control": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.44537224003946246,
+            "brier": 0.1412333537223293,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.029038734550761457,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 7,
+                "predicted": 0.14788006703768655,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 14,
+                "predicted": 0.25669402473636654,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.3544555650929278,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 9,
+                "predicted": 0.45829840971266944,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 4,
+                "predicted": 0.5415830774278021,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.6329816032716196,
+                "observed": 0.6
+              },
+              {
+                "count": 10,
+                "predicted": 0.7522693815842005,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8540308285007253,
+                "observed": 0.6363636363636364
+              },
+              {
+                "count": 39,
+                "predicted": 0.9653569311781866,
+                "observed": 0.9230769230769231
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0016501312958587513,
+            "day_cluster_95_interval": [
+              -0.001990186038011123,
+              0.0049991221947517355
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.44021166618237895,
+            "brier": 0.1397154447099747,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.0258997604407803,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 9,
+                "predicted": 0.14302144112965387,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 12,
+                "predicted": 0.23834080588814166,
+                "observed": 0.25
+              },
+              {
+                "count": 8,
+                "predicted": 0.3375893124645827,
+                "observed": 0.125
+              },
+              {
+                "count": 9,
+                "predicted": 0.4498361085612383,
+                "observed": 0.5555555555555556
+              },
+              {
+                "count": 3,
+                "predicted": 0.5545650056482577,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 7,
+                "predicted": 0.6471665932884418,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 9,
+                "predicted": 0.7570675589448361,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.8516938084638422,
+                "observed": 0.75
+              },
+              {
+                "count": 36,
+                "predicted": 0.9661034391627594,
+                "observed": 0.9166666666666666
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.00013222228350414465,
+            "day_cluster_95_interval": [
+              -0.004297974090346996,
+              0.004137975199218373
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 1,
+            "opportunity_city_days": 1,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 1
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8014705882352942,
+            "log_loss": 0.44288194496997685,
+            "brier": 0.14023383525025945,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.030038464102039416,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 8,
+                "predicted": 0.1540723329430007,
+                "observed": 0.375
+              },
+              {
+                "count": 12,
+                "predicted": 0.26000607515572977,
+                "observed": 0.25
+              },
+              {
+                "count": 7,
+                "predicted": 0.34749694732503145,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 8,
+                "predicted": 0.4584684220416615,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5404731983204434,
+                "observed": 0.4
+              },
+              {
+                "count": 5,
+                "predicted": 0.6414806827914583,
+                "observed": 0.6
+              },
+              {
+                "count": 10,
+                "predicted": 0.7570181149150842,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8527467593593918,
+                "observed": 0.6363636363636364
+              },
+              {
+                "count": 39,
+                "predicted": 0.965385648372407,
+                "observed": 0.9230769230769231
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0006506128237888786,
+            "day_cluster_95_interval": [
+              -0.00325579420915612,
+              0.004388397970419704
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.4427832350733101,
+            "brier": 0.14071682294514312,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.025002769760078883,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 9,
+                "predicted": 0.14277430970617055,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 13,
+                "predicted": 0.24015342127715517,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 6,
+                "predicted": 0.3339344109356279,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.43787956520115756,
+                "observed": 0.5
+              },
+              {
+                "count": 4,
+                "predicted": 0.5562548841194717,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.6365683807452551,
+                "observed": 0.6
+              },
+              {
+                "count": 10,
+                "predicted": 0.7486759027198799,
+                "observed": 0.7
+              },
+              {
+                "count": 13,
+                "predicted": 0.8565151712899028,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 35,
+                "predicted": 0.9676348582022192,
+                "observed": 0.9142857142857143
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.001133600518672531,
+            "day_cluster_95_interval": [
+              -0.003591349924375397,
+              0.005347460740838209
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 1,
+            "opportunity_city_days": 1,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 1
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8014705882352942,
+            "log_loss": 0.44531741069264447,
+            "brier": 0.1411775770283485,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.028950705562584004,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 7,
+                "predicted": 0.14797991528064872,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 14,
+                "predicted": 0.25648095544441996,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.35438232416316495,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 8,
+                "predicted": 0.45425990871428346,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.5351845146750269,
+                "observed": 0.4
+              },
+              {
+                "count": 5,
+                "predicted": 0.6327631783919159,
+                "observed": 0.6
+              },
+              {
+                "count": 10,
+                "predicted": 0.7529706118201529,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8532487636609833,
+                "observed": 0.6363636363636364
+              },
+              {
+                "count": 39,
+                "predicted": 0.9653308071389614,
+                "observed": 0.9230769230769231
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0015943546018779013,
+            "day_cluster_95_interval": [
+              -0.0021237025510605022,
+              0.004879589263365147
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-07-10",
+      "end": "2026-07-16",
+      "training_rows": 466,
+      "evaluation_rows": 141,
+      "models": {
+        "market": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8439716312056738,
+            "log_loss": 0.34468830249922355,
+            "brier": 0.10887232978723403,
+            "calibration": [
+              {
+                "count": 28,
+                "predicted": 0.04780357142857143,
+                "observed": 0.0
+              },
+              {
+                "count": 11,
+                "predicted": 0.1340909090909091,
+                "observed": 0.09090909090909091
+              },
+              {
+                "count": 13,
+                "predicted": 0.24884615384615383,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.3522727272727273,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 9,
+                "predicted": 0.46388888888888885,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 13,
+                "predicted": 0.5561538461538462,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 6,
+                "predicted": 0.6466666666666667,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 14,
+                "predicted": 0.74,
+                "observed": 0.9285714285714286
+              },
+              {
+                "count": 13,
+                "predicted": 0.8434615384615385,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 23,
+                "predicted": 0.9635869565217392,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "market_control": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8439716312056738,
+            "log_loss": 0.3405467643199435,
+            "brier": 0.10799425358512883,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.045830067778684785,
+                "observed": 0.0
+              },
+              {
+                "count": 8,
+                "predicted": 0.13206285384335564,
+                "observed": 0.125
+              },
+              {
+                "count": 13,
+                "predicted": 0.23538615468732565,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.3417893979955575,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 9,
+                "predicted": 0.45867180945376085,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 13,
+                "predicted": 0.555966091499701,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 6,
+                "predicted": 0.6512276342137301,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 13,
+                "predicted": 0.7440338656952948,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 13,
+                "predicted": 0.8458777180894075,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 24,
+                "predicted": 0.9656765432646686,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.000878076202105206,
+            "day_cluster_95_interval": [
+              -0.0019899385434511514,
+              0.00023901372766912507
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8581560283687943,
+            "log_loss": 0.34026104219186143,
+            "brier": 0.10750271306208917,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.04559550538710754,
+                "observed": 0.0
+              },
+              {
+                "count": 12,
+                "predicted": 0.15274606784984815,
+                "observed": 0.08333333333333333
+              },
+              {
+                "count": 12,
+                "predicted": 0.24927000642476707,
+                "observed": 0.25
+              },
+              {
+                "count": 9,
+                "predicted": 0.35519194216678573,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 10,
+                "predicted": 0.4602290291740666,
+                "observed": 0.3
+              },
+              {
+                "count": 9,
+                "predicted": 0.5474237054306782,
+                "observed": 0.5555555555555556
+              },
+              {
+                "count": 12,
+                "predicted": 0.646729259012439,
+                "observed": 0.75
+              },
+              {
+                "count": 10,
+                "predicted": 0.7493602063521019,
+                "observed": 0.9
+              },
+              {
+                "count": 12,
+                "predicted": 0.8443460330450895,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 24,
+                "predicted": 0.9625782542581248,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0013696167251448792,
+            "day_cluster_95_interval": [
+              -0.004092653754502347,
+              0.0012875611955917594
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": -9.62,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 1,
+            "contracts": 22,
+            "opportunity_contracts": 2,
+            "opportunity_city_days": 1,
+            "traded_city_days": 1,
+            "capital_deployed": 9.62,
+            "fees": 0.38,
+            "net_per_contract": -0.43727272727272726,
+            "return_on_deployed": -1.0,
+            "bankroll_return": -0.00962,
+            "max_open_cost": 9.62,
+            "max_city_day_cost": 9.62,
+            "max_bet_cost": 9.62,
+            "realized_cost_equity_drawdown": 9.62,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 1
+            },
+            "ledger": [
+              {
+                "ticker": "KXBTC15M-26JUL102100-00",
+                "event_group": "KXBTC15M / 2026-07-11",
+                "day": "2026-07-11",
+                "quantity": 22,
+                "cost": 9.62,
+                "fees": 0.38,
+                "pnl": -9.62
+              }
+            ],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 1,
+              "zero_trade_resamples": 980,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.3415085626137055,
+            "brier": 0.10768274411067398,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.047305851025779284,
+                "observed": 0.0
+              },
+              {
+                "count": 10,
+                "predicted": 0.14659430098890056,
+                "observed": 0.1
+              },
+              {
+                "count": 11,
+                "predicted": 0.2364032829295514,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 10,
+                "predicted": 0.34165712823383443,
+                "observed": 0.1
+              },
+              {
+                "count": 10,
+                "predicted": 0.4546351342751874,
+                "observed": 0.4
+              },
+              {
+                "count": 10,
+                "predicted": 0.5462705631898621,
+                "observed": 0.5
+              },
+              {
+                "count": 12,
+                "predicted": 0.6506343464176358,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.7495321248282083,
+                "observed": 0.9
+              },
+              {
+                "count": 14,
+                "predicted": 0.846254983681418,
+                "observed": 0.8571428571428571
+              },
+              {
+                "count": 24,
+                "predicted": 0.9651576832360315,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0011895856765600649,
+            "day_cluster_95_interval": [
+              -0.0051051241648819665,
+              0.0028363152833125395
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 3,
+            "opportunity_city_days": 2,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 3
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8439716312056738,
+            "log_loss": 0.3395622772833652,
+            "brier": 0.10788466559697087,
+            "calibration": [
+              {
+                "count": 34,
+                "predicted": 0.04686666617809291,
+                "observed": 0.0
+              },
+              {
+                "count": 7,
+                "predicted": 0.1533050097344956,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 16,
+                "predicted": 0.24429053728284159,
+                "observed": 0.25
+              },
+              {
+                "count": 9,
+                "predicted": 0.3627943877582965,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 10,
+                "predicted": 0.4646958515122511,
+                "observed": 0.4
+              },
+              {
+                "count": 10,
+                "predicted": 0.5578211789162862,
+                "observed": 0.4
+              },
+              {
+                "count": 7,
+                "predicted": 0.6581440253120407,
+                "observed": 0.8571428571428571
+              },
+              {
+                "count": 12,
+                "predicted": 0.7358892234865672,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 13,
+                "predicted": 0.8446016522204822,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 23,
+                "predicted": 0.9660859249453944,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0009876641902631864,
+            "day_cluster_95_interval": [
+              -0.004430665820281945,
+              0.0023118790385047907
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.33959050604038005,
+            "brier": 0.10765516999092696,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.045691019311390434,
+                "observed": 0.0
+              },
+              {
+                "count": 8,
+                "predicted": 0.13312674594962837,
+                "observed": 0.125
+              },
+              {
+                "count": 13,
+                "predicted": 0.23480669757088907,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.34245347275945764,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 10,
+                "predicted": 0.4630330722509822,
+                "observed": 0.3
+              },
+              {
+                "count": 12,
+                "predicted": 0.5593699099987858,
+                "observed": 0.4166666666666667
+              },
+              {
+                "count": 6,
+                "predicted": 0.6522925786003713,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 13,
+                "predicted": 0.7452262267234573,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 13,
+                "predicted": 0.8465870513662475,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 24,
+                "predicted": 0.965796064228608,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0012171597963070878,
+            "day_cluster_95_interval": [
+              -0.0024987942493271526,
+              0.00013114548509934523
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      },
+      "lagged": {
+        "market_control": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8439716312056738,
+            "log_loss": 0.3405467643199435,
+            "brier": 0.10799425358512883,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.045830067778684785,
+                "observed": 0.0
+              },
+              {
+                "count": 8,
+                "predicted": 0.13206285384335564,
+                "observed": 0.125
+              },
+              {
+                "count": 13,
+                "predicted": 0.23538615468732565,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.3417893979955575,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 9,
+                "predicted": 0.45867180945376085,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 13,
+                "predicted": 0.555966091499701,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 6,
+                "predicted": 0.6512276342137301,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 13,
+                "predicted": 0.7440338656952948,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 13,
+                "predicted": 0.8458777180894075,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 24,
+                "predicted": 0.9656765432646686,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.000878076202105206,
+            "day_cluster_95_interval": [
+              -0.0019899385434511514,
+              0.00023901372766912507
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.3408311137459031,
+            "brier": 0.10770217434819737,
+            "calibration": [
+              {
+                "count": 33,
+                "predicted": 0.04763805169897569,
+                "observed": 0.0
+              },
+              {
+                "count": 10,
+                "predicted": 0.16532747277389717,
+                "observed": 0.1
+              },
+              {
+                "count": 11,
+                "predicted": 0.24174023137515502,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 10,
+                "predicted": 0.3336207936008325,
+                "observed": 0.3
+              },
+              {
+                "count": 9,
+                "predicted": 0.4616635832903159,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 9,
+                "predicted": 0.55161377978702,
+                "observed": 0.5555555555555556
+              },
+              {
+                "count": 13,
+                "predicted": 0.6572010267133633,
+                "observed": 0.6923076923076923
+              },
+              {
+                "count": 10,
+                "predicted": 0.7533291652736837,
+                "observed": 0.9
+              },
+              {
+                "count": 12,
+                "predicted": 0.8476032869077943,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 24,
+                "predicted": 0.9624796524095155,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0011701554390366681,
+            "day_cluster_95_interval": [
+              -0.004504071144506991,
+              0.002043127417039487
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 5,
+            "opportunity_city_days": 4,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 5
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.3421077650687155,
+            "brier": 0.10791881628438389,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.04639440256034826,
+                "observed": 0.0
+              },
+              {
+                "count": 11,
+                "predicted": 0.15230638153104326,
+                "observed": 0.09090909090909091
+              },
+              {
+                "count": 10,
+                "predicted": 0.2348294997200105,
+                "observed": 0.3
+              },
+              {
+                "count": 12,
+                "predicted": 0.34054388404516817,
+                "observed": 0.25
+              },
+              {
+                "count": 8,
+                "predicted": 0.47332657057341765,
+                "observed": 0.25
+              },
+              {
+                "count": 8,
+                "predicted": 0.5438906727602386,
+                "observed": 0.5
+              },
+              {
+                "count": 11,
+                "predicted": 0.643506778617112,
+                "observed": 0.5454545454545454
+              },
+              {
+                "count": 13,
+                "predicted": 0.7424357346890191,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 14,
+                "predicted": 0.8495869336246294,
+                "observed": 0.8571428571428571
+              },
+              {
+                "count": 24,
+                "predicted": 0.9653006054470986,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0009535135028501476,
+            "day_cluster_95_interval": [
+              -0.006138326204942339,
+              0.0036589136762230057
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 6,
+            "opportunity_city_days": 3,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 6
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.3402134782917391,
+            "brier": 0.1081179304704148,
+            "calibration": [
+              {
+                "count": 34,
+                "predicted": 0.0469403075977136,
+                "observed": 0.0
+              },
+              {
+                "count": 7,
+                "predicted": 0.15217926580591268,
+                "observed": 0.14285714285714285
+              },
+              {
+                "count": 16,
+                "predicted": 0.24404442037622964,
+                "observed": 0.25
+              },
+              {
+                "count": 8,
+                "predicted": 0.35667087035280043,
+                "observed": 0.375
+              },
+              {
+                "count": 10,
+                "predicted": 0.4562683694625161,
+                "observed": 0.3
+              },
+              {
+                "count": 11,
+                "predicted": 0.5527337069120708,
+                "observed": 0.45454545454545453
+              },
+              {
+                "count": 7,
+                "predicted": 0.6571576940709303,
+                "observed": 0.8571428571428571
+              },
+              {
+                "count": 12,
+                "predicted": 0.735181569510302,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 13,
+                "predicted": 0.844490577382779,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 23,
+                "predicted": 0.9658767583309396,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0007543993168192146,
+            "day_cluster_95_interval": [
+              -0.004247578386971241,
+              0.002550904814772717
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8439716312056738,
+            "log_loss": 0.3405843466830289,
+            "brier": 0.10805248359423955,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.045716418797291096,
+                "observed": 0.0
+              },
+              {
+                "count": 8,
+                "predicted": 0.13187081332219477,
+                "observed": 0.125
+              },
+              {
+                "count": 13,
+                "predicted": 0.23419287864081345,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.3401063010062349,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 9,
+                "predicted": 0.4601454472074679,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 13,
+                "predicted": 0.5539968346625019,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 6,
+                "predicted": 0.6507896708455218,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 13,
+                "predicted": 0.7435060062726191,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 13,
+                "predicted": 0.8467274223252463,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 24,
+                "predicted": 0.9657080009994244,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0008198461929944952,
+            "day_cluster_95_interval": [
+              -0.0018165941801394974,
+              0.0001947924092896224
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-07-16",
+      "end": "2026-07-21",
+      "training_rows": 610,
+      "evaluation_rows": 114,
+      "models": {
+        "market": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8070175438596491,
+            "log_loss": 0.33827263640770405,
+            "brier": 0.10970618201754385,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.0346875,
+                "observed": 0.041666666666666664
+              },
+              {
+                "count": 12,
+                "predicted": 0.16,
+                "observed": 0.25
+              },
+              {
+                "count": 4,
+                "predicted": 0.255,
+                "observed": 0.25
+              },
+              {
+                "count": 1,
+                "predicted": 0.345,
+                "observed": 1.0
+              },
+              {
+                "count": 5,
+                "predicted": 0.461,
+                "observed": 0.8
+              },
+              {
+                "count": 10,
+                "predicted": 0.5529999999999999,
+                "observed": 0.3
+              },
+              {
+                "count": 6,
+                "predicted": 0.645,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 9,
+                "predicted": 0.773888888888889,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.8408333333333333,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 31,
+                "predicted": 0.9535483870967743,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "market_control": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8070175438596491,
+            "log_loss": 0.3377198315848738,
+            "brier": 0.11025871430767802,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.032161711475377774,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 11,
+                "predicted": 0.15492308852193046,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 3,
+                "predicted": 0.24966451637928141,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 2,
+                "predicted": 0.361371191286745,
+                "observed": 1.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.46832352072759587,
+                "observed": 0.75
+              },
+              {
+                "count": 10,
+                "predicted": 0.5524208939805242,
+                "observed": 0.3
+              },
+              {
+                "count": 5,
+                "predicted": 0.6406138522112373,
+                "observed": 0.8
+              },
+              {
+                "count": 7,
+                "predicted": 0.7659260879336772,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 15,
+                "predicted": 0.845806747234425,
+                "observed": 0.9333333333333333
+              },
+              {
+                "count": 31,
+                "predicted": 0.9617423826609472,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0005525322901341698,
+            "day_cluster_95_interval": [
+              -0.0005809079818863228,
+              0.001299505589244639
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8421052631578947,
+            "log_loss": 0.33291629868838957,
+            "brier": 0.10778486519017072,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.03154941932155375,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 11,
+                "predicted": 0.15450422883180542,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 2,
+                "predicted": 0.22779725729108247,
+                "observed": 0.5
+              },
+              {
+                "count": 4,
+                "predicted": 0.3588116062900055,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.45070559844594904,
+                "observed": 0.4
+              },
+              {
+                "count": 8,
+                "predicted": 0.5456865583041939,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.6449692240405753,
+                "observed": 0.8
+              },
+              {
+                "count": 10,
+                "predicted": 0.7587348576438693,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8490252750208885,
+                "observed": 0.9090909090909091
+              },
+              {
+                "count": 32,
+                "predicted": 0.9569155114814465,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.001921316827373146,
+            "day_cluster_95_interval": [
+              -0.0026948781497265904,
+              -0.0009192396947555602
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 9.16,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 1,
+            "contracts": 19,
+            "opportunity_contracts": 3,
+            "opportunity_city_days": 3,
+            "traded_city_days": 1,
+            "capital_deployed": 9.84,
+            "fees": 0.34,
+            "net_per_contract": 0.48210526315789476,
+            "return_on_deployed": 0.9308943089430894,
+            "bankroll_return": 0.00916,
+            "max_open_cost": 9.84,
+            "max_city_day_cost": 9.84,
+            "max_bet_cost": 9.84,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 2
+            },
+            "ledger": [
+              {
+                "ticker": "KXBTC15M-26JUL161800-00",
+                "event_group": "KXBTC15M / 2026-07-16",
+                "day": "2026-07-16",
+                "quantity": 19,
+                "cost": 9.84,
+                "fees": 0.34,
+                "pnl": 9.16
+              }
+            ],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 1,
+              "zero_trade_resamples": 935,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8508771929824561,
+            "log_loss": 0.33332840313967294,
+            "brier": 0.10827859935981338,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.032688685949789485,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 10,
+                "predicted": 0.1562677565910661,
+                "observed": 0.3
+              },
+              {
+                "count": 3,
+                "predicted": 0.23110949363605796,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 3,
+                "predicted": 0.35476608860926007,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 5,
+                "predicted": 0.45943075431560193,
+                "observed": 0.2
+              },
+              {
+                "count": 8,
+                "predicted": 0.5581535835351208,
+                "observed": 0.625
+              },
+              {
+                "count": 6,
+                "predicted": 0.6501416660446941,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 8,
+                "predicted": 0.7615073140673954,
+                "observed": 0.625
+              },
+              {
+                "count": 13,
+                "predicted": 0.8479349948285886,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 32,
+                "predicted": 0.9591277702018888,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.001427582657730494,
+            "day_cluster_95_interval": [
+              -0.002083052295476049,
+              -0.0007721130199849385
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8421052631578947,
+            "log_loss": 0.3367012342786596,
+            "brier": 0.10953533935018381,
+            "calibration": [
+              {
+                "count": 25,
+                "predicted": 0.02839049008034058,
+                "observed": 0.04
+              },
+              {
+                "count": 12,
+                "predicted": 0.1456806514393797,
+                "observed": 0.25
+              },
+              {
+                "count": 3,
+                "predicted": 0.24250306134845753,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 2,
+                "predicted": 0.34744221110441365,
+                "observed": 1.0
+              },
+              {
+                "count": 8,
+                "predicted": 0.4660710702558835,
+                "observed": 0.375
+              },
+              {
+                "count": 7,
+                "predicted": 0.5571236161761608,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 4,
+                "predicted": 0.6403115442183621,
+                "observed": 0.75
+              },
+              {
+                "count": 9,
+                "predicted": 0.7663106079005497,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 13,
+                "predicted": 0.8450930515817809,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 31,
+                "predicted": 0.9598699248050511,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.00017084266736004544,
+            "day_cluster_95_interval": [
+              -0.0009387402165213094,
+              0.0010544898200631884
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8245614035087719,
+            "log_loss": 0.3344609311054687,
+            "brier": 0.1089303709057631,
+            "calibration": [
+              {
+                "count": 25,
+                "predicted": 0.029620752118624135,
+                "observed": 0.04
+              },
+              {
+                "count": 12,
+                "predicted": 0.15070312488297297,
+                "observed": 0.25
+              },
+              {
+                "count": 3,
+                "predicted": 0.25384667274348843,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 2,
+                "predicted": 0.3596492157240768,
+                "observed": 1.0
+              },
+              {
+                "count": 6,
+                "predicted": 0.4708921623716522,
+                "observed": 0.5
+              },
+              {
+                "count": 8,
+                "predicted": 0.5507717615040192,
+                "observed": 0.375
+              },
+              {
+                "count": 5,
+                "predicted": 0.6414372256593207,
+                "observed": 0.8
+              },
+              {
+                "count": 7,
+                "predicted": 0.7654487478378876,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 14,
+                "predicted": 0.8415334416595363,
+                "observed": 0.9285714285714286
+              },
+              {
+                "count": 32,
+                "predicted": 0.9599533075436968,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0007758111117807376,
+            "day_cluster_95_interval": [
+              -0.0021748369878410714,
+              0.0010977055989121079
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      },
+      "lagged": {
+        "market_control": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8070175438596491,
+            "log_loss": 0.3377198315848738,
+            "brier": 0.11025871430767802,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.032161711475377774,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 11,
+                "predicted": 0.15492308852193046,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 3,
+                "predicted": 0.24966451637928141,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 2,
+                "predicted": 0.361371191286745,
+                "observed": 1.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.46832352072759587,
+                "observed": 0.75
+              },
+              {
+                "count": 10,
+                "predicted": 0.5524208939805242,
+                "observed": 0.3
+              },
+              {
+                "count": 5,
+                "predicted": 0.6406138522112373,
+                "observed": 0.8
+              },
+              {
+                "count": 7,
+                "predicted": 0.7659260879336772,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 15,
+                "predicted": 0.845806747234425,
+                "observed": 0.9333333333333333
+              },
+              {
+                "count": 31,
+                "predicted": 0.9617423826609472,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0005525322901341698,
+            "day_cluster_95_interval": [
+              -0.0005809079818863228,
+              0.001299505589244639
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "full_flow": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8245614035087719,
+            "log_loss": 0.34504594820884316,
+            "brier": 0.11274362411032655,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.030719553131340758,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 11,
+                "predicted": 0.15005056357525398,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 4,
+                "predicted": 0.2532061639114805,
+                "observed": 0.5
+              },
+              {
+                "count": 1,
+                "predicted": 0.3804064995685212,
+                "observed": 1.0
+              },
+              {
+                "count": 6,
+                "predicted": 0.47139723819858936,
+                "observed": 0.5
+              },
+              {
+                "count": 7,
+                "predicted": 0.5550550508751367,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 6,
+                "predicted": 0.6340134067601807,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 9,
+                "predicted": 0.7526215985194648,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.8383069076074321,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 32,
+                "predicted": 0.9580315841716833,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0030374420927827255,
+            "day_cluster_95_interval": [
+              -0.0003294976720302862,
+              0.00723727655958937
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 2,
+            "opportunity_city_days": 2,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 2
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "volume_only": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8333333333333334,
+            "log_loss": 0.34245354177071435,
+            "brier": 0.1120446150007617,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.031952799485760214,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 11,
+                "predicted": 0.1564379943820233,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 4,
+                "predicted": 0.2694197279611486,
+                "observed": 0.5
+              },
+              {
+                "count": 1,
+                "predicted": 0.38922463123450346,
+                "observed": 1.0
+              },
+              {
+                "count": 3,
+                "predicted": 0.47549464208978276,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 9,
+                "predicted": 0.5417993262259045,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 7,
+                "predicted": 0.6385180776202205,
+                "observed": 0.7142857142857143
+              },
+              {
+                "count": 9,
+                "predicted": 0.7658524386116553,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.8474270929120991,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 32,
+                "predicted": 0.9602402401856525,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.002338432983217849,
+            "day_cluster_95_interval": [
+              -0.000674327851443376,
+              0.005685945021730322
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_only": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8157894736842105,
+            "log_loss": 0.3400494391033144,
+            "brier": 0.1108973866788764,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.03102211987267978,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 11,
+                "predicted": 0.14910383393511717,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 3,
+                "predicted": 0.23101448822568302,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 2,
+                "predicted": 0.3567844447521775,
+                "observed": 1.0
+              },
+              {
+                "count": 5,
+                "predicted": 0.4527157753253981,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.5431242693267672,
+                "observed": 0.25
+              },
+              {
+                "count": 6,
+                "predicted": 0.6277883563231381,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 9,
+                "predicted": 0.7625582129108578,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.8398923261688392,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 32,
+                "predicted": 0.9578165717575599,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0011912046613325423,
+            "day_cluster_95_interval": [
+              0.0008186097080358031,
+              0.0015550299009445031
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "basis_change_only": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8070175438596491,
+            "log_loss": 0.33767844846328543,
+            "brier": 0.11026198054343159,
+            "calibration": [
+              {
+                "count": 26,
+                "predicted": 0.03219932736298252,
+                "observed": 0.038461538461538464
+              },
+              {
+                "count": 10,
+                "predicted": 0.14943938064294532,
+                "observed": 0.3
+              },
+              {
+                "count": 4,
+                "predicted": 0.23231065836295833,
+                "observed": 0.25
+              },
+              {
+                "count": 2,
+                "predicted": 0.36946765421417044,
+                "observed": 1.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.46015093780469957,
+                "observed": 0.75
+              },
+              {
+                "count": 9,
+                "predicted": 0.5500136364486369,
+                "observed": 0.2222222222222222
+              },
+              {
+                "count": 6,
+                "predicted": 0.6379431331732875,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 8,
+                "predicted": 0.7666670734976259,
+                "observed": 0.625
+              },
+              {
+                "count": 13,
+                "predicted": 0.843223796114909,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 32,
+                "predicted": 0.9597533442124494,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0005557985258877265,
+            "day_cluster_95_interval": [
+              -0.0003080548881889457,
+              0.0016436764849711942
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "evaluation_rows": 527,
+  "dependency_hashes": {
+    "btc_flow_model.py": "01272c6a5c4c37620910352438fbbba7d95dc59c77cbd60ab48d8d6ca6581885",
+    "btc_new_history.py": "e48e00158484f0712138e2f8b9375d4bbb413b2afb04e932540155766df504bf",
+    "btc_research.py": "a492274b24275f82069811157b9e02e74b1f37b9c31895c11e9b82976c2d0bc4",
+    "btc_inputs.py": "b279c2e6bc904d8401b03125ce33043931e6821ef31438d3bad209a20386a33d",
+    "sizing.py": "65cee21d4543b7f5239f3636e975b934e0b102fec264fb75e055a93310cb34e3"
+  },
+  "aggregate": {
+    "market": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8197343453510436,
+        "log_loss": 0.3777504177437352,
+        "brier": 0.12107787618595826,
+        "calibration": [
+          {
+            "count": 103,
+            "predicted": 0.04234951456310681,
+            "observed": 0.02912621359223301
+          },
+          {
+            "count": 44,
+            "predicted": 0.1469318181818182,
+            "observed": 0.22727272727272727
+          },
+          {
+            "count": 40,
+            "predicted": 0.251375,
+            "observed": 0.25
+          },
+          {
+            "count": 27,
+            "predicted": 0.34018518518518515,
+            "observed": 0.25925925925925924
+          },
+          {
+            "count": 29,
+            "predicted": 0.459655172413793,
+            "observed": 0.4827586206896552
+          },
+          {
+            "count": 33,
+            "predicted": 0.5501515151515151,
+            "observed": 0.42424242424242425
+          },
+          {
+            "count": 30,
+            "predicted": 0.6463333333333333,
+            "observed": 0.6
+          },
+          {
+            "count": 44,
+            "predicted": 0.7522727272727273,
+            "observed": 0.7954545454545454
+          },
+          {
+            "count": 53,
+            "predicted": 0.8509433962264151,
+            "observed": 0.8679245283018868
+          },
+          {
+            "count": 124,
+            "predicted": 0.9590604838709677,
+            "observed": 0.967741935483871
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0,
+        "day_cluster_95_interval": [
+          0.0,
+          0.0
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 0,
+        "opportunity_city_days": 0,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "market_control": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8197343453510436,
+        "log_loss": 0.38164506747207433,
+        "brier": 0.12201423670966083,
+        "calibration": [
+          {
+            "count": 116,
+            "predicted": 0.03666296916321145,
+            "observed": 0.04310344827586207
+          },
+          {
+            "count": 38,
+            "predicted": 0.14307427097058292,
+            "observed": 0.23684210526315788
+          },
+          {
+            "count": 42,
+            "predicted": 0.2457194359744236,
+            "observed": 0.2619047619047619
+          },
+          {
+            "count": 19,
+            "predicted": 0.34785048163590465,
+            "observed": 0.3157894736842105
+          },
+          {
+            "count": 28,
+            "predicted": 0.4575219090567605,
+            "observed": 0.4642857142857143
+          },
+          {
+            "count": 32,
+            "predicted": 0.5520149618537765,
+            "observed": 0.40625
+          },
+          {
+            "count": 24,
+            "predicted": 0.6506994017959223,
+            "observed": 0.625
+          },
+          {
+            "count": 37,
+            "predicted": 0.751769823861577,
+            "observed": 0.7297297297297297
+          },
+          {
+            "count": 50,
+            "predicted": 0.8461477147646377,
+            "observed": 0.84
+          },
+          {
+            "count": 141,
+            "predicted": 0.9648796866942704,
+            "observed": 0.9645390070921985
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0009363605237025755,
+        "day_cluster_95_interval": [
+          -0.0007157326502068322,
+          0.0029413029574973074
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 0,
+        "opportunity_city_days": 0,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "full_flow": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8311195445920304,
+        "log_loss": 0.3797427357223556,
+        "brier": 0.12117261069254111,
+        "calibration": [
+          {
+            "count": 117,
+            "predicted": 0.035349621605727355,
+            "observed": 0.042735042735042736
+          },
+          {
+            "count": 44,
+            "predicted": 0.14818894363257823,
+            "observed": 0.20454545454545456
+          },
+          {
+            "count": 36,
+            "predicted": 0.24319497072393817,
+            "observed": 0.3055555555555556
+          },
+          {
+            "count": 21,
+            "predicted": 0.34520091547400167,
+            "observed": 0.2857142857142857
+          },
+          {
+            "count": 31,
+            "predicted": 0.45383826937357424,
+            "observed": 0.41935483870967744
+          },
+          {
+            "count": 25,
+            "predicted": 0.5500869495476257,
+            "observed": 0.56
+          },
+          {
+            "count": 31,
+            "predicted": 0.6494509583018787,
+            "observed": 0.6451612903225806
+          },
+          {
+            "count": 39,
+            "predicted": 0.7536410924953306,
+            "observed": 0.717948717948718
+          },
+          {
+            "count": 43,
+            "predicted": 0.8488114169950971,
+            "observed": 0.8372093023255814
+          },
+          {
+            "count": 140,
+            "predicted": 0.9639409713229948,
+            "observed": 0.9642857142857143
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 9.473450658285323e-05,
+        "day_cluster_95_interval": [
+          -0.0018612912715357949,
+          0.0021860033176642406
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -0.46,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 2,
+        "contracts": 41,
+        "opportunity_contracts": 19,
+        "opportunity_city_days": 10,
+        "traded_city_days": 2,
+        "capital_deployed": 19.46,
+        "fees": 0.72,
+        "net_per_contract": -0.011219512195121953,
+        "return_on_deployed": -0.023638232271325797,
+        "bankroll_return": -0.00046,
+        "max_open_cost": 9.84,
+        "max_city_day_cost": 9.84,
+        "max_bet_cost": 9.84,
+        "realized_cost_equity_drawdown": 9.62,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 17
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 22,
+            "cost": 9.62,
+            "fees": 0.38,
+            "pnl": -9.62
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 2,
+          "zero_trade_resamples": 407,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "volume_only": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8311195445920304,
+        "log_loss": 0.381156559862659,
+        "brier": 0.12151360988812825,
+        "calibration": [
+          {
+            "count": 116,
+            "predicted": 0.03726657428867728,
+            "observed": 0.04310344827586207
+          },
+          {
+            "count": 40,
+            "predicted": 0.14861993527893497,
+            "observed": 0.225
+          },
+          {
+            "count": 37,
+            "predicted": 0.24837037847347057,
+            "observed": 0.2972972972972973
+          },
+          {
+            "count": 20,
+            "predicted": 0.3452229042181717,
+            "observed": 0.2
+          },
+          {
+            "count": 28,
+            "predicted": 0.4583479847302804,
+            "observed": 0.39285714285714285
+          },
+          {
+            "count": 29,
+            "predicted": 0.5473420548929068,
+            "observed": 0.5517241379310345
+          },
+          {
+            "count": 31,
+            "predicted": 0.6535147849428959,
+            "observed": 0.6129032258064516
+          },
+          {
+            "count": 37,
+            "predicted": 0.7537495910347575,
+            "observed": 0.7027027027027027
+          },
+          {
+            "count": 47,
+            "predicted": 0.8485139290752419,
+            "observed": 0.8297872340425532
+          },
+          {
+            "count": 142,
+            "predicted": 0.9650505551525389,
+            "observed": 0.9647887323943662
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0004357337021700233,
+        "day_cluster_95_interval": [
+          -0.001706009165367723,
+          0.002760857425516582
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 11,
+        "opportunity_city_days": 7,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 11
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "basis_only": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8273244781783681,
+        "log_loss": 0.3801669935213652,
+        "brier": 0.12162983868717298,
+        "calibration": [
+          {
+            "count": 118,
+            "predicted": 0.03514985810649328,
+            "observed": 0.0423728813559322
+          },
+          {
+            "count": 42,
+            "predicted": 0.14677595123528692,
+            "observed": 0.23809523809523808
+          },
+          {
+            "count": 40,
+            "predicted": 0.2416359681087739,
+            "observed": 0.275
+          },
+          {
+            "count": 19,
+            "predicted": 0.3467864791824466,
+            "observed": 0.3157894736842105
+          },
+          {
+            "count": 34,
+            "predicted": 0.45264844035101753,
+            "observed": 0.4411764705882353
+          },
+          {
+            "count": 27,
+            "predicted": 0.559255341353127,
+            "observed": 0.5185185185185185
+          },
+          {
+            "count": 21,
+            "predicted": 0.6511601345511553,
+            "observed": 0.6190476190476191
+          },
+          {
+            "count": 41,
+            "predicted": 0.7496793080362578,
+            "observed": 0.7317073170731707
+          },
+          {
+            "count": 48,
+            "predicted": 0.847701167091544,
+            "observed": 0.8541666666666666
+          },
+          {
+            "count": 137,
+            "predicted": 0.9648283928891995,
+            "observed": 0.9635036496350365
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.000551962501214707,
+        "day_cluster_95_interval": [
+          -0.0014986309085399266,
+          0.002768249229749866
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 4,
+        "opportunity_city_days": 2,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 4
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "basis_change_only": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8273244781783681,
+        "log_loss": 0.38087033591295855,
+        "brier": 0.12170378890754203,
+        "calibration": [
+          {
+            "count": 116,
+            "predicted": 0.03654223168347464,
+            "observed": 0.04310344827586207
+          },
+          {
+            "count": 39,
+            "predicted": 0.14500384721981446,
+            "observed": 0.23076923076923078
+          },
+          {
+            "count": 40,
+            "predicted": 0.24497980824311663,
+            "observed": 0.275
+          },
+          {
+            "count": 20,
+            "predicted": 0.3462663505741746,
+            "observed": 0.3
+          },
+          {
+            "count": 30,
+            "predicted": 0.4587483022304425,
+            "observed": 0.4
+          },
+          {
+            "count": 30,
+            "predicted": 0.5507950807682307,
+            "observed": 0.4666666666666667
+          },
+          {
+            "count": 24,
+            "predicted": 0.6503788330802862,
+            "observed": 0.625
+          },
+          {
+            "count": 37,
+            "predicted": 0.7516271744701403,
+            "observed": 0.7297297297297297
+          },
+          {
+            "count": 49,
+            "predicted": 0.8454892547152033,
+            "observed": 0.8367346938775511
+          },
+          {
+            "count": 142,
+            "predicted": 0.9644530517326173,
+            "observed": 0.9647887323943662
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0006259127215837753,
+        "day_cluster_95_interval": [
+          -0.0010737868070367143,
+          0.0027027972897432522
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 0,
+        "opportunity_city_days": 0,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    }
+  },
+  "lagged": {
+    "market_control": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8197343453510436,
+        "log_loss": 0.38164506747207433,
+        "brier": 0.12201423670966083,
+        "calibration": [
+          {
+            "count": 116,
+            "predicted": 0.03666296916321145,
+            "observed": 0.04310344827586207
+          },
+          {
+            "count": 38,
+            "predicted": 0.14307427097058292,
+            "observed": 0.23684210526315788
+          },
+          {
+            "count": 42,
+            "predicted": 0.2457194359744236,
+            "observed": 0.2619047619047619
+          },
+          {
+            "count": 19,
+            "predicted": 0.34785048163590465,
+            "observed": 0.3157894736842105
+          },
+          {
+            "count": 28,
+            "predicted": 0.4575219090567605,
+            "observed": 0.4642857142857143
+          },
+          {
+            "count": 32,
+            "predicted": 0.5520149618537765,
+            "observed": 0.40625
+          },
+          {
+            "count": 24,
+            "predicted": 0.6506994017959223,
+            "observed": 0.625
+          },
+          {
+            "count": 37,
+            "predicted": 0.751769823861577,
+            "observed": 0.7297297297297297
+          },
+          {
+            "count": 50,
+            "predicted": 0.8461477147646377,
+            "observed": 0.84
+          },
+          {
+            "count": 141,
+            "predicted": 0.9648796866942704,
+            "observed": 0.9645390070921985
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0009363605237025755,
+        "day_cluster_95_interval": [
+          -0.0007157326502068322,
+          0.0029413029574973074
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 0,
+        "opportunity_city_days": 0,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "full_flow": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.825426944971537,
+        "log_loss": 0.38354479264532754,
+        "brier": 0.1225977184166032,
+        "calibration": [
+          {
+            "count": 119,
+            "predicted": 0.03620387714479148,
+            "observed": 0.04201680672268908
+          },
+          {
+            "count": 42,
+            "predicted": 0.14856815265324566,
+            "observed": 0.21428571428571427
+          },
+          {
+            "count": 37,
+            "predicted": 0.24275458585347928,
+            "observed": 0.32432432432432434
+          },
+          {
+            "count": 20,
+            "predicted": 0.33586706892601137,
+            "observed": 0.25
+          },
+          {
+            "count": 30,
+            "predicted": 0.46006355969243157,
+            "observed": 0.4666666666666667
+          },
+          {
+            "count": 24,
+            "predicted": 0.5531034484432756,
+            "observed": 0.5416666666666666
+          },
+          {
+            "count": 34,
+            "predicted": 0.6527497625959784,
+            "observed": 0.6176470588235294
+          },
+          {
+            "count": 36,
+            "predicted": 0.7543359185833931,
+            "observed": 0.7222222222222222
+          },
+          {
+            "count": 45,
+            "predicted": 0.8448589890085137,
+            "observed": 0.8222222222222222
+          },
+          {
+            "count": 140,
+            "predicted": 0.9642131385757621,
+            "observed": 0.9642857142857143
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0015198422306449237,
+        "day_cluster_95_interval": [
+          -0.0007402802772639987,
+          0.003945345763230472
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 25,
+        "opportunity_city_days": 13,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 25
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "volume_only": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8273244781783681,
+        "log_loss": 0.38418886158311966,
+        "brier": 0.12267898626639683,
+        "calibration": [
+          {
+            "count": 116,
+            "predicted": 0.03707175665482738,
+            "observed": 0.04310344827586207
+          },
+          {
+            "count": 42,
+            "predicted": 0.14964524800364906,
+            "observed": 0.21428571428571427
+          },
+          {
+            "count": 36,
+            "predicted": 0.249880314595076,
+            "observed": 0.3333333333333333
+          },
+          {
+            "count": 21,
+            "predicted": 0.3434934441284045,
+            "observed": 0.23809523809523808
+          },
+          {
+            "count": 24,
+            "predicted": 0.4664752865735478,
+            "observed": 0.375
+          },
+          {
+            "count": 28,
+            "predicted": 0.5414207594785904,
+            "observed": 0.5
+          },
+          {
+            "count": 31,
+            "predicted": 0.647718722659081,
+            "observed": 0.5806451612903226
+          },
+          {
+            "count": 41,
+            "predicted": 0.7537439999851375,
+            "observed": 0.7317073170731707
+          },
+          {
+            "count": 45,
+            "predicted": 0.8484251240505754,
+            "observed": 0.8222222222222222
+          },
+          {
+            "count": 143,
+            "predicted": 0.9648710394671123,
+            "observed": 0.965034965034965
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0016011100804385573,
+        "day_cluster_95_interval": [
+          -0.0007318465980231451,
+          0.003961376439908685
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 15,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 15
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "basis_only": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.825426944971537,
+        "log_loss": 0.38121798840574794,
+        "brier": 0.12201634263406207,
+        "calibration": [
+          {
+            "count": 119,
+            "predicted": 0.03578499906341659,
+            "observed": 0.04201680672268908
+          },
+          {
+            "count": 40,
+            "predicted": 0.1457696565208117,
+            "observed": 0.225
+          },
+          {
+            "count": 43,
+            "predicted": 0.24264245335989088,
+            "observed": 0.27906976744186046
+          },
+          {
+            "count": 17,
+            "predicted": 0.3508361764240522,
+            "observed": 0.35294117647058826
+          },
+          {
+            "count": 29,
+            "predicted": 0.4468365676490173,
+            "observed": 0.4482758620689655
+          },
+          {
+            "count": 29,
+            "predicted": 0.5492014739114246,
+            "observed": 0.4482758620689655
+          },
+          {
+            "count": 25,
+            "predicted": 0.6470581214637235,
+            "observed": 0.68
+          },
+          {
+            "count": 38,
+            "predicted": 0.7473196116584925,
+            "observed": 0.7368421052631579
+          },
+          {
+            "count": 49,
+            "predicted": 0.8437349848390555,
+            "observed": 0.8367346938775511
+          },
+          {
+            "count": 138,
+            "predicted": 0.9642499657781454,
+            "observed": 0.9637681159420289
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0009384664481037956,
+        "day_cluster_95_interval": [
+          -0.00115243504869742,
+          0.003177039075849138
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 5,
+        "opportunity_city_days": 3,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 5
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "basis_change_only": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8178368121442126,
+        "log_loss": 0.3818290840526522,
+        "brier": 0.12206097148129141,
+        "calibration": [
+          {
+            "count": 118,
+            "predicted": 0.03766821274981584,
+            "observed": 0.0423728813559322
+          },
+          {
+            "count": 36,
+            "predicted": 0.1447345731152797,
+            "observed": 0.25
+          },
+          {
+            "count": 42,
+            "predicted": 0.24485191667909936,
+            "observed": 0.2619047619047619
+          },
+          {
+            "count": 19,
+            "predicted": 0.3477051876039955,
+            "observed": 0.3157894736842105
+          },
+          {
+            "count": 27,
+            "predicted": 0.4547487205946746,
+            "observed": 0.48148148148148145
+          },
+          {
+            "count": 32,
+            "predicted": 0.5489375380382108,
+            "observed": 0.375
+          },
+          {
+            "count": 25,
+            "predicted": 0.6492748425625993,
+            "observed": 0.64
+          },
+          {
+            "count": 38,
+            "predicted": 0.7520449169777789,
+            "observed": 0.7368421052631579
+          },
+          {
+            "count": 48,
+            "predicted": 0.8454710786490244,
+            "observed": 0.8333333333333334
+          },
+          {
+            "count": 142,
+            "predicted": 0.9643574317779889,
+            "observed": 0.9647887323943662
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0009830952953331815,
+        "day_cluster_95_interval": [
+          -0.0006874073225474909,
+          0.0030302511673353776
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 0,
+        "opportunity_city_days": 0,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    }
+  }
+}

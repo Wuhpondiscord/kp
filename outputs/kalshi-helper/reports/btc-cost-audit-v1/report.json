@@ -1,0 +1,51 @@
+{
+  "purpose": "Fixed fills/quantities; account-precision fee sensitivity, not strategy reruns",
+  "models": {
+    "volatility": {
+      ".01": {
+        "fees": 151.23099999999997,
+        "net_pnl": -122.51999999999997,
+        "fee_saving_vs_prior": 2.842170943040401e-14
+      },
+      ".0001": {
+        "fees": 149.44809999999998,
+        "net_pnl": -120.73709999999998,
+        "fee_saving_vs_prior": 1.7829000000000121
+      }
+    },
+    "logistic": {
+      ".01": {
+        "fees": 126.52799999999995,
+        "net_pnl": -319.8299999999999,
+        "fee_saving_vs_prior": 5.684341886080802e-14
+      },
+      ".0001": {
+        "fees": 124.70479999999995,
+        "net_pnl": -318.0067999999999,
+        "fee_saving_vs_prior": 1.8232000000000568
+      }
+    },
+    "regime": {
+      ".01": {
+        "fees": 152.80499999999995,
+        "net_pnl": -222.98999999999995,
+        "fee_saving_vs_prior": 5.684341886080802e-14
+      },
+      ".0001": {
+        "fees": 150.77659999999995,
+        "net_pnl": -220.96159999999995,
+        "fee_saving_vs_prior": 2.0284000000000617
+      }
+    }
+  },
+  "limitations": [
+    "Single fills only; no partial-fill accumulator/rebate simulation",
+    "Account type not supplied; cent precision retained as primary",
+    "Official .07 schedule plus current series metadata support coefficient, but historical event overrides not proven",
+    "2-cent slippage remains unmeasured; no historical depth evidence"
+  ],
+  "sources": [
+    "https://kalshi.com/docs/kalshi-fee-schedule.pdf",
+    "https://docs.kalshi.com/getting_started/fee_rounding"
+  ]
+}

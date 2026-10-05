@@ -25,12 +25,22 @@ def main():
     for model in ('volatility','logistic','regime'):
         replay=request('/api/btc/replay',{'model':model,'bankroll':1000})
         assert replay['paper']['entries']>0 and replay['paper']['pnl']<0
+    assert len(btc['experimental_models'])==3
+    for model, expected in [('fixed_anchor',0),('directional_joint',-9.82),('delayed_micro',34.59)]:
+        replay=request('/api/btc/replay',{'model':model,'bankroll':1000})
+        assert replay['experimental'] and not replay['live_enabled']
+        assert abs(replay['paper']['pnl']-expected)<.001
     state=request('/api/state');assert state['named_models']['available']
     def job(path,body,key='job'):
         request(path,body)
         end=time.monotonic()+300
         while time.monotonic()<end:
-            state=request('/api/state');status=(state.get(key) or {}).get('status')
+            assert len(btc['experimental_models'])==3
+    for model, expected in [('fixed_anchor',0),('directional_joint',-9.82),('delayed_micro',34.59)]:
+        replay=request('/api/btc/replay',{'model':model,'bankroll':1000})
+        assert replay['experimental'] and not replay['live_enabled']
+        assert abs(replay['paper']['pnl']-expected)<.001
+    state=request('/api/state');status=(state.get(key) or {}).get('status')
             if status=='complete':return state
             if status in ('failed','cancelled','interrupted'):raise RuntimeError(str(state[key]))
             time.sleep(2)

@@ -1,0 +1,30 @@
+{
+  "protocol": {
+    "version": "btc-stability-repair-v1",
+    "variants": [
+      "single",
+      "original_ensemble",
+      "shared_scaler",
+      "boundary_weighted",
+      "both_repairs"
+    ],
+    "samples": "Reuse exact 32 saved two-day training resamples in each fold, no resampling search",
+    "boundary": "Inverse expected day multiplicity under original sampler; normalize weighted loss per member",
+    "scaler": "For shared variants use full training fold mean/std, never evaluation data",
+    "constants": "Unchanged L2 .1, coefficient bounds +/-.25, feature set, costs, risk and .04 threshold",
+    "limits": "Development-only 2x2 mechanism audit, no holdout access, automatic promotion or claim of independent confirmation"
+  },
+  "inputs": {
+    "reports\\btc-flow-followup-v1\\development.jsonl": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+    "reports\\btc-stability-v1\\report.json": "ca23a49b0f31910dec8f35b78b28e29e4fcc31520eac185465808be2a3219a10",
+    "reports\\btc-anchor-study-v1\\report.json": "4bcbd4c240730b835867a5d901fbc4c297c836f1c261be07576527ee67514edf",
+    "reports\\btc-stability-v1\\models-2026-06-28.json": "81b9f7355202c6932872447dd11507c5f9f0ac431bea976751e305a6ec6f0b08",
+    "reports\\btc-stability-v1\\models-2026-07-04.json": "41f7e046c53cd91646e1d4115e070a50dc7ef75c16897a44de2edc1061de3b39",
+    "reports\\btc-stability-v1\\models-2026-07-10.json": "88bfabdd70e2c8fa82555d478818309fe73152b1ce1c05e86bcce8e4adfd2399",
+    "reports\\btc-stability-v1\\models-2026-07-16.json": "34b50f3ab87008f5e834b09be07506d6c99373f12b1950f98da8f2ca1eeab88e",
+    "reports\\btc-anchor-study-v1\\models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+    "reports\\btc-anchor-study-v1\\models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+    "reports\\btc-anchor-study-v1\\models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+    "reports\\btc-anchor-study-v1\\models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192"
+  }
+}

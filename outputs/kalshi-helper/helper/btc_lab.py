@@ -13,6 +13,7 @@ from sklearn.preprocessing import StandardScaler
 from .btc_research import digest, execution_rows, metrics
 from .btc_regime import BTCRegime
 from .sizing import simulate
+from .btc_inputs import validated_execution_rows
 
 ROOT = Path(__file__).resolve().parents[1] / 'reports'
 MODELS = {
@@ -31,6 +32,7 @@ def read_verified(folder, name, sha):
 
 
 def catalog():
+    from . import btc_experimental
     audit_dir = ROOT / 'btc-loss-audit'
     manifest = json.loads((audit_dir / 'manifest.json').read_text())
     report = json.loads(read_verified(audit_dir, 'report.json', manifest['report_sha256']))
@@ -40,7 +42,7 @@ def catalog():
         cards.append(dict(id=key, name=name, description=description,
                           summary=result['summary'], scores=result['execution_forecast_scores']))
     return dict(mode='historical_paper_only', live_enabled=False, automatic_promotion=False,
-                models=cards, market_scores=report['models']['volatility']['execution_market_scores'],
+                models=cards, experimental_models=btc_experimental.cards(), market_scores=report['models']['volatility']['execution_market_scores'],
                 warning='All three models lost money after assumed costs. These dates were previously inspected; no proven edge.',
                 period='September 2026', contracts=2830, days=30,
                 sources=['Binance BTCUSDT training candles (January–April 2025)',
@@ -63,7 +65,7 @@ def prepared():
         rows.extend(json.loads(line) for line in raw.decode().splitlines())
     if len({r['ticker'] for r in rows}) != len(rows):
         raise ValueError('Duplicate BTC contract')
-    rows = execution_rows(sorted(rows, key=lambda r: r['at']))
+    rows = validated_execution_rows(sorted(rows, key=lambda r: r['at']))
     logistic = make_pipeline(StandardScaler(), LogisticRegression(C=.1, max_iter=1000, random_state=1729)).fit(x, y)
     regime = BTCRegime().fit([dict(x=a.tolist(), y=int(b)) for a, b in zip(x, y)])
     probabilities = dict(volatility=np.array([r['diffusion'] for r in rows]),
@@ -74,8 +76,9 @@ def prepared():
 
 def replay(body):
     model = body.get('model', 'volatility')
-    if model not in MODELS:
-        raise ValueError('Choose BTC Volatility, BTC Signal or BTC Regime')
+    from . import btc_experimental
+    if model not in MODELS and model not in btc_experimental.MODELS:
+        raise ValueError('Choose a listed BTC paper model')
     bankroll = float(body.get('bankroll', 1000))
     slippage = float(body.get('slippage', .02))
     if not math.isfinite(bankroll) or not 10 <= bankroll <= 1000:
@@ -86,6 +89,8 @@ def replay(body):
     if not LOCK.acquire(blocking=False):
         raise RuntimeError('Another BTC replay is running. Try again shortly.')
     try:
+        if model in btc_experimental.MODELS:
+            return btc_experimental.replay(model, bankroll, slippage)
         rows, predictions = prepared()
         p = predictions[model]
         paper = simulate(rows, p, policy='bankroll_1_percent', slippage=slippage,

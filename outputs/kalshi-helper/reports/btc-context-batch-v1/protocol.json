@@ -1,0 +1,28 @@
+{
+  "protocol": {
+    "version": "btc-context-batch-v1",
+    "kinds": [
+      "spot",
+      "combined",
+      "interactions"
+    ],
+    "penalties": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "inner": "Last max(2, floor(training days/4)) days; two-hour embargo; earlier settled labels only",
+    "selection": "Lowest inner log loss; ties prefer larger penalty; no outer labels or P&L selection",
+    "architecture": "Fixed market logit offset, standardized external features, no intercept or learned market slope, coefficient bounds +/-.25",
+    "features": "10 existing timestamped Coinbase price/volatility/volume/time features; four Binance flow/basis inputs; interactions use standardized distance*volatility, return1*flow5, return5*flow15",
+    "trading": "Same bankroll 1000, 1% risk, .04 net edge, .02 primary slippage, .07 fees",
+    "restrictions": "Previously inspected development dates; all candidates reported; no holdout access or automatic deployment"
+  },
+  "data_hash": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "previous_models": {
+    "models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+    "models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+    "models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+    "models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192"
+  }
+}

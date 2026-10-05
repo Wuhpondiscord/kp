@@ -1,0 +1,23 @@
+{
+  "inputs": {
+    "train.jsonl": "08185a17b00f6287e4852ad1e16d99ce1c665a37c44b1164760a6ee5c79d9915",
+    "validation.jsonl": "c681b4daefb3674ee798d586904c2d5bf02663f2811d8e4c4dd934f07e82466a"
+  },
+  "external_manifest": "4b9df1f4be064df746067ee97a249f49a2608eb1a10038caaabeeca35bb785ef",
+  "code": {
+    "btc_refinement.py": "b380ee009bfeed7077392d2f5b8866bc772a2992dda6237cbff2227ab2d17a63",
+    "btc_inputs.py": "b279c2e6bc904d8401b03125ce33043931e6821ef31438d3bad209a20386a33d",
+    "btc_research.py": "a492274b24275f82069811157b9e02e74b1f37b9c31895c11e9b82976c2d0bc4",
+    "btc_calibration.py": "746a6a740968f22696d0d60a161eac2ab12a560b32ddc790599d77181d7fc254",
+    "btc_regime.py": "44e7dfedf83d842c01bee97d6ee51b268f7561926ce2dd6e4563bd0035beded5",
+    "btc_lab.py": "d426cc7fdc502dc3cfcee49adffd839ad6e0442f0517213e8ea89ff5355f39fe",
+    "sizing.py": "65cee21d4543b7f5239f3636e975b934e0b102fec264fb75e055a93310cb34e3",
+    "core.py": "fb7d38d21ee0502cbc340a9467ec8ca7c1ce7fab1e3510e9af751b72ef0ff8b3",
+    "live.py": "5998bc7b74691fb220a2735ec24fa3ef6d4065ea8da8f7e30592b56af987d0e2"
+  },
+  "outputs": {
+    "protocol.json": "9014e101d82cde4c4f08c607e1da396aba953dd1141299363b27e5333b74a227",
+    "report.json": "c21ed684b2585a820f0cbc34c88742f1f963271d6e2de9090847d2100afcf0a9",
+    "model.json": "6a92055a6490a7f39e338f1f588344438aec70e3657c9761a33a34dd3db4e0c3"
+  }
+}

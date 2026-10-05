@@ -14,11 +14,62 @@ Browse markets, inspect experimental weather probabilities, choose WeatherSignal
 MarketGuard or a custom ConsensusBlend, and evaluate or continue training saved models.
 **No proven trading edge. No real-money orders.**
 
-The new **BTC paper lab** at `/btc` lets you pick one of three experimental models,
-set a play-money balance and replay September with bundled real historical data.
-See the [lab guide](outputs/kalshi-helper/BTC-LAB.md). All three standard scenarios
-lose after costs. BTC is available for historical experimentation only; live BTC
-automation and automatic model promotion remain disabled.
+The local [BTC data and cost upgrade](outputs/kalshi-helper/BTC-DATA-AND-COST-UPGRADE.md)
+adds archived July markets, aggressor-volume and cross-exchange features, a
+market-relative challenger and a sealed evaluation cohort. Its positive validation
+result involves only three trades and has not been deployed.
+
+The [expanded BTC flow evaluation](outputs/kalshi-helper/BTC-FLOW-FOLLOWUP.md)
+tests fixed feature ablations across four chronological windows. The full model
+loses $0.46 on two simulated trades and does not beat market accuracy overall;
+the earlier small positive result is not confirmed. The holdout remains sealed.
+
+The [fixed market anchor study](outputs/kalshi-helper/BTC-FIXED-ANCHOR-STUDY.md)
+removes learned market recalibration and slightly improves development forecast
+scores, but generates no trades after costs. Delayed inputs remove that small
+advantage. It remains a local research candidate.
+
+The [execution feasibility study](outputs/kalshi-helper/BTC-EXECUTION-FRONTIER.md)
+replays frozen models under explicit costs and separates cost increases from
+trade-selection changes. Narrow slippage tolerances and unstable selected-trade
+results do not support model promotion.
+
+The [training-day stability study](outputs/kalshi-helper/BTC-STABILITY-STUDY.md)
+tests a fixed-anchor ensemble and a disagreement guard. The ensemble is worse
+overall than the single model; the guard abstains. Neither is promoted.
+
+The [ensemble diagnosis and repair](outputs/kalshi-helper/BTC-STABILITY-REPAIR.md)
+corrects unequal boundary-day weighting and moving feature origins. It recovers
+part of the ensemble's forecast regression, but the single model remains better
+and trading evidence remains insufficient.
+
+[Two further BTC batches](outputs/kalshi-helper/BTC-CONTEXT-BATCHES.md) test
+training-only regularization, price/volatility context and directional constraints.
+One candidate slightly improves Brier but worsens log loss and primary trading
+results. All six candidates remain unpromoted research.
+
+The [research review and tree benchmark](outputs/kalshi-helper/BTC-RESEARCH-AND-TREES.md)
+connects tabular/market-model research to our data, tests market-initialized trees,
+and adds a hashed experiment ledger. Trees underperform; no SOTA or edge claim
+is supported.
+
+The [pinned TabPFN benchmark and repair](outputs/kalshi-helper/BTC-TABPFN-STUDY.md)
+now tests pretrained local inference rather than only discussing it. Results
+reproduce exactly but underperform the baseline; a bounded market correction
+reduces the regression without establishing an improvement or trading edge.
+
+The [one-second data experiment](outputs/kalshi-helper/BTC-ONE-SECOND-DATA.md)
+returns to custom models with richer timestamped inputs and a passing
+second-to-minute aggregation audit. Results vary by period and do not beat the
+existing custom baseline overall.
+
+The **BTC paper lab** at `/btc` now includes three additional **EXPERIMENTAL**
+replays: FixedAnchor (lowest log loss), DirectionalAnchor Joint (lowest Brier),
+and Delayed MicroFlow (positive but sparse timing-stress P&L). Read the detailed
+[pipelines, benchmarks and limitations](outputs/kalshi-helper/BTC-EXPERIMENTAL-MODELS.md).
+These use a common 527-contract June/July cohort and shared trading rules. Legacy
+September models remain separately labeled. No proven edge, live BTC trading or
+automatic promotion; all results are historical simulations.
 
 A separate [BTC 15-minute research pilot](outputs/kalshi-helper/BTC-PILOT.md)
 now compares Coinbase-based forecasts with Kalshi prices on real September 2026

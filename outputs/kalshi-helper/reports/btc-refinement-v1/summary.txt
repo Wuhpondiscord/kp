@@ -1,0 +1,102 @@
+{
+  "forward": {
+    "market": {
+      "log_loss": 0.41598318103050497,
+      "brier": 0.13468371686203787,
+      "pnl": 0.0,
+      "entries": 0
+    },
+    "volatility": {
+      "log_loss": 0.4229163729897615,
+      "brier": 0.13609239620326127,
+      "pnl": 46.19,
+      "entries": 140
+    },
+    "signal": {
+      "log_loss": 0.42624479448027147,
+      "brier": 0.1376797950045187,
+      "pnl": 8.72,
+      "entries": 140
+    },
+    "regime": {
+      "log_loss": 0.42396145626605763,
+      "brier": 0.13636840399618247,
+      "pnl": 59.97,
+      "entries": 160
+    },
+    "signal_calibrated": {
+      "log_loss": 0.422549978150151,
+      "brier": 0.1367109110543116,
+      "pnl": 67.72,
+      "entries": 109
+    },
+    "market_calibrated": {
+      "log_loss": 0.41631062187361484,
+      "brier": 0.1347855290164932,
+      "pnl": 0.0,
+      "entries": 0
+    },
+    "market_anchored": {
+      "log_loss": 0.41616578699861123,
+      "brier": 0.13479382544607668,
+      "pnl": 0.0,
+      "entries": 0
+    },
+    "signal_calibrated_old_clock": {
+      "log_loss": 0.4221669606247648,
+      "brier": 0.13661457689332823,
+      "pnl": 62.28,
+      "entries": 106
+    }
+  },
+  "validation": {
+    "market": {
+      "log_loss": 0.37485179973381133,
+      "brier": 0.11965540742397138,
+      "pnl": 0.0,
+      "entries": 0
+    },
+    "volatility": {
+      "log_loss": 0.38616341857831915,
+      "brier": 0.12443312008849411,
+      "pnl": 3.72,
+      "entries": 53
+    },
+    "signal": {
+      "log_loss": 0.3865101357660565,
+      "brier": 0.12429043834257478,
+      "pnl": -133.47,
+      "entries": 53
+    },
+    "regime": {
+      "log_loss": 0.3919742408061274,
+      "brier": 0.12532165102048243,
+      "pnl": -98.27,
+      "entries": 53
+    },
+    "signal_calibrated": {
+      "log_loss": 0.3906615396376503,
+      "brier": 0.1252578226077093,
+      "pnl": -147.35,
+      "entries": 56
+    },
+    "market_calibrated": {
+      "log_loss": 0.37445315597089796,
+      "brier": 0.11956625263393068,
+      "pnl": 0.0,
+      "entries": 0
+    },
+    "market_anchored": {
+      "log_loss": 0.3746568630302282,
+      "brier": 0.11968806008656602,
+      "pnl": 0.0,
+      "entries": 0
+    },
+    "signal_calibrated_old_clock": {
+      "log_loss": 0.3905210856190316,
+      "brier": 0.1252372333200044,
+      "pnl": -147.35,
+      "entries": 56
+    }
+  }
+}

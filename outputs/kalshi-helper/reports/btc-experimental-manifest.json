@@ -1,0 +1,17 @@
+{
+  "btc-flow-followup-v1/development.jsonl": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "btc-flow-followup-v1/manifest.json": "7af5da37ed51087b119c1d15bb789a41975d56f736662247f4401f06915982ce",
+  "btc-microdata-v1/features.json": "80a514e15f1224728ce4b16be913870abe41751a96777047b6f2ebb32f1b8d83",
+  "btc-anchor-study-v1/models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+  "btc-anchor-study-v1/models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+  "btc-anchor-study-v1/models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+  "btc-anchor-study-v1/models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192",
+  "btc-directional-batch-v1/models-2026-06-28.json": "4d49315e78eb637396fe6a2a0e3847e1b12e69bfd10e5d65c7027010445209b0",
+  "btc-directional-batch-v1/models-2026-07-04.json": "c0a6227681dbf98710e50494ebf3aea058ce02b6447ada63b3f73b08c5c40d39",
+  "btc-directional-batch-v1/models-2026-07-10.json": "834bd0ab8d7838a20d615619c9bcb4903c46c04848ab4878c0294396e834a81b",
+  "btc-directional-batch-v1/models-2026-07-16.json": "ac2f383229ea4310214cc2bfd8f48bf10bea67727951768bb682ad22e2651fad",
+  "btc-microdata-v1/models-2026-06-28.json": "9b241ead88f04d402c95c7f0d8c2c67527fccad299d5ae657647e5070134da7e",
+  "btc-microdata-v1/models-2026-07-04.json": "43307b7136ccf587f41c94cef467aab2916acf76ce7933ef49debec7cdcf34de",
+  "btc-microdata-v1/models-2026-07-10.json": "6106da0f678bad8336dddfe09e4270d21e39f21938d116667347cf22869bb6df",
+  "btc-microdata-v1/models-2026-07-16.json": "013ae4396ae3f3fd37eb020680e46df7680ffbfebd5e21d99f88aba7e65c84fc"
+}

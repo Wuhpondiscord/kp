@@ -1,0 +1,33 @@
+{
+  "protocol": {
+    "version": "btc-execution-frontier-v1",
+    "slippage": [
+      0,
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "models": [
+      "fixed_anchor",
+      "full_flow"
+    ],
+    "bankroll": 1000,
+    "min_edge": 0.04,
+    "selection": "No cost scenario may be selected as a production setting or promotion evidence",
+    "sizing": "Existing bankroll_1_percent and shared exposure caps, .07 fee, conservative cent rounding",
+    "frontier": "Maximum extra price per contract preserving the existing one-contract .04 qualification; 0.0001 grid",
+    "fixed_cohort": "Zero-slippage filled trades, same side/quantity for all cost scenarios; diagnostic only",
+    "restrictions": "Previously inspected development dates; no training, new strategies or holdout access"
+  },
+  "inputs": {
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-flow-followup-v1\\development.jsonl": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-flow-followup-v1\\manifest.json": "7af5da37ed51087b119c1d15bb789a41975d56f736662247f4401f06915982ce",
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-flow-followup-v1\\protocol.json": "3b74fda5fbcc501a4eacbb80c1d43c0007cc800e6192ed763ab7f1ebf68e7cb2",
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-anchor-study-v1\\report.json": "4bcbd4c240730b835867a5d901fbc4c297c836f1c261be07576527ee67514edf",
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-anchor-study-v1\\models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-anchor-study-v1\\models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-anchor-study-v1\\models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+    "C:\\Users\\Admin\\Documents\\Codex\\2026-09-18\\can\\work\\kp-publish\\outputs\\kalshi-helper\\reports\\btc-anchor-study-v1\\models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192"
+  }
+}

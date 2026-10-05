@@ -1,0 +1,19 @@
+{
+  "version": "btc-microdata-v1",
+  "source": "Binance public daily BTCUSDT one-second spot klines",
+  "availability_seconds": 5,
+  "features": [
+    "imbalance_15s",
+    "return_15s_bps",
+    "imbalance_5s_minus_60s",
+    "return_5s_bps"
+  ],
+  "variants": [
+    "micro_only",
+    "flow_plus_micro"
+  ],
+  "latency_stress_seconds": 60,
+  "model": "Existing fixed market-logit correction, training-only scaling, L2 .1, bounds +/-.25; no parameter search",
+  "evaluation": "Same development contracts, chronology, fees, 1% risk, .04 edge and .02 slippage",
+  "limits": "Event timestamps plus assumed publication allowance, not measured receipt times; trades aggregated into bars, not order-book depth; no holdout/deployment"
+}

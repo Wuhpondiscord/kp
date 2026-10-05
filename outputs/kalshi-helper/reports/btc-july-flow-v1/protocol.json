@@ -1,0 +1,26 @@
+{
+  "version": "btc-july-flow-v1",
+  "start": "2026-07-08",
+  "train_end": "2026-07-16",
+  "validation_end": "2026-07-21",
+  "end": "2026-08-01",
+  "embargo_seconds": 7200,
+  "sampling": "Contracts closing at whole UTC hours, fixed before downloading outcomes; all other quarter-hours excluded",
+  "holdout": "July 21-31 reserved; model/protocol frozen before holdout reader is permitted",
+  "features": [
+    "taker_imbalance_5m",
+    "taker_imbalance_15m",
+    "binance_coinbase_basis_bps",
+    "basis_change_5m_bps"
+  ],
+  "source": "Binance BTCUSDT minute taker-buy base volume and Coinbase BTCUSD closes; not order-book depth",
+  "availability": "Completed bars plus 5-second assumed publication allowance",
+  "model": "Market log-odds offset + standardized four new features; L2 .1, coefficients bounded [-.25,.25], fixed; market-only control",
+  "trading": "Bankroll 1000; 1% risk; existing shared-day limits; edge .04; slippage .02 primary and 0/.05 sensitivity; .07 fee",
+  "limitations": [
+    "USDT/USD basis includes stablecoin effects",
+    "No historical depth or measured fill latency",
+    "Final metadata opening target publication assumed",
+    "Small hourly sample; not all BTC15M opportunities"
+  ]
+}

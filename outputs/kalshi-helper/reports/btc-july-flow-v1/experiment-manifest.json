@@ -1,0 +1,30 @@
+{
+  "files": {
+    "protocol.json": "64e887365463b1adc56cf222a0564f82ca3a5689dd8b5e38ca91379c7d5f5d8a",
+    "manifest.json": "e69b47a4e3ff1c23ca26b2c73896879aeef09a193dc567094168b9e55224dce9",
+    "train.jsonl": "b2722ec5fec5860a2a9732708f14e4e20479600fd36c66683d154d5d4607ecff",
+    "validation.jsonl": "d4bebe6ebf26d12b18307f56785711f115d5235fa1724d1a3f55de621091827e",
+    "holdout.jsonl": "116c49bb1328ef4d8440abce1648c07b7eae335d36123506ad87f659543be9eb",
+    "fee-evidence.json": "45f0a37ebd1c009529a7c8a7d282005885fc37136a4460a8bed312a68e750fdf",
+    "frozen-models.json": "ea80a94b8ffc1ee291fb227319dd52887f5c58000ee49a9746a5986f2101ed4e",
+    "validation-report.json": "7627bd551c9780e97fb969efe898cc6f7803f43923bdd1cd3a3d27bfa368c545"
+  },
+  "code": {
+    "btc_new_history.py": "e48e00158484f0712138e2f8b9375d4bbb413b2afb04e932540155766df504bf",
+    "btc_flow_model.py": "01272c6a5c4c37620910352438fbbba7d95dc59c77cbd60ab48d8d6ca6581885",
+    "btc_cost_audit.py": "8f61393064c0678b8ecd09f81d3d55b7eeecfdd33042fce81141cf1a8ea378e5",
+    "btc_research.py": "a492274b24275f82069811157b9e02e74b1f37b9c31895c11e9b82976c2d0bc4",
+    "btc_inputs.py": "b279c2e6bc904d8401b03125ce33043931e6821ef31438d3bad209a20386a33d",
+    "btc_refinement.py": "b380ee009bfeed7077392d2f5b8866bc772a2992dda6237cbff2227ab2d17a63",
+    "btc_long_history.py": "ae6dfd22ee74bda780b2bfb962e284abb07c3a2fc072445d1de1ad04647d716f",
+    "sizing.py": "65cee21d4543b7f5239f3636e975b934e0b102fec264fb75e055a93310cb34e3",
+    "core.py": "fb7d38d21ee0502cbc340a9467ec8ca7c1ce7fab1e3510e9af751b72ef0ff8b3"
+  },
+  "packages": {
+    "numpy": "2.1.1",
+    "scipy": "1.15.2",
+    "scikit-learn": "1.6.1"
+  },
+  "holdout_evaluated": false,
+  "tests_passed": 307
+}

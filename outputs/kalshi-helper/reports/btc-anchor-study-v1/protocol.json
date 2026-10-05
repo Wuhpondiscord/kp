@@ -1,0 +1,43 @@
+{
+  "version": "btc-anchor-study-v1",
+  "delays_seconds": [
+    0,
+    60,
+    120,
+    300
+  ],
+  "folds": [
+    [
+      "2026-06-28",
+      "2026-07-04"
+    ],
+    [
+      "2026-07-04",
+      "2026-07-10"
+    ],
+    [
+      "2026-07-10",
+      "2026-07-16"
+    ],
+    [
+      "2026-07-16",
+      "2026-07-21"
+    ]
+  ],
+  "candidate": "Fixed market log odds plus four standardized external features; no fitted intercept or market slope",
+  "controls": [
+    "unmodified market",
+    "market-only calibration",
+    "previous full-flow correction"
+  ],
+  "fitting": "L2 .1, bounds +/-.25, training-only scaling unchanged; no tuning",
+  "stress": "Fit on current inputs, delay external inputs only at inference, keep current market quote",
+  "trade": "Same 1000 bankroll, 1% sizing, .04 net edge, .02 slippage, .07 fee coefficient",
+  "gate": "Both Brier and log loss beat both market controls in >=3 of 4 folds and pooled; positive net P&L, >=30 trades and >=10 trade days; never automatic deployment/holdout release",
+  "limitations": [
+    "Previously inspected development dates",
+    "Historical arrival times unavailable; delay is a scenario",
+    "No historical depth/fills",
+    "June fee coefficient assumed; no override audit"
+  ]
+}

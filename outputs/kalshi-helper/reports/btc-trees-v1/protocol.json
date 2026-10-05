@@ -1,0 +1,30 @@
+{
+  "protocol": {
+    "version": "btc-trees-v1",
+    "stages": [
+      0,
+      8,
+      32
+    ],
+    "learning_rate": 0.05,
+    "max_depth": 2,
+    "min_samples_leaf": 30,
+    "initial": "Market probability via sklearn public init estimator; no in-place tree value updates",
+    "inputs": "Market probability, 10 timestamped spot features, four flow/basis features",
+    "selection": "Inner chronological log loss, requiring Brier no worse than raw market; market is explicit stage-zero fallback",
+    "comparisons": [
+      "market",
+      "fixed_anchor",
+      "fixed_32",
+      "selected"
+    ],
+    "limits": "All outer dates previously inspected; limited new-family search only, not global multiplicity correction; no holdout or deployment"
+  },
+  "data_hash": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "controls": {
+    "models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+    "models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+    "models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+    "models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192"
+  }
+}

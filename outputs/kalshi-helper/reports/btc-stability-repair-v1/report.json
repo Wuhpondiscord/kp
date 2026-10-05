@@ -1,0 +1,5682 @@
+{
+  "protocol": {
+    "version": "btc-stability-repair-v1",
+    "variants": [
+      "single",
+      "original_ensemble",
+      "shared_scaler",
+      "boundary_weighted",
+      "both_repairs"
+    ],
+    "samples": "Reuse exact 32 saved two-day training resamples in each fold, no resampling search",
+    "boundary": "Inverse expected day multiplicity under original sampler; normalize weighted loss per member",
+    "scaler": "For shared variants use full training fold mean/std, never evaluation data",
+    "constants": "Unchanged L2 .1, coefficient bounds +/-.25, feature set, costs, risk and .04 threshold",
+    "limits": "Development-only 2x2 mechanism audit, no holdout access, automatic promotion or claim of independent confirmation"
+  },
+  "rerun": false,
+  "holdout_loaded": false,
+  "deployment_allowed": false,
+  "folds": [
+    {
+      "start": "2026-06-28",
+      "end": "2026-07-04",
+      "training_days": 8,
+      "median_unique_days": 5.0,
+      "day_counts": {
+        "2026-06-25": 32,
+        "2026-06-26": 27,
+        "2026-06-20": 21,
+        "2026-06-21": 36,
+        "2026-06-22": 40,
+        "2026-06-23": 42,
+        "2026-06-24": 40,
+        "2026-06-27": 18
+      },
+      "expected_day_counts": {
+        "2026-06-20": 0.5714285714285714,
+        "2026-06-21": 1.1428571428571428,
+        "2026-06-22": 1.1428571428571428,
+        "2026-06-23": 1.1428571428571428,
+        "2026-06-24": 1.1428571428571428,
+        "2026-06-25": 1.1428571428571428,
+        "2026-06-26": 1.1428571428571428,
+        "2026-06-27": 0.5714285714285714
+      },
+      "neutral_mean_absolute_member_shift": {
+        "original_ensemble": 0.0020825704828279076,
+        "shared_scaler": 2.824665542316646e-17,
+        "boundary_weighted": 0.0023242376810255795,
+        "both_repairs": 2.824665542316646e-17
+      },
+      "models": {
+        "market": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8161764705882353,
+            "log_loss": 0.3883125477291218,
+            "brier": 0.1247589650735294,
+            "calibration": [
+              {
+                "count": 21,
+                "predicted": 0.04876190476190475,
+                "observed": 0.047619047619047616
+              },
+              {
+                "count": 15,
+                "predicted": 0.14433333333333334,
+                "observed": 0.26666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.2529166666666667,
+                "observed": 0.25
+              },
+              {
+                "count": 4,
+                "predicted": 0.3075,
+                "observed": 0.25
+              },
+              {
+                "count": 6,
+                "predicted": 0.4533333333333333,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.535,
+                "observed": 0.6
+              },
+              {
+                "count": 12,
+                "predicted": 0.6491666666666666,
+                "observed": 0.4166666666666667
+              },
+              {
+                "count": 11,
+                "predicted": 0.7577272727272727,
+                "observed": 0.8181818181818182
+              },
+              {
+                "count": 14,
+                "predicted": 0.8660714285714286,
+                "observed": 0.9285714285714286
+              },
+              {
+                "count": 36,
+                "predicted": 0.9595694444444445,
+                "observed": 0.9722222222222222
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "single": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.3932765289109596,
+            "brier": 0.12659439205633946,
+            "calibration": [
+              {
+                "count": 23,
+                "predicted": 0.05004920622858811,
+                "observed": 0.043478260869565216
+              },
+              {
+                "count": 14,
+                "predicted": 0.14419426282422648,
+                "observed": 0.2857142857142857
+              },
+              {
+                "count": 12,
+                "predicted": 0.25573568715977946,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 3,
+                "predicted": 0.33732896776328763,
+                "observed": 0.0
+              },
+              {
+                "count": 5,
+                "predicted": 0.47517468542589436,
+                "observed": 0.6
+              },
+              {
+                "count": 8,
+                "predicted": 0.5525526120456458,
+                "observed": 0.5
+              },
+              {
+                "count": 11,
+                "predicted": 0.6553566833920006,
+                "observed": 0.5454545454545454
+              },
+              {
+                "count": 9,
+                "predicted": 0.7581825431525036,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 14,
+                "predicted": 0.8696019208989412,
+                "observed": 0.9285714285714286
+              },
+              {
+                "count": 37,
+                "predicted": 0.9619485899995412,
+                "observed": 0.972972972972973
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0018354269828100376,
+            "day_cluster_95_interval": [
+              -2.5210270085718395e-05,
+              0.0037379810751994444
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "original_ensemble": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8014705882352942,
+            "log_loss": 0.3960087884085607,
+            "brier": 0.12772345646655747,
+            "calibration": [
+              {
+                "count": 23,
+                "predicted": 0.050151666492303536,
+                "observed": 0.043478260869565216
+              },
+              {
+                "count": 15,
+                "predicted": 0.14660473558450626,
+                "observed": 0.26666666666666666
+              },
+              {
+                "count": 9,
+                "predicted": 0.254324091946217,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 5,
+                "predicted": 0.3349544809964904,
+                "observed": 0.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.4823282442083503,
+                "observed": 0.75
+              },
+              {
+                "count": 9,
+                "predicted": 0.5473486644615851,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 11,
+                "predicted": 0.6531096379196915,
+                "observed": 0.5454545454545454
+              },
+              {
+                "count": 10,
+                "predicted": 0.7609670483998638,
+                "observed": 0.7
+              },
+              {
+                "count": 11,
+                "predicted": 0.8716895689608513,
+                "observed": 1.0
+              },
+              {
+                "count": 39,
+                "predicted": 0.9597664822875049,
+                "observed": 0.9487179487179487
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0029644913930280694,
+            "day_cluster_95_interval": [
+              0.0002367638657040309,
+              0.0060419097561094275
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 5,
+            "opportunity_city_days": 4,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 5
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "shared_scaler": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8014705882352942,
+            "log_loss": 0.3955903226070654,
+            "brier": 0.12755698804004495,
+            "calibration": [
+              {
+                "count": 23,
+                "predicted": 0.050072940771825426,
+                "observed": 0.043478260869565216
+              },
+              {
+                "count": 15,
+                "predicted": 0.1466381880768804,
+                "observed": 0.26666666666666666
+              },
+              {
+                "count": 9,
+                "predicted": 0.2539411060729797,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 5,
+                "predicted": 0.332598310283806,
+                "observed": 0.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.48037717576014394,
+                "observed": 0.75
+              },
+              {
+                "count": 9,
+                "predicted": 0.5459818544749554,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 11,
+                "predicted": 0.6532128356456298,
+                "observed": 0.5454545454545454
+              },
+              {
+                "count": 10,
+                "predicted": 0.7601464740908447,
+                "observed": 0.7
+              },
+              {
+                "count": 12,
+                "predicted": 0.873421588213514,
+                "observed": 1.0
+              },
+              {
+                "count": 38,
+                "predicted": 0.9609740085320381,
+                "observed": 0.9473684210526315
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.002798022966515535,
+            "day_cluster_95_interval": [
+              0.0001919332260693882,
+              0.005738583870684576
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 3,
+            "opportunity_city_days": 3,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 3
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "boundary_weighted": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8014705882352942,
+            "log_loss": 0.3954549209273499,
+            "brier": 0.12743261846411713,
+            "calibration": [
+              {
+                "count": 23,
+                "predicted": 0.04986559276409912,
+                "observed": 0.043478260869565216
+              },
+              {
+                "count": 15,
+                "predicted": 0.14643004932684345,
+                "observed": 0.26666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.25779903158419615,
+                "observed": 0.4
+              },
+              {
+                "count": 4,
+                "predicted": 0.33779575561126296,
+                "observed": 0.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.47943119574400267,
+                "observed": 0.75
+              },
+              {
+                "count": 9,
+                "predicted": 0.5477691481643574,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 11,
+                "predicted": 0.6518413313110739,
+                "observed": 0.5454545454545454
+              },
+              {
+                "count": 8,
+                "predicted": 0.753317201885467,
+                "observed": 0.625
+              },
+              {
+                "count": 14,
+                "predicted": 0.8637858548097085,
+                "observed": 1.0
+              },
+              {
+                "count": 38,
+                "predicted": 0.9611928952560839,
+                "observed": 0.9473684210526315
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0026736533905876965,
+            "day_cluster_95_interval": [
+              0.0001282414413397987,
+              0.005401946828837289
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 3,
+            "opportunity_city_days": 3,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 3
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "both_repairs": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8014705882352942,
+            "log_loss": 0.39511598099175593,
+            "brier": 0.12729878321203772,
+            "calibration": [
+              {
+                "count": 23,
+                "predicted": 0.049826433968902815,
+                "observed": 0.043478260869565216
+              },
+              {
+                "count": 15,
+                "predicted": 0.1464803199346075,
+                "observed": 0.26666666666666666
+              },
+              {
+                "count": 10,
+                "predicted": 0.25737487939003745,
+                "observed": 0.4
+              },
+              {
+                "count": 4,
+                "predicted": 0.3358894698065573,
+                "observed": 0.0
+              },
+              {
+                "count": 4,
+                "predicted": 0.4780132400180767,
+                "observed": 0.75
+              },
+              {
+                "count": 9,
+                "predicted": 0.5466530603101771,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 11,
+                "predicted": 0.6520961083212644,
+                "observed": 0.5454545454545454
+              },
+              {
+                "count": 9,
+                "predicted": 0.7578716567782,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 13,
+                "predicted": 0.8680989916977614,
+                "observed": 1.0
+              },
+              {
+                "count": 38,
+                "predicted": 0.9609206029852896,
+                "observed": 0.9473684210526315
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0025398181385083156,
+            "day_cluster_95_interval": [
+              0.00010143964423470938,
+              0.005107595539147188
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 3,
+            "opportunity_city_days": 3,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 3
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-07-04",
+      "end": "2026-07-10",
+      "training_days": 14,
+      "median_unique_days": 9.0,
+      "day_counts": {
+        "2026-06-29": 31,
+        "2026-06-30": 28,
+        "2026-06-20": 20,
+        "2026-06-21": 39,
+        "2026-06-24": 37,
+        "2026-06-25": 40,
+        "2026-06-22": 33,
+        "2026-06-23": 27,
+        "2026-06-27": 39,
+        "2026-06-28": 40,
+        "2026-06-26": 34,
+        "2026-07-01": 31,
+        "2026-07-02": 32,
+        "2026-07-03": 17
+      },
+      "expected_day_counts": {
+        "2026-06-20": 0.5384615384615384,
+        "2026-06-21": 1.0769230769230769,
+        "2026-06-22": 1.0769230769230769,
+        "2026-06-23": 1.0769230769230769,
+        "2026-06-24": 1.0769230769230769,
+        "2026-06-25": 1.0769230769230769,
+        "2026-06-26": 1.0769230769230769,
+        "2026-06-27": 1.0769230769230769,
+        "2026-06-28": 1.0769230769230769,
+        "2026-06-29": 1.0769230769230769,
+        "2026-06-30": 1.0769230769230769,
+        "2026-07-01": 1.0769230769230769,
+        "2026-07-02": 1.0769230769230769,
+        "2026-07-03": 0.5384615384615384
+      },
+      "neutral_mean_absolute_member_shift": {
+        "original_ensemble": 0.001913679208062038,
+        "shared_scaler": 2.866120331264622e-17,
+        "boundary_weighted": 0.0018669999030129392,
+        "both_repairs": 2.866120331264622e-17
+      },
+      "models": {
+        "market": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.43455759159499335,
+            "brier": 0.1395832224264706,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.038900000000000004,
+                "observed": 0.03333333333333333
+              },
+              {
+                "count": 6,
+                "predicted": 0.15083333333333335,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 11,
+                "predicted": 0.25136363636363634,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 11,
+                "predicted": 0.3395454545454546,
+                "observed": 0.18181818181818182
+              },
+              {
+                "count": 9,
+                "predicted": 0.4588888888888889,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 5,
+                "predicted": 0.5439999999999999,
+                "observed": 0.6
+              },
+              {
+                "count": 6,
+                "predicted": 0.6416666666666667,
+                "observed": 0.5
+              },
+              {
+                "count": 10,
+                "predicted": 0.744,
+                "observed": 0.7
+              },
+              {
+                "count": 14,
+                "predicted": 0.8514285714285713,
+                "observed": 0.7857142857142857
+              },
+              {
+                "count": 34,
+                "predicted": 0.960485294117647,
+                "observed": 0.9117647058823529
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "single": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.4304547630070025,
+            "brier": 0.13855680890435723,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.03546456900599391,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 7,
+                "predicted": 0.1526971327371358,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 14,
+                "predicted": 0.24967378986283786,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.331678019187802,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 11,
+                "predicted": 0.43314252793984875,
+                "observed": 0.45454545454545453
+              },
+              {
+                "count": 6,
+                "predicted": 0.561749251752889,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 5,
+                "predicted": 0.655361388411043,
+                "observed": 0.6
+              },
+              {
+                "count": 11,
+                "predicted": 0.7449676296128801,
+                "observed": 0.7272727272727273
+              },
+              {
+                "count": 13,
+                "predicted": 0.8482289231629496,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 32,
+                "predicted": 0.9579797546546479,
+                "observed": 0.90625
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0010264135221133572,
+            "day_cluster_95_interval": [
+              -0.00480625984597356,
+              0.002218948194947221
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "original_ensemble": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.43058079760167056,
+            "brier": 0.13864301052018932,
+            "calibration": [
+              {
+                "count": 31,
+                "predicted": 0.03596984116937147,
+                "observed": 0.03225806451612903
+              },
+              {
+                "count": 7,
+                "predicted": 0.15461407742568808,
+                "observed": 0.42857142857142855
+              },
+              {
+                "count": 14,
+                "predicted": 0.2518243333171294,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.33496775297285053,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 11,
+                "predicted": 0.43527031038993585,
+                "observed": 0.45454545454545453
+              },
+              {
+                "count": 6,
+                "predicted": 0.5629956951834594,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 5,
+                "predicted": 0.6565815394676479,
+                "observed": 0.6
+              },
+              {
+                "count": 11,
+                "predicted": 0.7458670229378385,
+                "observed": 0.7272727272727273
+              },
+              {
+                "count": 13,
+                "predicted": 0.8490494404998843,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 32,
+                "predicted": 0.958188989212521,
+                "observed": 0.90625
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0009402119062812541,
+            "day_cluster_95_interval": [
+              -0.004536766288504933,
+              0.0021499408732202504
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "shared_scaler": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.4304527380357392,
+            "brier": 0.1385902433838254,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.03399148641963146,
+                "observed": 0.03333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.14851150761343895,
+                "observed": 0.375
+              },
+              {
+                "count": 14,
+                "predicted": 0.2529887313576756,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.33635433737757975,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 11,
+                "predicted": 0.43687029244679293,
+                "observed": 0.45454545454545453
+              },
+              {
+                "count": 6,
+                "predicted": 0.5649777816727162,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 5,
+                "predicted": 0.6580734962100441,
+                "observed": 0.6
+              },
+              {
+                "count": 9,
+                "predicted": 0.7352827646064891,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 15,
+                "predicted": 0.8433530089129773,
+                "observed": 0.8
+              },
+              {
+                "count": 32,
+                "predicted": 0.9584169175555319,
+                "observed": 0.90625
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0009929790426451996,
+            "day_cluster_95_interval": [
+              -0.004369498382930812,
+              0.0019092805094109574
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "boundary_weighted": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.42984333822906073,
+            "brier": 0.1383714743604586,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.03408447966762855,
+                "observed": 0.03333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.14787113883823977,
+                "observed": 0.375
+              },
+              {
+                "count": 14,
+                "predicted": 0.25161679095070205,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.3320083367116482,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 11,
+                "predicted": 0.43632956563962505,
+                "observed": 0.45454545454545453
+              },
+              {
+                "count": 7,
+                "predicted": 0.5693835352721026,
+                "observed": 0.5714285714285714
+              },
+              {
+                "count": 4,
+                "predicted": 0.6709640429960844,
+                "observed": 0.75
+              },
+              {
+                "count": 11,
+                "predicted": 0.7452385873775934,
+                "observed": 0.7272727272727273
+              },
+              {
+                "count": 13,
+                "predicted": 0.8484024050363366,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 32,
+                "predicted": 0.9579096929653537,
+                "observed": 0.90625
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0012117480660119927,
+            "day_cluster_95_interval": [
+              -0.004704574788627532,
+              0.0018344137408609286
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "both_repairs": {
+          "scores": {
+            "events": 136,
+            "days": 6,
+            "accuracy": 0.8088235294117647,
+            "log_loss": 0.4296960218389333,
+            "brier": 0.138308528000478,
+            "calibration": [
+              {
+                "count": 30,
+                "predicted": 0.034239564106839655,
+                "observed": 0.03333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.14863034875938858,
+                "observed": 0.375
+              },
+              {
+                "count": 14,
+                "predicted": 0.2527995538594458,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 6,
+                "predicted": 0.33340206855551197,
+                "observed": 0.16666666666666666
+              },
+              {
+                "count": 11,
+                "predicted": 0.4379675806300983,
+                "observed": 0.45454545454545453
+              },
+              {
+                "count": 6,
+                "predicted": 0.5665489631653785,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 5,
+                "predicted": 0.6580304860950527,
+                "observed": 0.6
+              },
+              {
+                "count": 9,
+                "predicted": 0.7345946291904306,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 15,
+                "predicted": 0.8428053023268218,
+                "observed": 0.8
+              },
+              {
+                "count": 32,
+                "predicted": 0.9581448316434443,
+                "observed": 0.90625
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0012746944259925837,
+            "day_cluster_95_interval": [
+              -0.004560127389286044,
+              0.001599972845011309
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-07-10",
+      "end": "2026-07-16",
+      "training_days": 20,
+      "median_unique_days": 13.0,
+      "day_counts": {
+        "2026-07-04": 30,
+        "2026-07-05": 26,
+        "2026-06-20": 24,
+        "2026-06-21": 42,
+        "2026-06-26": 44,
+        "2026-06-27": 45,
+        "2026-06-23": 34,
+        "2026-06-24": 28,
+        "2026-07-03": 32,
+        "2026-06-25": 30,
+        "2026-06-22": 35,
+        "2026-06-30": 39,
+        "2026-07-01": 37,
+        "2026-06-29": 28,
+        "2026-07-06": 24,
+        "2026-07-08": 35,
+        "2026-07-09": 14,
+        "2026-06-28": 34,
+        "2026-07-07": 32,
+        "2026-07-02": 27
+      },
+      "expected_day_counts": {
+        "2026-06-20": 0.5263157894736842,
+        "2026-06-21": 1.0526315789473684,
+        "2026-06-22": 1.0526315789473684,
+        "2026-06-23": 1.0526315789473684,
+        "2026-06-24": 1.0526315789473684,
+        "2026-06-25": 1.0526315789473684,
+        "2026-06-26": 1.0526315789473684,
+        "2026-06-27": 1.0526315789473684,
+        "2026-06-28": 1.0526315789473684,
+        "2026-06-29": 1.0526315789473684,
+        "2026-06-30": 1.0526315789473684,
+        "2026-07-01": 1.0526315789473684,
+        "2026-07-02": 1.0526315789473684,
+        "2026-07-03": 1.0526315789473684,
+        "2026-07-04": 1.0526315789473684,
+        "2026-07-05": 1.0526315789473684,
+        "2026-07-06": 1.0526315789473684,
+        "2026-07-07": 1.0526315789473684,
+        "2026-07-08": 1.0526315789473684,
+        "2026-07-09": 0.5263157894736842
+      },
+      "neutral_mean_absolute_member_shift": {
+        "original_ensemble": 0.002372003462268163,
+        "shared_scaler": 2.587321609914344e-17,
+        "boundary_weighted": 0.002291349092961348,
+        "both_repairs": 2.587321609914344e-17
+      },
+      "models": {
+        "market": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8439716312056738,
+            "log_loss": 0.34468830249922355,
+            "brier": 0.10887232978723403,
+            "calibration": [
+              {
+                "count": 28,
+                "predicted": 0.04780357142857143,
+                "observed": 0.0
+              },
+              {
+                "count": 11,
+                "predicted": 0.1340909090909091,
+                "observed": 0.09090909090909091
+              },
+              {
+                "count": 13,
+                "predicted": 0.24884615384615383,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.3522727272727273,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 9,
+                "predicted": 0.46388888888888885,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 13,
+                "predicted": 0.5561538461538462,
+                "observed": 0.38461538461538464
+              },
+              {
+                "count": 6,
+                "predicted": 0.6466666666666667,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 14,
+                "predicted": 0.74,
+                "observed": 0.9285714285714286
+              },
+              {
+                "count": 13,
+                "predicted": 0.8434615384615385,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 23,
+                "predicted": 0.9635869565217392,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "single": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.345546350070873,
+            "brier": 0.10865845952793902,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.051050187571679756,
+                "observed": 0.0
+              },
+              {
+                "count": 10,
+                "predicted": 0.1396154833186952,
+                "observed": 0.1
+              },
+              {
+                "count": 14,
+                "predicted": 0.2424381318264722,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 10,
+                "predicted": 0.35026491202259663,
+                "observed": 0.3
+              },
+              {
+                "count": 10,
+                "predicted": 0.45458733941155166,
+                "observed": 0.3
+              },
+              {
+                "count": 10,
+                "predicted": 0.5414643498805696,
+                "observed": 0.5
+              },
+              {
+                "count": 13,
+                "predicted": 0.6436666154854256,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 9,
+                "predicted": 0.7423024264340294,
+                "observed": 0.8888888888888888
+              },
+              {
+                "count": 13,
+                "predicted": 0.8351208734297229,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 23,
+                "predicted": 0.9584856807602454,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.00021387025929500624,
+            "day_cluster_95_interval": [
+              -0.0019328855560742859,
+              0.0016474543905556098
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 2,
+            "opportunity_city_days": 1,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 2
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "original_ensemble": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.3453818946278207,
+            "brier": 0.1086484540873176,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.05036832283728537,
+                "observed": 0.0
+              },
+              {
+                "count": 10,
+                "predicted": 0.13807872759968967,
+                "observed": 0.1
+              },
+              {
+                "count": 14,
+                "predicted": 0.24029653779498686,
+                "observed": 0.21428571428571427
+              },
+              {
+                "count": 10,
+                "predicted": 0.3468243022286177,
+                "observed": 0.3
+              },
+              {
+                "count": 12,
+                "predicted": 0.4586426612602423,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.5468197683116863,
+                "observed": 0.5
+              },
+              {
+                "count": 13,
+                "predicted": 0.6408892930827002,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 10,
+                "predicted": 0.7451938485295191,
+                "observed": 0.9
+              },
+              {
+                "count": 12,
+                "predicted": 0.8354532040241835,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 23,
+                "predicted": 0.9582556408395805,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0002238756999164386,
+            "day_cluster_95_interval": [
+              -0.0019688294733514896,
+              0.0013954195904836118
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 2,
+            "opportunity_city_days": 1,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 2
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "shared_scaler": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.3454756404159731,
+            "brier": 0.10866217517369085,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.05094553682647575,
+                "observed": 0.0
+              },
+              {
+                "count": 10,
+                "predicted": 0.1394521772696627,
+                "observed": 0.1
+              },
+              {
+                "count": 13,
+                "predicted": 0.23775964303303654,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.34512211755696964,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 10,
+                "predicted": 0.4534481947260244,
+                "observed": 0.3
+              },
+              {
+                "count": 10,
+                "predicted": 0.5401353725952095,
+                "observed": 0.5
+              },
+              {
+                "count": 13,
+                "predicted": 0.6433174980572365,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 9,
+                "predicted": 0.7414816880907551,
+                "observed": 0.8888888888888888
+              },
+              {
+                "count": 13,
+                "predicted": 0.8342608765841111,
+                "observed": 0.8461538461538461
+              },
+              {
+                "count": 23,
+                "predicted": 0.9586124059113902,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0002101546135431897,
+            "day_cluster_95_interval": [
+              -0.0018399990858779622,
+              0.0014535545382649523
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 1,
+            "opportunity_city_days": 1,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 1
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "boundary_weighted": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.851063829787234,
+            "log_loss": 0.3453992131207139,
+            "brier": 0.1086751257730792,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.050280954826453554,
+                "observed": 0.0
+              },
+              {
+                "count": 11,
+                "predicted": 0.14343517856755403,
+                "observed": 0.09090909090909091
+              },
+              {
+                "count": 12,
+                "predicted": 0.23944374785481462,
+                "observed": 0.25
+              },
+              {
+                "count": 11,
+                "predicted": 0.3422521337136029,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 12,
+                "predicted": 0.459340205732853,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 9,
+                "predicted": 0.5535665099899076,
+                "observed": 0.5555555555555556
+              },
+              {
+                "count": 12,
+                "predicted": 0.6455993583542947,
+                "observed": 0.75
+              },
+              {
+                "count": 10,
+                "predicted": 0.7456480788704172,
+                "observed": 0.9
+              },
+              {
+                "count": 12,
+                "predicted": 0.8359131141825064,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 23,
+                "predicted": 0.9584891467184063,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.00019720401415483952,
+            "day_cluster_95_interval": [
+              -0.001836813253482611,
+              0.0013275775523878873
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 1,
+            "opportunity_city_days": 1,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 1
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "both_repairs": {
+          "scores": {
+            "events": 141,
+            "days": 6,
+            "accuracy": 0.8439716312056738,
+            "log_loss": 0.34548634877700696,
+            "brier": 0.10868805972883375,
+            "calibration": [
+              {
+                "count": 29,
+                "predicted": 0.050830158860685495,
+                "observed": 0.0
+              },
+              {
+                "count": 10,
+                "predicted": 0.13909801819470927,
+                "observed": 0.1
+              },
+              {
+                "count": 13,
+                "predicted": 0.2383091180832104,
+                "observed": 0.23076923076923078
+              },
+              {
+                "count": 11,
+                "predicted": 0.3447836792573947,
+                "observed": 0.2727272727272727
+              },
+              {
+                "count": 11,
+                "predicted": 0.45844868421402934,
+                "observed": 0.36363636363636365
+              },
+              {
+                "count": 9,
+                "predicted": 0.5453000273343536,
+                "observed": 0.4444444444444444
+              },
+              {
+                "count": 13,
+                "predicted": 0.6443394280957497,
+                "observed": 0.7692307692307693
+              },
+              {
+                "count": 10,
+                "predicted": 0.7478187879488616,
+                "observed": 0.9
+              },
+              {
+                "count": 12,
+                "predicted": 0.8374246745209747,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 23,
+                "predicted": 0.9588345768115493,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.00018427005840029333,
+            "day_cluster_95_interval": [
+              -0.0016995286292201697,
+              0.0012960861055735524
+            ],
+            "days": 6
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 1,
+            "opportunity_city_days": 1,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 1
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 6,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    },
+    {
+      "start": "2026-07-16",
+      "end": "2026-07-21",
+      "training_days": 26,
+      "median_unique_days": 17.0,
+      "day_counts": {
+        "2026-07-09": 29,
+        "2026-07-10": 29,
+        "2026-06-20": 22,
+        "2026-06-21": 46,
+        "2026-06-28": 41,
+        "2026-06-29": 38,
+        "2026-06-24": 32,
+        "2026-06-25": 32,
+        "2026-07-07": 32,
+        "2026-07-08": 27,
+        "2026-06-27": 40,
+        "2026-06-22": 37,
+        "2026-07-04": 42,
+        "2026-07-05": 34,
+        "2026-07-03": 35,
+        "2026-07-11": 22,
+        "2026-07-01": 30,
+        "2026-07-02": 31,
+        "2026-07-14": 31,
+        "2026-07-15": 17,
+        "2026-06-23": 28,
+        "2026-07-12": 29,
+        "2026-07-13": 33,
+        "2026-06-30": 34,
+        "2026-06-26": 32,
+        "2026-07-06": 29
+      },
+      "expected_day_counts": {
+        "2026-06-20": 0.52,
+        "2026-06-21": 1.04,
+        "2026-06-22": 1.04,
+        "2026-06-23": 1.04,
+        "2026-06-24": 1.04,
+        "2026-06-25": 1.04,
+        "2026-06-26": 1.04,
+        "2026-06-27": 1.04,
+        "2026-06-28": 1.04,
+        "2026-06-29": 1.04,
+        "2026-06-30": 1.04,
+        "2026-07-01": 1.04,
+        "2026-07-02": 1.04,
+        "2026-07-03": 1.04,
+        "2026-07-04": 1.04,
+        "2026-07-05": 1.04,
+        "2026-07-06": 1.04,
+        "2026-07-07": 1.04,
+        "2026-07-08": 1.04,
+        "2026-07-09": 1.04,
+        "2026-07-10": 1.04,
+        "2026-07-11": 1.04,
+        "2026-07-12": 1.04,
+        "2026-07-13": 1.04,
+        "2026-07-14": 1.04,
+        "2026-07-15": 0.52
+      },
+      "neutral_mean_absolute_member_shift": {
+        "original_ensemble": 0.0016163207161741001,
+        "shared_scaler": 1.9941711537435137e-17,
+        "boundary_weighted": 0.0016523158890718972,
+        "both_repairs": 1.9941711537435137e-17
+      },
+      "models": {
+        "market": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8070175438596491,
+            "log_loss": 0.33827263640770405,
+            "brier": 0.10970618201754385,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.0346875,
+                "observed": 0.041666666666666664
+              },
+              {
+                "count": 12,
+                "predicted": 0.16,
+                "observed": 0.25
+              },
+              {
+                "count": 4,
+                "predicted": 0.255,
+                "observed": 0.25
+              },
+              {
+                "count": 1,
+                "predicted": 0.345,
+                "observed": 1.0
+              },
+              {
+                "count": 5,
+                "predicted": 0.461,
+                "observed": 0.8
+              },
+              {
+                "count": 10,
+                "predicted": 0.5529999999999999,
+                "observed": 0.3
+              },
+              {
+                "count": 6,
+                "predicted": 0.645,
+                "observed": 0.8333333333333334
+              },
+              {
+                "count": 9,
+                "predicted": 0.773888888888889,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 12,
+                "predicted": 0.8408333333333333,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 31,
+                "predicted": 0.9535483870967743,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": 0.0,
+            "day_cluster_95_interval": [
+              0.0,
+              0.0
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 0,
+            "opportunity_city_days": 0,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {},
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "single": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8421052631578947,
+            "log_loss": 0.3346568118696303,
+            "brier": 0.1075400270366978,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.03545482451681329,
+                "observed": 0.041666666666666664
+              },
+              {
+                "count": 12,
+                "predicted": 0.16089433030767583,
+                "observed": 0.25
+              },
+              {
+                "count": 3,
+                "predicted": 0.23456847758310762,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 3,
+                "predicted": 0.3602159923631141,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 6,
+                "predicted": 0.4496228973254727,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.5433718275803339,
+                "observed": 0.5
+              },
+              {
+                "count": 5,
+                "predicted": 0.6357510098921253,
+                "observed": 0.8
+              },
+              {
+                "count": 10,
+                "predicted": 0.7443897394184195,
+                "observed": 0.7
+              },
+              {
+                "count": 12,
+                "predicted": 0.8359652075431413,
+                "observed": 0.9166666666666666
+              },
+              {
+                "count": 31,
+                "predicted": 0.9485719848507541,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0021661549808460563,
+            "day_cluster_95_interval": [
+              -0.0034872178662772096,
+              -0.0004329628890676937
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 5,
+            "opportunity_city_days": 4,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 5
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "original_ensemble": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8421052631578947,
+            "log_loss": 0.33435823386295477,
+            "brier": 0.1072538057307375,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.036263604383017504,
+                "observed": 0.041666666666666664
+              },
+              {
+                "count": 12,
+                "predicted": 0.161988696766412,
+                "observed": 0.25
+              },
+              {
+                "count": 3,
+                "predicted": 0.2348670439074428,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 3,
+                "predicted": 0.3651337268397115,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 6,
+                "predicted": 0.4438546209532767,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.542848354727964,
+                "observed": 0.5
+              },
+              {
+                "count": 7,
+                "predicted": 0.6535562474913231,
+                "observed": 0.7142857142857143
+              },
+              {
+                "count": 8,
+                "predicted": 0.7491019635790137,
+                "observed": 0.75
+              },
+              {
+                "count": 13,
+                "predicted": 0.8398608022340173,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 30,
+                "predicted": 0.9488588879334444,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0024523762868063456,
+            "day_cluster_95_interval": [
+              -0.0041626368921996405,
+              -0.00015103033620642
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": -0.78,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 2,
+            "contracts": 60,
+            "opportunity_contracts": 6,
+            "opportunity_city_days": 4,
+            "traded_city_days": 2,
+            "capital_deployed": 19.78,
+            "fees": 0.8500000000000001,
+            "net_per_contract": -0.013000000000000001,
+            "return_on_deployed": -0.03943377148634985,
+            "bankroll_return": -0.00078,
+            "max_open_cost": 9.94,
+            "max_city_day_cost": 9.94,
+            "max_bet_cost": 9.94,
+            "realized_cost_equity_drawdown": 9.94,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 4
+            },
+            "ledger": [
+              {
+                "ticker": "KXBTC15M-26JUL161800-00",
+                "event_group": "KXBTC15M / 2026-07-16",
+                "day": "2026-07-16",
+                "quantity": 19,
+                "cost": 9.84,
+                "fees": 0.34,
+                "pnl": 9.16
+              },
+              {
+                "ticker": "KXBTC15M-26JUL180700-00",
+                "event_group": "KXBTC15M / 2026-07-18",
+                "day": "2026-07-18",
+                "quantity": 41,
+                "cost": 9.94,
+                "fees": 0.51,
+                "pnl": -9.94
+              }
+            ],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 2,
+              "zero_trade_resamples": 219,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "shared_scaler": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8421052631578947,
+            "log_loss": 0.3340925478679686,
+            "brier": 0.10715311174228824,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.03654314939393109,
+                "observed": 0.041666666666666664
+              },
+              {
+                "count": 12,
+                "predicted": 0.16278947371443225,
+                "observed": 0.25
+              },
+              {
+                "count": 3,
+                "predicted": 0.23598966503844662,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 3,
+                "predicted": 0.367130588531305,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 6,
+                "predicted": 0.44462509328129607,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.5444105162208882,
+                "observed": 0.5
+              },
+              {
+                "count": 8,
+                "predicted": 0.66025229602423,
+                "observed": 0.75
+              },
+              {
+                "count": 7,
+                "predicted": 0.7566380677796809,
+                "observed": 0.7142857142857143
+              },
+              {
+                "count": 13,
+                "predicted": 0.8405645259940976,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 30,
+                "predicted": 0.948973464590545,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.0025530702752555963,
+            "day_cluster_95_interval": [
+              -0.004260683191665022,
+              -0.00023045067662987227
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": -10.64,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 3,
+            "contracts": 99,
+            "opportunity_contracts": 6,
+            "opportunity_city_days": 4,
+            "traded_city_days": 3,
+            "capital_deployed": 29.64,
+            "fees": 1.35,
+            "net_per_contract": -0.10747474747474749,
+            "return_on_deployed": -0.358974358974359,
+            "bankroll_return": -0.01064,
+            "max_open_cost": 9.94,
+            "max_city_day_cost": 9.94,
+            "max_bet_cost": 9.94,
+            "realized_cost_equity_drawdown": 19.8,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 3
+            },
+            "ledger": [
+              {
+                "ticker": "KXBTC15M-26JUL161800-00",
+                "event_group": "KXBTC15M / 2026-07-16",
+                "day": "2026-07-16",
+                "quantity": 19,
+                "cost": 9.84,
+                "fees": 0.34,
+                "pnl": 9.16
+              },
+              {
+                "ticker": "KXBTC15M-26JUL180700-00",
+                "event_group": "KXBTC15M / 2026-07-18",
+                "day": "2026-07-18",
+                "quantity": 41,
+                "cost": 9.94,
+                "fees": 0.51,
+                "pnl": -9.94
+              },
+              {
+                "ticker": "KXBTC15M-26JUL190900-00",
+                "event_group": "KXBTC15M / 2026-07-19",
+                "day": "2026-07-19",
+                "quantity": 39,
+                "cost": 9.86,
+                "fees": 0.5,
+                "pnl": -9.86
+              }
+            ],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 3,
+              "zero_trade_resamples": 29,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "boundary_weighted": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8421052631578947,
+            "log_loss": 0.3352003626965848,
+            "brier": 0.10761432183779984,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.03582185076754052,
+                "observed": 0.041666666666666664
+              },
+              {
+                "count": 12,
+                "predicted": 0.16072420104866134,
+                "observed": 0.25
+              },
+              {
+                "count": 3,
+                "predicted": 0.2341182279729078,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 3,
+                "predicted": 0.36030240961124665,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 6,
+                "predicted": 0.4465635764024603,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.5419493534049143,
+                "observed": 0.5
+              },
+              {
+                "count": 6,
+                "predicted": 0.6443427541898975,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 9,
+                "predicted": 0.7444447910233047,
+                "observed": 0.7777777777777778
+              },
+              {
+                "count": 13,
+                "predicted": 0.8390237050269208,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 30,
+                "predicted": 0.9489988598313357,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.002091860179744005,
+            "day_cluster_95_interval": [
+              -0.0036754657692882565,
+              6.488372058276556e-05
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 5,
+            "opportunity_city_days": 4,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 5
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        },
+        "both_repairs": {
+          "scores": {
+            "events": 114,
+            "days": 5,
+            "accuracy": 0.8421052631578947,
+            "log_loss": 0.3349077434243601,
+            "brier": 0.10750642435394264,
+            "calibration": [
+              {
+                "count": 24,
+                "predicted": 0.03611255548452775,
+                "observed": 0.041666666666666664
+              },
+              {
+                "count": 12,
+                "predicted": 0.16158257746297838,
+                "observed": 0.25
+              },
+              {
+                "count": 3,
+                "predicted": 0.23538548771379297,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 3,
+                "predicted": 0.3623896652373366,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 6,
+                "predicted": 0.4475869917205289,
+                "observed": 0.3333333333333333
+              },
+              {
+                "count": 8,
+                "predicted": 0.5437345726600413,
+                "observed": 0.5
+              },
+              {
+                "count": 6,
+                "predicted": 0.6458922622610834,
+                "observed": 0.6666666666666666
+              },
+              {
+                "count": 9,
+                "predicted": 0.7448697748905169,
+                "observed": 0.7777777777777778
+              },
+              {
+                "count": 13,
+                "predicted": 0.8398333421254983,
+                "observed": 0.9230769230769231
+              },
+              {
+                "count": 30,
+                "predicted": 0.9491509709935515,
+                "observed": 1.0
+              }
+            ]
+          },
+          "paired_brier": {
+            "model_minus_market": -0.002199757663601214,
+            "day_cluster_95_interval": [
+              -0.0037701014509487394,
+              -5.2017496708805414e-05
+            ],
+            "days": 5
+          },
+          "paper": {
+            "policy": "bankroll_1_percent",
+            "slippage": 0.02,
+            "max_contracts": 100,
+            "starting_bankroll": 1000.0,
+            "pnl": 0.0,
+            "minimum_edge": 0.04,
+            "execution_recomputed": false,
+            "loss_stops": false,
+            "entries": 0,
+            "contracts": 0,
+            "opportunity_contracts": 5,
+            "opportunity_city_days": 4,
+            "traded_city_days": 0,
+            "capital_deployed": 0,
+            "fees": 0,
+            "net_per_contract": null,
+            "return_on_deployed": null,
+            "bankroll_return": 0.0,
+            "max_open_cost": 0.0,
+            "max_city_day_cost": 0.0,
+            "max_bet_cost": 0.0,
+            "realized_cost_equity_drawdown": 0.0,
+            "unsettled_positions": 0,
+            "skipped_rows": {
+              "edge_lost_at_execution": 5
+            },
+            "ledger": [],
+            "uncertainty": {
+              "net_per_contract_95_interval": null,
+              "return_on_deployed_95_interval": null,
+              "calendar_days": 5,
+              "trade_days": 0,
+              "zero_trade_resamples": 3000,
+              "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+              "status": "insufficient_trade_evidence"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "market": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8197343453510436,
+        "log_loss": 0.3777504177437352,
+        "brier": 0.12107787618595826,
+        "calibration": [
+          {
+            "count": 103,
+            "predicted": 0.04234951456310681,
+            "observed": 0.02912621359223301
+          },
+          {
+            "count": 44,
+            "predicted": 0.1469318181818182,
+            "observed": 0.22727272727272727
+          },
+          {
+            "count": 40,
+            "predicted": 0.251375,
+            "observed": 0.25
+          },
+          {
+            "count": 27,
+            "predicted": 0.34018518518518515,
+            "observed": 0.25925925925925924
+          },
+          {
+            "count": 29,
+            "predicted": 0.459655172413793,
+            "observed": 0.4827586206896552
+          },
+          {
+            "count": 33,
+            "predicted": 0.5501515151515151,
+            "observed": 0.42424242424242425
+          },
+          {
+            "count": 30,
+            "predicted": 0.6463333333333333,
+            "observed": 0.6
+          },
+          {
+            "count": 44,
+            "predicted": 0.7522727272727273,
+            "observed": 0.7954545454545454
+          },
+          {
+            "count": 53,
+            "predicted": 0.8509433962264151,
+            "observed": 0.8679245283018868
+          },
+          {
+            "count": 124,
+            "predicted": 0.9590604838709677,
+            "observed": 0.967741935483871
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0,
+        "day_cluster_95_interval": [
+          0.0,
+          0.0
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 0,
+        "opportunity_city_days": 0,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "single": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8273244781783681,
+        "log_loss": 0.3774200523984322,
+        "brier": 0.12076085238382864,
+        "calibration": [
+          {
+            "count": 107,
+            "predicted": 0.042821538415192234,
+            "observed": 0.028037383177570093
+          },
+          {
+            "count": 43,
+            "predicted": 0.1491741024553066,
+            "observed": 0.2558139534883721
+          },
+          {
+            "count": 43,
+            "predicted": 0.24795582749574457,
+            "observed": 0.2558139534883721
+          },
+          {
+            "count": 22,
+            "predicted": 0.34478873253327197,
+            "observed": 0.2727272727272727
+          },
+          {
+            "count": 32,
+            "predicted": 0.4495016253917551,
+            "observed": 0.40625
+          },
+          {
+            "count": 32,
+            "predicted": 0.5485167039478396,
+            "observed": 0.53125
+          },
+          {
+            "count": 34,
+            "predicted": 0.6480044561805406,
+            "observed": 0.6764705882352942
+          },
+          {
+            "count": 39,
+            "predicted": 0.7472540011847353,
+            "observed": 0.7435897435897436
+          },
+          {
+            "count": 52,
+            "predicted": 0.8478760911309157,
+            "observed": 0.8653846153846154
+          },
+          {
+            "count": 123,
+            "predicted": 0.95689717208773,
+            "observed": 0.967479674796748
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": -0.00031702380212959695,
+        "day_cluster_95_interval": [
+          -0.0016197384840394267,
+          0.0009991658994986494
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 7,
+        "opportunity_city_days": 5,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 7
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "original_ensemble": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.825426944971537,
+        "log_loss": 0.3780490882358463,
+        "brier": 0.12100987740002547,
+        "calibration": [
+          {
+            "count": 107,
+            "predicted": 0.04298655395371207,
+            "observed": 0.028037383177570093
+          },
+          {
+            "count": 44,
+            "predicted": 0.15013684574866482,
+            "observed": 0.25
+          },
+          {
+            "count": 40,
+            "predicted": 0.24708025387019772,
+            "observed": 0.275
+          },
+          {
+            "count": 24,
+            "predicted": 0.34367596356770286,
+            "observed": 0.25
+          },
+          {
+            "count": 33,
+            "predicted": 0.45103412278682614,
+            "observed": 0.42424242424242425
+          },
+          {
+            "count": 31,
+            "predicted": 0.5490792624378138,
+            "observed": 0.5161290322580645
+          },
+          {
+            "count": 36,
+            "predicted": 0.6492657849158114,
+            "observed": 0.6666666666666666
+          },
+          {
+            "count": 39,
+            "predicted": 0.7502297930831323,
+            "observed": 0.7692307692307693
+          },
+          {
+            "count": 49,
+            "predicted": 0.848364425763271,
+            "observed": 0.8775510204081632
+          },
+          {
+            "count": 124,
+            "predicted": 0.9564402164623149,
+            "observed": 0.9596774193548387
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": -6.79987859327787e-05,
+        "day_cluster_95_interval": [
+          -0.0015923920122189882,
+          0.0014580706321759367
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -0.78,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 2,
+        "contracts": 60,
+        "opportunity_contracts": 13,
+        "opportunity_city_days": 9,
+        "traded_city_days": 2,
+        "capital_deployed": 19.78,
+        "fees": 0.8500000000000001,
+        "net_per_contract": -0.013000000000000001,
+        "return_on_deployed": -0.03943377148634985,
+        "bankroll_return": -0.00078,
+        "max_open_cost": 9.94,
+        "max_city_day_cost": 9.94,
+        "max_bet_cost": 9.94,
+        "realized_cost_equity_drawdown": 9.94,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 11
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 41,
+            "cost": 9.94,
+            "fees": 0.51,
+            "pnl": -9.94
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 2,
+          "zero_trade_resamples": 368,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "shared_scaler": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.825426944971537,
+        "log_loss": 0.37787565844975723,
+        "brier": 0.12093518958587787,
+        "calibration": [
+          {
+            "count": 106,
+            "predicted": 0.04269696588455728,
+            "observed": 0.02830188679245283
+          },
+          {
+            "count": 45,
+            "predicted": 0.1496813408740118,
+            "observed": 0.24444444444444444
+          },
+          {
+            "count": 39,
+            "predicted": 0.24682452687715617,
+            "observed": 0.28205128205128205
+          },
+          {
+            "count": 25,
+            "predicted": 0.3431541053762036,
+            "observed": 0.24
+          },
+          {
+            "count": 31,
+            "predicted": 0.4493327234484941,
+            "observed": 0.41935483870967744
+          },
+          {
+            "count": 33,
+            "predicted": 0.5472830677584879,
+            "observed": 0.5151515151515151
+          },
+          {
+            "count": 37,
+            "predicted": 0.651914986921353,
+            "observed": 0.6756756756756757
+          },
+          {
+            "count": 35,
+            "predicted": 0.7482517511326118,
+            "observed": 0.7428571428571429
+          },
+          {
+            "count": 53,
+            "predicted": 0.8472468759579913,
+            "observed": 0.8867924528301887
+          },
+          {
+            "count": 123,
+            "predicted": 0.9569401866640066,
+            "observed": 0.959349593495935
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": -0.00014268660008038346,
+        "day_cluster_95_interval": [
+          -0.001614356247620785,
+          0.0013135987020884193
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -10.64,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 3,
+        "contracts": 99,
+        "opportunity_contracts": 10,
+        "opportunity_city_days": 8,
+        "traded_city_days": 3,
+        "capital_deployed": 29.64,
+        "fees": 1.35,
+        "net_per_contract": -0.10747474747474749,
+        "return_on_deployed": -0.358974358974359,
+        "bankroll_return": -0.01064,
+        "max_open_cost": 9.94,
+        "max_city_day_cost": 9.94,
+        "max_bet_cost": 9.94,
+        "realized_cost_equity_drawdown": 19.8,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 7
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 41,
+            "cost": 9.94,
+            "fees": 0.51,
+            "pnl": -9.94
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 39,
+            "cost": 9.86,
+            "fees": 0.5,
+            "pnl": -9.86
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 3,
+          "zero_trade_resamples": 124,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "boundary_weighted": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.825426944971537,
+        "log_loss": 0.3779026444833078,
+        "brier": 0.12094987105817011,
+        "calibration": [
+          {
+            "count": 106,
+            "predicted": 0.042333161622559075,
+            "observed": 0.02830188679245283
+          },
+          {
+            "count": 46,
+            "predicted": 0.14969341798773045,
+            "observed": 0.2391304347826087
+          },
+          {
+            "count": 39,
+            "predicted": 0.24811038582893047,
+            "observed": 0.28205128205128205
+          },
+          {
+            "count": 24,
+            "predicted": 0.3412047392665964,
+            "observed": 0.25
+          },
+          {
+            "count": 33,
+            "predicted": 0.4517822403703299,
+            "observed": 0.42424242424242425
+          },
+          {
+            "count": 33,
+            "predicted": 0.5525242575009823,
+            "observed": 0.5151515151515151
+          },
+          {
+            "count": 33,
+            "predicted": 0.6505260497514266,
+            "observed": 0.6666666666666666
+          },
+          {
+            "count": 38,
+            "predicted": 0.7468591048460836,
+            "observed": 0.7631578947368421
+          },
+          {
+            "count": 52,
+            "predicted": 0.8473172840066991,
+            "observed": 0.8846153846153846
+          },
+          {
+            "count": 123,
+            "predicted": 0.9568589948299668,
+            "observed": 0.959349593495935
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": -0.00012800512778814638,
+        "day_cluster_95_interval": [
+          -0.0015630284424363043,
+          0.0012836310123127835
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 9
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "both_repairs": {
+      "scores": {
+        "events": 527,
+        "days": 23,
+        "accuracy": 0.8235294117647058,
+        "log_loss": 0.37773717326927664,
+        "brier": 0.1208792089620819,
+        "calibration": [
+          {
+            "count": 106,
+            "predicted": 0.04258463059508018,
+            "observed": 0.02830188679245283
+          },
+          {
+            "count": 45,
+            "predicted": 0.1492493044577123,
+            "observed": 0.24444444444444444
+          },
+          {
+            "count": 40,
+            "predicted": 0.24792793865389323,
+            "observed": 0.275
+          },
+          {
+            "count": 24,
+            "predicted": 0.3426566565876105,
+            "observed": 0.25
+          },
+          {
+            "count": 32,
+            "predicted": 0.4518173069900276,
+            "observed": 0.4375
+          },
+          {
+            "count": 32,
+            "predicted": 0.5492733796585431,
+            "observed": 0.5
+          },
+          {
+            "count": 35,
+            "predicted": 0.648999307452012,
+            "observed": 0.6571428571428571
+          },
+          {
+            "count": 37,
+            "predicted": 0.7463300656005659,
+            "observed": 0.7567567567567568
+          },
+          {
+            "count": 53,
+            "predicted": 0.8470621880916303,
+            "observed": 0.8867924528301887
+          },
+          {
+            "count": 123,
+            "predicted": 0.9569377392073446,
+            "observed": 0.959349593495935
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": -0.0001986672238763572,
+        "day_cluster_95_interval": [
+          -0.0015738052513095651,
+          0.001169810312760226
+        ],
+        "days": 23
+      },
+      "paper": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 9
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "paired_vs_single": {
+        "model_minus_market": 0.00011835657825323999,
+        "day_cluster_95_interval": [
+          -0.00018291628945928112,
+          0.00043620387139425013
+        ],
+        "days": 23
+      }
+    }
+  },
+  "trading": {
+    "single": {
+      "0": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 3.14,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 7,
+        "contracts": 183,
+        "opportunity_contracts": 7,
+        "opportunity_city_days": 5,
+        "traded_city_days": 5,
+        "capital_deployed": 68.86,
+        "fees": 2.7,
+        "net_per_contract": 0.017158469945355193,
+        "return_on_deployed": 0.04559976764449608,
+        "bankroll_return": 0.00314,
+        "max_open_cost": 9.98,
+        "max_city_day_cost": 9.98,
+        "max_bet_cost": 9.98,
+        "realized_cost_equity_drawdown": 19.96,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.59,
+            "fees": 0.39,
+            "pnl": -9.59
+          },
+          {
+            "ticker": "KXBTC15M-26JUL110200-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 15,
+            "cost": 9.85,
+            "fees": 0.25,
+            "pnl": 5.15
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 20,
+            "cost": 9.95,
+            "fees": 0.35,
+            "pnl": 10.05
+          },
+          {
+            "ticker": "KXBTC15M-26JUL172300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 18,
+            "cost": 9.86,
+            "fees": 0.32,
+            "pnl": 8.14
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 45,
+            "cost": 9.98,
+            "fees": 0.53,
+            "pnl": -9.98
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 43,
+            "cost": 9.98,
+            "fees": 0.52,
+            "pnl": -9.98
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 5,
+          "zero_trade_resamples": 15,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.005": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.005,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -29.2,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 3,
+        "contracts": 107,
+        "opportunity_contracts": 7,
+        "opportunity_city_days": 5,
+        "traded_city_days": 3,
+        "capital_deployed": 29.200000000000003,
+        "fees": 1.415,
+        "net_per_contract": -0.27289719626168224,
+        "return_on_deployed": -0.9999999999999999,
+        "bankroll_return": -0.0292,
+        "max_open_cost": 9.76,
+        "max_city_day_cost": 9.76,
+        "max_bet_cost": 9.76,
+        "realized_cost_equity_drawdown": 29.2,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 4
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.71,
+            "fees": 0.395,
+            "pnl": -9.71
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 43,
+            "cost": 9.76,
+            "fees": 0.515,
+            "pnl": -9.76
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 41,
+            "cost": 9.73,
+            "fees": 0.505,
+            "pnl": -9.73
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 3,
+          "zero_trade_resamples": 117,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.01": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.01,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -9.82,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 1,
+        "contracts": 23,
+        "opportunity_contracts": 7,
+        "opportunity_city_days": 5,
+        "traded_city_days": 1,
+        "capital_deployed": 9.82,
+        "fees": 0.39,
+        "net_per_contract": -0.42695652173913046,
+        "return_on_deployed": -1.0,
+        "bankroll_return": -0.00982,
+        "max_open_cost": 9.82,
+        "max_city_day_cost": 9.82,
+        "max_bet_cost": 9.82,
+        "realized_cost_equity_drawdown": 9.82,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 6
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.82,
+            "fees": 0.39,
+            "pnl": -9.82
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 1,
+          "zero_trade_resamples": 1091,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.02": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 7,
+        "opportunity_city_days": 5,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 7
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.05": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.05,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 7,
+        "opportunity_city_days": 5,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 7
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "original_ensemble": {
+      "0": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -36.33,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 13,
+        "contracts": 332,
+        "opportunity_contracts": 13,
+        "opportunity_city_days": 9,
+        "traded_city_days": 9,
+        "capital_deployed": 123.33,
+        "fees": 4.9,
+        "net_per_contract": -0.1094277108433735,
+        "return_on_deployed": -0.2945755290683532,
+        "bankroll_return": -0.03633,
+        "max_open_cost": 9.84,
+        "max_city_day_cost": 9.84,
+        "max_bet_cost": 9.84,
+        "realized_cost_equity_drawdown": 45.19,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.3,
+            "fees": 0.2,
+            "pnl": -9.3
+          },
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 37,
+            "cost": 9.74,
+            "fees": 0.49,
+            "pnl": -9.74
+          },
+          {
+            "ticker": "KXBTC15M-26JUL031500-00",
+            "event_group": "KXBTC15M / 2026-07-03",
+            "day": "2026-07-03",
+            "quantity": 30,
+            "cost": 9.75,
+            "fees": 0.45,
+            "pnl": -9.75
+          },
+          {
+            "ticker": "KXBTC15M-26JUL031600-00",
+            "event_group": "KXBTC15M / 2026-07-03",
+            "day": "2026-07-03",
+            "quantity": 20,
+            "cost": 9.35,
+            "fees": 0.35,
+            "pnl": -9.35
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.59,
+            "fees": 0.39,
+            "pnl": -9.59
+          },
+          {
+            "ticker": "KXBTC15M-26JUL110200-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 14,
+            "cost": 9.19,
+            "fees": 0.23,
+            "pnl": 4.81
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.46,
+            "fees": 0.34,
+            "pnl": 9.54
+          },
+          {
+            "ticker": "KXBTC15M-26JUL172300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 17,
+            "cost": 9.31,
+            "fees": 0.3,
+            "pnl": 7.69
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 38,
+            "cost": 9.61,
+            "fees": 0.49,
+            "pnl": -9.61
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 43,
+            "cost": 9.53,
+            "fees": 0.5,
+            "pnl": -9.53
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 41,
+            "cost": 9.52,
+            "fees": 0.5,
+            "pnl": -9.52
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 18,
+            "cost": 9.14,
+            "fees": 0.32,
+            "pnl": 8.86
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 9,
+          "zero_trade_resamples": 0,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.005": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.005,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -31.25,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 9,
+        "contracts": 249,
+        "opportunity_contracts": 13,
+        "opportunity_city_days": 9,
+        "traded_city_days": 8,
+        "capital_deployed": 86.25,
+        "fees": 3.565,
+        "net_per_contract": -0.12550200803212852,
+        "return_on_deployed": -0.36231884057971014,
+        "bankroll_return": -0.03125,
+        "max_open_cost": 9.93,
+        "max_city_day_cost": 9.93,
+        "max_bet_cost": 9.93,
+        "realized_cost_equity_drawdown": 40.02,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 4
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.36,
+            "fees": 0.195,
+            "pnl": -9.36
+          },
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 18,
+            "cost": 9.41,
+            "fees": 0.32,
+            "pnl": 8.59
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 37,
+            "cost": 9.93,
+            "fees": 0.495,
+            "pnl": -9.93
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.71,
+            "fees": 0.395,
+            "pnl": -9.71
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.55,
+            "fees": 0.335,
+            "pnl": 9.45
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 38,
+            "cost": 9.81,
+            "fees": 0.5,
+            "pnl": -9.81
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 43,
+            "cost": 9.76,
+            "fees": 0.515,
+            "pnl": -9.76
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 40,
+            "cost": 9.49,
+            "fees": 0.49,
+            "pnl": -9.49
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 18,
+            "cost": 9.23,
+            "fees": 0.32,
+            "pnl": 8.77
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 8,
+          "zero_trade_resamples": 0,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.01": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.01,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -12.82,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 7,
+        "contracts": 197,
+        "opportunity_contracts": 13,
+        "opportunity_city_days": 9,
+        "traded_city_days": 7,
+        "capital_deployed": 67.82,
+        "fees": 2.88,
+        "net_per_contract": -0.0650761421319797,
+        "return_on_deployed": -0.18902978472427015,
+        "bankroll_return": -0.01282,
+        "max_open_cost": 9.98,
+        "max_city_day_cost": 9.98,
+        "max_bet_cost": 9.98,
+        "realized_cost_equity_drawdown": 30.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 6
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 18,
+            "cost": 9.5,
+            "fees": 0.32,
+            "pnl": 8.5
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 36,
+            "cost": 9.85,
+            "fees": 0.49,
+            "pnl": -9.85
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.82,
+            "fees": 0.39,
+            "pnl": -9.82
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 43,
+            "cost": 9.98,
+            "fees": 0.52,
+            "pnl": -9.98
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 40,
+            "cost": 9.7,
+            "fees": 0.5,
+            "pnl": -9.7
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 18,
+            "cost": 9.32,
+            "fees": 0.32,
+            "pnl": 8.68
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 7,
+          "zero_trade_resamples": 1,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.02": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -0.78,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 2,
+        "contracts": 60,
+        "opportunity_contracts": 13,
+        "opportunity_city_days": 9,
+        "traded_city_days": 2,
+        "capital_deployed": 19.78,
+        "fees": 0.8500000000000001,
+        "net_per_contract": -0.013000000000000001,
+        "return_on_deployed": -0.03943377148634985,
+        "bankroll_return": -0.00078,
+        "max_open_cost": 9.94,
+        "max_city_day_cost": 9.94,
+        "max_bet_cost": 9.94,
+        "realized_cost_equity_drawdown": 9.94,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 11
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 41,
+            "cost": 9.94,
+            "fees": 0.51,
+            "pnl": -9.94
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 2,
+          "zero_trade_resamples": 368,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.05": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.05,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 13,
+        "opportunity_city_days": 9,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 13
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "shared_scaler": {
+      "0": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -21.81,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 10,
+        "contracts": 273,
+        "opportunity_contracts": 10,
+        "opportunity_city_days": 8,
+        "traded_city_days": 8,
+        "capital_deployed": 96.81,
+        "fees": 3.95,
+        "net_per_contract": -0.07989010989010989,
+        "return_on_deployed": -0.22528664394174153,
+        "bankroll_return": -0.02181,
+        "max_open_cost": 9.86,
+        "max_city_day_cost": 9.86,
+        "max_bet_cost": 9.86,
+        "realized_cost_equity_drawdown": 31.16,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.3,
+            "fees": 0.2,
+            "pnl": -9.3
+          },
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 37,
+            "cost": 9.74,
+            "fees": 0.49,
+            "pnl": -9.74
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.59,
+            "fees": 0.39,
+            "pnl": -9.59
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.46,
+            "fees": 0.34,
+            "pnl": 9.54
+          },
+          {
+            "ticker": "KXBTC15M-26JUL172300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 18,
+            "cost": 9.86,
+            "fees": 0.32,
+            "pnl": 8.14
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 39,
+            "cost": 9.86,
+            "fees": 0.5,
+            "pnl": -9.86
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 44,
+            "cost": 9.76,
+            "fees": 0.52,
+            "pnl": -9.76
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 42,
+            "cost": 9.75,
+            "fees": 0.51,
+            "pnl": -9.75
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 8,
+          "zero_trade_resamples": 0,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.005": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.005,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -39.08,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 8,
+        "contracts": 228,
+        "opportunity_contracts": 10,
+        "opportunity_city_days": 8,
+        "traded_city_days": 7,
+        "capital_deployed": 76.08,
+        "fees": 3.2,
+        "net_per_contract": -0.1714035087719298,
+        "return_on_deployed": -0.5136698212407992,
+        "bankroll_return": -0.03908,
+        "max_open_cost": 9.71,
+        "max_city_day_cost": 9.71,
+        "max_bet_cost": 9.71,
+        "realized_cost_equity_drawdown": 47.85,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 2
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.36,
+            "fees": 0.195,
+            "pnl": -9.36
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 36,
+            "cost": 9.66,
+            "fees": 0.48,
+            "pnl": -9.66
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.71,
+            "fees": 0.395,
+            "pnl": -9.71
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.55,
+            "fees": 0.335,
+            "pnl": 9.45
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 37,
+            "cost": 9.55,
+            "fees": 0.485,
+            "pnl": -9.55
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 42,
+            "cost": 9.53,
+            "fees": 0.5,
+            "pnl": -9.53
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 40,
+            "cost": 9.49,
+            "fees": 0.49,
+            "pnl": -9.49
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 18,
+            "cost": 9.23,
+            "fees": 0.32,
+            "pnl": 8.77
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 7,
+          "zero_trade_resamples": 0,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.01": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.01,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -21.09,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 6,
+        "contracts": 178,
+        "opportunity_contracts": 10,
+        "opportunity_city_days": 8,
+        "traded_city_days": 6,
+        "capital_deployed": 58.09,
+        "fees": 2.55,
+        "net_per_contract": -0.11848314606741572,
+        "return_on_deployed": -0.3630573248407643,
+        "bankroll_return": -0.02109,
+        "max_open_cost": 9.85,
+        "max_city_day_cost": 9.85,
+        "max_bet_cost": 9.85,
+        "realized_cost_equity_drawdown": 29.77,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 4
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 36,
+            "cost": 9.85,
+            "fees": 0.49,
+            "pnl": -9.85
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.82,
+            "fees": 0.39,
+            "pnl": -9.82
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 42,
+            "cost": 9.75,
+            "fees": 0.51,
+            "pnl": -9.75
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 40,
+            "cost": 9.7,
+            "fees": 0.5,
+            "pnl": -9.7
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 18,
+            "cost": 9.32,
+            "fees": 0.32,
+            "pnl": 8.68
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 6,
+          "zero_trade_resamples": 5,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.02": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -10.64,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 3,
+        "contracts": 99,
+        "opportunity_contracts": 10,
+        "opportunity_city_days": 8,
+        "traded_city_days": 3,
+        "capital_deployed": 29.64,
+        "fees": 1.35,
+        "net_per_contract": -0.10747474747474749,
+        "return_on_deployed": -0.358974358974359,
+        "bankroll_return": -0.01064,
+        "max_open_cost": 9.94,
+        "max_city_day_cost": 9.94,
+        "max_bet_cost": 9.94,
+        "realized_cost_equity_drawdown": 19.8,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 7
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 41,
+            "cost": 9.94,
+            "fees": 0.51,
+            "pnl": -9.94
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 39,
+            "cost": 9.86,
+            "fees": 0.5,
+            "pnl": -9.86
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 3,
+          "zero_trade_resamples": 124,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.05": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.05,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 10,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 10
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "boundary_weighted": {
+      "0": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -12.17,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 9,
+        "contracts": 235,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 8,
+        "capital_deployed": 87.17,
+        "fees": 3.46,
+        "net_per_contract": -0.05178723404255319,
+        "return_on_deployed": -0.13961225192153262,
+        "bankroll_return": -0.01217,
+        "max_open_cost": 9.98,
+        "max_city_day_cost": 9.98,
+        "max_bet_cost": 9.98,
+        "realized_cost_equity_drawdown": 21.52,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.3,
+            "fees": 0.2,
+            "pnl": -9.3
+          },
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 37,
+            "cost": 9.74,
+            "fees": 0.49,
+            "pnl": -9.74
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.59,
+            "fees": 0.39,
+            "pnl": -9.59
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.46,
+            "fees": 0.34,
+            "pnl": 9.54
+          },
+          {
+            "ticker": "KXBTC15M-26JUL172300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 18,
+            "cost": 9.86,
+            "fees": 0.32,
+            "pnl": 8.14
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 45,
+            "cost": 9.98,
+            "fees": 0.53,
+            "pnl": -9.98
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 42,
+            "cost": 9.75,
+            "fees": 0.51,
+            "pnl": -9.75
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 8,
+          "zero_trade_resamples": 0,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.005": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.005,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -30.45,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 7,
+        "contracts": 194,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 7,
+        "capital_deployed": 67.45,
+        "fees": 2.7600000000000002,
+        "net_per_contract": -0.15695876288659794,
+        "return_on_deployed": -0.45144551519644177,
+        "bankroll_return": -0.030449999999999998,
+        "max_open_cost": 9.93,
+        "max_city_day_cost": 9.93,
+        "max_bet_cost": 9.93,
+        "realized_cost_equity_drawdown": 30.45,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 2
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.36,
+            "fees": 0.195,
+            "pnl": -9.36
+          },
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 18,
+            "cost": 9.41,
+            "fees": 0.32,
+            "pnl": 8.59
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 37,
+            "cost": 9.93,
+            "fees": 0.495,
+            "pnl": -9.93
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.71,
+            "fees": 0.395,
+            "pnl": -9.71
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.55,
+            "fees": 0.335,
+            "pnl": 9.45
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 43,
+            "cost": 9.76,
+            "fees": 0.515,
+            "pnl": -9.76
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 41,
+            "cost": 9.73,
+            "fees": 0.505,
+            "pnl": -9.73
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 7,
+          "zero_trade_resamples": 1,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.01": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.01,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -21.5,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 6,
+        "contracts": 179,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 6,
+        "capital_deployed": 58.5,
+        "fees": 2.56,
+        "net_per_contract": -0.12011173184357542,
+        "return_on_deployed": -0.36752136752136755,
+        "bankroll_return": -0.0215,
+        "max_open_cost": 9.98,
+        "max_city_day_cost": 9.98,
+        "max_bet_cost": 9.98,
+        "realized_cost_equity_drawdown": 30.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 3
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 18,
+            "cost": 9.5,
+            "fees": 0.32,
+            "pnl": 8.5
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 36,
+            "cost": 9.85,
+            "fees": 0.49,
+            "pnl": -9.85
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.82,
+            "fees": 0.39,
+            "pnl": -9.82
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 43,
+            "cost": 9.98,
+            "fees": 0.52,
+            "pnl": -9.98
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 40,
+            "cost": 9.7,
+            "fees": 0.5,
+            "pnl": -9.7
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 6,
+          "zero_trade_resamples": 6,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.02": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 9
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.05": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.05,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 9
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    },
+    "both_repairs": {
+      "0": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -12.17,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 9,
+        "contracts": 235,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 8,
+        "capital_deployed": 87.17,
+        "fees": 3.46,
+        "net_per_contract": -0.05178723404255319,
+        "return_on_deployed": -0.13961225192153262,
+        "bankroll_return": -0.01217,
+        "max_open_cost": 9.98,
+        "max_city_day_cost": 9.98,
+        "max_bet_cost": 9.98,
+        "realized_cost_equity_drawdown": 21.52,
+        "unsettled_positions": 0,
+        "skipped_rows": {},
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.3,
+            "fees": 0.2,
+            "pnl": -9.3
+          },
+          {
+            "ticker": "KXBTC15M-26JUN291300-00",
+            "event_group": "KXBTC15M / 2026-06-29",
+            "day": "2026-06-29",
+            "quantity": 19,
+            "cost": 9.84,
+            "fees": 0.34,
+            "pnl": 9.16
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 37,
+            "cost": 9.74,
+            "fees": 0.49,
+            "pnl": -9.74
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.59,
+            "fees": 0.39,
+            "pnl": -9.59
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.46,
+            "fees": 0.34,
+            "pnl": 9.54
+          },
+          {
+            "ticker": "KXBTC15M-26JUL172300-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 18,
+            "cost": 9.86,
+            "fees": 0.32,
+            "pnl": 8.14
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 45,
+            "cost": 9.98,
+            "fees": 0.53,
+            "pnl": -9.98
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 42,
+            "cost": 9.75,
+            "fees": 0.51,
+            "pnl": -9.75
+          },
+          {
+            "ticker": "KXBTC15M-26JUL200600-00",
+            "event_group": "KXBTC15M / 2026-07-20",
+            "day": "2026-07-20",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 8,
+          "zero_trade_resamples": 0,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.005": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.005,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -38.53,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 6,
+        "contracts": 174,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 6,
+        "capital_deployed": 57.53,
+        "fees": 2.41,
+        "net_per_contract": -0.22143678160919542,
+        "return_on_deployed": -0.6697375282461324,
+        "bankroll_return": -0.03853,
+        "max_open_cost": 9.76,
+        "max_city_day_cost": 9.76,
+        "max_bet_cost": 9.76,
+        "realized_cost_equity_drawdown": 38.53,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 3
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUN280000-00",
+            "event_group": "KXBTC15M / 2026-06-28",
+            "day": "2026-06-28",
+            "quantity": 13,
+            "cost": 9.36,
+            "fees": 0.195,
+            "pnl": -9.36
+          },
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 36,
+            "cost": 9.66,
+            "fees": 0.48,
+            "pnl": -9.66
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.71,
+            "fees": 0.395,
+            "pnl": -9.71
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.55,
+            "fees": 0.335,
+            "pnl": 9.45
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 43,
+            "cost": 9.76,
+            "fees": 0.515,
+            "pnl": -9.76
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 40,
+            "cost": 9.49,
+            "fees": 0.49,
+            "pnl": -9.49
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 6,
+          "zero_trade_resamples": 3,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.01": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.01,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": -29.77,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 5,
+        "contracts": 160,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 5,
+        "capital_deployed": 48.769999999999996,
+        "fees": 2.23,
+        "net_per_contract": -0.1860625,
+        "return_on_deployed": -0.6104162394914907,
+        "bankroll_return": -0.029769999999999998,
+        "max_open_cost": 9.85,
+        "max_city_day_cost": 9.85,
+        "max_bet_cost": 9.85,
+        "realized_cost_equity_drawdown": 29.77,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 4
+        },
+        "ledger": [
+          {
+            "ticker": "KXBTC15M-26JUL021800-00",
+            "event_group": "KXBTC15M / 2026-07-02",
+            "day": "2026-07-02",
+            "quantity": 36,
+            "cost": 9.85,
+            "fees": 0.49,
+            "pnl": -9.85
+          },
+          {
+            "ticker": "KXBTC15M-26JUL102100-00",
+            "event_group": "KXBTC15M / 2026-07-11",
+            "day": "2026-07-11",
+            "quantity": 23,
+            "cost": 9.82,
+            "fees": 0.39,
+            "pnl": -9.82
+          },
+          {
+            "ticker": "KXBTC15M-26JUL161800-00",
+            "event_group": "KXBTC15M / 2026-07-16",
+            "day": "2026-07-16",
+            "quantity": 19,
+            "cost": 9.65,
+            "fees": 0.34,
+            "pnl": 9.35
+          },
+          {
+            "ticker": "KXBTC15M-26JUL180700-00",
+            "event_group": "KXBTC15M / 2026-07-18",
+            "day": "2026-07-18",
+            "quantity": 42,
+            "cost": 9.75,
+            "fees": 0.51,
+            "pnl": -9.75
+          },
+          {
+            "ticker": "KXBTC15M-26JUL190900-00",
+            "event_group": "KXBTC15M / 2026-07-19",
+            "day": "2026-07-19",
+            "quantity": 40,
+            "cost": 9.7,
+            "fees": 0.5,
+            "pnl": -9.7
+          }
+        ],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 5,
+          "zero_trade_resamples": 15,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.02": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.02,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 9
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      },
+      "0.05": {
+        "policy": "bankroll_1_percent",
+        "slippage": 0.05,
+        "max_contracts": 100,
+        "starting_bankroll": 1000.0,
+        "pnl": 0.0,
+        "minimum_edge": 0.04,
+        "execution_recomputed": false,
+        "loss_stops": false,
+        "entries": 0,
+        "contracts": 0,
+        "opportunity_contracts": 9,
+        "opportunity_city_days": 8,
+        "traded_city_days": 0,
+        "capital_deployed": 0,
+        "fees": 0,
+        "net_per_contract": null,
+        "return_on_deployed": null,
+        "bankroll_return": 0.0,
+        "max_open_cost": 0.0,
+        "max_city_day_cost": 0.0,
+        "max_bet_cost": 0.0,
+        "realized_cost_equity_drawdown": 0.0,
+        "unsettled_positions": 0,
+        "skipped_rows": {
+          "edge_lost_at_execution": 9
+        },
+        "ledger": [],
+        "uncertainty": {
+          "net_per_contract_95_interval": null,
+          "return_on_deployed_95_interval": null,
+          "calendar_days": 23,
+          "trade_days": 0,
+          "zero_trade_resamples": 3000,
+          "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+          "status": "insufficient_trade_evidence"
+        }
+      }
+    }
+  },
+  "guarded_both": {
+    "0": {
+      "policy": "bankroll_1_percent",
+      "slippage": 0,
+      "max_contracts": 100,
+      "starting_bankroll": 1000.0,
+      "pnl": 0.0,
+      "minimum_edge": 0.04,
+      "execution_recomputed": false,
+      "loss_stops": false,
+      "entries": 0,
+      "contracts": 0,
+      "opportunity_contracts": 0,
+      "opportunity_city_days": 0,
+      "traded_city_days": 0,
+      "capital_deployed": 0,
+      "fees": 0,
+      "net_per_contract": null,
+      "return_on_deployed": null,
+      "bankroll_return": 0.0,
+      "max_open_cost": 0.0,
+      "max_city_day_cost": 0.0,
+      "max_bet_cost": 0.0,
+      "realized_cost_equity_drawdown": 0.0,
+      "unsettled_positions": 0,
+      "skipped_rows": {},
+      "ledger": [],
+      "uncertainty": {
+        "net_per_contract_95_interval": null,
+        "return_on_deployed_95_interval": null,
+        "calendar_days": 23,
+        "trade_days": 0,
+        "zero_trade_resamples": 3000,
+        "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+        "status": "insufficient_trade_evidence"
+      }
+    },
+    "0.005": {
+      "policy": "bankroll_1_percent",
+      "slippage": 0.005,
+      "max_contracts": 100,
+      "starting_bankroll": 1000.0,
+      "pnl": 0.0,
+      "minimum_edge": 0.04,
+      "execution_recomputed": false,
+      "loss_stops": false,
+      "entries": 0,
+      "contracts": 0,
+      "opportunity_contracts": 0,
+      "opportunity_city_days": 0,
+      "traded_city_days": 0,
+      "capital_deployed": 0,
+      "fees": 0,
+      "net_per_contract": null,
+      "return_on_deployed": null,
+      "bankroll_return": 0.0,
+      "max_open_cost": 0.0,
+      "max_city_day_cost": 0.0,
+      "max_bet_cost": 0.0,
+      "realized_cost_equity_drawdown": 0.0,
+      "unsettled_positions": 0,
+      "skipped_rows": {},
+      "ledger": [],
+      "uncertainty": {
+        "net_per_contract_95_interval": null,
+        "return_on_deployed_95_interval": null,
+        "calendar_days": 23,
+        "trade_days": 0,
+        "zero_trade_resamples": 3000,
+        "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+        "status": "insufficient_trade_evidence"
+      }
+    },
+    "0.01": {
+      "policy": "bankroll_1_percent",
+      "slippage": 0.01,
+      "max_contracts": 100,
+      "starting_bankroll": 1000.0,
+      "pnl": 0.0,
+      "minimum_edge": 0.04,
+      "execution_recomputed": false,
+      "loss_stops": false,
+      "entries": 0,
+      "contracts": 0,
+      "opportunity_contracts": 0,
+      "opportunity_city_days": 0,
+      "traded_city_days": 0,
+      "capital_deployed": 0,
+      "fees": 0,
+      "net_per_contract": null,
+      "return_on_deployed": null,
+      "bankroll_return": 0.0,
+      "max_open_cost": 0.0,
+      "max_city_day_cost": 0.0,
+      "max_bet_cost": 0.0,
+      "realized_cost_equity_drawdown": 0.0,
+      "unsettled_positions": 0,
+      "skipped_rows": {},
+      "ledger": [],
+      "uncertainty": {
+        "net_per_contract_95_interval": null,
+        "return_on_deployed_95_interval": null,
+        "calendar_days": 23,
+        "trade_days": 0,
+        "zero_trade_resamples": 3000,
+        "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+        "status": "insufficient_trade_evidence"
+      }
+    },
+    "0.02": {
+      "policy": "bankroll_1_percent",
+      "slippage": 0.02,
+      "max_contracts": 100,
+      "starting_bankroll": 1000.0,
+      "pnl": 0.0,
+      "minimum_edge": 0.04,
+      "execution_recomputed": false,
+      "loss_stops": false,
+      "entries": 0,
+      "contracts": 0,
+      "opportunity_contracts": 0,
+      "opportunity_city_days": 0,
+      "traded_city_days": 0,
+      "capital_deployed": 0,
+      "fees": 0,
+      "net_per_contract": null,
+      "return_on_deployed": null,
+      "bankroll_return": 0.0,
+      "max_open_cost": 0.0,
+      "max_city_day_cost": 0.0,
+      "max_bet_cost": 0.0,
+      "realized_cost_equity_drawdown": 0.0,
+      "unsettled_positions": 0,
+      "skipped_rows": {},
+      "ledger": [],
+      "uncertainty": {
+        "net_per_contract_95_interval": null,
+        "return_on_deployed_95_interval": null,
+        "calendar_days": 23,
+        "trade_days": 0,
+        "zero_trade_resamples": 3000,
+        "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+        "status": "insufficient_trade_evidence"
+      }
+    },
+    "0.05": {
+      "policy": "bankroll_1_percent",
+      "slippage": 0.05,
+      "max_contracts": 100,
+      "starting_bankroll": 1000.0,
+      "pnl": 0.0,
+      "minimum_edge": 0.04,
+      "execution_recomputed": false,
+      "loss_stops": false,
+      "entries": 0,
+      "contracts": 0,
+      "opportunity_contracts": 0,
+      "opportunity_city_days": 0,
+      "traded_city_days": 0,
+      "capital_deployed": 0,
+      "fees": 0,
+      "net_per_contract": null,
+      "return_on_deployed": null,
+      "bankroll_return": 0.0,
+      "max_open_cost": 0.0,
+      "max_city_day_cost": 0.0,
+      "max_bet_cost": 0.0,
+      "realized_cost_equity_drawdown": 0.0,
+      "unsettled_positions": 0,
+      "skipped_rows": {},
+      "ledger": [],
+      "uncertainty": {
+        "net_per_contract_95_interval": null,
+        "return_on_deployed_95_interval": null,
+        "calendar_days": 23,
+        "trade_days": 0,
+        "zero_trade_resamples": 3000,
+        "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+        "status": "insufficient_trade_evidence"
+      }
+    }
+  },
+  "code_hashes": {
+    "btc_stability_repair.py": "58ed9465bf4c35f1fc949d391364cd7d335fdfc80f9d56cc1f98e2f508148b13",
+    "btc_stability_model.py": "44d7ad11d606d5b3afaf3925247fee1f95329f02da612488dd3fda8c89a4d69d",
+    "btc_anchor_study.py": "02082d444305c4764c23591ef2ef77e0d511b55791a3cd640c097a6dd8267569",
+    "btc_flow_model.py": "01272c6a5c4c37620910352438fbbba7d95dc59c77cbd60ab48d8d6ca6581885",
+    "btc_flow_followup.py": "b5a427e18e9aaf2414bb9c168e24fe10431441e7ec3a0f08c96d57bd4de7cacd",
+    "sizing.py": "65cee21d4543b7f5239f3636e975b934e0b102fec264fb75e055a93310cb34e3",
+    "core.py": "fb7d38d21ee0502cbc340a9467ec8ca7c1ce7fab1e3510e9af751b72ef0ff8b3",
+    "live.py": "5998bc7b74691fb220a2735ec24fa3ef6d4065ea8da8f7e30592b56af987d0e2"
+  }
+}

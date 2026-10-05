@@ -1,0 +1,22 @@
+{
+  "protocol": {
+    "version": "btc-tabpfn-anchor-v1",
+    "weight_bounds": [
+      0,
+      0.25
+    ],
+    "l2": 0.1,
+    "disagreement_clip": 4,
+    "design": "Fixed market log odds plus nonnegative scalar times clipped TabPFN-minus-market log odds",
+    "selection": "Fit scalar on cached earlier inner validation predictions/labels only; fixed bound and L2, no parameter search",
+    "purpose": "Test overlarge pretrained corrections without changing checkpoint, features or execution costs",
+    "limits": "Post-diagnostic exploratory repair; reused development dates; no holdout or deployment"
+  },
+  "data_hash": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "predictions": {
+    "predictions-2026-06-28.json": "45bed188c5d8fb6d0d539f7281894dcccac7184738c3c458d5a3188bf43633a6",
+    "predictions-2026-07-04.json": "3e38f15812a8326cfcf6d7355d4872a66d46eb851a9c6f21398dc39f5819ed4d",
+    "predictions-2026-07-10.json": "70c0f9d0b733d9bb68457ff81fb0720da878277c66a203a77965b674f0a75224",
+    "predictions-2026-07-16.json": "342b6e6f063c4540d706c8ee51ecafd431e4b6a3087a7f3eae13d1c75deef2b3"
+  }
+}

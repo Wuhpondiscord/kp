@@ -1,0 +1,1821 @@
+{
+  "training_rows": 189,
+  "validation_rows": 114,
+  "models": {
+    "market": {
+      "scores": {
+        "events": 114,
+        "days": 5,
+        "accuracy": 0.8070175438596491,
+        "log_loss": 0.33827263640770405,
+        "brier": 0.10970618201754385,
+        "calibration": [
+          {
+            "count": 24,
+            "predicted": 0.0346875,
+            "observed": 0.041666666666666664
+          },
+          {
+            "count": 12,
+            "predicted": 0.16,
+            "observed": 0.25
+          },
+          {
+            "count": 4,
+            "predicted": 0.255,
+            "observed": 0.25
+          },
+          {
+            "count": 1,
+            "predicted": 0.345,
+            "observed": 1.0
+          },
+          {
+            "count": 5,
+            "predicted": 0.461,
+            "observed": 0.8
+          },
+          {
+            "count": 10,
+            "predicted": 0.5529999999999999,
+            "observed": 0.3
+          },
+          {
+            "count": 6,
+            "predicted": 0.645,
+            "observed": 0.8333333333333334
+          },
+          {
+            "count": 9,
+            "predicted": 0.773888888888889,
+            "observed": 0.6666666666666666
+          },
+          {
+            "count": 12,
+            "predicted": 0.8408333333333333,
+            "observed": 0.9166666666666666
+          },
+          {
+            "count": 31,
+            "predicted": 0.9535483870967743,
+            "observed": 1.0
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0,
+        "day_cluster_95_interval": [
+          0.0,
+          0.0
+        ],
+        "days": 5
+      },
+      "scenarios": {
+        "0": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 0.0,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 0,
+          "contracts": 0,
+          "opportunity_contracts": 0,
+          "opportunity_city_days": 0,
+          "traded_city_days": 0,
+          "capital_deployed": 0,
+          "fees": 0,
+          "net_per_contract": null,
+          "return_on_deployed": null,
+          "bankroll_return": 0.0,
+          "max_open_cost": 0.0,
+          "max_city_day_cost": 0.0,
+          "max_bet_cost": 0.0,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 0,
+            "zero_trade_resamples": 3000,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.02": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.02,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 0.0,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 0,
+          "contracts": 0,
+          "opportunity_contracts": 0,
+          "opportunity_city_days": 0,
+          "traded_city_days": 0,
+          "capital_deployed": 0,
+          "fees": 0,
+          "net_per_contract": null,
+          "return_on_deployed": null,
+          "bankroll_return": 0.0,
+          "max_open_cost": 0.0,
+          "max_city_day_cost": 0.0,
+          "max_bet_cost": 0.0,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 0,
+            "zero_trade_resamples": 3000,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.05": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.05,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 0.0,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 0,
+          "contracts": 0,
+          "opportunity_contracts": 0,
+          "opportunity_city_days": 0,
+          "traded_city_days": 0,
+          "capital_deployed": 0,
+          "fees": 0,
+          "net_per_contract": null,
+          "return_on_deployed": null,
+          "bankroll_return": 0.0,
+          "max_open_cost": 0.0,
+          "max_city_day_cost": 0.0,
+          "max_bet_cost": 0.0,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 0,
+            "zero_trade_resamples": 3000,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        }
+      }
+    },
+    "volatility": {
+      "scores": {
+        "events": 114,
+        "days": 5,
+        "accuracy": 0.8245614035087719,
+        "log_loss": 0.38289781153389413,
+        "brier": 0.12534970237676368,
+        "calibration": [
+          {
+            "count": 20,
+            "predicted": 0.030710586502934168,
+            "observed": 0.0
+          },
+          {
+            "count": 16,
+            "predicted": 0.14975267533192352,
+            "observed": 0.1875
+          },
+          {
+            "count": 5,
+            "predicted": 0.23524718955533838,
+            "observed": 0.6
+          },
+          {
+            "count": 4,
+            "predicted": 0.34806360722970675,
+            "observed": 0.75
+          },
+          {
+            "count": 13,
+            "predicted": 0.4740193598367857,
+            "observed": 0.46153846153846156
+          },
+          {
+            "count": 6,
+            "predicted": 0.526117752896146,
+            "observed": 0.8333333333333334
+          },
+          {
+            "count": 11,
+            "predicted": 0.6433014160925917,
+            "observed": 0.8181818181818182
+          },
+          {
+            "count": 7,
+            "predicted": 0.7351694107136643,
+            "observed": 0.7142857142857143
+          },
+          {
+            "count": 17,
+            "predicted": 0.8659083471196524,
+            "observed": 1.0
+          },
+          {
+            "count": 15,
+            "predicted": 0.9594908456531641,
+            "observed": 1.0
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.015643520359219825,
+        "day_cluster_95_interval": [
+          -0.0009097036997561393,
+          0.038175358190271264
+        ],
+        "days": 5
+      },
+      "scenarios": {
+        "0": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": -80.06,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 52,
+          "contracts": 2963,
+          "opportunity_contracts": 52,
+          "opportunity_city_days": 5,
+          "traded_city_days": 5,
+          "capital_deployed": 441.06,
+          "fees": 22.080000000000002,
+          "net_per_contract": -0.027019912251096862,
+          "return_on_deployed": -0.18151725388835988,
+          "bankroll_return": -0.08006,
+          "max_open_cost": 10.0,
+          "max_city_day_cost": 10.0,
+          "max_bet_cost": 10.0,
+          "realized_cost_equity_drawdown": 152.76,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [
+            {
+              "ticker": "KXBTC15M-26JUL152300-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 45,
+              "cost": 9.98,
+              "fees": 0.53,
+              "pnl": -9.98
+            },
+            {
+              "ticker": "KXBTC15M-26JUL160100-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 40,
+              "cost": 9.7,
+              "fees": 0.5,
+              "pnl": 30.3
+            },
+            {
+              "ticker": "KXBTC15M-26JUL160800-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 100,
+              "cost": 5.44,
+              "fees": 0.34,
+              "pnl": -5.44
+            },
+            {
+              "ticker": "KXBTC15M-26JUL161000-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 55,
+              "cost": 9.9,
+              "fees": 0.55,
+              "pnl": -9.9
+            },
+            {
+              "ticker": "KXBTC15M-26JUL161200-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 45,
+              "cost": 9.98,
+              "fees": 0.53,
+              "pnl": -9.98
+            },
+            {
+              "ticker": "KXBTC15M-26JUL161600-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 100,
+              "cost": 6.61,
+              "fees": 0.41,
+              "pnl": -6.61
+            },
+            {
+              "ticker": "KXBTC15M-26JUL162000-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 58,
+              "cost": 9.83,
+              "fees": 0.55,
+              "pnl": -9.83
+            },
+            {
+              "ticker": "KXBTC15M-26JUL162100-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 100,
+              "cost": 8.41,
+              "fees": 0.51,
+              "pnl": -8.41
+            },
+            {
+              "ticker": "KXBTC15M-26JUL162300-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 100,
+              "cost": 8.63,
+              "fees": 0.53,
+              "pnl": 91.37
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170100-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 25,
+              "cost": 9.92,
+              "fees": 0.42,
+              "pnl": -9.92
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170300-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 21,
+              "cost": 9.82,
+              "fees": 0.37,
+              "pnl": -9.82
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170500-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 100,
+              "cost": 4.27,
+              "fees": 0.27,
+              "pnl": -4.27
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170700-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 25,
+              "cost": 9.66,
+              "fees": 0.41,
+              "pnl": 15.34
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170800-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 100,
+              "cost": 7.25,
+              "fees": 0.45,
+              "pnl": -7.25
+            },
+            {
+              "ticker": "KXBTC15M-26JUL171200-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 100,
+              "cost": 10.0,
+              "fees": 0.6,
+              "pnl": -10.0
+            },
+            {
+              "ticker": "KXBTC15M-26JUL171700-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 100,
+              "cost": 5.44,
+              "fees": 0.34,
+              "pnl": -5.44
+            },
+            {
+              "ticker": "KXBTC15M-26JUL171800-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 22,
+              "cost": 9.84,
+              "fees": 0.38,
+              "pnl": 12.16
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172100-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 13,
+              "cost": 9.55,
+              "fees": 0.19,
+              "pnl": 3.45
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172200-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 100,
+              "cost": 5.23,
+              "fees": 0.33,
+              "pnl": -5.23
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 18,
+              "cost": 9.86,
+              "fees": 0.32,
+              "pnl": 8.14
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180100-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 59,
+              "cost": 10.0,
+              "fees": 0.56,
+              "pnl": -10.0
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180200-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 13,
+              "cost": 9.67,
+              "fees": 0.18,
+              "pnl": 3.33
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 39,
+              "cost": 9.86,
+              "fees": 0.5,
+              "pnl": -9.86
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180500-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 55,
+              "cost": 9.9,
+              "fees": 0.55,
+              "pnl": -9.9
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180600-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 100,
+              "cost": 5.98,
+              "fees": 0.38,
+              "pnl": -5.98
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180700-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 45,
+              "cost": 9.98,
+              "fees": 0.53,
+              "pnl": -9.98
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180800-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 35,
+              "cost": 9.94,
+              "fees": 0.49,
+              "pnl": -9.94
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180900-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 55,
+              "cost": 9.9,
+              "fees": 0.55,
+              "pnl": -9.9
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181000-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 49,
+              "cost": 9.84,
+              "fees": 0.53,
+              "pnl": -9.84
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181400-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 46,
+              "cost": 9.72,
+              "fees": 0.52,
+              "pnl": -9.72
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181500-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 25,
+              "cost": 9.41,
+              "fees": 0.41,
+              "pnl": -9.41
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181600-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 69,
+              "cost": 9.52,
+              "fees": 0.55,
+              "pnl": -9.52
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182000-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 21,
+              "cost": 9.4,
+              "fees": 0.37,
+              "pnl": -9.4
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182100-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 33,
+              "cost": 9.37,
+              "fees": 0.46,
+              "pnl": 23.63
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182200-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 17,
+              "cost": 9.31,
+              "fees": 0.3,
+              "pnl": -9.31
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182300-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 19,
+              "cost": 9.27,
+              "fees": 0.34,
+              "pnl": 9.73
+            },
+            {
+              "ticker": "KXBTC15M-26JUL190000-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 100,
+              "cost": 8.1,
+              "fees": 0.5,
+              "pnl": -8.1
+            },
+            {
+              "ticker": "KXBTC15M-26JUL190500-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 100,
+              "cost": 4.27,
+              "fees": 0.27,
+              "pnl": -4.27
+            },
+            {
+              "ticker": "KXBTC15M-26JUL190900-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 40,
+              "cost": 9.29,
+              "fees": 0.49,
+              "pnl": -9.29
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191200-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 21,
+              "cost": 9.18,
+              "fees": 0.36,
+              "pnl": 11.82
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191500-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 100,
+              "cost": 3.1,
+              "fees": 0.2,
+              "pnl": -3.1
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191700-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 26,
+              "cost": 9.25,
+              "fees": 0.41,
+              "pnl": -9.25
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191800-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 49,
+              "cost": 9.33,
+              "fees": 0.51,
+              "pnl": -9.33
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200300-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 100,
+              "cost": 6.08,
+              "fees": 0.38,
+              "pnl": -6.08
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200400-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 100,
+              "cost": 7.25,
+              "fees": 0.45,
+              "pnl": -7.25
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200500-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 50,
+              "cost": 9.0,
+              "fees": 0.5,
+              "pnl": -9.0
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200700-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 57,
+              "cost": 9.06,
+              "fees": 0.51,
+              "pnl": 47.94
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200800-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 100,
+              "cost": 2.68,
+              "fees": 0.18,
+              "pnl": -2.68
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200900-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 29,
+              "cost": 9.43,
+              "fees": 0.44,
+              "pnl": -9.43
+            },
+            {
+              "ticker": "KXBTC15M-26JUL201300-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 22,
+              "cost": 9.4,
+              "fees": 0.38,
+              "pnl": -9.4
+            },
+            {
+              "ticker": "KXBTC15M-26JUL201700-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 100,
+              "cost": 6.08,
+              "fees": 0.38,
+              "pnl": -6.08
+            },
+            {
+              "ticker": "KXBTC15M-26JUL201900-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 22,
+              "cost": 9.17,
+              "fees": 0.37,
+              "pnl": -9.17
+            }
+          ],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 5,
+            "zero_trade_resamples": 0,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.02": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.02,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": -119.51,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 37,
+          "contracts": 1765,
+          "opportunity_contracts": 52,
+          "opportunity_city_days": 5,
+          "traded_city_days": 5,
+          "capital_deployed": 326.51,
+          "fees": 15.982,
+          "net_per_contract": -0.06771104815864024,
+          "return_on_deployed": -0.3660224801690607,
+          "bankroll_return": -0.11951,
+          "max_open_cost": 9.94,
+          "max_city_day_cost": 9.94,
+          "max_bet_cost": 9.94,
+          "realized_cost_equity_drawdown": 161.81,
+          "unsettled_positions": 0,
+          "skipped_rows": {
+            "edge_lost_at_execution": 15
+          },
+          "ledger": [
+            {
+              "ticker": "KXBTC15M-26JUL152300-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 41,
+              "cost": 9.94,
+              "fees": 0.51,
+              "pnl": -9.94
+            },
+            {
+              "ticker": "KXBTC15M-26JUL160100-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 37,
+              "cost": 9.74,
+              "fees": 0.49,
+              "pnl": 27.26
+            },
+            {
+              "ticker": "KXBTC15M-26JUL160800-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 100,
+              "cost": 7.57,
+              "fees": 0.47,
+              "pnl": -7.57
+            },
+            {
+              "ticker": "KXBTC15M-26JUL161200-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 41,
+              "cost": 9.94,
+              "fees": 0.51,
+              "pnl": -9.94
+            },
+            {
+              "ticker": "KXBTC15M-26JUL162000-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 52,
+              "cost": 9.9,
+              "fees": 0.54,
+              "pnl": -9.9
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170100-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 23,
+              "cost": 9.59,
+              "fees": 0.39,
+              "pnl": -9.59
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170700-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 24,
+              "cost": 9.76,
+              "fees": 0.4,
+              "pnl": 14.24
+            },
+            {
+              "ticker": "KXBTC15M-26JUL171700-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 100,
+              "cost": 7.57,
+              "fees": 0.47,
+              "pnl": -7.57
+            },
+            {
+              "ticker": "KXBTC15M-26JUL171800-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 21,
+              "cost": 9.82,
+              "fees": 0.37,
+              "pnl": 11.18
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172100-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 13,
+              "cost": 9.8,
+              "fees": 0.18,
+              "pnl": 3.2
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172200-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 100,
+              "cost": 7.35,
+              "fees": 0.45,
+              "pnl": -7.35
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 17,
+              "cost": 9.65,
+              "fees": 0.3,
+              "pnl": 7.35
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180100-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 52,
+              "cost": 9.9,
+              "fees": 0.54,
+              "pnl": -9.9
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 36,
+              "cost": 9.85,
+              "fees": 0.49,
+              "pnl": -9.85
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180500-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 48,
+              "cost": 9.64,
+              "fees": 0.52,
+              "pnl": -9.64
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180700-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 40,
+              "cost": 9.7,
+              "fees": 0.5,
+              "pnl": -9.7
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180800-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 31,
+              "cost": 9.44,
+              "fees": 0.45,
+              "pnl": -9.44
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180900-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 47,
+              "cost": 9.44,
+              "fees": 0.51,
+              "pnl": -9.44
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181000-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 42,
+              "cost": 9.31,
+              "fees": 0.49,
+              "pnl": -9.31
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181400-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 40,
+              "cost": 9.29,
+              "fees": 0.49,
+              "pnl": -9.29
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181500-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 23,
+              "cost": 9.12,
+              "fees": 0.38,
+              "pnl": -9.12
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181600-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 57,
+              "cost": 9.06,
+              "fees": 0.51,
+              "pnl": -9.06
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182000-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 19,
+              "cost": 8.88,
+              "fees": 0.33,
+              "pnl": -8.88
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182100-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 29,
+              "cost": 8.83,
+              "fees": 0.42,
+              "pnl": 20.17
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182200-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 16,
+              "cost": 9.08,
+              "fees": 0.28,
+              "pnl": -9.08
+            },
+            {
+              "ticker": "KXBTC15M-26JUL190000-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 88,
+              "cost": 8.99,
+              "fees": 0.542,
+              "pnl": -8.99
+            },
+            {
+              "ticker": "KXBTC15M-26JUL190500-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 100,
+              "cost": 6.4,
+              "fees": 0.4,
+              "pnl": -6.4
+            },
+            {
+              "ticker": "KXBTC15M-26JUL190900-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 35,
+              "cost": 8.85,
+              "fees": 0.45,
+              "pnl": -8.85
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191200-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 19,
+              "cost": 8.69,
+              "fees": 0.33,
+              "pnl": 10.31
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191500-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 100,
+              "cost": 5.23,
+              "fees": 0.33,
+              "pnl": -5.23
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191700-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 23,
+              "cost": 8.66,
+              "fees": 0.38,
+              "pnl": -8.66
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191800-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 41,
+              "cost": 8.66,
+              "fees": 0.46,
+              "pnl": -8.66
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200300-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 100,
+              "cost": 8.2,
+              "fees": 0.5,
+              "pnl": -8.2
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200500-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 43,
+              "cost": 8.64,
+              "fees": 0.47,
+              "pnl": -8.64
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200700-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 47,
+              "cost": 8.46,
+              "fees": 0.47,
+              "pnl": 38.54
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200800-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 100,
+              "cost": 4.81,
+              "fees": 0.31,
+              "pnl": -4.81
+            },
+            {
+              "ticker": "KXBTC15M-26JUL201900-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 20,
+              "cost": 8.75,
+              "fees": 0.35,
+              "pnl": -8.75
+            }
+          ],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 5,
+            "zero_trade_resamples": 0,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.05": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.05,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": -98.24,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 22,
+          "contracts": 807,
+          "opportunity_contracts": 52,
+          "opportunity_city_days": 5,
+          "traded_city_days": 5,
+          "capital_deployed": 203.24,
+          "fees": 9.578,
+          "net_per_contract": -0.12173482032218091,
+          "return_on_deployed": -0.48336941546939577,
+          "bankroll_return": -0.09824,
+          "max_open_cost": 9.98,
+          "max_city_day_cost": 9.98,
+          "max_bet_cost": 9.98,
+          "realized_cost_equity_drawdown": 113.71,
+          "unsettled_positions": 0,
+          "skipped_rows": {
+            "edge_lost_at_execution": 30
+          },
+          "ledger": [
+            {
+              "ticker": "KXBTC15M-26JUL152300-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 36,
+              "cost": 9.85,
+              "fees": 0.49,
+              "pnl": -9.85
+            },
+            {
+              "ticker": "KXBTC15M-26JUL160800-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 92,
+              "cost": 9.88,
+              "fees": 0.588,
+              "pnl": -9.88
+            },
+            {
+              "ticker": "KXBTC15M-26JUL170700-00",
+              "event_group": "KXBTC15M / 2026-07-17",
+              "day": "2026-07-17",
+              "quantity": 22,
+              "cost": 9.62,
+              "fees": 0.38,
+              "pnl": 12.38
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 16,
+              "cost": 9.56,
+              "fees": 0.28,
+              "pnl": 6.44
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180100-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 45,
+              "cost": 9.98,
+              "fees": 0.53,
+              "pnl": -9.98
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 32,
+              "cost": 9.75,
+              "fees": 0.47,
+              "pnl": -9.75
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180500-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 42,
+              "cost": 9.75,
+              "fees": 0.51,
+              "pnl": -9.75
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180700-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 35,
+              "cost": 9.58,
+              "fees": 0.48,
+              "pnl": -9.58
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180800-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 28,
+              "cost": 9.39,
+              "fees": 0.43,
+              "pnl": -9.39
+            },
+            {
+              "ticker": "KXBTC15M-26JUL180900-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 40,
+              "cost": 9.29,
+              "fees": 0.49,
+              "pnl": -9.29
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181000-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 37,
+              "cost": 9.36,
+              "fees": 0.48,
+              "pnl": -9.36
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181400-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 35,
+              "cost": 9.21,
+              "fees": 0.46,
+              "pnl": -9.21
+            },
+            {
+              "ticker": "KXBTC15M-26JUL181500-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 21,
+              "cost": 8.97,
+              "fees": 0.36,
+              "pnl": -8.97
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182000-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 18,
+              "cost": 8.96,
+              "fees": 0.32,
+              "pnl": -8.96
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182100-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 26,
+              "cost": 8.72,
+              "fees": 0.4,
+              "pnl": 17.28
+            },
+            {
+              "ticker": "KXBTC15M-26JUL182200-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 15,
+              "cost": 8.96,
+              "fees": 0.26,
+              "pnl": -8.96
+            },
+            {
+              "ticker": "KXBTC15M-26JUL190900-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 32,
+              "cost": 9.09,
+              "fees": 0.45,
+              "pnl": -9.09
+            },
+            {
+              "ticker": "KXBTC15M-26JUL191800-00",
+              "event_group": "KXBTC15M / 2026-07-19",
+              "day": "2026-07-19",
+              "quantity": 37,
+              "cost": 8.97,
+              "fees": 0.46,
+              "pnl": -8.97
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200500-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 38,
+              "cost": 8.82,
+              "fees": 0.46,
+              "pnl": -8.82
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200700-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 41,
+              "cost": 8.66,
+              "fees": 0.46,
+              "pnl": 32.34
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200800-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 100,
+              "cost": 7.99,
+              "fees": 0.49,
+              "pnl": -7.99
+            },
+            {
+              "ticker": "KXBTC15M-26JUL201900-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 19,
+              "cost": 8.88,
+              "fees": 0.33,
+              "pnl": -8.88
+            }
+          ],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 5,
+            "zero_trade_resamples": 0,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        }
+      }
+    },
+    "market_control": {
+      "scores": {
+        "events": 114,
+        "days": 5,
+        "accuracy": 0.8070175438596491,
+        "log_loss": 0.337480690595109,
+        "brier": 0.11042305996700658,
+        "calibration": [
+          {
+            "count": 26,
+            "predicted": 0.03001195305347188,
+            "observed": 0.038461538461538464
+          },
+          {
+            "count": 11,
+            "predicted": 0.1502051111130306,
+            "observed": 0.2727272727272727
+          },
+          {
+            "count": 3,
+            "predicted": 0.24567358269343834,
+            "observed": 0.3333333333333333
+          },
+          {
+            "count": 2,
+            "predicted": 0.35960960469246067,
+            "observed": 1.0
+          },
+          {
+            "count": 4,
+            "predicted": 0.46925159709455677,
+            "observed": 0.75
+          },
+          {
+            "count": 9,
+            "predicted": 0.5503339675292888,
+            "observed": 0.2222222222222222
+          },
+          {
+            "count": 6,
+            "predicted": 0.6383451883899613,
+            "observed": 0.8333333333333334
+          },
+          {
+            "count": 5,
+            "predicted": 0.7594121480032914,
+            "observed": 0.6
+          },
+          {
+            "count": 16,
+            "predicted": 0.843165043890948,
+            "observed": 0.875
+          },
+          {
+            "count": 32,
+            "predicted": 0.9628611278377237,
+            "observed": 1.0
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": 0.0007168779494627347,
+        "day_cluster_95_interval": [
+          -0.0009156128407349051,
+          0.0017785569985841378
+        ],
+        "days": 5
+      },
+      "scenarios": {
+        "0": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 0.0,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 0,
+          "contracts": 0,
+          "opportunity_contracts": 0,
+          "opportunity_city_days": 0,
+          "traded_city_days": 0,
+          "capital_deployed": 0,
+          "fees": 0,
+          "net_per_contract": null,
+          "return_on_deployed": null,
+          "bankroll_return": 0.0,
+          "max_open_cost": 0.0,
+          "max_city_day_cost": 0.0,
+          "max_bet_cost": 0.0,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 0,
+            "zero_trade_resamples": 3000,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.02": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.02,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 0.0,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 0,
+          "contracts": 0,
+          "opportunity_contracts": 0,
+          "opportunity_city_days": 0,
+          "traded_city_days": 0,
+          "capital_deployed": 0,
+          "fees": 0,
+          "net_per_contract": null,
+          "return_on_deployed": null,
+          "bankroll_return": 0.0,
+          "max_open_cost": 0.0,
+          "max_city_day_cost": 0.0,
+          "max_bet_cost": 0.0,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 0,
+            "zero_trade_resamples": 3000,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.05": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.05,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 0.0,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 0,
+          "contracts": 0,
+          "opportunity_contracts": 0,
+          "opportunity_city_days": 0,
+          "traded_city_days": 0,
+          "capital_deployed": 0,
+          "fees": 0,
+          "net_per_contract": null,
+          "return_on_deployed": null,
+          "bankroll_return": 0.0,
+          "max_open_cost": 0.0,
+          "max_city_day_cost": 0.0,
+          "max_bet_cost": 0.0,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 0,
+            "zero_trade_resamples": 3000,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        }
+      }
+    },
+    "flow": {
+      "scores": {
+        "events": 114,
+        "days": 5,
+        "accuracy": 0.8508771929824561,
+        "log_loss": 0.3282170991285786,
+        "brier": 0.10674959476233643,
+        "calibration": [
+          {
+            "count": 26,
+            "predicted": 0.029696979954407912,
+            "observed": 0.038461538461538464
+          },
+          {
+            "count": 11,
+            "predicted": 0.1530367877890497,
+            "observed": 0.2727272727272727
+          },
+          {
+            "count": 2,
+            "predicted": 0.2227064179257406,
+            "observed": 0.5
+          },
+          {
+            "count": 4,
+            "predicted": 0.3549339268235575,
+            "observed": 0.5
+          },
+          {
+            "count": 6,
+            "predicted": 0.4676143456158243,
+            "observed": 0.3333333333333333
+          },
+          {
+            "count": 7,
+            "predicted": 0.5442454515986361,
+            "observed": 0.5714285714285714
+          },
+          {
+            "count": 5,
+            "predicted": 0.6568173513025783,
+            "observed": 0.8
+          },
+          {
+            "count": 7,
+            "predicted": 0.7632861068558413,
+            "observed": 0.7142857142857143
+          },
+          {
+            "count": 13,
+            "predicted": 0.8451922732630539,
+            "observed": 0.8461538461538461
+          },
+          {
+            "count": 33,
+            "predicted": 0.9609865467955685,
+            "observed": 1.0
+          }
+        ]
+      },
+      "paired_brier": {
+        "model_minus_market": -0.0029565872552074343,
+        "day_cluster_95_interval": [
+          -0.005618688703455751,
+          0.0009342305984454996
+        ],
+        "days": 5
+      },
+      "scenarios": {
+        "0": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 13.7,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 5,
+          "contracts": 94,
+          "opportunity_contracts": 5,
+          "opportunity_city_days": 3,
+          "traded_city_days": 3,
+          "capital_deployed": 48.3,
+          "fees": 1.47,
+          "net_per_contract": 0.14574468085106382,
+          "return_on_deployed": 0.2836438923395445,
+          "bankroll_return": 0.013699999999999999,
+          "max_open_cost": 9.86,
+          "max_city_day_cost": 9.86,
+          "max_bet_cost": 9.86,
+          "realized_cost_equity_drawdown": 9.75,
+          "unsettled_positions": 0,
+          "skipped_rows": {},
+          "ledger": [
+            {
+              "ticker": "KXBTC15M-26JUL152300-00",
+              "event_group": "KXBTC15M / 2026-07-16",
+              "day": "2026-07-16",
+              "quantity": 12,
+              "cost": 9.74,
+              "fees": 0.14,
+              "pnl": 2.26
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172100-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 32,
+              "cost": 9.75,
+              "fees": 0.47,
+              "pnl": -9.75
+            },
+            {
+              "ticker": "KXBTC15M-26JUL172300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 18,
+              "cost": 9.86,
+              "fees": 0.32,
+              "pnl": 8.14
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200600-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 19,
+              "cost": 9.65,
+              "fees": 0.34,
+              "pnl": 9.35
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200900-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 13,
+              "cost": 9.3,
+              "fees": 0.2,
+              "pnl": 3.7
+            }
+          ],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 3,
+            "zero_trade_resamples": 28,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.02": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.02,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 19.3,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 3,
+          "contracts": 48,
+          "opportunity_contracts": 5,
+          "opportunity_city_days": 3,
+          "traded_city_days": 2,
+          "capital_deployed": 28.700000000000003,
+          "fees": 0.81,
+          "net_per_contract": 0.40208333333333335,
+          "return_on_deployed": 0.6724738675958187,
+          "bankroll_return": 0.0193,
+          "max_open_cost": 9.65,
+          "max_city_day_cost": 9.65,
+          "max_bet_cost": 9.65,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {
+            "edge_lost_at_execution": 2
+          },
+          "ledger": [
+            {
+              "ticker": "KXBTC15M-26JUL172300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 17,
+              "cost": 9.65,
+              "fees": 0.3,
+              "pnl": 7.35
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200600-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 18,
+              "cost": 9.5,
+              "fees": 0.32,
+              "pnl": 8.5
+            },
+            {
+              "ticker": "KXBTC15M-26JUL200900-00",
+              "event_group": "KXBTC15M / 2026-07-20",
+              "day": "2026-07-20",
+              "quantity": 13,
+              "cost": 9.55,
+              "fees": 0.19,
+              "pnl": 3.45
+            }
+          ],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 2,
+            "zero_trade_resamples": 257,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        },
+        "0.05": {
+          "policy": "bankroll_1_percent",
+          "slippage": 0.05,
+          "max_contracts": 100,
+          "starting_bankroll": 1000.0,
+          "pnl": 6.44,
+          "minimum_edge": 0.04,
+          "execution_recomputed": false,
+          "loss_stops": false,
+          "entries": 1,
+          "contracts": 16,
+          "opportunity_contracts": 5,
+          "opportunity_city_days": 3,
+          "traded_city_days": 1,
+          "capital_deployed": 9.56,
+          "fees": 0.28,
+          "net_per_contract": 0.4025,
+          "return_on_deployed": 0.6736401673640168,
+          "bankroll_return": 0.00644,
+          "max_open_cost": 9.56,
+          "max_city_day_cost": 9.56,
+          "max_bet_cost": 9.56,
+          "realized_cost_equity_drawdown": 0.0,
+          "unsettled_positions": 0,
+          "skipped_rows": {
+            "edge_lost_at_execution": 4
+          },
+          "ledger": [
+            {
+              "ticker": "KXBTC15M-26JUL172300-00",
+              "event_group": "KXBTC15M / 2026-07-18",
+              "day": "2026-07-18",
+              "quantity": 16,
+              "cost": 9.56,
+              "fees": 0.28,
+              "pnl": 6.44
+            }
+          ],
+          "uncertainty": {
+            "net_per_contract_95_interval": null,
+            "return_on_deployed_95_interval": null,
+            "calendar_days": 5,
+            "trade_days": 1,
+            "zero_trade_resamples": 1027,
+            "note": "Intervals suppressed: fewer than 30 entries or 10 trading days. Resampling sparse winners would produce misleadingly narrow positive bounds.",
+            "status": "insufficient_trade_evidence"
+          }
+        }
+      }
+    }
+  },
+  "holdout_loaded": false,
+  "validation_previously_evaluated": true,
+  "holdout_release_eligible": false,
+  "frozen_model_sha256": "ea80a94b8ffc1ee291fb227319dd52887f5c58000ee49a9746a5986f2101ed4e",
+  "deployment_allowed": false
+}

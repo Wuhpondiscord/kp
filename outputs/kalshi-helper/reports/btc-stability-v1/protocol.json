@@ -1,0 +1,35 @@
+{
+  "protocol": {
+    "version": "btc-stability-v1",
+    "members": 32,
+    "block_days": 2,
+    "seed": 1729,
+    "candidate": "Average probabilities from fixed-anchor models fitted to moving two-day training blocks",
+    "fitting": "Same L2 .1 and coefficient bounds +/-.25; each member fits its own training-only scaler",
+    "resampling": "Sample nonwrapping contiguous day blocks with replacement until original day count, truncate last block",
+    "guard": "5th/95th percentile across fitted models, clamped toward market to prevent side reversal",
+    "interpretation": "Model dispersion is training-sample sensitivity, NOT a calibrated confidence interval",
+    "primary": "Same 1000 bankroll, 1% sizing, .04 edge, .02 slippage and .07 fees",
+    "diagnostic_slippage": [
+      0,
+      0.005,
+      0.01,
+      0.02,
+      0.05
+    ],
+    "delay_seconds": [
+      0,
+      60
+    ],
+    "restrictions": "Previously inspected development data; no threshold/weight search, holdout access or automatic deployment"
+  },
+  "source_hash": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "previous_report_hash": "4bcbd4c240730b835867a5d901fbc4c297c836f1c261be07576527ee67514edf",
+  "previous_models": {
+    "models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+    "models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+    "models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+    "models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192"
+  },
+  "age_hash": "f10b130c69fc061db27c27e2d8b14638e4fcfc973335a4a8428d97608b1dec01"
+}

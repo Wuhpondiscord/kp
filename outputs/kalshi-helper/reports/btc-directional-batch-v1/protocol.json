@@ -1,0 +1,24 @@
+{
+  "protocol": {
+    "version": "btc-directional-batch-v1",
+    "kinds": [
+      "flow",
+      "price",
+      "joint"
+    ],
+    "penalty": 0.1,
+    "design": "Physical zero, training RMS scaling without centering, fixed market-logit offset; reversal flips correction",
+    "flow": "5/15-minute signed imbalance and five-minute cross-exchange basis change; no absolute basis",
+    "price": "Distance in sigma; 1/5/15/60-minute normalized returns; distance and return1 times (volatility ratio - 1)",
+    "selection": "Fixed .1 penalty, no inner/outer tuning. All three variants reported",
+    "controls": "Previously frozen fixed anchor and unmodified market",
+    "limits": "Development-only hypothesis test, price/flow sign symmetry is a prior rather than a universal market law; no holdout or deployment"
+  },
+  "data_sha256": "10b46cfe948d9dcd5261521f14702e5fd3b6ed36199d2288543ce5610c86024c",
+  "previous_models": {
+    "models-2026-06-28.json": "a08ee34d9f2ef2b3c918dbdc3455626b0c4fa6cfcab96cba5ddff195298156ef",
+    "models-2026-07-04.json": "fd75762083bab8d5ca236f0fc296538d4e855bb405f70e8170890f0ee1b9dc45",
+    "models-2026-07-10.json": "e8029ce14861bede85e4a978c486aafaa2aae5b0f57b936b97e3a20f1174283c",
+    "models-2026-07-16.json": "b26c664ad1d5414d22e978edbf56e5a26ddfbb92a32543e0a44dee5c0e2d6192"
+  }
+}
